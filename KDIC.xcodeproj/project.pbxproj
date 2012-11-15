@@ -19,11 +19,7 @@
 		8B0072201638980C00B1575A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B00721F1638980C00B1575A /* ViewController.m */; };
 		8B0072231638980C00B1575A /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0072211638980C00B1575A /* ViewController_iPhone.xib */; };
 		8B0072261638980C00B1575A /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0072241638980C00B1575A /* ViewController_iPad.xib */; };
-		8B00722D1638A01D00B1575A /* kdictitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B00722C1638A01D00B1575A /* kdictitle.png */; };
-		8B0072311638A23A00B1575A /* kdictitle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0072301638A23A00B1575A /* kdictitle2.png */; };
-		8B0072341638A40200B1575A /* kdictitle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0072331638A40200B1575A /* kdictitle3.png */; };
-		8B0072361638AF0400B1575A /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0072351638AF0400B1575A /* playbutton.png */; };
-		8B512ACB163C8E1000075133 /* playbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B512ACA163C8E1000075133 /* playbutton2.png */; };
+		8B1E861F1654908C00E67A69 /* playbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B1E861E1654908C00E67A69 /* playbutton3.png */; };
 		8B512BCE163C8E2E00075133 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B512AD0163C8E2D00075133 /* AppDelegate.m */; };
 		8B512BCF163C8E2E00075133 /* BasicInteraction-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B512AD1163C8E2D00075133 /* BasicInteraction-Info.plist */; };
 		8B512BD0163C8E2E00075133 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B512AD3163C8E2D00075133 /* Default-568h@2x.png */; };
@@ -119,6 +115,10 @@
 		8B512C2A163C8E2E00075133 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B512B96163C8E2D00075133 /* ViewController.m */; };
 		8B512C2B163C8E2E00075133 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B512B9C163C8E2D00075133 /* main.m */; };
 		8B512C2C163C8E2E00075133 /* Structure.1 in Resources */ = {isa = PBXBuildFile; fileRef = 8B512B9E163C8E2D00075133 /* Structure.1 */; };
+		8BFBFA6716420C78009E9A29 /* kdictitle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFBFA6316420C78009E9A29 /* kdictitle2.png */; };
+		8BFBFA6816420C78009E9A29 /* kdictitle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFBFA6416420C78009E9A29 /* kdictitle3.png */; };
+		8BFBFA6916420C78009E9A29 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFBFA6516420C78009E9A29 /* playbutton.png */; };
+		8BFBFA6A16420C78009E9A29 /* playbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFBFA6616420C78009E9A29 /* playbutton2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,11 +226,7 @@
 		8B00721F1638980C00B1575A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8B0072221638980C00B1575A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		8B0072251638980C00B1575A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
-		8B00722C1638A01D00B1575A /* kdictitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kdictitle.png; path = ../../../kdictitle.png; sourceTree = "<group>"; };
-		8B0072301638A23A00B1575A /* kdictitle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kdictitle2.png; path = ../../../kdictitle2.png; sourceTree = "<group>"; };
-		8B0072331638A40200B1575A /* kdictitle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kdictitle3.png; path = ../../../kdictitle3.png; sourceTree = "<group>"; };
-		8B0072351638AF0400B1575A /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton.png; path = ../../../playbutton.png; sourceTree = "<group>"; };
-		8B512ACA163C8E1000075133 /* playbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton2.png; path = ../../../playbutton2.png; sourceTree = "<group>"; };
+		8B1E861E1654908C00E67A69 /* playbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton3.png; sourceTree = "<group>"; };
 		8B512ACF163C8E2D00075133 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8B512AD0163C8E2D00075133 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8B512AD1163C8E2D00075133 /* BasicInteraction-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BasicInteraction-Info.plist"; sourceTree = "<group>"; };
@@ -371,6 +367,10 @@
 		8B512B9D163C8E2D00075133 /* Structure-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Structure-Prefix.pch"; sourceTree = "<group>"; };
 		8B512B9E163C8E2D00075133 /* Structure.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = Structure.1; sourceTree = "<group>"; };
 		8B512B9F163C8E2D00075133 /* Structure.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Structure.xcodeproj; sourceTree = "<group>"; };
+		8BFBFA6316420C78009E9A29 /* kdictitle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kdictitle2.png; path = ../../kdictitle2.png; sourceTree = "<group>"; };
+		8BFBFA6416420C78009E9A29 /* kdictitle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kdictitle3.png; path = ../../kdictitle3.png; sourceTree = "<group>"; };
+		8BFBFA6516420C78009E9A29 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton.png; path = ../../playbutton.png; sourceTree = "<group>"; };
+		8BFBFA6616420C78009E9A29 /* playbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton2.png; path = ../../playbutton2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,11 +447,11 @@
 		8B0072321638A26300B1575A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				8B512ACA163C8E1000075133 /* playbutton2.png */,
-				8B0072301638A23A00B1575A /* kdictitle2.png */,
-				8B0072331638A40200B1575A /* kdictitle3.png */,
-				8B0072351638AF0400B1575A /* playbutton.png */,
-				8B00722C1638A01D00B1575A /* kdictitle.png */,
+				8B1E861E1654908C00E67A69 /* playbutton3.png */,
+				8BFBFA6516420C78009E9A29 /* playbutton.png */,
+				8BFBFA6316420C78009E9A29 /* kdictitle2.png */,
+				8BFBFA6416420C78009E9A29 /* kdictitle3.png */,
+				8BFBFA6616420C78009E9A29 /* playbutton2.png */,
 			);
 			name = Images;
 			path = KDIC;
@@ -1093,11 +1093,6 @@
 				8B00721D1638980C00B1575A /* Default-568h@2x.png in Resources */,
 				8B0072231638980C00B1575A /* ViewController_iPhone.xib in Resources */,
 				8B0072261638980C00B1575A /* ViewController_iPad.xib in Resources */,
-				8B00722D1638A01D00B1575A /* kdictitle.png in Resources */,
-				8B0072311638A23A00B1575A /* kdictitle2.png in Resources */,
-				8B0072341638A40200B1575A /* kdictitle3.png in Resources */,
-				8B0072361638AF0400B1575A /* playbutton.png in Resources */,
-				8B512ACB163C8E1000075133 /* playbutton2.png in Resources */,
 				8B512BCF163C8E2E00075133 /* BasicInteraction-Info.plist in Resources */,
 				8B512BD0163C8E2E00075133 /* Default-568h@2x.png in Resources */,
 				8B512BD1163C8E2E00075133 /* Default.png in Resources */,
@@ -1160,6 +1155,11 @@
 				8B512C27163C8E2E00075133 /* ViewController_iPhone.xib in Resources */,
 				8B512C28163C8E2E00075133 /* KDIC-Info.plist in Resources */,
 				8B512C2C163C8E2E00075133 /* Structure.1 in Resources */,
+				8BFBFA6716420C78009E9A29 /* kdictitle2.png in Resources */,
+				8BFBFA6816420C78009E9A29 /* kdictitle3.png in Resources */,
+				8BFBFA6916420C78009E9A29 /* playbutton.png in Resources */,
+				8BFBFA6A16420C78009E9A29 /* playbutton2.png in Resources */,
+				8B1E861F1654908C00E67A69 /* playbutton3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
