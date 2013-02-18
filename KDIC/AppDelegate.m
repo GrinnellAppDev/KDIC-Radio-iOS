@@ -3,6 +3,7 @@
 //  KDIC
 //
 //  Created by Lea Marolt on 10/24/12.
+//  Updated::
 //  Copyright (c) 2012 Lea Marolt. All rights reserved.
 //
 
@@ -23,6 +24,19 @@
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    // Bad way to load the stream..
+    NSString *urlstr = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+    NSURL *url = [NSURL URLWithString:urlstr];
+    NSError *error = [NSError alloc];
+    
+    self.streamer = [[AVPlayer alloc] initWithURL:url];
+        
+    if (self.streamer == nil)
+        NSLog(@"%@", [error description]);
+    else
+        [self.streamer play];
+    
     return YES;
 }
 

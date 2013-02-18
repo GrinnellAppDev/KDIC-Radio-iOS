@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70F625B016D212F600BC0F71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F625AF16D212F600BC0F71 /* AVFoundation.framework */; };
 		8B0072071638980C00B1575A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0072061638980C00B1575A /* UIKit.framework */; };
 		8B0072091638980C00B1575A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0072081638980C00B1575A /* Foundation.framework */; };
 		8B00720B1638980C00B1575A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B00720A1638980C00B1575A /* CoreGraphics.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70F625AF16D212F600BC0F71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B0072021638980C00B1575A /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0072061638980C00B1575A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8B0072081638980C00B1575A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F625B016D212F600BC0F71 /* AVFoundation.framework in Frameworks */,
 				8B0072071638980C00B1575A /* UIKit.framework in Frameworks */,
 				8B0072091638980C00B1575A /* Foundation.framework in Frameworks */,
 				8B00720B1638980C00B1575A /* CoreGraphics.framework in Frameworks */,
@@ -68,6 +71,7 @@
 		8B0071F71638980C00B1575A = {
 			isa = PBXGroup;
 			children = (
+				70F625AF16D212F600BC0F71 /* AVFoundation.framework */,
 				8B00720C1638980C00B1575A /* KDIC */,
 				8B0072051638980C00B1575A /* Frameworks */,
 				8B0072031638980C00B1575A /* Products */,
