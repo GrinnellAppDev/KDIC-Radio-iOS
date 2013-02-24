@@ -4,7 +4,9 @@
 //
 //  Created by Lea Marolt on 10/24/12.
 //  Updated::
-//  Copyright (c) 2012 Lea Marolt. All rights reserved.
+//  Copyright (c) 2012 Lea Marolt,
+//  2013 David Cowden,
+//  All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -26,6 +28,7 @@
     [self.window makeKeyAndVisible];
     
     // Bad way to load the stream..
+    /*
     NSString *urlstr = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
     NSURL *url = [NSURL URLWithString:urlstr];
     NSError *error = [NSError alloc];
@@ -35,7 +38,7 @@
     if (self.streamer == nil)
         NSLog(@"%@", [error description]);
     else
-        [self.streamer play];
+        [self.streamer play];*/
     
     return YES;
 }

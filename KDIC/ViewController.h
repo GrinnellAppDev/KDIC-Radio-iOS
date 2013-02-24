@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface ViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet UIButton *playpause;
+@property (nonatomic, strong) AVPlayer *streamer;
+@property (nonatomic) BOOL playing;
 
 @end
