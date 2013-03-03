@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *playpause;
 @property (nonatomic, strong) AVPlayer *streamer;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic) BOOL playing;
 
 @end

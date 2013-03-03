@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16FC79B016E3EF9A00C6F237 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79AB16E3EF9A00C6F237 /* pause.png */; };
+		16FC79B116E3EF9A00C6F237 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79AC16E3EF9A00C6F237 /* play.png */; };
+		16FC79B216E3EF9A00C6F237 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79AD16E3EF9A00C6F237 /* refresh.png */; };
+		16FC79B316E3EF9A00C6F237 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79AE16E3EF9A00C6F237 /* speaker.png */; };
+		16FC79B416E3EF9A00C6F237 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79AF16E3EF9A00C6F237 /* stop.png */; };
+		16FC79B916E3F9DF00C6F237 /* fast-backward.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79B716E3F9DF00C6F237 /* fast-backward.png */; };
+		16FC79BA16E3F9DF00C6F237 /* fast-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79B816E3F9DF00C6F237 /* fast-forward.png */; };
+		16FC79BC16E3FDB100C6F237 /* tswift-trouble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79BB16E3FDB100C6F237 /* tswift-trouble.jpg */; };
+		16FC79BE16E3FE5E00C6F237 /* alambert.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79BD16E3FE5E00C6F237 /* alambert.jpeg */; };
+		16FC79C216E4002C00C6F237 /* LoLHeader.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16FC79C116E4002C00C6F237 /* LoLHeader.jpg */; };
 		70F625B016D212F600BC0F71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F625AF16D212F600BC0F71 /* AVFoundation.framework */; };
 		8B0072071638980C00B1575A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0072061638980C00B1575A /* UIKit.framework */; };
 		8B0072091638980C00B1575A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0072081638980C00B1575A /* Foundation.framework */; };
@@ -28,6 +38,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16FC79AB16E3EF9A00C6F237 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		16FC79AC16E3EF9A00C6F237 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		16FC79AD16E3EF9A00C6F237 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		16FC79AE16E3EF9A00C6F237 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
+		16FC79AF16E3EF9A00C6F237 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		16FC79B716E3F9DF00C6F237 /* fast-backward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fast-backward.png"; sourceTree = "<group>"; };
+		16FC79B816E3F9DF00C6F237 /* fast-forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fast-forward.png"; sourceTree = "<group>"; };
+		16FC79BB16E3FDB100C6F237 /* tswift-trouble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tswift-trouble.jpg"; sourceTree = "<group>"; };
+		16FC79BD16E3FE5E00C6F237 /* alambert.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alambert.jpeg; sourceTree = "<group>"; };
+		16FC79C116E4002C00C6F237 /* LoLHeader.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoLHeader.jpg; sourceTree = "<group>"; };
 		70F625AF16D212F600BC0F71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B0072021638980C00B1575A /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0072061638980C00B1575A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -68,10 +88,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1642BB6D16E3B46E00269A9E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				16FC79BD16E3FE5E00C6F237 /* alambert.jpeg */,
+				16FC79C116E4002C00C6F237 /* LoLHeader.jpg */,
+				16FC79BB16E3FDB100C6F237 /* tswift-trouble.jpg */,
+				16FC79AB16E3EF9A00C6F237 /* pause.png */,
+				16FC79AC16E3EF9A00C6F237 /* play.png */,
+				16FC79AD16E3EF9A00C6F237 /* refresh.png */,
+				16FC79B716E3F9DF00C6F237 /* fast-backward.png */,
+				16FC79B816E3F9DF00C6F237 /* fast-forward.png */,
+				16FC79AE16E3EF9A00C6F237 /* speaker.png */,
+				16FC79AF16E3EF9A00C6F237 /* stop.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		8B0071F71638980C00B1575A = {
 			isa = PBXGroup;
 			children = (
 				70F625AF16D212F600BC0F71 /* AVFoundation.framework */,
+				1642BB6D16E3B46E00269A9E /* Images */,
 				8B00720C1638980C00B1575A /* KDIC */,
 				8B0072051638980C00B1575A /* Frameworks */,
 				8B0072031638980C00B1575A /* Products */,
@@ -200,6 +238,16 @@
 				8BCEC4B6167979BA0074E8E9 /* kdictitle3.png in Resources */,
 				8BCEC4B7167979BA0074E8E9 /* playbutton.png in Resources */,
 				8BCEC4B8167979BA0074E8E9 /* playbutton2.png in Resources */,
+				16FC79B016E3EF9A00C6F237 /* pause.png in Resources */,
+				16FC79B116E3EF9A00C6F237 /* play.png in Resources */,
+				16FC79B216E3EF9A00C6F237 /* refresh.png in Resources */,
+				16FC79B316E3EF9A00C6F237 /* speaker.png in Resources */,
+				16FC79B416E3EF9A00C6F237 /* stop.png in Resources */,
+				16FC79B916E3F9DF00C6F237 /* fast-backward.png in Resources */,
+				16FC79BA16E3F9DF00C6F237 /* fast-forward.png in Resources */,
+				16FC79BC16E3FDB100C6F237 /* tswift-trouble.jpg in Resources */,
+				16FC79BE16E3FE5E00C6F237 /* alambert.jpeg in Resources */,
+				16FC79C216E4002C00C6F237 /* LoLHeader.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +353,7 @@
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -316,6 +365,7 @@
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
