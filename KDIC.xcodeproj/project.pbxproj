@@ -66,11 +66,11 @@
 		8B00721F1638980C00B1575A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8B0072221638980C00B1575A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		8B0072251638980C00B1575A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
-		8B1E861E1654908C00E67A69 /* playbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton3.png; sourceTree = "<group>"; };
-		8BCEC4B1167979BA0074E8E9 /* kdictitle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kdictitle2.png; path = ../kdictitle2.png; sourceTree = "<group>"; };
-		8BCEC4B2167979BA0074E8E9 /* kdictitle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kdictitle3.png; path = ../kdictitle3.png; sourceTree = "<group>"; };
-		8BCEC4B3167979BA0074E8E9 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton.png; path = ../playbutton.png; sourceTree = "<group>"; };
-		8BCEC4B4167979BA0074E8E9 /* playbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton2.png; path = ../playbutton2.png; sourceTree = "<group>"; };
+		8B1E861E1654908C00E67A69 /* playbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton3.png; path = KDIC/playbutton3.png; sourceTree = "<group>"; };
+		8BCEC4B1167979BA0074E8E9 /* kdictitle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kdictitle2.png; sourceTree = "<group>"; };
+		8BCEC4B2167979BA0074E8E9 /* kdictitle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kdictitle3.png; sourceTree = "<group>"; };
+		8BCEC4B3167979BA0074E8E9 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
+		8BCEC4B4167979BA0074E8E9 /* playbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,11 @@
 				16FC79BB16E3FDB100C6F237 /* tswift-trouble.jpg */,
 				16FC79AB16E3EF9A00C6F237 /* pause.png */,
 				16FC79AC16E3EF9A00C6F237 /* play.png */,
+				8B1E861E1654908C00E67A69 /* playbutton3.png */,
+				8BCEC4B1167979BA0074E8E9 /* kdictitle2.png */,
+				8BCEC4B2167979BA0074E8E9 /* kdictitle3.png */,
+				8BCEC4B3167979BA0074E8E9 /* playbutton.png */,
+				8BCEC4B4167979BA0074E8E9 /* playbutton2.png */,
 				16FC79AD16E3EF9A00C6F237 /* refresh.png */,
 				16FC79B716E3F9DF00C6F237 /* fast-backward.png */,
 				16FC79B816E3F9DF00C6F237 /* fast-forward.png */,
@@ -108,12 +113,10 @@
 		8B0071F71638980C00B1575A = {
 			isa = PBXGroup;
 			children = (
-				70F625AF16D212F600BC0F71 /* AVFoundation.framework */,
 				1642BB6D16E3B46E00269A9E /* Images */,
 				8B00720C1638980C00B1575A /* KDIC */,
 				8B0072051638980C00B1575A /* Frameworks */,
 				8B0072031638980C00B1575A /* Products */,
-				8B0072321638A26300B1575A /* Images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +131,7 @@
 		8B0072051638980C00B1575A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70F625AF16D212F600BC0F71 /* AVFoundation.framework */,
 				8B0072061638980C00B1575A /* UIKit.framework */,
 				8B0072081638980C00B1575A /* Foundation.framework */,
 				8B00720A1638980C00B1575A /* CoreGraphics.framework */,
@@ -161,19 +165,6 @@
 				8B00721C1638980C00B1575A /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8B0072321638A26300B1575A /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				8B1E861E1654908C00E67A69 /* playbutton3.png */,
-				8BCEC4B1167979BA0074E8E9 /* kdictitle2.png */,
-				8BCEC4B2167979BA0074E8E9 /* kdictitle3.png */,
-				8BCEC4B3167979BA0074E8E9 /* playbutton.png */,
-				8BCEC4B4167979BA0074E8E9 /* playbutton2.png */,
-			);
-			name = Images;
-			path = KDIC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
