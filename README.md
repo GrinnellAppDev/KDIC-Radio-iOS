@@ -1,17 +1,32 @@
-#########################################################################
-#
-# Grinnell College Radio KDIC iOS Application
-#
-#### #### #### #### #### #### #### #### #### #### #### #### #### #### ###
-+-----------------------------------------------------------------------+
-Authors:  David Cowden
-    		  Maijid Moujaled
-    		  Colin Tremblay
 
-Date:     Saturday 2 November 2013
+KDIC-Radio iOS
+==============
 
-+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --+
-License:
+Authors:  * David Cowden
+	  * Maijid Moujaled 
+          * Colin Tremblay
+
+Date:    Saturday, 2nd November, 2013
+
+---
+
+KDIC Radio Streaming App
+
+###About
+
+The KDIC Streaming App is a convenient way for anyone to tune into their favorite radio station, KDIC, based out of Grinnell College, IA. The app allows you to pause and play the station, and pulls metadata from the stream to display. On top of streaming KDIC, the app also brings the user content from the KDIC website (http://kdic.grinnell.edu), such as the program schedule, program description, community events, reviews, and so much more.
+
+####Source
+
+All of our source is licenced under the GPL-v3 and is available on Github:
+
+Github -- https://github.com/GrinnellAppDev
+
+###Other Info
+
+For App Support, feedback, suggestions etc. please email appdev@grinnell.edu
+
+### License
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,23 +43,3 @@ License:
 
 ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 
 
-KDIC Streaming App
-
-The KDIC Streaming App is a convenient way for anyone to tune into their
-favorite radio station, KDIC, based out of Grinnell College, IA. The app
-allows you to pause and play the station, and pulls metadata from the
-stream to display. On top of streaming KDIC, the app also brings the user
-content from the KDIC website (http://kdic.grinnell.edu), such as the
-program schedule, program description, community events, reviews, and so
-much more.
-
-Grinnell Menu is currently in ALPHA.  This means the application is
-in development and not yet fully functional.  
-
-Source for Grinnell-Menu can be obtained at the following location:
-	https://github.com/GrinnellAppDev/KDIC-Radio-iOS
-
-You can obtain the source with the following command:
-	git clone git://github.com/GrinnellAppDev/KDIC-Radio-iOS.git
-
-If you would like to contribute, shoot us a pull request. 
