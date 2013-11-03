@@ -29,6 +29,7 @@
 
 
 - (IBAction)playPauseButtonTap:(id)sender;
+- (IBAction)menuButton:(id)sender;
 - (void)streamMeta:(NSNotification *)notification;
 - (void)changeIcon:(NSNotification *)notification;
 - (BOOL)networkCheck;
