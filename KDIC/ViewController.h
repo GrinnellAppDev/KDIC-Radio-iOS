@@ -12,13 +12,23 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, strong) AVPlayer *streamer;
+
 @property (nonatomic, assign) BOOL playing;
-@property (nonatomic, weak) IBOutlet UIButton *playpause;
+@property (nonatomic, strong) AVPlayer *streamer;
 @property (nonatomic, strong) MPMoviePlayerController *streamMPMoviePlayer;
+
 @property (nonatomic, strong) NSString *metaString;
+@property (nonatomic, weak) IBOutlet UIButton *playpause;
 @property (nonatomic, weak) IBOutlet UISlider *slider;
+@property (nonatomic, weak) IBOutlet UILabel *songLabel;
+@property (nonatomic, weak) IBOutlet UILabel *artistLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
+
+@property (nonatomic, weak) IBOutlet UIView *volViewParent;
+
 
 - (IBAction)playPauseButtonTap:(id)sender;
+- (void)StreamMeta:(NSNotification *)notification;
+
 
 @end

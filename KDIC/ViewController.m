@@ -14,12 +14,17 @@
 
 @implementation ViewController
 
-@synthesize playing, playpause, streamMPMoviePlayer, metaString, streamer, slider;
+@synthesize playing, playpause, streamMPMoviePlayer, metaString, streamer, volViewParent;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
+    // Add the volume slider to the view in the xib
+    MPVolumeView *myVolView = [[MPVolumeView alloc] initWithFrame:volViewParent.bounds];
+    [volViewParent addSubview:myVolView];
+    
+    // Create callback for when metadata changes
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(StreamMeta:) name:MPMoviePlayerTimedMetadataUpdatedNotification object:nil];
 }
 
@@ -28,9 +33,8 @@
     
 
     
-    
-    
-     NSError *error = [NSError alloc];
+    // Create stream using AVPlayer
+    /*     NSError *error = [NSError alloc];
      [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
      [[AVAudioSession sharedInstance] setActive: YES error:&error];
      streamer = [[AVPlayer alloc] initWithURL:url];
@@ -46,18 +50,24 @@
              playing = YES;
              slider.value = streamer.volume;
          }
-     }
+     }*/
     
     
-    /*
+    // Create stream using MPMoviePlayerController
     streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    [streamMPMoviePlayer play];
-    if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState) {
-        NSLog(@"Playing");
+    if (!streamMPMoviePlayer.isPreparedToPlay) {
+        NSLog(@"Error... stream not prepared to play");
     }
-    else
-        NSLog(@"Not Playing");
-    NSLog(@"%ld", (long)[streamMPMoviePlayer playbackState]);*/
+    else {
+        [streamMPMoviePlayer play];
+        if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState) {
+            [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+            NSLog(@"Playing");
+        }
+        else
+            NSLog(@"Not Playing");
+        NSLog(@"%ld", (long)[streamMPMoviePlayer playbackState]);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,20 +84,19 @@
 }
 
 - (IBAction)playPauseButtonTap:(id)sender {
-    if (playing) {
-        [streamer pause];
+   // if (playing) {
+        //[streamer pause];
+        //playing = NO;
+    if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState) {
         [streamMPMoviePlayer pause];
         [playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
-        playing = NO;
     }
     else {
-        [streamer play];
+        //[streamer play];
+        //playing = YES;
         [streamMPMoviePlayer play];
         [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-        playing = YES;
     }
 }
-- (IBAction)sliderValueChanged:(UISlider *)slide {
-    streamer.volume = slide.value;
-}
+
 @end
