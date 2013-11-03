@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E103840F1826127F008D1511 /* kdic-head-wide1.png in Resources */ = {isa = PBXBuildFile; fileRef = E10384081826127F008D1511 /* kdic-head-wide1.png */; };
+		E10384101826127F008D1511 /* kdic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E10384091826127F008D1511 /* kdic-icon.png */; };
+		E10384111826127F008D1511 /* kdic-narrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840A1826127F008D1511 /* kdic-narrow.png */; };
+		E10384121826127F008D1511 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840B1826127F008D1511 /* pause.png */; };
+		E10384131826127F008D1511 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840C1826127F008D1511 /* play.png */; };
+		E10384141826127F008D1511 /* volume_max.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840D1826127F008D1511 /* volume_max.png */; };
+		E10384151826127F008D1511 /* volume_min.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840E1826127F008D1511 /* volume_min.png */; };
 		E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28921825F2D60049DC5D /* Foundation.framework */; };
 		E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28941825F2D60049DC5D /* CoreGraphics.framework */; };
 		E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28961825F2D60049DC5D /* UIKit.framework */; };
@@ -18,12 +25,17 @@
 		E17B28AC1825F2D60049DC5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B28AB1825F2D60049DC5D /* ViewController.m */; };
 		E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17B28AD1825F2D60049DC5D /* Images.xcassets */; };
 		E17B28CB1825F3C90049DC5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28CA1825F3C90049DC5D /* AVFoundation.framework */; };
-		E17B28CE1825F8360049DC5D /* pause.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E17B28CC1825F8360049DC5D /* pause.jpg */; };
-		E17B28CF1825F8360049DC5D /* play.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E17B28CD1825F8360049DC5D /* play.jpg */; };
 		E17B28D21825FF440049DC5D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28D11825FF440049DC5D /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E10384081826127F008D1511 /* kdic-head-wide1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-head-wide1.png"; sourceTree = SOURCE_ROOT; };
+		E10384091826127F008D1511 /* kdic-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-icon.png"; sourceTree = SOURCE_ROOT; };
+		E103840A1826127F008D1511 /* kdic-narrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-narrow.png"; sourceTree = SOURCE_ROOT; };
+		E103840B1826127F008D1511 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = SOURCE_ROOT; };
+		E103840C1826127F008D1511 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = SOURCE_ROOT; };
+		E103840D1826127F008D1511 /* volume_max.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume_max.png; sourceTree = SOURCE_ROOT; };
+		E103840E1826127F008D1511 /* volume_min.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume_min.png; sourceTree = SOURCE_ROOT; };
 		E17B288F1825F2D60049DC5D /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17B28921825F2D60049DC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E17B28941825F2D60049DC5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -41,8 +53,6 @@
 		E17B28AD1825F2D60049DC5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E17B28B41825F2D70049DC5D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E17B28CA1825F3C90049DC5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		E17B28CC1825F8360049DC5D /* pause.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pause.jpg; sourceTree = SOURCE_ROOT; };
-		E17B28CD1825F8360049DC5D /* play.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = play.jpg; sourceTree = SOURCE_ROOT; };
 		E17B28D11825FF440049DC5D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -122,8 +132,13 @@
 		E17B28D01825F8E60049DC5D /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				E17B28CC1825F8360049DC5D /* pause.jpg */,
-				E17B28CD1825F8360049DC5D /* play.jpg */,
+				E10384081826127F008D1511 /* kdic-head-wide1.png */,
+				E10384091826127F008D1511 /* kdic-icon.png */,
+				E103840A1826127F008D1511 /* kdic-narrow.png */,
+				E103840B1826127F008D1511 /* pause.png */,
+				E103840C1826127F008D1511 /* play.png */,
+				E103840D1826127F008D1511 /* volume_max.png */,
+				E103840E1826127F008D1511 /* volume_min.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -180,10 +195,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E103840F1826127F008D1511 /* kdic-head-wide1.png in Resources */,
+				E10384151826127F008D1511 /* volume_min.png in Resources */,
+				E10384101826127F008D1511 /* kdic-icon.png in Resources */,
+				E10384121826127F008D1511 /* pause.png in Resources */,
 				E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */,
-				E17B28CF1825F8360049DC5D /* play.jpg in Resources */,
 				E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */,
-				E17B28CE1825F8360049DC5D /* pause.jpg in Resources */,
+				E10384141826127F008D1511 /* volume_max.png in Resources */,
+				E10384111826127F008D1511 /* kdic-narrow.png in Resources */,
+				E10384131826127F008D1511 /* play.png in Resources */,
 				E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */,
 				E17B289D1825F2D60049DC5D /* InfoPlist.strings in Resources */,
 			);
@@ -309,7 +329,6 @@
 		E17B28C51825F2D70049DC5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
@@ -322,7 +341,6 @@
 		E17B28C61825F2D70049DC5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
@@ -351,6 +369,7 @@
 				E17B28C61825F2D70049DC5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

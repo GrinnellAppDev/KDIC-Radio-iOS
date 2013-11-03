@@ -19,9 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(StreamMeta:) name:MPMoviePlayerTimedMetadataUpdatedNotification object:nil];
-    slider.value = streamer.volume;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -43,8 +42,9 @@
              NSLog(@"Not Playing");
          else {
              NSLog(@"Playing");
-             [playpause setImage:[UIImage imageNamed:@"pause.jpg"] forState:UIControlStateNormal];
+             [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
              playing = YES;
+             slider.value = streamer.volume;
          }
      }
     
@@ -77,13 +77,13 @@
     if (playing) {
         [streamer pause];
         [streamMPMoviePlayer pause];
-        [playpause setImage:[UIImage imageNamed:@"play.jpg"] forState:UIControlStateNormal];
+        [playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
         playing = NO;
     }
     else {
         [streamer play];
         [streamMPMoviePlayer play];
-        [playpause setImage:[UIImage imageNamed:@"pause.jpg"] forState:UIControlStateNormal];
+        [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
         playing = YES;
     }
 }
