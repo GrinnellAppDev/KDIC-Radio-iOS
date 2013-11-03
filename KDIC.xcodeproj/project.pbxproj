@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A5F85617935432FB861732B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B21DEFC0E4BB592DF5647 /* libPods.a */; };
 		E10384111826127F008D1511 /* kdic-narrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840A1826127F008D1511 /* kdic-narrow.png */; };
 		E10384121826127F008D1511 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840B1826127F008D1511 /* pause.png */; };
 		E10384131826127F008D1511 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = E103840C1826127F008D1511 /* play.png */; };
@@ -34,9 +35,14 @@
 		E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17B28AD1825F2D60049DC5D /* Images.xcassets */; };
 		E17B28CB1825F3C90049DC5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28CA1825F3C90049DC5D /* AVFoundation.framework */; };
 		E17B28D21825FF440049DC5D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28D11825FF440049DC5D /* MediaPlayer.framework */; };
+		E17EDD221826D7D1005FD6FD /* DeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD211826D7D1005FD6FD /* DeckController.m */; };
+		E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */; };
+		E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EDD261826E04F005FD6FD /* ScheduleCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270B21DEFC0E4BB592DF5647 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A241971BA2429897F82E24 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E103840A1826127F008D1511 /* kdic-narrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-narrow.png"; sourceTree = SOURCE_ROOT; };
 		E103840B1826127F008D1511 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = SOURCE_ROOT; };
 		E103840C1826127F008D1511 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = SOURCE_ROOT; };
@@ -70,6 +76,11 @@
 		E17B28B41825F2D70049DC5D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E17B28CA1825F3C90049DC5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E17B28D11825FF440049DC5D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		E17EDD201826D7D1005FD6FD /* DeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckController.h; sourceTree = "<group>"; };
+		E17EDD211826D7D1005FD6FD /* DeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeckController.m; sourceTree = "<group>"; };
+		E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		E17EDD261826E04F005FD6FD /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +93,7 @@
 				E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */,
 				E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */,
 				E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */,
+				9A5F85617935432FB861732B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +106,7 @@
 				E17B28981825F2D60049DC5D /* KDIC */,
 				E17B28911825F2D60049DC5D /* Frameworks */,
 				E17B28901825F2D60049DC5D /* Products */,
+				75A241971BA2429897F82E24 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +127,7 @@
 				E17B28941825F2D60049DC5D /* CoreGraphics.framework */,
 				E17B28961825F2D60049DC5D /* UIKit.framework */,
 				E17B28B41825F2D70049DC5D /* XCTest.framework */,
+				270B21DEFC0E4BB592DF5647 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,6 +139,11 @@
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
 				E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */,
+				E17EDD201826D7D1005FD6FD /* DeckController.h */,
+				E17EDD211826D7D1005FD6FD /* DeckController.m */,
+				E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */,
+				E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */,
+				E17EDD261826E04F005FD6FD /* ScheduleCell.xib */,
 				E17B28AA1825F2D60049DC5D /* ViewController.h */,
 				E17B28AB1825F2D60049DC5D /* ViewController.m */,
 				E17B28D01825F8E60049DC5D /* Images */,
@@ -174,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E17B28C41825F2D70049DC5D /* Build configuration list for PBXNativeTarget "KDIC" */;
 			buildPhases = (
+				4CA67B455CAF474B8A12F1ED /* Check Pods Manifest.lock */,
 				E17B288B1825F2D60049DC5D /* Sources */,
 				E17B288C1825F2D60049DC5D /* Frameworks */,
 				E17B288D1825F2D60049DC5D /* Resources */,
+				60474BE72E2D4BC7A4DB50C5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +254,7 @@
 				E10384111826127F008D1511 /* kdic-narrow.png in Resources */,
 				E12991B01826658D00AAAD4D /* icon-152.png in Resources */,
 				E10384131826127F008D1511 /* play.png in Resources */,
+				E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */,
 				E12991AD1826658D00AAAD4D /* icon-76.png in Resources */,
 				E12991AE1826658D00AAAD4D /* icon-80.png in Resources */,
 				E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */,
@@ -243,6 +265,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4CA67B455CAF474B8A12F1ED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		60474BE72E2D4BC7A4DB50C5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E17B288B1825F2D60049DC5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -250,6 +305,8 @@
 			files = (
 				E17B28AC1825F2D60049DC5D /* ViewController.m in Sources */,
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
+				E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */,
+				E17EDD221826D7D1005FD6FD /* DeckController.m in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +417,7 @@
 		};
 		E17B28C51825F2D70049DC5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -372,6 +430,7 @@
 		};
 		E17B28C61825F2D70049DC5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -1,0 +1,16 @@
+PODS:
+  - MBProgressHUD (0.8)
+  - Reachability (3.1.1)
+  - ViewDeck (2.2.11)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - Reachability
+  - ViewDeck (= 2.2.11)
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
+  Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
+  ViewDeck: b5eddc8559b0e47259ab7addbf2de6768061f139
+
+COCOAPODS: 0.26.2

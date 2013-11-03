@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+#import <ViewDeck/IIViewDeckController.h>
 
 @interface ViewController : UIViewController
 
@@ -28,7 +29,8 @@
 
 
 - (IBAction)playPauseButtonTap:(id)sender;
-- (void)StreamMeta:(NSNotification *)notification;
-
+- (void)streamMeta:(NSNotification *)notification;
+- (void)changeIcon:(NSNotification *)notification;
+- (BOOL)networkCheck;
 
 @end
