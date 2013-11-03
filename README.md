@@ -1,4 +1,3 @@
-
 KDIC-Radio iOS
 ==============
 
@@ -15,6 +14,8 @@ KDIC Radio Streaming App
 ###About
 
 The KDIC Streaming App is a convenient way for anyone to tune into their favorite radio station, KDIC, based out of Grinnell College, IA. The app allows you to pause and play the station, and pulls metadata from the stream to display. On top of streaming KDIC, the app also brings the user content from the KDIC website (http://kdic.grinnell.edu), such as the program schedule, program description, community events, reviews, and so much more.
+
+Grinnell Menu is currently in ALPHA.  This means the application is in development and not yet fully functional.
 
 ####Source
 
