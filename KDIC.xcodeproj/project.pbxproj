@@ -23,7 +23,9 @@
 		E12991B11826658D00AAAD4D /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E12991A81826658D00AAAD4D /* iTunesArtwork.png */; };
 		E12991B21826658D00AAAD4D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12991A91826658D00AAAD4D /* iTunesArtwork@2x.png */; };
 		E12991B4182665B000AAAD4D /* kdic-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = E12991B3182665B000AAAD4D /* kdic-wide.png */; };
-		E15BCC131826F8B500D8229B /* menu-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = E15BCC121826F8B500D8229B /* menu-icon.svg */; };
+		E15BCC15182702BC00D8229B /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BCC14182702BC00D8229B /* menu_icon.png */; };
+		E15BCC17182704B400D8229B /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E15BCC16182704B400D8229B /* schedule.json */; };
+		E15BCC1A1827095A00D8229B /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = E15BCC191827095A00D8229B /* Show.m */; };
 		E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28921825F2D60049DC5D /* Foundation.framework */; };
 		E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28941825F2D60049DC5D /* CoreGraphics.framework */; };
 		E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28961825F2D60049DC5D /* UIKit.framework */; };
@@ -59,7 +61,10 @@
 		E12991A81826658D00AAAD4D /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = SOURCE_ROOT; };
 		E12991A91826658D00AAAD4D /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = SOURCE_ROOT; };
 		E12991B3182665B000AAAD4D /* kdic-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-wide.png"; sourceTree = SOURCE_ROOT; };
-		E15BCC121826F8B500D8229B /* menu-icon.svg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "menu-icon.svg"; path = "../menu-icon.svg"; sourceTree = "<group>"; };
+		E15BCC14182702BC00D8229B /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = SOURCE_ROOT; };
+		E15BCC16182704B400D8229B /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = SOURCE_ROOT; };
+		E15BCC181827095A00D8229B /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
+		E15BCC191827095A00D8229B /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
 		E17B288F1825F2D60049DC5D /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17B28921825F2D60049DC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E17B28941825F2D60049DC5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,11 +148,14 @@
 				E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */,
 				E17EDD201826D7D1005FD6FD /* DeckController.h */,
 				E17EDD211826D7D1005FD6FD /* DeckController.m */,
+				E15BCC181827095A00D8229B /* Show.h */,
+				E15BCC191827095A00D8229B /* Show.m */,
 				E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */,
 				E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */,
 				E17EDD261826E04F005FD6FD /* ScheduleCell.xib */,
 				E17B28AA1825F2D60049DC5D /* ViewController.h */,
 				E17B28AB1825F2D60049DC5D /* ViewController.m */,
+				E15BCC16182704B400D8229B /* schedule.json */,
 				E17B28D01825F8E60049DC5D /* Images */,
 				E17B28AD1825F2D60049DC5D /* Images.xcassets */,
 				E17B28991825F2D60049DC5D /* Supporting Files */,
@@ -180,7 +188,7 @@
 				E12991A81826658D00AAAD4D /* iTunesArtwork.png */,
 				E12991A91826658D00AAAD4D /* iTunesArtwork@2x.png */,
 				E103840A1826127F008D1511 /* kdic-narrow.png */,
-				E15BCC121826F8B500D8229B /* menu-icon.svg */,
+				E15BCC14182702BC00D8229B /* menu_icon.png */,
 				E103840B1826127F008D1511 /* pause.png */,
 				E103840C1826127F008D1511 /* play.png */,
 				E103840D1826127F008D1511 /* volume_max.png */,
@@ -254,15 +262,16 @@
 				E12991B11826658D00AAAD4D /* iTunesArtwork.png in Resources */,
 				E10384141826127F008D1511 /* volume_max.png in Resources */,
 				E12991B21826658D00AAAD4D /* iTunesArtwork@2x.png in Resources */,
+				E15BCC15182702BC00D8229B /* menu_icon.png in Resources */,
 				E10384111826127F008D1511 /* kdic-narrow.png in Resources */,
 				E12991B01826658D00AAAD4D /* icon-152.png in Resources */,
 				E10384131826127F008D1511 /* play.png in Resources */,
 				E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */,
-				E15BCC131826F8B500D8229B /* menu-icon.svg in Resources */,
 				E12991AD1826658D00AAAD4D /* icon-76.png in Resources */,
 				E12991AE1826658D00AAAD4D /* icon-80.png in Resources */,
 				E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */,
 				E17B289D1825F2D60049DC5D /* InfoPlist.strings in Resources */,
+				E15BCC17182704B400D8229B /* schedule.json in Resources */,
 				E12991AA1826658D00AAAD4D /* icon-29.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +320,7 @@
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
 				E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */,
 				E17EDD221826D7D1005FD6FD /* DeckController.m in Sources */,
+				E15BCC1A1827095A00D8229B /* Show.m in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
