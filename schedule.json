@@ -36,7 +36,7 @@
                   "end_time" : "21"},
 		{ "name" : "Really Nice Shoes",
 		  "start_time" : "22",
-                  "end_time" : "23"}
+                  "end_time" : "23"},
 		{ "name" : "Spectra",
 		  "start_time" : "23",
                   "end_time" : "24"},
@@ -110,10 +110,10 @@
                   "end_time" : "21"},
 		{ "name" : "Bring Out Your Dead",
 		  "start_time" : "21",
-                  "end_time" : "22"}
+                  "end_time" : "22"},
                 { "name" : "Indian Corn",
 		   "start_time" : "22",
                   "end_time" : "23"},
 		{ "name" : "Midnight Marauders",
 		  "start_time" : "23",
-                  "end_time" : "24"},]}}
+                  "end_time" : "24"}]}}
