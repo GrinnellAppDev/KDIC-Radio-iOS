@@ -91,7 +91,7 @@
 
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
-    NSLog(@"%@", [[streamMPMoviePlayer timedMetadata] firstObject]);
+   // NSLog(@"%@", [[streamMPMoviePlayer timedMetadata] firstObject]);
     if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState)
         [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     else

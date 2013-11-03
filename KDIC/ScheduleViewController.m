@@ -28,40 +28,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     cellIdentifier = @"ScheduleCell";
-    NSData  *data = [NSData dataWithContentsOfFile:@"schedule.json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"schedule" ofType:@"json"];
+    NSData  *data = [NSData dataWithContentsOfFile:path];
+    
     NSError *error;
     jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
     NSUInteger weekday = [comps weekday];
-    NSLog(@"%d", weekday);
+    // Sunday = 1
     
     NSDictionary *sched = jsonDict;
     
-    schedFromJSON = [[NSMutableArray alloc] init];
-    NSArray *shows = [[NSArray alloc] init];
+    schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", nil];
 
     for (NSString *day in sched) {
-        NSDictionary *dayDict = [sched objectForKey:day];
-        NSMutableArray *todaysShows = [[NSMutableArray alloc] init];
-        shows = [dayDict allKeys];
+        NSArray *showsInDay = [sched objectForKey:day];
+        int dayInt = 0;
+        if ([day isEqualToString:@"Monday"])
+            dayInt = 1;
+        else if ([day isEqualToString:@"Tuesday"])
+            dayInt = 2;
+        else if ([day isEqualToString:@"Wednesday"])
+            dayInt = 3;
+        else if ([day isEqualToString:@"Thursday"])
+            dayInt = 4;
+        else if ([day isEqualToString:@"Friday"])
+            dayInt = 5;
+        else if ([day isEqualToString:@"Saturday"])
+            dayInt = 6;
         
-        for (int i = 0; i < shows.count; i++) {
+        NSMutableArray *todaysShows = [[NSMutableArray alloc] init];
+        for (int i = 0; i < showsInDay.count; i++) {
             Show *show = [[Show alloc] init];
-            NSDictionary *actualShow = [shows objectAtIndex:i];
+            NSDictionary *actualShow = [showsInDay objectAtIndex:i];
             show.name = [actualShow objectForKey:@"name"];
             show.day = day;
             show.start = [[actualShow objectForKey:@"start_time"] integerValue];
             show.end = [[actualShow objectForKey:@"end_time"] integerValue];
             [todaysShows addObject:show];
         }
-        [schedFromJSON addObject:todaysShows];
+        [schedFromJSON setObject:todaysShows atIndexedSubscript:dayInt];
     }
-    for (Show *show in schedFromJSON) {
-        NSLog(@"%@", show.name);
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,7 +90,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return [[schedFromJSON objectAtIndex:section] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    Show *show = [[schedFromJSON objectAtIndex:section] objectAtIndex:0];
+    return show.day;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,9 +105,21 @@
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 	}
-
-    cell.textLabel.text = @"Show Name";
-    cell.detailTextLabel.text = @"DayOfWeek, TimeOfDay";
+    Show *show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    NSString *timeStr;
+    
+    if (24 == show.start)
+        timeStr = [NSString stringWithFormat:@"12 A.M. - %d A.M.", show.end - 24];
+    else if (24 < show.start)
+        timeStr = [NSString stringWithFormat:@"%d A.M. - %d A.M.", show.start - 24, show.end - 24];
+    else if (24 == show.end)
+        timeStr = [NSString stringWithFormat:@"%d P.M. - 12 A.M.", show.start - 12];
+    else if (24 < show.end)
+        timeStr = [NSString stringWithFormat:@"%d P.M. - %d A.M.", show.start - 12, show.end - 24];
+    else
+        timeStr = [NSString stringWithFormat:@"%d P.M. - %d P.M.", show.start - 12, show.end - 12];
+    cell.textLabel.text = show.name;
+    cell.detailTextLabel.text = timeStr;
     // Configure the cell...
     
     return cell;

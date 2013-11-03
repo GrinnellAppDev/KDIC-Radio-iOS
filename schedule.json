@@ -1,17 +1,18 @@
 { "Monday" :
-	{ "shows" : 
-	     [ { "name" : "West Coast Dub",
-	         "start_time" : "22",
-		  "end_time" : "23"},
-		{ "name" : "Good Touches",
-                 "start_time" : "23",
-                 "end_time" : "24"},
-		{ "name" : "The Ray KDIC Variety Hour",
-		  "start_time" : "24",
-		  "end_time" : "25"}]},
-"Tuesday" : 
-  	{ "shows" : 
-             [ { "name" : "Just Play It Loud",
+    [
+     { "name" : "West Coast Dub",
+       "start_time" : "22",
+       "end_time" : "23"},
+     { "name" : "Good Touches",
+       "start_time" : "23",
+       "end_time" : "24"},
+     { "name" : "The Ray KDIC Variety Hour",
+       "start_time" : "24",
+       "end_time" : "25"}
+     ],
+"Tuesday" :
+     [
+        { "name" : "Just Play It Loud",
                  "start_time" : "20",
                  "end_time" : "21"},
 		{ "name" : "The Illusion Intrusion",
@@ -22,10 +23,11 @@
                   "end_time" : "24"},
 		{ "name" : "Sr. VJ",
 		  "start_time" : "24",
-                  "end_time" : "25"}]},
-"Wednesday" : 
-  	{ "shows" : 
-             [ { "name" : "Middle School Dance",
+                  "end_time" : "25"}
+      ],
+"Wednesday" :
+      [
+        { "name" : "Middle School Dance",
                  "start_time" : "17",
                  "end_time" : "18"},
 		{ "name" : "International Extravaganz",
@@ -42,10 +44,11 @@
                   "end_time" : "24"},
 		{ "name" : "Huckleberry Spin",
 		  "start_time" : "24",
-                  "end_time" : "25"}]},
-"Thursday" : 
-  	{ "shows" : 
-             [ { "name" : "Isabel and Isabella",
+                  "end_time" : "25"}
+       ],
+"Thursday" :
+    [
+        { "name" : "Isabel and Isabella",
                  "start_time" : "17",
                  "end_time" : "18"},
 		{ "name" : "The Illusion Intrusion",
@@ -59,10 +62,11 @@
                   "end_time" : "23"},
 		{ "name" : "Dusted Wax",
 		  "start_time" : "23",
-                  "end_time" : "24"}]},
-"Friday" : 
-  	{ "shows" : 
-             [ { "name" : "Electronic Potpourri",
+                  "end_time" : "24"}
+     ],
+"Friday" :
+    [
+        { "name" : "Electronic Potpourri",
                  "start_time" : "17",
                  "end_time" : "18"},
 		{ "name" : "Urban Fridaze with Big Ron",
@@ -76,10 +80,11 @@
                   "end_time" : "22"},
 		{ "name" : "The Vibe",
 		  "start_time" : "22",
-                  "end_time" : "23"}]},
-"Saturday" : 
-  	{ "shows" : 
-             [ { "name" : "Our Faces Were Made for Radio Variety Hour",
+                  "end_time" : "23"}
+     ],
+"Saturday" :
+    [
+        { "name" : "Our Faces Were Made for Radio Variety Hour",
                  "start_time" : "17",
                  "end_time" : "18"},
 		{ "name" : "Younger Generation Blues",
@@ -93,10 +98,11 @@
                   "end_time" : "22"},
 		{ "name" : "MLC",
 		  "start_time" : "22",
-                  "end_time" : "23"}]},
-"Sunday" : 
-  	{ "shows" : 
-             [ { "name" : "Grinnelevance",
+                  "end_time" : "23"}
+     ],
+"Sunday" :
+    [
+        { "name" : "Grinnelevance",
                  "start_time" : "17",
                  "end_time" : "18"},
 		{ "name" : "The Heartland",
@@ -116,4 +122,6 @@
                   "end_time" : "23"},
 		{ "name" : "Midnight Marauders",
 		  "start_time" : "23",
-                  "end_time" : "24"}]}}
+                  "end_time" : "24"}
+     ]
+}
