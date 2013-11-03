@@ -8,8 +8,8 @@
                  "end_time" : "24"},
 		{ "name" : "The Ray KDIC Variety Hour",
 		  "start_time" : "24",
-		  "end_time" : "25"}]}},
-{ "Tuesday" : 
+		  "end_time" : "25"}]},
+"Tuesday" : 
   	{ "shows" : 
              [ { "name" : "Just Play It Loud",
                  "start_time" : "20",
@@ -22,8 +22,8 @@
                   "end_time" : "24"},
 		{ "name" : "Sr. VJ",
 		  "start_time" : "24",
-                  "end_time" : "25"}]}},
-{ "Wednesday" : 
+                  "end_time" : "25"}]},
+"Wednesday" : 
   	{ "shows" : 
              [ { "name" : "Middle School Dance",
                  "start_time" : "17",
@@ -42,8 +42,8 @@
                   "end_time" : "24"},
 		{ "name" : "Huckleberry Spin",
 		  "start_time" : "24",
-                  "end_time" : "25"}]}},
-{ "Thursday" : 
+                  "end_time" : "25"}]},
+"Thursday" : 
   	{ "shows" : 
              [ { "name" : "Isabel and Isabella",
                  "start_time" : "17",
@@ -59,8 +59,8 @@
                   "end_time" : "23"},
 		{ "name" : "Dusted Wax",
 		  "start_time" : "23",
-                  "end_time" : "24"}]}},
-{ "Friday" : 
+                  "end_time" : "24"}]},
+"Friday" : 
   	{ "shows" : 
              [ { "name" : "Electronic Potpourri",
                  "start_time" : "17",
@@ -76,8 +76,8 @@
                   "end_time" : "22"},
 		{ "name" : "The Vibe",
 		  "start_time" : "22",
-                  "end_time" : "23"}]}},
-{ "Saturday" : 
+                  "end_time" : "23"}]},
+"Saturday" : 
   	{ "shows" : 
              [ { "name" : "Our Faces Were Made for Radio Variety Hour",
                  "start_time" : "17",
@@ -93,8 +93,8 @@
                   "end_time" : "22"},
 		{ "name" : "MLC",
 		  "start_time" : "22",
-                  "end_time" : "23"}]}},
-{ "Sunday" : 
+                  "end_time" : "23"}]},
+"Sunday" : 
   	{ "shows" : 
              [ { "name" : "Grinnelevance",
                  "start_time" : "17",
@@ -116,4 +116,4 @@
                   "end_time" : "23"},
 		{ "name" : "Midnight Marauders",
 		  "start_time" : "23",
-                  "end_time" : "24"},]}},
+                  "end_time" : "24"},]}}
