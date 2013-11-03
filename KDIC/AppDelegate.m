@@ -2,47 +2,20 @@
 //  AppDelegate.m
 //  KDIC
 //
-//  Created by Lea Marolt on 10/24/12.
-//  Updated::
-//  Copyright (c) 2012 Lea Marolt,
-//  2013 David Cowden,
-//  All rights reserved.
+//  Created by Colin Tremblay on 11/2/13.
+//  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
-#import "ViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-//    } else {
-//        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
-//    }
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    
-    // Bad way to load the stream..
-    /*
-    NSString *urlstr = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
-    NSURL *url = [NSURL URLWithString:urlstr];
-    NSError *error = [NSError alloc];
-    
-    self.streamer = [[AVPlayer alloc] initWithURL:url];
-        
-    if (self.streamer == nil)
-        NSLog(@"%@", [error description]);
-    else
-        [self.streamer play];*/
-    
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
