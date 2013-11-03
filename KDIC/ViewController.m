@@ -89,6 +89,7 @@
     NSLog(@"%@", metaString);
 }
 
+// Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
     NSLog(@"%@", [[streamMPMoviePlayer timedMetadata] firstObject]);
     if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState)
@@ -98,14 +99,15 @@
 }
 
 - (IBAction)playPauseButtonTap:(id)sender {
-    if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState) {
+    // Note: Button gets changed by changeIcon (called because the playback state changes)
+    if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState)
         [streamMPMoviePlayer pause];
-        //[playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
-    }
-    else {
+    else
         [streamMPMoviePlayer play];
-       // [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-    }
 }
 
+// Open Schedule
+- (IBAction)menuButton:(id)sender {
+    [self.viewDeckController toggleLeftViewAnimated:YES];
+}
 @end
