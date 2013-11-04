@@ -23,7 +23,7 @@
             <objects>
                 <viewController storyboardIdentifier="StreamView" title="KDIC Radio" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y3h-EY-oEk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480.00000000000006"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RHB-13-4TN">
