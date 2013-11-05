@@ -195,9 +195,9 @@
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
 				E17EDD201826D7D1005FD6FD /* DeckController.h */,
 				E17EDD211826D7D1005FD6FD /* DeckController.m */,
+				E15BCC16182704B400D8229B /* schedule.json */,
 				E15BCC181827095A00D8229B /* Show.h */,
 				E15BCC191827095A00D8229B /* Show.m */,
-				E15BCC16182704B400D8229B /* schedule.json */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ScheduleViewController.h"
-#import "Show.h"
 
 @interface ScheduleViewController ()
 
@@ -16,7 +15,7 @@
 
 @implementation ScheduleViewController
 
-@synthesize cellIdentifier, jsonDict, dayBegan, schedFromJSON;
+@synthesize cellIdentifier, jsonDict, dayBegan, schedFromJSON, currentShow;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -45,31 +44,35 @@
     jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date]];
     NSUInteger weekday = [comps weekday];
+    NSUInteger hour = [comps hour];
+    //NSLog(@"%lu", (unsigned long)hour);
     // Sunday = 1
-    
-    NSDictionary *sched = jsonDict;
-    
-    schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", nil];
+    schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", nil];
 
+    NSDictionary *sched = jsonDict;
     for (NSString *day in sched) {
         NSArray *showsInDay = [sched objectForKey:day];
-        int dayInt = 0;
+        int dayInt = 1 - weekday;
         if ([day isEqualToString:@"Monday"])
-            dayInt = 1;
+            dayInt = 2 - weekday;
         else if ([day isEqualToString:@"Tuesday"])
-            dayInt = 2;
+            dayInt = 3 - weekday;
         else if ([day isEqualToString:@"Wednesday"])
-            dayInt = 3;
+            dayInt = 4 - weekday;
         else if ([day isEqualToString:@"Thursday"])
-            dayInt = 4;
+            dayInt = 5 - weekday;
         else if ([day isEqualToString:@"Friday"])
-            dayInt = 5;
+            dayInt = 6 - weekday;
         else if ([day isEqualToString:@"Saturday"])
-            dayInt = 6;
-        
+            dayInt = 7 - weekday;
+        if (0 > dayInt) {
+            dayInt = 7 + dayInt;
+        }
         NSMutableArray *todaysShows = [[NSMutableArray alloc] init];
+        NSMutableArray *aWeekFromTodaysShows = [[NSMutableArray alloc] init];
+        
         for (int i = 0; i < showsInDay.count; i++) {
             Show *show = [[Show alloc] init];
             NSDictionary *actualShow = [showsInDay objectAtIndex:i];
@@ -77,9 +80,33 @@
             show.day = day;
             show.start = [[actualShow objectForKey:@"start_time"] integerValue];
             show.end = [[actualShow objectForKey:@"end_time"] integerValue];
-            [todaysShows addObject:show];
+            if (0 == dayInt) {
+                if (show.end < hour) {
+                    dayBegan = YES;
+                    [aWeekFromTodaysShows addObject:show];
+                }
+                else if (show.start <= hour) {
+                    dayBegan = YES;
+                    currentShow = show;
+                    [todaysShows addObject:show];
+                }
+                else [todaysShows addObject:show];
+            }
+            else
+                [todaysShows addObject:show];
         }
-        [schedFromJSON setObject:todaysShows atIndexedSubscript:dayInt];
+        if (0 == dayInt && 0 != aWeekFromTodaysShows.count) {
+            if (0 != todaysShows.count) {
+                [schedFromJSON setObject:todaysShows atIndexedSubscript:0];
+                [schedFromJSON setObject:aWeekFromTodaysShows atIndexedSubscript:7];
+            }
+            else {
+                [schedFromJSON setObject:aWeekFromTodaysShows atIndexedSubscript:7];
+            }
+        }
+        else {
+            [schedFromJSON setObject:todaysShows atIndexedSubscript:dayInt];
+        }
     }
 }
 
@@ -92,7 +119,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    if (dayBegan)
+    if (dayBegan && ![[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]
+                 && ![[schedFromJSON objectAtIndex:7] isKindOfClass:[NSString class]])
         return 8;
     else
         return 7;
@@ -100,12 +128,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[schedFromJSON objectAtIndex:section] count];
+    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
+        return [[schedFromJSON objectAtIndex:section+1] count];
+    }
+    else return [[schedFromJSON objectAtIndex:section] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    Show *show = [[schedFromJSON objectAtIndex:section] objectAtIndex:0];
-    return show.day;
+    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
+        Show *show = [[schedFromJSON objectAtIndex:section+1] objectAtIndex:0];
+        return show.day;
+    }
+    else {
+        Show *show = [[schedFromJSON objectAtIndex:section] objectAtIndex:0];
+        return show.day;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,7 +152,12 @@
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 	}
-    Show *show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    Show *show;
+    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]])
+        show = [[schedFromJSON objectAtIndex:indexPath.section+1] objectAtIndex:indexPath.row];
+    else
+        show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    
     NSString *timeStr;
     
     if (24 == show.start)

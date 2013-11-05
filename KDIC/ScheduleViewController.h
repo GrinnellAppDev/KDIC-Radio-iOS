@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Show.h"
 
 @interface ScheduleViewController : UITableViewController
 @property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, strong) NSDictionary *jsonDict;
-@property (nonatomic, assign) BOOL *dayBegan;
+@property (nonatomic, assign) BOOL dayBegan;
 @property (nonatomic, strong) NSMutableArray *schedFromJSON;
+@property (nonatomic, strong) Show *currentShow;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ScheduleViewController.h"
 #import <MBProgressHUD.h>
 #import <Reachability.h>
 
@@ -16,7 +17,7 @@
 
 @implementation ViewController
 
-@synthesize playing, playpause, streamMPMoviePlayer, metaString, streamer, volViewParent;
+@synthesize playpause, streamMPMoviePlayer, metaString, volViewParent, songLabel, artistLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +47,37 @@
         // Create stream using MPMoviePlayerController
         streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
         [streamMPMoviePlayer play];
+        
+        ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.leftController;
+        //NSLog(@"%@", schedVC.currentShow.name);
+        if (NULL != schedVC.currentShow) {
+            NSString *timeStr;
+            
+            if (24 == schedVC.currentShow.start)
+                timeStr = [NSString stringWithFormat:@"12 A.M. - %d A.M.", schedVC.currentShow.end - 24];
+            else if (24 < schedVC.currentShow.start)
+                timeStr = [NSString stringWithFormat:@"%d A.M. - %d A.M.", schedVC.currentShow.start - 24, schedVC.currentShow.end - 24];
+            else if (24 == schedVC.currentShow.end)
+                timeStr = [NSString stringWithFormat:@"%d P.M. - 12 A.M.", schedVC.currentShow.start - 12];
+            else if (24 < schedVC.currentShow.end)
+                timeStr = [NSString stringWithFormat:@"%d P.M. - %d A.M.", schedVC.currentShow.start - 12, schedVC.currentShow.end - 24];
+            else
+                timeStr = [NSString stringWithFormat:@"%d P.M. - %d P.M.", schedVC.currentShow.start - 12, schedVC.currentShow.end - 12];
+            
+            songLabel.text = [NSString stringWithFormat:@"Current Show: %@", schedVC.currentShow.name];
+            artistLabel.text = timeStr;
+        }
+        else {
+            songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
+            UITableViewCell *nextShowCell = [schedVC.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+             NSString *timeStr = nextShowCell.detailTextLabel.text;
+            NSRange range = [timeStr rangeOfString:@"M."];
+            range.length += range.location;
+            range.location = 0;
+            timeStr = [timeStr substringWithRange:range];
+            NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@)", nextShowCell.textLabel.text, timeStr];
+            artistLabel.text = nextShow;
+        }
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }
