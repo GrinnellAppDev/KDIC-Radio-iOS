@@ -27,9 +27,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
-   self.centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"StreamView"];
-    self.leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"Schedule"];
+    
+    UIStoryboard *storyboard;
+    if (UIUserInterfaceIdiomPad == UI_USER_INTERFACE_IDIOM())
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+        else
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    
+    self.centerController = [storyboard instantiateViewControllerWithIdentifier:@"StreamView"];
+    self.leftController = [storyboard instantiateViewControllerWithIdentifier:@"Schedule"];
 }
 
 - (void)didReceiveMemoryWarning
