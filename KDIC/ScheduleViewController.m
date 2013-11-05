@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ScheduleViewController.h"
 #import "Show.h"
 
@@ -23,6 +24,15 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    AppDelegate *appDel = [UIApplication sharedApplication].delegate;
+    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, appDel.window.frame.size.width, 20)];
+    statusView.backgroundColor = [UIColor whiteColor];
+    [appDel.window addSubview:statusView];
 }
 
 - (void)viewDidLoad {
