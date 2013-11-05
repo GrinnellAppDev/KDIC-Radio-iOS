@@ -28,7 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-   self.centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"StreamView"];
+    self.centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"StreamView"];
     self.leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"Schedule"];
 }
 

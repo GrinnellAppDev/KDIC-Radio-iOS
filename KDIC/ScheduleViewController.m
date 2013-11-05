@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ScheduleViewController.h"
 #import "Show.h"
-#import "AppDelegate.h"
+
 @interface ScheduleViewController ()
 
 @end
@@ -28,8 +29,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // Add view beneath the status bar to force the table under the bar
-        //Also fixes the issue where the edge of the centerView made the status bar look odd
     AppDelegate *appDel = [UIApplication sharedApplication].delegate;
     UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, appDel.window.frame.size.width, 20)];
     statusView.backgroundColor = [UIColor whiteColor];
@@ -38,7 +37,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     cellIdentifier = @"ScheduleCell";
     NSString *path = [[NSBundle mainBundle] pathForResource:@"schedule" ofType:@"json"];
     NSData  *data = [NSData dataWithContentsOfFile:path];
