@@ -41,6 +41,8 @@
 		E17EDD221826D7D1005FD6FD /* DeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD211826D7D1005FD6FD /* DeckController.m */; };
 		E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */; };
 		E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EDD261826E04F005FD6FD /* ScheduleCell.xib */; };
+		E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44111828B3D400215B14 /* Default-568h@2x.png */; };
+		E1BF44141828B3D400215B14 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44121828B3D400215B14 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		E17EDD261826E04F005FD6FD /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
+		E1BF44111828B3D400215B14 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E1BF44121828B3D400215B14 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 		E1BF440B1828A00300215B14 /* LaunchImages */ = {
 			isa = PBXGroup;
 			children = (
+				E1BF44111828B3D400215B14 /* Default-568h@2x.png */,
+				E1BF44121828B3D400215B14 /* Default@2x.png */,
 			);
 			name = LaunchImages;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 				E12991AF1826658D00AAAD4D /* icon-120.png in Resources */,
 				E10384151826127F008D1511 /* volume_min.png in Resources */,
 				E12991AC1826658D00AAAD4D /* icon-58.png in Resources */,
+				E1BF44141828B3D400215B14 /* Default@2x.png in Resources */,
 				E10384121826127F008D1511 /* pause.png in Resources */,
 				E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */,
 				E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */,
@@ -296,6 +303,7 @@
 				E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */,
 				E17B289D1825F2D60049DC5D /* InfoPlist.strings in Resources */,
 				E15BCC17182704B400D8229B /* schedule.json in Resources */,
+				E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */,
 				E12991AA1826658D00AAAD4D /* icon-29.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +465,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
@@ -470,7 +477,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
