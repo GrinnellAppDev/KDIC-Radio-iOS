@@ -45,7 +45,8 @@
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date]];
-    NSUInteger weekday = [comps weekday];
+    NSUInteger wkday = [comps weekday];
+    int weekday = (int)wkday;
     NSUInteger hour = [comps hour];
     //NSLog(@"%lu", (unsigned long)hour);
     // Sunday = 1
@@ -108,6 +109,40 @@
             [schedFromJSON setObject:todaysShows atIndexedSubscript:dayInt];
         }
     }
+    // Make sure there isn't currently a late night show
+    if (!dayBegan) {
+        NSMutableArray *lastNightsShows = [schedFromJSON objectAtIndex:6];
+        NSMutableArray *thisMorningsShows = [[NSMutableArray alloc] init];
+        for (Show *show in lastNightsShows) {
+            int start = show.start;
+            int end = show.end;
+            if (24 <= end) {
+                if (24 >= start)
+                    start = 0;
+                else
+                    start -= 24;
+                end -= 24;
+                NSLog(@"start: %d, end: %d, hour: %d", start, end, hour);
+
+                if (start <= hour && end > hour) {
+                    dayBegan = YES;
+                    currentShow = show;
+                    [thisMorningsShows addObject:show];
+                }
+                else if (start > hour) {
+                    dayBegan = YES;
+                    [thisMorningsShows addObject:show];
+                }
+            }
+            else
+                ;
+ 
+        }
+        if (0 != thisMorningsShows.count) {
+            [schedFromJSON insertObject:thisMorningsShows atIndex:0];
+            [lastNightsShows removeObjectsInArray:thisMorningsShows];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -158,23 +193,23 @@
     else
         show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
-    NSString *timeStr;
-    
-    if (24 == show.start)
-        timeStr = [NSString stringWithFormat:@"12 A.M. - %d A.M.", show.end - 24];
-    else if (24 < show.start)
-        timeStr = [NSString stringWithFormat:@"%d A.M. - %d A.M.", show.start - 24, show.end - 24];
-    else if (24 == show.end)
-        timeStr = [NSString stringWithFormat:@"%d P.M. - 12 A.M.", show.start - 12];
-    else if (24 < show.end)
-        timeStr = [NSString stringWithFormat:@"%d P.M. - %d A.M.", show.start - 12, show.end - 24];
-    else
-        timeStr = [NSString stringWithFormat:@"%d P.M. - %d P.M.", show.start - 12, show.end - 12];
     cell.textLabel.text = show.name;
-    cell.detailTextLabel.text = timeStr;
+    cell.detailTextLabel.text = [self formatTime:show];
     // Configure the cell...
     
     return cell;
 }
 
+- (NSString *)formatTime:(Show *)show {
+    if (24 == show.start)
+        return [NSString stringWithFormat:@"12 A.M. - %d A.M.", show.end - 24];
+    else if (24 < show.start)
+        return [NSString stringWithFormat:@"%d A.M. - %d A.M.", show.start - 24, show.end - 24];
+    else if (24 == show.end)
+        return [NSString stringWithFormat:@"%d P.M. - 12 A.M.", show.start - 12];
+    else if (24 < show.end)
+        return [NSString stringWithFormat:@"%d P.M. - %d A.M.", show.start - 12, show.end - 24];
+    else
+        return [NSString stringWithFormat:@"%d P.M. - %d P.M.", show.start - 12, show.end - 12];
+}
 @end

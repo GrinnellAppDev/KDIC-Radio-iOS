@@ -49,23 +49,10 @@
         [streamMPMoviePlayer play];
         
         ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.leftController;
-        //NSLog(@"%@", schedVC.currentShow.name);
+
         if (NULL != schedVC.currentShow) {
-            NSString *timeStr;
-            
-            if (24 == schedVC.currentShow.start)
-                timeStr = [NSString stringWithFormat:@"12 A.M. - %d A.M.", schedVC.currentShow.end - 24];
-            else if (24 < schedVC.currentShow.start)
-                timeStr = [NSString stringWithFormat:@"%d A.M. - %d A.M.", schedVC.currentShow.start - 24, schedVC.currentShow.end - 24];
-            else if (24 == schedVC.currentShow.end)
-                timeStr = [NSString stringWithFormat:@"%d P.M. - 12 A.M.", schedVC.currentShow.start - 12];
-            else if (24 < schedVC.currentShow.end)
-                timeStr = [NSString stringWithFormat:@"%d P.M. - %d A.M.", schedVC.currentShow.start - 12, schedVC.currentShow.end - 24];
-            else
-                timeStr = [NSString stringWithFormat:@"%d P.M. - %d P.M.", schedVC.currentShow.start - 12, schedVC.currentShow.end - 12];
-            
             songLabel.text = [NSString stringWithFormat:@"Current Show: %@", schedVC.currentShow.name];
-            artistLabel.text = timeStr;
+            artistLabel.text = [schedVC formatTime:schedVC.currentShow];
         }
         else {
             songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
