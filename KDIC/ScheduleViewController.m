@@ -201,14 +201,14 @@
 
 - (NSString *)formatTime:(Show *)show {
     if (24 == show.start)
-        return [NSString stringWithFormat:@"12 A.M. - %d A.M.", show.end - 24];
+        return [NSString stringWithFormat:@"12 A.M. - %d A.M. CT", show.end - 24];
     else if (24 < show.start)
-        return [NSString stringWithFormat:@"%d A.M. - %d A.M.", show.start - 24, show.end - 24];
+        return [NSString stringWithFormat:@"%d A.M. - %d A.M. CT", show.start - 24, show.end - 24];
     else if (24 == show.end)
-        return [NSString stringWithFormat:@"%d P.M. - 12 A.M.", show.start - 12];
+        return [NSString stringWithFormat:@"%d P.M. - 12 A.M. CT", show.start - 12];
     else if (24 < show.end)
-        return [NSString stringWithFormat:@"%d P.M. - %d A.M.", show.start - 12, show.end - 24];
+        return [NSString stringWithFormat:@"%d P.M. - %d A.M. CT", show.start - 12, show.end - 24];
     else
-        return [NSString stringWithFormat:@"%d P.M. - %d P.M.", show.start - 12, show.end - 12];
+        return [NSString stringWithFormat:@"%d P.M. - %d P.M. CT", show.start - 12, show.end - 12];
 }
 @end

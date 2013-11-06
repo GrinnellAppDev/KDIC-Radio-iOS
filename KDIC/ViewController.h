@@ -25,8 +25,11 @@
 
 - (IBAction)playPauseButtonTap:(id)sender;
 - (IBAction)menuButton:(id)sender;
+- (IBAction)updateLabels:(id)sender;
+- (IBAction)triggerTimer:(id)sender;
 - (void)streamMeta:(NSNotification *)notification;
 - (void)changeIcon:(NSNotification *)notification;
+- (void)setLabels;
 - (BOOL)networkCheck;
 
 @end

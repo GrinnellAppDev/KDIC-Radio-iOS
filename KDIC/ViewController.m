@@ -31,6 +31,15 @@
     
     // Change icon to play when the state becomes playing
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeIcon:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:nil];
+    
+    // Set up screen update timer
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [cal components:NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
+    NSUInteger second = [comps second];
+    second += [comps minute] * 60;
+    second = 3600 - second;
+    NSTimer *timerTimer = [NSTimer timerWithTimeInterval:second target:self selector:@selector(triggerTimer:) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timerTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,23 +61,7 @@
         [streamMPMoviePlayer play];
         streamMPMoviePlayer.shouldAutoplay = YES;
         
-        ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.leftController;
-
-        if (NULL != schedVC.currentShow) {
-            songLabel.text = [NSString stringWithFormat:@"Current Show: %@", schedVC.currentShow.name];
-            artistLabel.text = [schedVC formatTime:schedVC.currentShow];
-        }
-        else {
-            songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
-            UITableViewCell *nextShowCell = [schedVC.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-             NSString *timeStr = nextShowCell.detailTextLabel.text;
-            NSRange range = [timeStr rangeOfString:@"M."];
-            range.length += range.location;
-            range.location = 0;
-            timeStr = [timeStr substringWithRange:range];
-            NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@)", nextShowCell.textLabel.text, timeStr];
-            artistLabel.text = nextShow;
-        }
+        [self setLabels];
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }
@@ -127,6 +120,39 @@
         [streamMPMoviePlayer pause];
     else
         [streamMPMoviePlayer play];
+}
+
+- (IBAction)triggerTimer:(id)sender {
+    // Set up screen updates on the hour
+    NSTimer *timer = [NSTimer timerWithTimeInterval:3600.0f target:self selector:@selector(updateLabels:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [self updateLabels:sender];
+}
+
+// Update labels
+- (IBAction)updateLabels:(id)sender {
+    [self.viewDeckController.leftController viewDidLoad];
+    [self setLabels];
+}
+
+- (void)setLabels {
+    ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.leftController;
+    
+    if (NULL != schedVC.currentShow) {
+        songLabel.text = [NSString stringWithFormat:@"Current Show: %@", schedVC.currentShow.name];
+        artistLabel.text = [schedVC formatTime:schedVC.currentShow];
+    }
+    else {
+        songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
+        UITableViewCell *nextShowCell = [schedVC.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        NSString *timeStr = nextShowCell.detailTextLabel.text;
+        NSRange range = [timeStr rangeOfString:@"M."];
+        range.length += range.location;
+        range.location = 0;
+        timeStr = [timeStr substringWithRange:range];
+        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", nextShowCell.textLabel.text, timeStr];
+        artistLabel.text = nextShow;
+    }
 }
 
 // Open Schedule
