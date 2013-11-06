@@ -81,7 +81,7 @@
             show.start = [[actualShow objectForKey:@"start_time"] integerValue];
             show.end = [[actualShow objectForKey:@"end_time"] integerValue];
             if (0 == dayInt) {
-                if (show.end < hour) {
+                if (show.end <= hour) {
                     dayBegan = YES;
                     [aWeekFromTodaysShows addObject:show];
                 }
