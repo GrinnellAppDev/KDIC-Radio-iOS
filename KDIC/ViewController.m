@@ -43,10 +43,14 @@
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
         
         NSURL *url = [NSURL URLWithString:@"http://kdic.grinnell.edu:8001/kdic128.m3u"];
-
+        
         // Create stream using MPMoviePlayerController
         streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+        streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
+
+        [streamMPMoviePlayer prepareToPlay];
         [streamMPMoviePlayer play];
+        streamMPMoviePlayer.shouldAutoplay = YES;
         
         ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.leftController;
 

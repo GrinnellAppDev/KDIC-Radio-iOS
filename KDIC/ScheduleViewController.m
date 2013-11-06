@@ -122,7 +122,6 @@
                 else
                     start -= 24;
                 end -= 24;
-                NSLog(@"start: %d, end: %d, hour: %d", start, end, hour);
 
                 if (start <= hour && end > hour) {
                     dayBegan = YES;

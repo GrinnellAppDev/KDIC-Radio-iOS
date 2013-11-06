@@ -257,6 +257,15 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Colin Tremblay";
+				TargetAttributes = {
+					E17B288E1825F2D60049DC5D = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = E17B288A1825F2D60049DC5D /* Build configuration list for PBXProject "KDIC" */;
 			compatibilityVersion = "Xcode 3.2";
