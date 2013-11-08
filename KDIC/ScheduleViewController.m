@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ScheduleViewController.h"
+#import <Reachability.h>
 
 @interface ScheduleViewController ()
 
@@ -37,109 +38,111 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     cellIdentifier = @"ScheduleCell";
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"schedule" ofType:@"json"];
-    NSData  *data = [NSData dataWithContentsOfFile:path];
-    
-    NSError *error;
-    jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date]];
-    NSUInteger wkday = [comps weekday];
-    int weekday = (int)wkday;
-    NSUInteger hour = [comps hour];
-    //NSLog(@"%lu", (unsigned long)hour);
-    // Sunday = 1
-    schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", nil];
-
-    NSDictionary *sched = jsonDict;
-    for (NSString *day in sched) {
-        NSArray *showsInDay = [sched objectForKey:day];
-        int dayInt = 1 - weekday;
-        if ([day isEqualToString:@"Monday"])
-            dayInt = 2 - weekday;
-        else if ([day isEqualToString:@"Tuesday"])
-            dayInt = 3 - weekday;
-        else if ([day isEqualToString:@"Wednesday"])
-            dayInt = 4 - weekday;
-        else if ([day isEqualToString:@"Thursday"])
-            dayInt = 5 - weekday;
-        else if ([day isEqualToString:@"Friday"])
-            dayInt = 6 - weekday;
-        else if ([day isEqualToString:@"Saturday"])
-            dayInt = 7 - weekday;
-        if (0 > dayInt) {
-            dayInt = 7 + dayInt;
-        }
-        NSMutableArray *todaysShows = [[NSMutableArray alloc] init];
-        NSMutableArray *aWeekFromTodaysShows = [[NSMutableArray alloc] init];
+    if (self.networkCheck){
+        NSURL *scheduleURL = [NSURL URLWithString:@"http://tcdb.grinnell.edu/apps/glicious/KDIC/schedule.json"];
+        NSData *data = [NSData dataWithContentsOfURL:scheduleURL];
         
-        for (int i = 0; i < showsInDay.count; i++) {
-            Show *show = [[Show alloc] init];
-            NSDictionary *actualShow = [showsInDay objectAtIndex:i];
-            show.name = [actualShow objectForKey:@"name"];
-            show.day = day;
-            show.start = [[actualShow objectForKey:@"start_time"] integerValue];
-            show.end = [[actualShow objectForKey:@"end_time"] integerValue];
-            if (0 == dayInt) {
-                if (show.end <= hour) {
-                    dayBegan = YES;
-                    [aWeekFromTodaysShows addObject:show];
-                }
-                else if (show.start <= hour) {
-                    dayBegan = YES;
-                    currentShow = show;
-                    [todaysShows addObject:show];
-                }
-                else [todaysShows addObject:show];
+        NSError *error;
+        jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date]];
+        NSUInteger wkday = [comps weekday];
+        int weekday = (int)wkday;
+        NSUInteger hour = [comps hour];
+        //NSLog(@"%lu", (unsigned long)hour);
+        // Sunday = 1
+        schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", nil];
+        
+        NSDictionary *sched = jsonDict;
+        for (NSString *day in sched) {
+            NSArray *showsInDay = [sched objectForKey:day];
+            int dayInt = 1 - weekday;
+            if ([day isEqualToString:@"Monday"])
+                dayInt = 2 - weekday;
+            else if ([day isEqualToString:@"Tuesday"])
+                dayInt = 3 - weekday;
+            else if ([day isEqualToString:@"Wednesday"])
+                dayInt = 4 - weekday;
+            else if ([day isEqualToString:@"Thursday"])
+                dayInt = 5 - weekday;
+            else if ([day isEqualToString:@"Friday"])
+                dayInt = 6 - weekday;
+            else if ([day isEqualToString:@"Saturday"])
+                dayInt = 7 - weekday;
+            if (0 > dayInt) {
+                dayInt = 7 + dayInt;
             }
-            else
-                [todaysShows addObject:show];
-        }
-        if (0 == dayInt && 0 != aWeekFromTodaysShows.count) {
-            if (0 != todaysShows.count) {
-                [schedFromJSON setObject:todaysShows atIndexedSubscript:0];
-                [schedFromJSON setObject:aWeekFromTodaysShows atIndexedSubscript:7];
+            NSMutableArray *todaysShows = [[NSMutableArray alloc] init];
+            NSMutableArray *aWeekFromTodaysShows = [[NSMutableArray alloc] init];
+            
+            for (int i = 0; i < showsInDay.count; i++) {
+                Show *show = [[Show alloc] init];
+                NSDictionary *actualShow = [showsInDay objectAtIndex:i];
+                show.name = [actualShow objectForKey:@"name"];
+                show.day = day;
+                show.start = [[actualShow objectForKey:@"start_time"] integerValue];
+                show.end = [[actualShow objectForKey:@"end_time"] integerValue];
+                if (0 == dayInt) {
+                    if (show.end <= hour) {
+                        dayBegan = YES;
+                        [aWeekFromTodaysShows addObject:show];
+                    }
+                    else if (show.start <= hour) {
+                        dayBegan = YES;
+                        currentShow = show;
+                        [todaysShows addObject:show];
+                    }
+                    else [todaysShows addObject:show];
+                }
+                else
+                    [todaysShows addObject:show];
+            }
+            if (0 == dayInt && 0 != aWeekFromTodaysShows.count) {
+                if (0 != todaysShows.count) {
+                    [schedFromJSON setObject:todaysShows atIndexedSubscript:0];
+                    [schedFromJSON setObject:aWeekFromTodaysShows atIndexedSubscript:7];
+                }
+                else {
+                    [schedFromJSON setObject:aWeekFromTodaysShows atIndexedSubscript:7];
+                }
             }
             else {
-                [schedFromJSON setObject:aWeekFromTodaysShows atIndexedSubscript:7];
+                [schedFromJSON setObject:todaysShows atIndexedSubscript:dayInt];
             }
         }
-        else {
-            [schedFromJSON setObject:todaysShows atIndexedSubscript:dayInt];
-        }
-    }
-    // Make sure there isn't currently a late night show
-    if (!dayBegan) {
-        NSMutableArray *lastNightsShows = [schedFromJSON objectAtIndex:6];
-        NSMutableArray *thisMorningsShows = [[NSMutableArray alloc] init];
-        for (Show *show in lastNightsShows) {
-            int start = show.start;
-            int end = show.end;
-            if (24 <= end) {
-                if (24 >= start)
-                    start = 0;
+        // Make sure there isn't currently a late night show
+        if (!dayBegan) {
+            NSMutableArray *lastNightsShows = [schedFromJSON objectAtIndex:6];
+            NSMutableArray *thisMorningsShows = [[NSMutableArray alloc] init];
+            for (Show *show in lastNightsShows) {
+                int start = show.start;
+                int end = show.end;
+                if (24 <= end) {
+                    if (24 >= start)
+                        start = 0;
+                    else
+                        start -= 24;
+                    end -= 24;
+                    
+                    if (start <= hour && end > hour) {
+                        dayBegan = YES;
+                        currentShow = show;
+                        [thisMorningsShows addObject:show];
+                    }
+                    else if (start > hour) {
+                        dayBegan = YES;
+                        [thisMorningsShows addObject:show];
+                    }
+                }
                 else
-                    start -= 24;
-                end -= 24;
-
-                if (start <= hour && end > hour) {
-                    dayBegan = YES;
-                    currentShow = show;
-                    [thisMorningsShows addObject:show];
-                }
-                else if (start > hour) {
-                    dayBegan = YES;
-                    [thisMorningsShows addObject:show];
-                }
+                    ;
+                
             }
-            else
-                ;
- 
-        }
-        if (0 != thisMorningsShows.count) {
-            [schedFromJSON insertObject:thisMorningsShows atIndex:0];
-            [lastNightsShows removeObjectsInArray:thisMorningsShows];
+            if (0 != thisMorningsShows.count) {
+                [schedFromJSON insertObject:thisMorningsShows atIndex:0];
+                [lastNightsShows removeObjectsInArray:thisMorningsShows];
+            }
         }
     }
 }
@@ -154,7 +157,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     if (dayBegan && ![[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]
-                 && ![[schedFromJSON objectAtIndex:7] isKindOfClass:[NSString class]])
+        && ![[schedFromJSON objectAtIndex:7] isKindOfClass:[NSString class]])
         return 8;
     else
         return 7;
@@ -210,5 +213,13 @@
         return [NSString stringWithFormat:@"%d P.M. - %d A.M. CT", show.start - 12, show.end - 24];
     else
         return [NSString stringWithFormat:@"%d P.M. - %d P.M. CT", show.start - 12, show.end - 12];
+}
+
+
+//Method to determine the availability of network Connections using the Reachability Class
+- (BOOL)networkCheck {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    return (!(networkStatus == NotReachable));
 }
 @end

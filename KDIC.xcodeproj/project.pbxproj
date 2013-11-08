@@ -24,7 +24,6 @@
 		E12991B21826658D00AAAD4D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12991A91826658D00AAAD4D /* iTunesArtwork@2x.png */; };
 		E12991B4182665B000AAAD4D /* kdic-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = E12991B3182665B000AAAD4D /* kdic-wide.png */; };
 		E15BCC15182702BC00D8229B /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BCC14182702BC00D8229B /* menu_icon.png */; };
-		E15BCC17182704B400D8229B /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E15BCC16182704B400D8229B /* schedule.json */; };
 		E15BCC1A1827095A00D8229B /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = E15BCC191827095A00D8229B /* Show.m */; };
 		E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28921825F2D60049DC5D /* Foundation.framework */; };
 		E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28941825F2D60049DC5D /* CoreGraphics.framework */; };
@@ -64,7 +63,6 @@
 		E12991A91826658D00AAAD4D /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = SOURCE_ROOT; };
 		E12991B3182665B000AAAD4D /* kdic-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-wide.png"; sourceTree = SOURCE_ROOT; };
 		E15BCC14182702BC00D8229B /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = SOURCE_ROOT; };
-		E15BCC16182704B400D8229B /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = SOURCE_ROOT; };
 		E15BCC181827095A00D8229B /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
 		E15BCC191827095A00D8229B /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
 		E17B288F1825F2D60049DC5D /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +193,6 @@
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
 				E17EDD201826D7D1005FD6FD /* DeckController.h */,
 				E17EDD211826D7D1005FD6FD /* DeckController.m */,
-				E15BCC16182704B400D8229B /* schedule.json */,
 				E15BCC181827095A00D8229B /* Show.h */,
 				E15BCC191827095A00D8229B /* Show.m */,
 			);
@@ -259,6 +256,7 @@
 				ORGANIZATIONNAME = "Colin Tremblay";
 				TargetAttributes = {
 					E17B288E1825F2D60049DC5D = {
+						DevelopmentTeam = H69TS4DPUJ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -311,7 +309,6 @@
 				E12991AE1826658D00AAAD4D /* icon-80.png in Resources */,
 				E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */,
 				E17B289D1825F2D60049DC5D /* InfoPlist.strings in Resources */,
-				E15BCC17182704B400D8229B /* schedule.json in Resources */,
 				E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */,
 				E12991AA1826658D00AAAD4D /* icon-29.png in Resources */,
 			);
@@ -474,10 +471,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "00331B83-5205-42AA-B2AE-7C9248FD4BB9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -487,10 +487,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "00331B83-5205-42AA-B2AE-7C9248FD4BB9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
