@@ -1,11 +1,10 @@
 KDIC-Radio iOS
 ==============
 
-Authors:  * David Cowden
-	  * Maijid Moujaled 
-          * Colin Tremblay
+Authors:  * Colin Tremblay 
+	  * Daniel Torres
 
-Date:    Saturday, 2nd November, 2013
+Date:    Friday, 8th November, 2013
 
 ---
 
@@ -13,9 +12,7 @@ KDIC Radio Streaming App
 
 ###About
 
-The KDIC Streaming App is a convenient way for anyone to tune into their favorite radio station, KDIC, based out of Grinnell College, IA. The app allows you to pause and play the station, and pulls metadata from the stream to display. On top of streaming KDIC, the app also brings the user content from the KDIC website (http://kdic.grinnell.edu), such as the program schedule, program description, community events, reviews, and so much more.
-
-This app is currently in ALPHA.  This means the application is in development and not yet fully functional.
+The KDIC Streaming App is a convenient way for anyone to tune into their favorite radio station, KDIC, based out of Grinnell College, IA. The app currently allows you to pause and play the station and view the schedule of shows. On top of streaming KDIC, the app will soon pull metadata from the stream to display, allow for podcast playback, and incorporate content from the KDIC website (http://kdic.grinnell.edu), such as the program description, community events, reviews, and so much more.
 
 ####Source
 
