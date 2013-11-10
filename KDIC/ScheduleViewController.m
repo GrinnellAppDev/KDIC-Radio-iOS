@@ -42,6 +42,10 @@
         NSURL *scheduleURL = [NSURL URLWithString:@"http://tcdb.grinnell.edu/apps/glicious/KDIC/schedule.json"];
         NSData *data = [NSData dataWithContentsOfURL:scheduleURL];
         
+        // FOR TESTING
+     //   NSString *path = [[NSBundle mainBundle] pathForResource:@"schedule" ofType:@"json"];
+     //   data = [NSData dataWithContentsOfFile:path];
+        
         NSError *error;
         jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
@@ -81,6 +85,7 @@
                 NSDictionary *actualShow = [showsInDay objectAtIndex:i];
                 show.name = [actualShow objectForKey:@"name"];
                 show.day = day;
+                show.url = [NSURL URLWithString:[actualShow objectForKey:@"url"]];
                 show.start = [[actualShow objectForKey:@"start_time"] integerValue];
                 show.end = [[actualShow objectForKey:@"end_time"] integerValue];
                 if (0 == dayInt) {
@@ -174,11 +179,11 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
         Show *show = [[schedFromJSON objectAtIndex:section+1] objectAtIndex:0];
-        return show.day;
+        return [NSString stringWithFormat:@"\t\t%@", show.day];
     }
     else {
         Show *show = [[schedFromJSON objectAtIndex:section] objectAtIndex:0];
-        return show.day;
+        return [NSString stringWithFormat:@"\t\t%@", show.day];
     }
 }
 
@@ -195,8 +200,10 @@
     else
         show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = show.name;
-    cell.detailTextLabel.text = [self formatTime:show];
+    cell.textLabel.text = [NSString stringWithFormat:@"\t\t%@", show.name];
+    cell.textLabel.minimumScaleFactor = .5;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"\t\t%@",[self formatTime:show]];
+    cell.detailTextLabel.minimumScaleFactor = .5;
     // Configure the cell...
     
     return cell;

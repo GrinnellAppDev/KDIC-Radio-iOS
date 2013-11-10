@@ -40,6 +40,7 @@
 		E17EDD221826D7D1005FD6FD /* DeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD211826D7D1005FD6FD /* DeckController.m */; };
 		E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */; };
 		E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EDD261826E04F005FD6FD /* ScheduleCell.xib */; };
+		E1929426183025520008CB8A /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E1929425183025520008CB8A /* schedule.json */; };
 		E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44111828B3D400215B14 /* Default-568h@2x.png */; };
 		E1BF44141828B3D400215B14 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44121828B3D400215B14 /* Default@2x.png */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		E17EDD261826E04F005FD6FD /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
+		E1929425183025520008CB8A /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 		E1BF44111828B3D400215B14 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1BF44121828B3D400215B14 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 		E1BF440A18289FEC00215B14 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E1929425183025520008CB8A /* schedule.json */,
 				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
 				E17EDD201826D7D1005FD6FD /* DeckController.h */,
@@ -290,6 +293,7 @@
 			files = (
 				E12991B4182665B000AAAD4D /* kdic-wide.png in Resources */,
 				E12991AF1826658D00AAAD4D /* icon-120.png in Resources */,
+				E1929426183025520008CB8A /* schedule.json in Resources */,
 				E10384151826127F008D1511 /* volume_min.png in Resources */,
 				E12991AC1826658D00AAAD4D /* icon-58.png in Resources */,
 				E1BF44141828B3D400215B14 /* Default@2x.png in Resources */,

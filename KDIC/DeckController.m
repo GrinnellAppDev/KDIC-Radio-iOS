@@ -29,7 +29,7 @@
 	// Do any additional setup after loading the view.
 
     self.centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"StreamView"];
-    self.leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"Schedule"];
+    self.rightController = [self.storyboard instantiateViewControllerWithIdentifier:@"Schedule"];
 }
 
 - (void)didReceiveMemoryWarning

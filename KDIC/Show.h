@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *day;
+@property (nonatomic, strong) NSURL *url;
 @property (nonatomic, assign) int start;
 @property (nonatomic, assign) int end;
 

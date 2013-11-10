@@ -10,6 +10,7 @@
 #import "ScheduleViewController.h"
 #import <MBProgressHUD.h>
 #import <Reachability.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ViewController ()
 
@@ -17,7 +18,7 @@
 
 @implementation ViewController
 
-@synthesize playpause, streamMPMoviePlayer, metaString, volViewParent, songLabel, artistLabel;
+@synthesize playpause, streamMPMoviePlayer, metaString, volViewParent, songLabel, artistLabel, albumArtView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +57,7 @@
         // Create stream using MPMoviePlayerController
         streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
         streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
-
+        
         [streamMPMoviePlayer prepareToPlay];
         [streamMPMoviePlayer play];
         streamMPMoviePlayer.shouldAutoplay = YES;
@@ -107,7 +108,7 @@
 
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
-   // NSLog(@"%@", [[streamMPMoviePlayer timedMetadata] firstObject]);
+    // NSLog(@"%@", [[streamMPMoviePlayer timedMetadata] firstObject]);
     if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState)
         [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     else
@@ -131,16 +132,50 @@
 
 // Update labels
 - (IBAction)updateLabels:(id)sender {
-    [self.viewDeckController.leftController viewDidLoad];
+    [self.viewDeckController.rightController viewDidLoad];
     [self setLabels];
 }
 
 - (void)setLabels {
-    ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.leftController;
+    ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.rightController;
     
     if (NULL != schedVC.currentShow) {
         songLabel.text = [NSString stringWithFormat:@"Current Show: %@", schedVC.currentShow.name];
         artistLabel.text = [schedVC formatTime:schedVC.currentShow];
+        @try{
+            NSURL *showURL = schedVC.currentShow.url;
+            NSString *post =[[NSString alloc] initWithFormat:@""];
+            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+            NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+            [request setURL:showURL];
+            [request setHTTPMethod:@"POST"];
+            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+            [request setValue:@"application/html" forHTTPHeaderField:@"Accept"];
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:postData];
+            
+            NSError *error = [[NSError alloc] init];
+            NSHTTPURLResponse *response = nil;
+            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+            if([response statusCode] >= 200 && [response statusCode] < 300){
+                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+                NSRange start = [responseData rangeOfString:@"<meta property='og:image' content='" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
+                NSRange end = [responseData rangeOfString:@"<link rel='image_src" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
+                if (NSNotFound != start.location && NSNotFound != end.location) {
+                    start.location += start.length;
+                    start.length = end.location - start.location - 5;
+                    NSString *imgURLString = [responseData substringWithRange:start];
+                    NSURL *imgURL = [NSURL URLWithString:imgURLString];
+                    albumArtView.contentMode = UIViewContentModeScaleAspectFit;
+                    [albumArtView setImageWithURL:imgURL placeholderImage:nil];
+                }
+            }
+        }
+        @catch (NSException *e) {
+            NSLog(@"Error getting image: %@", e);
+        }
     }
     else {
         songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
@@ -150,13 +185,17 @@
         range.length += range.location;
         range.location = 0;
         timeStr = [timeStr substringWithRange:range];
-        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", nextShowCell.textLabel.text, timeStr];
+        NSString *showName = nextShowCell.textLabel.text;
+        
+        showName = [showName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        timeStr = [timeStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", showName, timeStr];
         artistLabel.text = nextShow;
     }
 }
 
 // Open Schedule
 - (IBAction)menuButton:(id)sender {
-    [self.viewDeckController toggleLeftViewAnimated:YES];
+    [self.viewDeckController toggleRightViewAnimated:YES];
 }
 @end
