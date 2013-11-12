@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PlayerViewController.h
 //  KDIC
 //
 //  Created by Colin Tremblay on 11/2/13.
@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <ViewDeck/IIViewDeckController.h>
 
-@interface ViewController : UIViewController
+@interface PlayerViewController : UIViewController
 
 
 @property (nonatomic, strong) MPMoviePlayerController *streamMPMoviePlayer;

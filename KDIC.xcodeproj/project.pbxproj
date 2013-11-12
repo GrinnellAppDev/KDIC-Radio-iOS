@@ -33,7 +33,7 @@
 		E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B28A21825F2D60049DC5D /* AppDelegate.m */; };
 		E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */; };
 		E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */; };
-		E17B28AC1825F2D60049DC5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B28AB1825F2D60049DC5D /* ViewController.m */; };
+		E17B28AC1825F2D60049DC5D /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B28AB1825F2D60049DC5D /* PlayerViewController.m */; };
 		E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17B28AD1825F2D60049DC5D /* Images.xcassets */; };
 		E17B28CB1825F3C90049DC5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28CA1825F3C90049DC5D /* AVFoundation.framework */; };
 		E17B28D21825FF440049DC5D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28D11825FF440049DC5D /* MediaPlayer.framework */; };
@@ -41,6 +41,8 @@
 		E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */; };
 		E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EDD261826E04F005FD6FD /* ScheduleCell.xib */; };
 		E1929426183025520008CB8A /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E1929425183025520008CB8A /* schedule.json */; };
+		E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */; };
+		E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85DE1832C86C005A4B32 /* PodcastViewController.m */; };
 		E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44111828B3D400215B14 /* Default-568h@2x.png */; };
 		E1BF44141828B3D400215B14 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44121828B3D400215B14 /* Default@2x.png */; };
 /* End PBXBuildFile section */
@@ -78,8 +80,8 @@
 		E17B28A21825F2D60049DC5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E17B28A51825F2D60049DC5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		E17B28A81825F2D60049DC5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		E17B28AA1825F2D60049DC5D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E17B28AB1825F2D60049DC5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E17B28AA1825F2D60049DC5D /* PlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		E17B28AB1825F2D60049DC5D /* PlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		E17B28AD1825F2D60049DC5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E17B28B41825F2D70049DC5D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E17B28CA1825F3C90049DC5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +92,10 @@
 		E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		E17EDD261826E04F005FD6FD /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
 		E1929425183025520008CB8A /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
+		E19D85D71832C78E005A4B32 /* LiveStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveStreamViewController.h; sourceTree = "<group>"; };
+		E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveStreamViewController.m; sourceTree = "<group>"; };
+		E19D85DD1832C86C005A4B32 /* PodcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastViewController.h; sourceTree = "<group>"; };
+		E19D85DE1832C86C005A4B32 /* PodcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastViewController.m; sourceTree = "<group>"; };
 		E1BF44111828B3D400215B14 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1BF44121828B3D400215B14 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,11 +155,15 @@
 				E1BF440A18289FEC00215B14 /* Helpers */,
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
 				E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */,
+				E19D85D71832C78E005A4B32 /* LiveStreamViewController.h */,
+				E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */,
+				E19D85DD1832C86C005A4B32 /* PodcastViewController.h */,
+				E19D85DE1832C86C005A4B32 /* PodcastViewController.m */,
 				E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */,
 				E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */,
 				E17EDD261826E04F005FD6FD /* ScheduleCell.xib */,
-				E17B28AA1825F2D60049DC5D /* ViewController.h */,
-				E17B28AB1825F2D60049DC5D /* ViewController.m */,
+				E17B28AA1825F2D60049DC5D /* PlayerViewController.h */,
+				E17B28AB1825F2D60049DC5D /* PlayerViewController.m */,
 				E17B28D01825F8E60049DC5D /* Images */,
 				E17B28AD1825F2D60049DC5D /* Images.xcassets */,
 				E17B28991825F2D60049DC5D /* Supporting Files */,
@@ -358,12 +368,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E17B28AC1825F2D60049DC5D /* ViewController.m in Sources */,
+				E17B28AC1825F2D60049DC5D /* PlayerViewController.m in Sources */,
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
 				E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */,
 				E17EDD221826D7D1005FD6FD /* DeckController.m in Sources */,
 				E15BCC1A1827095A00D8229B /* Show.m in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
+				E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */,
+				E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

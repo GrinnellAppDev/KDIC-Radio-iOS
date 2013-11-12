@@ -1,22 +1,22 @@
 //
-//  ViewController.m
+//  PlayerViewController.m
 //  KDIC
 //
 //  Created by Colin Tremblay on 11/2/13.
 //  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PlayerViewController.h"
 #import "ScheduleViewController.h"
 #import <MBProgressHUD.h>
 #import <Reachability.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface ViewController ()
+@interface PlayerViewController ()
 
 @end
 
-@implementation ViewController
+@implementation PlayerViewController
 
 @synthesize playpause, streamMPMoviePlayer, metaString, volViewParent, songLabel, artistLabel, albumArtView;
 
@@ -146,7 +146,7 @@
             NSURL *showURL = schedVC.currentShow.url;
             NSString *post =[[NSString alloc] initWithFormat:@""];
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-            NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+            NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
             [request setURL:showURL];
             [request setHTTPMethod:@"POST"];
