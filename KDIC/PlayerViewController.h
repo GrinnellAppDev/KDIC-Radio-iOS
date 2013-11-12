@@ -13,7 +13,6 @@
 
 @interface PlayerViewController : UIViewController
 
-
 @property (nonatomic, strong) MPMoviePlayerController *streamMPMoviePlayer;
 @property (nonatomic, strong) NSString *metaString;
 @property (nonatomic, weak) IBOutlet UIButton *playpause;
@@ -21,7 +20,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *artistLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
 @property (nonatomic, weak) IBOutlet UIView *volViewParent;
-
 
 - (IBAction)playPauseButtonTap:(id)sender;
 - (IBAction)menuButton:(id)sender;

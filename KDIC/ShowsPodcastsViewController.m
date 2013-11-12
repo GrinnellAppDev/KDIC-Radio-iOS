@@ -1,21 +1,20 @@
 //
-//  PodcastViewController.m
-//  
+//  ShowsPodcastsViewController.m
+//  KDIC
 //
 //  Created by Colin Tremblay on 11/12/13.
-//
+//  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
-#import "PodcastViewController.h"
+#import "ShowsPodcastsViewController.h"
 
-@interface PodcastViewController ()
+@interface ShowsPodcastsViewController ()
 
 @end
 
-@implementation PodcastViewController
+@implementation ShowsPodcastsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -23,15 +22,11 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar.png"] forBarMetrics:UIBarMetricsDefault];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -48,8 +43,7 @@
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -61,11 +55,9 @@
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
 
 @end

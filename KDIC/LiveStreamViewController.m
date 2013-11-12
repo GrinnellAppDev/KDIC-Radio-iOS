@@ -7,6 +7,8 @@
 //
 
 #import "LiveStreamViewController.h"
+#import "ScheduleViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface LiveStreamViewController ()
 
@@ -14,10 +16,9 @@
 
 @implementation LiveStreamViewController
 
-@synthesize playerVC;
+@synthesize playerVC, albumArtView, artistLabel, songLabel, playButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -25,20 +26,29 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"kdic-wide.jpg"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar.png"] forBarMetrics:UIBarMetricsDefault];
+    
     if (NULL == playerVC) {
         playerVC = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:Nil];
+        playerVC.hidesBottomBarWhenPushed = YES;
         [self performSegueWithIdentifier:@"LiveStream-to-Player" sender:self];
     }
-	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
+// CALL THIS ON RETURN FROM SEGUE
+//    [self setLabels];
+
+- (void)setLabels {
+    songLabel.text = playerVC.songLabel.text;
+    artistLabel.text = playerVC.artistLabel.text;
+    albumArtView.image = playerVC.albumArtView.image;
+}
+
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

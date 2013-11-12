@@ -43,6 +43,8 @@
 		E1929426183025520008CB8A /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E1929425183025520008CB8A /* schedule.json */; };
 		E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */; };
 		E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85DE1832C86C005A4B32 /* PodcastViewController.m */; };
+		E19D85E11832D625005A4B32 /* kdic-navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E19D85E01832D625005A4B32 /* kdic-navBar.png */; };
+		E19D85E41832E7E5005A4B32 /* ShowsPodcastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85E31832E7E5005A4B32 /* ShowsPodcastsViewController.m */; };
 		E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44111828B3D400215B14 /* Default-568h@2x.png */; };
 		E1BF44141828B3D400215B14 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44121828B3D400215B14 /* Default@2x.png */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,9 @@
 		E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveStreamViewController.m; sourceTree = "<group>"; };
 		E19D85DD1832C86C005A4B32 /* PodcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastViewController.h; sourceTree = "<group>"; };
 		E19D85DE1832C86C005A4B32 /* PodcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastViewController.m; sourceTree = "<group>"; };
+		E19D85E01832D625005A4B32 /* kdic-navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-navBar.png"; sourceTree = "<group>"; };
+		E19D85E21832E7E5005A4B32 /* ShowsPodcastsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowsPodcastsViewController.h; sourceTree = "<group>"; };
+		E19D85E31832E7E5005A4B32 /* ShowsPodcastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsPodcastsViewController.m; sourceTree = "<group>"; };
 		E1BF44111828B3D400215B14 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1BF44121828B3D400215B14 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +164,8 @@
 				E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */,
 				E19D85DD1832C86C005A4B32 /* PodcastViewController.h */,
 				E19D85DE1832C86C005A4B32 /* PodcastViewController.m */,
+				E19D85E21832E7E5005A4B32 /* ShowsPodcastsViewController.h */,
+				E19D85E31832E7E5005A4B32 /* ShowsPodcastsViewController.m */,
 				E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */,
 				E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */,
 				E17EDD261826E04F005FD6FD /* ScheduleCell.xib */,
@@ -189,6 +196,7 @@
 				E1BF440B1828A00300215B14 /* LaunchImages */,
 				E12991B3182665B000AAAD4D /* kdic-wide.png */,
 				E103840A1826127F008D1511 /* kdic-narrow.png */,
+				E19D85E01832D625005A4B32 /* kdic-navBar.png */,
 				E15BCC14182702BC00D8229B /* menu_icon.png */,
 				E103840B1826127F008D1511 /* pause.png */,
 				E103840C1826127F008D1511 /* play.png */,
@@ -309,6 +317,7 @@
 				E1BF44141828B3D400215B14 /* Default@2x.png in Resources */,
 				E10384121826127F008D1511 /* pause.png in Resources */,
 				E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */,
+				E19D85E11832D625005A4B32 /* kdic-navBar.png in Resources */,
 				E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */,
 				E12991AB1826658D00AAAD4D /* icon-40.png in Resources */,
 				E12991B11826658D00AAAD4D /* iTunesArtwork.png in Resources */,
@@ -370,6 +379,7 @@
 			files = (
 				E17B28AC1825F2D60049DC5D /* PlayerViewController.m in Sources */,
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
+				E19D85E41832E7E5005A4B32 /* ShowsPodcastsViewController.m in Sources */,
 				E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */,
 				E17EDD221826D7D1005FD6FD /* DeckController.m in Sources */,
 				E15BCC1A1827095A00D8229B /* Show.m in Sources */,

@@ -12,5 +12,11 @@
 @interface LiveStreamViewController : UIViewController
 
 @property (nonatomic, strong) PlayerViewController *playerVC;
+@property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UILabel *songLabel;
+@property (nonatomic, weak) IBOutlet UILabel *artistLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
+
+- (void)setLabels;
 
 @end

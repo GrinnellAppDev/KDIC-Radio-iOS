@@ -7,10 +7,10 @@
 //
 
 #import "PlayerViewController.h"
-#import "ScheduleViewController.h"
 #import <MBProgressHUD.h>
 #import <Reachability.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "ScheduleViewController.h"
 
 @interface PlayerViewController ()
 
@@ -138,7 +138,6 @@
 
 - (void)setLabels {
     ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.rightController;
-    
     if (NULL != schedVC.currentShow) {
         songLabel.text = [NSString stringWithFormat:@"Current Show: %@", schedVC.currentShow.name];
         artistLabel.text = [schedVC formatTime:schedVC.currentShow];

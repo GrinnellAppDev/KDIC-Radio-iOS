@@ -32,7 +32,7 @@
     AppDelegate *appDel = [UIApplication sharedApplication].delegate;
     UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, appDel.window.frame.size.width, 20)];
     statusView.backgroundColor = [UIColor whiteColor];
-    [appDel.window addSubview:statusView];
+    //[appDel.window addSubview:statusView];
 }
 
 - (void)viewDidLoad {
