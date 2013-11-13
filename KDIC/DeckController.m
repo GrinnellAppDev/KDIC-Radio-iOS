@@ -38,4 +38,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Open Schedule
+- (IBAction)menuButton:(id)sender {
+    [self toggleRightViewAnimated:YES];
+}
+
 @end

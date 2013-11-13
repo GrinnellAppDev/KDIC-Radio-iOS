@@ -41,6 +41,7 @@
 		E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */; };
 		E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EDD261826E04F005FD6FD /* ScheduleCell.xib */; };
 		E1929426183025520008CB8A /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E1929425183025520008CB8A /* schedule.json */; };
+		E19497301833677000014C23 /* kdic-navBar-short.png in Resources */ = {isa = PBXBuildFile; fileRef = E194972F1833677000014C23 /* kdic-navBar-short.png */; };
 		E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */; };
 		E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85DE1832C86C005A4B32 /* PodcastViewController.m */; };
 		E19D85E11832D625005A4B32 /* kdic-navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E19D85E01832D625005A4B32 /* kdic-navBar.png */; };
@@ -94,6 +95,7 @@
 		E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		E17EDD261826E04F005FD6FD /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
 		E1929425183025520008CB8A /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
+		E194972F1833677000014C23 /* kdic-navBar-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-navBar-short.png"; sourceTree = "<group>"; };
 		E19D85D71832C78E005A4B32 /* LiveStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveStreamViewController.h; sourceTree = "<group>"; };
 		E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveStreamViewController.m; sourceTree = "<group>"; };
 		E19D85DD1832C86C005A4B32 /* PodcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastViewController.h; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				E1BF440B1828A00300215B14 /* LaunchImages */,
 				E12991B3182665B000AAAD4D /* kdic-wide.png */,
 				E103840A1826127F008D1511 /* kdic-narrow.png */,
+				E194972F1833677000014C23 /* kdic-navBar-short.png */,
 				E19D85E01832D625005A4B32 /* kdic-navBar.png */,
 				E15BCC14182702BC00D8229B /* menu_icon.png */,
 				E103840B1826127F008D1511 /* pause.png */,
@@ -312,6 +315,7 @@
 				E12991B4182665B000AAAD4D /* kdic-wide.png in Resources */,
 				E12991AF1826658D00AAAD4D /* icon-120.png in Resources */,
 				E1929426183025520008CB8A /* schedule.json in Resources */,
+				E19497301833677000014C23 /* kdic-navBar-short.png in Resources */,
 				E10384151826127F008D1511 /* volume_min.png in Resources */,
 				E12991AC1826658D00AAAD4D /* icon-58.png in Resources */,
 				E1BF44141828B3D400215B14 /* Default@2x.png in Resources */,

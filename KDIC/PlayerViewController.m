@@ -11,18 +11,22 @@
 #import <Reachability.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ScheduleViewController.h"
+#import "AppDelegate.h"
 
 @interface PlayerViewController ()
 
 @end
 
-@implementation PlayerViewController
+@implementation PlayerViewController {
+    AppDelegate *appDel;
+}
 
-@synthesize playpause, streamMPMoviePlayer, metaString, volViewParent, songLabel, artistLabel, albumArtView;
+@synthesize playpause, metaString, volViewParent, songLabel, artistLabel, albumArtView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
     // Add the volume slider to the view in the xib
     MPVolumeView *myVolView = [[MPVolumeView alloc] initWithFrame:volViewParent.bounds];
     [volViewParent addSubview:myVolView];
@@ -41,12 +45,21 @@
     second = 3600 - second;
     NSTimer *timerTimer = [NSTimer timerWithTimeInterval:second target:self selector:@selector(triggerTimer:) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:timerTimer forMode:NSRunLoopCommonModes];
+    
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
+    /*
+    UIBarButtonItem *scheduleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleDone target:self action:@selector(menuButton:)];
+    [self.navigationItem setRightBarButtonItem:scheduleButton];*/
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    
+   // NSLog(@"Stopped:%d, Playing:%d, Paused:%d, Interrupted:%d, SeekingFWD:%d, SeekingBWD:%d", MPMoviePlaybackStateStopped, MPMoviePlaybackStatePlaying, MPMoviePlaybackStatePaused, MPMoviePlaybackStateInterrupted, MPMoviePlaybackStateSeekingForward, MPMoviePlaybackStateSeekingBackward);
     if (!self.networkCheck)
         [self showNoNetworkAlert];
-    else {
+    else if (MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
         // HUD
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading Stream";
@@ -55,17 +68,19 @@
         NSURL *url = [NSURL URLWithString:@"http://kdic.grinnell.edu:8001/kdic128.m3u"];
         
         // Create stream using MPMoviePlayerController
-        streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-        streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
+        appDel.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+        appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
         
-        [streamMPMoviePlayer prepareToPlay];
-        [streamMPMoviePlayer play];
-        streamMPMoviePlayer.shouldAutoplay = YES;
-        
-        [self setLabels];
+        [appDel.streamMPMoviePlayer prepareToPlay];
+        [appDel.streamMPMoviePlayer play];
+        appDel.streamMPMoviePlayer.shouldAutoplay = YES;
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }
+    else [self changeIcon];
+    
+    [self setLabels];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,8 +114,8 @@
 }
 
 - (void)streamMeta:(NSNotification *)notification {
-    if ([streamMPMoviePlayer timedMetadata] != nil) {
-        MPTimedMetadata *meta = [[streamMPMoviePlayer timedMetadata] firstObject];
+    if ([appDel.streamMPMoviePlayer timedMetadata] != nil) {
+        MPTimedMetadata *meta = [[appDel.streamMPMoviePlayer timedMetadata] firstObject];
         metaString = meta.value;
     }
     NSLog(@"%@", metaString);
@@ -108,8 +123,16 @@
 
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
+  // NSLog(@"%d", appDel.streamMPMoviePlayer.playbackState);
     // NSLog(@"%@", [[streamMPMoviePlayer timedMetadata] firstObject]);
-    if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState)
+    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
+        [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+    else
+        [playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+}
+
+- (void)changeIcon {
+    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
         [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     else
         [playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
@@ -117,10 +140,10 @@
 
 - (IBAction)playPauseButtonTap:(id)sender {
     // Note: Button gets changed by changeIcon (called because the playback state changes)
-    if (MPMoviePlaybackStatePlaying == streamMPMoviePlayer.playbackState)
-        [streamMPMoviePlayer pause];
+    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
+        [appDel.streamMPMoviePlayer pause];
     else
-        [streamMPMoviePlayer play];
+        [appDel.streamMPMoviePlayer play];
 }
 
 - (IBAction)triggerTimer:(id)sender {

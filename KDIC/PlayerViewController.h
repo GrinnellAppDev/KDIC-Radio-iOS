@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ViewDeck/IIViewDeckController.h>
 
 @interface PlayerViewController : UIViewController
 
-@property (nonatomic, strong) MPMoviePlayerController *streamMPMoviePlayer;
 @property (nonatomic, strong) NSString *metaString;
 @property (nonatomic, weak) IBOutlet UIButton *playpause;
 @property (nonatomic, weak) IBOutlet UILabel *songLabel;

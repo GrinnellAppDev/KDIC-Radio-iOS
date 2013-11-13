@@ -9,6 +9,7 @@
 #import "LiveStreamViewController.h"
 #import "ScheduleViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "DeckController.h"
 
 @interface LiveStreamViewController ()
 
@@ -29,13 +30,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
     
     if (NULL == playerVC) {
         playerVC = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:Nil];
-        playerVC.hidesBottomBarWhenPushed = YES;
         [self performSegueWithIdentifier:@"LiveStream-to-Player" sender:self];
     }
+}
+
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DeckController *deckVC = (DeckController *)[segue destinationViewController];
+    [deckVC setHidesBottomBarWhenPushed:YES];
 }
 
 // CALL THIS ON RETURN FROM SEGUE

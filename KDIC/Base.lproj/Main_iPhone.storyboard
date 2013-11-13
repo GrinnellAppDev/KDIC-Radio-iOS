@@ -17,7 +17,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3VM-OH-UYL"/>
+                    <navigationItem key="navigationItem" id="3VM-OH-UYL">
+                        <barButtonItem key="rightBarButtonItem" id="iCA-UI-77y">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SQ0-fO-aqH">
+                                <rect key="frame" x="274" y="9" width="30" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" backgroundImage="menu_icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButton:" destination="N02-Iw-FFa" eventType="touchUpInside" id="4DX-dB-7cD"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l12-4k-v0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,6 +54,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Pyr-CX-Fh8"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vo9-Jx-xUV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Button" image="play.png">
@@ -57,7 +72,7 @@
                                 <rect key="frame" x="10" y="245" width="300" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="esA-qH-2mm"/>
+                                    <constraint firstAttribute="height" constant="21" id="7EM-ze-3EB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -67,7 +82,7 @@
                                 <rect key="frame" x="10" y="280" width="300" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="wUQ-jx-E9E"/>
+                                    <constraint firstAttribute="height" constant="21" id="HMj-c3-L9x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -76,13 +91,17 @@
                                 <rect key="frame" x="30" y="363" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="NTG-xa-6Ft"/>
-                                    <constraint firstAttribute="width" constant="25" id="UfR-9S-ySy"/>
+                                    <constraint firstAttribute="width" constant="25" id="NW3-U1-1tB"/>
+                                    <constraint firstAttribute="height" constant="25" id="U0Y-6n-2bj"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="volume_max.png" translatesAutoresizingMaskIntoConstraints="NO" id="yiP-zU-kJJ">
                                 <rect key="frame" x="265" y="363" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="L83-MW-gMi"/>
+                                    <constraint firstAttribute="width" constant="25" id="NAN-J5-2fW"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RH3-U9-Edf">
                                 <rect key="frame" x="55" y="363" width="210" height="33"/>
@@ -92,32 +111,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yiP-zU-kJJ" firstAttribute="bottom" secondItem="SIm-ek-lkT" secondAttribute="bottom" id="0CN-x9-4PP"/>
                             <constraint firstAttribute="centerX" secondItem="gby-y7-pvw" secondAttribute="centerX" id="5VP-kl-uzt"/>
                             <constraint firstItem="zAU-pw-1E2" firstAttribute="trailing" secondItem="V5q-vm-xr2" secondAttribute="trailing" id="8XC-vq-B3q"/>
-                            <constraint firstAttribute="bottom" secondItem="gby-y7-pvw" secondAttribute="bottom" constant="186" id="Bec-E7-xOq"/>
-                            <constraint firstItem="yiP-zU-kJJ" firstAttribute="top" secondItem="RH3-U9-Edf" secondAttribute="top" id="D72-Js-jIu"/>
                             <constraint firstItem="zAU-pw-1E2" firstAttribute="top" secondItem="V5q-vm-xr2" secondAttribute="bottom" constant="14" id="EBH-6h-hhj"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="leading" secondItem="V5q-vm-xr2" secondAttribute="leading" id="Hd1-dH-PiP"/>
                             <constraint firstItem="yiP-zU-kJJ" firstAttribute="leading" secondItem="RH3-U9-Edf" secondAttribute="trailing" id="Iel-N0-AH9"/>
-                            <constraint firstItem="gby-y7-pvw" firstAttribute="top" secondItem="SQ2-Lg-iJE" secondAttribute="bottom" constant="10" id="JTf-Cj-McE"/>
-                            <constraint firstItem="yiP-zU-kJJ" firstAttribute="top" secondItem="zAU-pw-1E2" secondAttribute="bottom" constant="62" id="Kve-gi-Sqc"/>
-                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="RHB-13-4TN" secondAttribute="bottom" constant="3" id="Liw-FI-2NK"/>
+                            <constraint firstItem="yiP-zU-kJJ" firstAttribute="bottom" secondItem="SIm-ek-lkT" secondAttribute="bottom" id="Oxu-Vm-P39"/>
+                            <constraint firstItem="V5q-vm-xr2" firstAttribute="top" secondItem="gby-y7-pvw" secondAttribute="bottom" constant="15" id="QR5-Iq-Pem"/>
                             <constraint firstAttribute="bottom" secondItem="RH3-U9-Edf" secondAttribute="bottom" constant="20" symbolic="YES" id="RAx-OU-drf"/>
                             <constraint firstItem="RH3-U9-Edf" firstAttribute="centerX" secondItem="RHB-13-4TN" secondAttribute="centerX" id="RZa-go-6Pa"/>
-                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="SIm-ek-lkT" secondAttribute="top" id="WRK-Ko-DE6"/>
+                            <constraint firstItem="SIm-ek-lkT" firstAttribute="leading" secondItem="Y3h-EY-oEk" secondAttribute="leading" constant="30" id="VbD-UN-rMt"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="trailing" secondItem="V5q-vm-xr2" secondAttribute="trailing" id="YPZ-AN-DPm"/>
                             <constraint firstItem="zAU-pw-1E2" firstAttribute="centerX" secondItem="RHB-13-4TN" secondAttribute="centerX" id="Z0D-HQ-7VZ"/>
-                            <constraint firstItem="SIm-ek-lkT" firstAttribute="leading" secondItem="Y3h-EY-oEk" secondAttribute="leading" constant="30" id="Z4f-a4-JEQ"/>
                             <constraint firstItem="ZzD-Lk-kI9" firstAttribute="top" secondItem="SIm-ek-lkT" secondAttribute="bottom" constant="28" id="d1j-1V-tHL"/>
                             <constraint firstItem="RH3-U9-Edf" firstAttribute="leading" secondItem="SIm-ek-lkT" secondAttribute="trailing" id="dDw-lS-JBS"/>
                             <constraint firstItem="V5q-vm-xr2" firstAttribute="leading" secondItem="zAU-pw-1E2" secondAttribute="leading" id="jTu-YA-HTT"/>
-                            <constraint firstItem="RHB-13-4TN" firstAttribute="top" secondItem="zAU-pw-1E2" secondAttribute="bottom" constant="9" id="pHB-oN-Ku1"/>
+                            <constraint firstAttribute="bottom" secondItem="zAU-pw-1E2" secondAttribute="bottom" constant="115" id="nea-wc-DhZ"/>
+                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="yiP-zU-kJJ" secondAttribute="top" id="o99-VC-TFM"/>
+                            <constraint firstAttribute="bottom" secondItem="gby-y7-pvw" secondAttribute="bottom" constant="186" id="oEg-xt-Oo7"/>
+                            <constraint firstAttribute="bottom" secondItem="RHB-13-4TN" secondAttribute="bottom" constant="56" id="uRd-Ng-aE6"/>
                             <constraint firstAttribute="trailing" secondItem="yiP-zU-kJJ" secondAttribute="trailing" constant="30" id="vNx-bZ-ZMu"/>
+                            <constraint firstItem="gby-y7-pvw" firstAttribute="top" secondItem="Y3h-EY-oEk" secondAttribute="top" constant="10" id="wjk-Bg-84J"/>
                             <constraint firstAttribute="trailing" secondItem="gby-y7-pvw" secondAttribute="trailing" constant="10" id="xWe-Pu-h9z"/>
+                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="SIm-ek-lkT" secondAttribute="top" id="yCL-wp-cba"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="leading" secondItem="Y3h-EY-oEk" secondAttribute="leading" constant="10" id="zXy-jd-xRz"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="albumArtView" destination="gby-y7-pvw" id="4ZT-qb-Qle"/>
@@ -173,7 +193,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item 1" id="BcH-Oj-Ib2"/>
-                    <navigationItem key="navigationItem" id="cTr-d9-J2v"/>
+                    <navigationItem key="navigationItem" id="cTr-d9-J2v">
+                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="v5N-OV-CZ3">
+                            <connections>
+                                <segue destination="N02-Iw-FFa" kind="push" identifier="NowPlayingJump" id="oyu-cH-QKg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="sQo-07-THK" kind="push" identifier="ShowSelect" id="NOq-nw-ovA"/>
                     </connections>
@@ -205,7 +231,13 @@
                             <outlet property="delegate" destination="sQo-07-THK" id="CTK-Dn-s09"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qQi-p6-QBH"/>
+                    <navigationItem key="navigationItem" id="qQi-p6-QBH">
+                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="5Y8-ij-gfw">
+                            <connections>
+                                <segue destination="N02-Iw-FFa" kind="push" identifier="NowPlayingJump" id="wUI-6g-JIO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="N02-Iw-FFa" kind="push" identifier="PodcastSelect" id="GhN-fF-0ba"/>
                     </connections>
@@ -318,7 +350,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="UhU-B8-KlA"/>
-                    <navigationItem key="navigationItem" id="RYo-N4-BzU"/>
+                    <navigationItem key="navigationItem" id="RYo-N4-BzU">
+                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="R8A-qb-cR2">
+                            <connections>
+                                <segue destination="N02-Iw-FFa" kind="push" identifier="NowPlayingJump" id="ok1-52-a2p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="albumArtView" destination="G0V-rf-QJ4" id="lbE-9B-CbD"/>
                         <outlet property="artistLabel" destination="USe-sy-jHZ" id="XBV-o7-ZXq"/>
@@ -353,8 +391,7 @@
     </scenes>
     <resources>
         <image name="iTunesArtwork.png" width="512" height="512"/>
-        <image name="iTunesArtwork.png" width="512" height="512"/>
-        <image name="play.png" width="256" height="256"/>
+        <image name="menu_icon.png" width="1600" height="1333"/>
         <image name="play.png" width="256" height="256"/>
         <image name="volume_max.png" width="512" height="512"/>
         <image name="volume_min.png" width="512" height="512"/>
@@ -365,6 +402,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GhN-fF-0ba"/>
+        <segue reference="wUI-6g-JIO"/>
     </inferredMetricsTieBreakers>
 </document>

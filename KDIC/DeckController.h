@@ -9,5 +9,5 @@
 #import "IIViewDeckController.h"
 
 @interface DeckController : IIViewDeckController
-
+- (IBAction)menuButton:(id)sender;
 @end
