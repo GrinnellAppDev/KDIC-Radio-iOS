@@ -13,5 +13,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) MPMoviePlayerController *streamMPMoviePlayer;
+@property (nonatomic, strong) NSString *artistText;
+@property (nonatomic, strong) NSString *songText;
+@property (nonatomic, strong) UIImage *showImage;
+
 
 @end

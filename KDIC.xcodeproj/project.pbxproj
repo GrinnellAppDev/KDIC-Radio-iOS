@@ -46,6 +46,8 @@
 		E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85DE1832C86C005A4B32 /* PodcastViewController.m */; };
 		E19D85E11832D625005A4B32 /* kdic-navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E19D85E01832D625005A4B32 /* kdic-navBar.png */; };
 		E19D85E41832E7E5005A4B32 /* ShowsPodcastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85E31832E7E5005A4B32 /* ShowsPodcastsViewController.m */; };
+		E1AF813D1837437F00FE4205 /* radio-antenna.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1AF813C1837437F00FE4205 /* radio-antenna.jpg */; };
+		E1AF813F183744DF00FE4205 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF813E183744DF00FE4205 /* microphone.png */; };
 		E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44111828B3D400215B14 /* Default-568h@2x.png */; };
 		E1BF44141828B3D400215B14 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44121828B3D400215B14 /* Default@2x.png */; };
 /* End PBXBuildFile section */
@@ -103,6 +105,8 @@
 		E19D85E01832D625005A4B32 /* kdic-navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kdic-navBar.png"; sourceTree = "<group>"; };
 		E19D85E21832E7E5005A4B32 /* ShowsPodcastsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowsPodcastsViewController.h; sourceTree = "<group>"; };
 		E19D85E31832E7E5005A4B32 /* ShowsPodcastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsPodcastsViewController.m; sourceTree = "<group>"; };
+		E1AF813C1837437F00FE4205 /* radio-antenna.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "radio-antenna.jpg"; sourceTree = "<group>"; };
+		E1AF813E183744DF00FE4205 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		E1BF44111828B3D400215B14 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1BF44121828B3D400215B14 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,8 +205,10 @@
 				E194972F1833677000014C23 /* kdic-navBar-short.png */,
 				E19D85E01832D625005A4B32 /* kdic-navBar.png */,
 				E15BCC14182702BC00D8229B /* menu_icon.png */,
+				E1AF813E183744DF00FE4205 /* microphone.png */,
 				E103840B1826127F008D1511 /* pause.png */,
 				E103840C1826127F008D1511 /* play.png */,
+				E1AF813C1837437F00FE4205 /* radio-antenna.jpg */,
 				E103840D1826127F008D1511 /* volume_max.png */,
 				E103840E1826127F008D1511 /* volume_min.png */,
 			);
@@ -321,6 +327,7 @@
 				E1BF44141828B3D400215B14 /* Default@2x.png in Resources */,
 				E10384121826127F008D1511 /* pause.png in Resources */,
 				E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */,
+				E1AF813F183744DF00FE4205 /* microphone.png in Resources */,
 				E19D85E11832D625005A4B32 /* kdic-navBar.png in Resources */,
 				E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */,
 				E12991AB1826658D00AAAD4D /* icon-40.png in Resources */,
@@ -334,6 +341,7 @@
 				E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */,
 				E12991AD1826658D00AAAD4D /* icon-76.png in Resources */,
 				E12991AE1826658D00AAAD4D /* icon-80.png in Resources */,
+				E1AF813D1837437F00FE4205 /* radio-antenna.jpg in Resources */,
 				E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */,
 				E17B289D1825F2D60049DC5D /* InfoPlist.strings in Resources */,
 				E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */,

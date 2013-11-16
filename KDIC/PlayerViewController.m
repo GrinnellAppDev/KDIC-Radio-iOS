@@ -55,8 +55,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
-    
-   // NSLog(@"Stopped:%d, Playing:%d, Paused:%d, Interrupted:%d, SeekingFWD:%d, SeekingBWD:%d", MPMoviePlaybackStateStopped, MPMoviePlaybackStatePlaying, MPMoviePlaybackStatePaused, MPMoviePlaybackStateInterrupted, MPMoviePlaybackStateSeekingForward, MPMoviePlaybackStateSeekingBackward);
+
     if (!self.networkCheck)
         [self showNoNetworkAlert];
     else if (MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
@@ -80,12 +79,10 @@
     else [self changeIcon];
     
     [self setLabels];
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //Method to determine the availability of network Connections using the Reachability Class
@@ -123,8 +120,6 @@
 
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
-  // NSLog(@"%d", appDel.streamMPMoviePlayer.playbackState);
-    // NSLog(@"%@", [[streamMPMoviePlayer timedMetadata] firstObject]);
     if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
         [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     else
@@ -214,6 +209,9 @@
         NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", showName, timeStr];
         artistLabel.text = nextShow;
     }
+    appDel.artistText = artistLabel.text;
+    appDel.songText = songLabel.text;
+    appDel.showImage = albumArtView.image;
 }
 
 // Open Schedule

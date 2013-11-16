@@ -152,11 +152,11 @@
             </objects>
             <point key="canvasLocation" x="1439" y="342"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Podcasts-->
         <scene sceneID="WNZ-y6-37V">
             <objects>
                 <navigationController definesPresentationContext="YES" id="hRj-hL-NLd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qWS-zI-B7u"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" image="microphone.png" id="qWS-zI-B7u"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xhk-dI-Bim">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -169,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="-300" y="-32"/>
         </scene>
-        <!--Podcast View Controller - Item 1-->
+        <!--Podcast View Controller - Podcasts-->
         <scene sceneID="ciq-e5-AZR">
             <objects>
                 <tableViewController id="0ee-hC-ZBb" customClass="PodcastViewController" sceneMemberID="viewController">
@@ -192,7 +192,7 @@
                             <outlet property="delegate" destination="0ee-hC-ZBb" id="GGW-VS-ZNM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="BcH-Oj-Ib2"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" image="microphone.png" id="BcH-Oj-Ib2"/>
                     <navigationItem key="navigationItem" id="cTr-d9-J2v">
                         <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="v5N-OV-CZ3">
                             <connections>
@@ -265,11 +265,11 @@
             </objects>
             <point key="canvasLocation" x="-975" y="275"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Radio-->
         <scene sceneID="RhP-8T-4qW">
             <objects>
                 <navigationController definesPresentationContext="YES" id="z6B-dz-HSN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vMr-tg-iH7"/>
+                    <tabBarItem key="tabBarItem" title="Radio" image="radio-antenna.jpg" id="vMr-tg-iH7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ylh-Rt-CpF">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -282,7 +282,7 @@
             </objects>
             <point key="canvasLocation" x="-300" y="609"/>
         </scene>
-        <!--Live Stream View Controller - Item 2-->
+        <!--Live Stream View Controller - Radio-->
         <scene sceneID="x2v-zH-Wht">
             <objects>
                 <viewController id="hSR-9M-f9e" customClass="LiveStreamViewController" sceneMemberID="viewController">
@@ -349,7 +349,7 @@
                             <constraint firstItem="G0V-rf-QJ4" firstAttribute="top" secondItem="7EU-Bq-Bb7" secondAttribute="bottom" constant="10" id="ztb-KI-FHF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="UhU-B8-KlA"/>
+                    <tabBarItem key="tabBarItem" title="Radio" image="radio-antenna.jpg" id="UhU-B8-KlA"/>
                     <navigationItem key="navigationItem" id="RYo-N4-BzU">
                         <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="R8A-qb-cR2">
                             <connections>
@@ -392,7 +392,9 @@
     <resources>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="menu_icon.png" width="1600" height="1333"/>
+        <image name="microphone.png" width="999" height="1665"/>
         <image name="play.png" width="256" height="256"/>
+        <image name="radio-antenna.jpg" width="300" height="300"/>
         <image name="volume_max.png" width="512" height="512"/>
         <image name="volume_min.png" width="512" height="512"/>
     </resources>
@@ -402,6 +404,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wUI-6g-JIO"/>
+        <segue reference="oyu-cH-QKg"/>
     </inferredMetricsTieBreakers>
 </document>
