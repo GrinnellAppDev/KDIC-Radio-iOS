@@ -10,6 +10,6 @@
 
 @implementation Show
 
-@synthesize name, day, start, end, url;
+@synthesize name, day, start, end, url, isPodcast;
 
 @end

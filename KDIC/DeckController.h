@@ -9,5 +9,9 @@
 #import "IIViewDeckController.h"
 
 @interface DeckController : IIViewDeckController
+
+@property (nonatomic, strong) NSString *urlString;
+
 - (IBAction)menuButton:(id)sender;
+
 @end

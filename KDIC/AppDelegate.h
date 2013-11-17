@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "Podcast.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,6 +17,6 @@
 @property (nonatomic, strong) NSString *artistText;
 @property (nonatomic, strong) NSString *songText;
 @property (nonatomic, strong) UIImage *showImage;
-
+@property (nonatomic, strong) Podcast *podcast;
 
 @end

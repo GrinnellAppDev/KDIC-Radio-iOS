@@ -21,12 +21,12 @@
     AppDelegate *appDel;
 }
 
-@synthesize playpause, metaString, volViewParent, songLabel, artistLabel, albumArtView;
+@synthesize playpause, metaString, volViewParent, songLabel, artistLabel, albumArtView, urlString;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-
+    
     // Add the volume slider to the view in the xib
     MPVolumeView *myVolView = [[MPVolumeView alloc] initWithFrame:volViewParent.bounds];
     [volViewParent addSubview:myVolView];
@@ -47,38 +47,49 @@
     [[NSRunLoop mainRunLoop] addTimer:timerTimer forMode:NSRunLoopCommonModes];
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
-    /*
-    UIBarButtonItem *scheduleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleDone target:self action:@selector(menuButton:)];
-    [self.navigationItem setRightBarButtonItem:scheduleButton];*/
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
-
-    if (!self.networkCheck)
-        [self showNoNetworkAlert];
-    else if (MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
-        // HUD
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Loading Stream";
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
-        
-        NSURL *url = [NSURL URLWithString:@"http://kdic.grinnell.edu:8001/kdic128.m3u"];
-        
-        // Create stream using MPMoviePlayerController
-        appDel.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-        appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
-        
-        [appDel.streamMPMoviePlayer prepareToPlay];
-        [appDel.streamMPMoviePlayer play];
-        appDel.streamMPMoviePlayer.shouldAutoplay = YES;
-        
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    }
-    else [self changeIcon];
     
-    [self setLabels];
+    if (self.networkCheck) {
+        BOOL equalURL;
+        if (NULL == urlString || [urlString isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
+            equalURL = TRUE;
+        else equalURL = FALSE;
+    
+        if (!equalURL || MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
+            // HUD
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.labelText = @"Loading Stream";
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
+
+            NSURL *url;
+            if (NULL == urlString)
+                url = appDel.streamMPMoviePlayer.contentURL;
+            else url = [NSURL URLWithString:urlString];
+            
+            // Create stream using MPMoviePlayerController
+            appDel.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+            NSString *temp = [NSString stringWithFormat:@"%@", url];
+            if (NSNotFound != [temp rangeOfString:@"m3u"].location)
+                appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
+            else appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
+
+            [appDel.streamMPMoviePlayer prepareToPlay];
+            [appDel.streamMPMoviePlayer play];
+            appDel.streamMPMoviePlayer.shouldAutoplay = YES;
+            
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        }
+        else [self changeIcon];
+        
+        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
+             [self setLabels];
+        else [self setPodcastLabels];
+             
+    }
+    else [self showNoNetworkAlert];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -212,6 +223,12 @@
     appDel.artistText = artistLabel.text;
     appDel.songText = songLabel.text;
     appDel.showImage = albumArtView.image;
+}
+
+- (void)setPodcastLabels {
+    artistLabel.text = appDel.podcast.title;
+    [albumArtView setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:[UIImage imageNamed:@"iTunesArtwork"]];
+    songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
 }
 
 // Open Schedule

@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, assign) int start;
 @property (nonatomic, assign) int end;
-
+@property (nonatomic, assign) BOOL isPodcast;
 
 @end

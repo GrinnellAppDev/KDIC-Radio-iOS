@@ -201,10 +201,7 @@
         show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"\t\t%@", show.name];
-    cell.textLabel.minimumScaleFactor = .5;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"\t\t%@",[self formatTime:show]];
-    cell.detailTextLabel.minimumScaleFactor = .5;
-    // Configure the cell...
     
     return cell;
 }

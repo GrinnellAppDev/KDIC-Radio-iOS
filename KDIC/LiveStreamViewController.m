@@ -53,8 +53,11 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DeckController *deckVC = (DeckController *)[segue destinationViewController];
-    [deckVC setHidesBottomBarWhenPushed:YES];
+    [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
+    if ([[segue identifier] isEqualToString:@"LiveStream-to-Player"]) {
+        DeckController *deckVC = (DeckController *)[segue destinationViewController];
+        deckVC.urlString = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+    }
 }
 
 #pragma mark - Other methods

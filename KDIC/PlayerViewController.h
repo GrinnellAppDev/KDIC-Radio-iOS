@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *artistLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
 @property (nonatomic, weak) IBOutlet UIView *volViewParent;
+@property (nonatomic, strong) NSString *urlString;
 
 - (IBAction)playPauseButtonTap:(id)sender;
 - (IBAction)menuButton:(id)sender;
@@ -26,6 +27,7 @@
 - (void)streamMeta:(NSNotification *)notification;
 - (void)changeIcon:(NSNotification *)notification;
 - (void)setLabels;
+- (void)setPodcastLabels;
 - (BOOL)networkCheck;
 
 @end
