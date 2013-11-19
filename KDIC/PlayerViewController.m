@@ -27,6 +27,8 @@
     [super viewDidLoad];
     appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    
     // Add the volume slider to the view in the xib
     MPVolumeView *myVolView = [[MPVolumeView alloc] initWithFrame:volViewParent.bounds];
     [volViewParent addSubview:myVolView];
@@ -161,17 +163,17 @@
 
 // Update labels
 - (IBAction)updateLabels:(id)sender {
-    [self.viewDeckController.rightController viewDidLoad];
     [self setLabels];
 }
 
 - (void)setLabels {
-    ScheduleViewController *schedVC = (ScheduleViewController *)self.viewDeckController.rightController;
-    if (NULL != schedVC.currentShow) {
-        songLabel.text = [NSString stringWithFormat:@"Current Show: %@", schedVC.currentShow.name];
-        artistLabel.text = [schedVC formatTime:schedVC.currentShow];
+    ScheduleViewController *schedVC = [[ScheduleViewController alloc] init];
+
+    if (NULL != appDel.currentShow) {
+        songLabel.text = [NSString stringWithFormat:@"Current Show: %@", appDel.currentShow.name];
+        artistLabel.text = [schedVC formatTime:appDel.currentShow];
         @try{
-            NSURL *showURL = schedVC.currentShow.url;
+            NSURL *showURL = appDel.currentShow.url;
             NSString *post =[[NSString alloc] initWithFormat:@""];
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -207,17 +209,8 @@
     }
     else {
         songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
-        UITableViewCell *nextShowCell = [schedVC.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        NSString *timeStr = nextShowCell.detailTextLabel.text;
-        NSRange range = [timeStr rangeOfString:@"M."];
-        range.length += range.location;
-        range.location = 0;
-        timeStr = [timeStr substringWithRange:range];
-        NSString *showName = nextShowCell.textLabel.text;
         
-        showName = [showName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        timeStr = [timeStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", showName, timeStr];
+        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", appDel.nextShow.name, [schedVC formatTime:appDel.nextShow]];
         artistLabel.text = nextShow;
     }
     appDel.artistText = artistLabel.text;
@@ -231,8 +224,4 @@
     songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
 }
 
-// Open Schedule
-- (IBAction)menuButton:(id)sender {
-    [self.viewDeckController toggleRightViewAnimated:YES];
-}
 @end

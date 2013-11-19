@@ -9,8 +9,9 @@
 #import "LiveStreamViewController.h"
 #import "ScheduleViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "DeckController.h"
 #import "AppDelegate.h"
+#import "PodcastViewController.h"
+#import "PlayerViewController.h"
 
 @interface LiveStreamViewController ()
 
@@ -20,7 +21,7 @@
     AppDelegate *appDel;
 }
 
-@synthesize playerVC, albumArtView, artistLabel, songLabel, playButton;
+@synthesize albumArtView, artistLabel, songLabel, playButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,11 +36,6 @@
     appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
-    
-    if (NULL == playerVC) {
-        playerVC = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:Nil];
-        [self performSegueWithIdentifier:@"LiveStream-to-Player" sender:self];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -55,8 +51,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
     if ([[segue identifier] isEqualToString:@"LiveStream-to-Player"]) {
-        DeckController *deckVC = (DeckController *)[segue destinationViewController];
-        deckVC.urlString = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+        PlayerViewController *playerVC = [segue destinationViewController];
+        playerVC.urlString = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
     }
 }
 

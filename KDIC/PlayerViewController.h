@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import <ViewDeck/IIViewDeckController.h>
 
 @interface PlayerViewController : UIViewController
 
@@ -21,7 +20,6 @@
 @property (nonatomic, strong) NSString *urlString;
 
 - (IBAction)playPauseButtonTap:(id)sender;
-- (IBAction)menuButton:(id)sender;
 - (IBAction)updateLabels:(id)sender;
 - (IBAction)triggerTimer:(id)sender;
 - (void)streamMeta:(NSNotification *)notification;
