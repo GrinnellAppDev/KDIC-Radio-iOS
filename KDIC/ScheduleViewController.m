@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ScheduleViewController.h"
 #import "PodcastViewController.h"
+#import "ShowsPodcastsViewController.h"
 #import <Reachability.h>
 
 @interface ScheduleViewController ()
@@ -19,7 +20,7 @@
     AppDelegate *appDel;
 }
 
-@synthesize cellIdentifier, jsonDict, dayBegan, schedFromJSON, playerVC, showArray;
+@synthesize cellIdentifier, jsonDict, dayBegan, schedFromJSON, playerVC, showArray, namesOfPodcasts;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -39,8 +40,8 @@
     cellIdentifier = @"ScheduleCell";
     
     if (self.networkCheck) {
-        [self getSchedule];
         [self getShowsWithPodcasts];
+        [self getSchedule];
         UINavigationController *tempNavC = [[self.tabBarController viewControllers] objectAtIndex:1];
         PodcastViewController *podcastVC = [tempNavC.childViewControllers objectAtIndex:0];
         podcastVC.showArray = showArray;
@@ -99,9 +100,16 @@
     else
         show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
-    if (show.isPodcast)
+    if (show.isPodcast) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    else cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        cell.userInteractionEnabled = YES;
+    }
+    else {
+         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.userInteractionEnabled = YES;
+    }
     
     cell.textLabel.text = show.name;
     cell.detailTextLabel.text = [self formatTime:show];
@@ -109,13 +117,36 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Show *show;
+    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]])
+        show = [[schedFromJSON objectAtIndex:indexPath.section+1] objectAtIndex:indexPath.row];
+    else
+        show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if ([namesOfPodcasts containsObject:show.name])
+        [self performSegueWithIdentifier:@"ShowSelect" sender:self];
+}
+
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"AppOpens"]) {
-        PlayerViewController *playerViewC = [segue destinationViewController];
-        playerViewC.urlString = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+    if ([[segue identifier] isEqualToString:@"ShowSelect"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)[segue destinationViewController];
+        Show *show;
+        if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]])
+            show = [[schedFromJSON objectAtIndex:indexPath.section+1] objectAtIndex:indexPath.row];
+        else
+            show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        showsPVC.show = [showArray objectAtIndex:[namesOfPodcasts indexOfObject:show.name]];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
-    [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
+    else {
+        [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
+        if ([[segue identifier] isEqualToString:@"AppOpens"]) {
+            PlayerViewController *playerViewC = [segue destinationViewController];
+            playerViewC.urlString = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+        }
+    }
 }
 
 #pragma mark UIAlertViewDelegate Methods
@@ -158,6 +189,7 @@
 
 - (void)getShowsWithPodcasts {
     showArray = [[NSMutableArray alloc] init];
+    namesOfPodcasts = [[NSMutableArray alloc] init];
     @try{
         NSString *post =[[NSString alloc] initWithFormat:@""];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -196,7 +228,7 @@
                 show.url = [NSURL URLWithString:showURL];
                 
                 [showArray addObject:show];
-                
+                [namesOfPodcasts addObject:show.name];
                 end = [temp rangeOfString:@"</a></li>"];
                 temp = [temp substringFromIndex:end.location + end.length];
                 start = [temp rangeOfString:@"<a href=\""];
@@ -207,14 +239,6 @@
     @catch (NSException *e) {
         NSLog(@"Error getting image: %@", e);
     }
-    /*
-    for (Show *podShow in showArray) {
-        for (NSMutableArray *day in schedFromJSON) {
-            for (Show *show in day)
-                if ([show.name isEqualToString:podShow.name])
-                show.isPodcast = TRUE;
-        }
-    }*/
 }
 
 - (void)getSchedule {
@@ -265,6 +289,7 @@
             show.url = [NSURL URLWithString:[actualShow objectForKey:@"url"]];
             show.start = [[actualShow objectForKey:@"start_time"] integerValue];
             show.end = [[actualShow objectForKey:@"end_time"] integerValue];
+            show.isPodcast = [namesOfPodcasts containsObject:show.name];
             if (0 == dayInt) {
                 if (show.end <= hour) {
                     dayBegan = YES;
