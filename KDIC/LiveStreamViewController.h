@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlayerViewController.h"
 
 @interface LiveStreamViewController : UIViewController
 
-@property (nonatomic, strong) PlayerViewController *playerVC;
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
 @property (nonatomic, weak) IBOutlet UILabel *songLabel;
 @property (nonatomic, weak) IBOutlet UILabel *artistLabel;

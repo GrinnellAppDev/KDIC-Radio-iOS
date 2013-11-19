@@ -7,9 +7,9 @@
 //
 
 #import "ShowsPodcastsViewController.h"
-#import "DeckController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AppDelegate.h"
+#import "PlayerViewController.h"
 
 @interface ShowsPodcastsViewController ()
 
@@ -130,7 +130,8 @@
     if (NULL != podcast.imageURL)
         [cell.imageView setImageWithURL:[NSURL URLWithString:podcast.imageURL] placeholderImage:[UIImage imageNamed:@"icon-40"]];
     else cell.imageView.image = NULL;
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     return cell;
 }
 
@@ -180,12 +181,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
     if ([[segue identifier] isEqualToString:@"PlayPodcast"]){
-        DeckController *deckVC = [segue destinationViewController];
+        PlayerViewController *playerVC = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Podcast *podcast = [podcastsArray objectAtIndex:indexPath.row];
         AppDelegate *appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
         appDel.podcast = podcast;
-        deckVC.urlString = podcast.streamURL;
+        playerVC.urlString = podcast.streamURL;
     }
 }
 

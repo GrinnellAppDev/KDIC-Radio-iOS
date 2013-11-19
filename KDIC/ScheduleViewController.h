@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerViewController.h"
 #import "Show.h"
 
 @interface ScheduleViewController : UITableViewController
@@ -15,8 +16,12 @@
 @property (nonatomic, strong) NSDictionary *jsonDict;
 @property (nonatomic, assign) BOOL dayBegan;
 @property (nonatomic, strong) NSMutableArray *schedFromJSON;
-@property (nonatomic, strong) Show *currentShow;
+@property (nonatomic, strong) PlayerViewController *playerVC;
+@property (nonatomic, strong) NSMutableArray *showArray;
 
 - (NSString *)formatTime:(Show *)show;
+- (void)setNextShow;
+- (void)getSchedule;
+- (void)getShowsWithPodcasts;
 
 @end

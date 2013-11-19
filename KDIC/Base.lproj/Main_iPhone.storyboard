@@ -4,39 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Deck Controller-->
-        <scene sceneID="pde-71-hRx">
-            <objects>
-                <viewController id="N02-Iw-FFa" customClass="DeckController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hS7-3i-HC4"/>
-                        <viewControllerLayoutGuide type="bottom" id="bZv-KQ-0Yn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ncs-rs-jhK">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3VM-OH-UYL">
-                        <barButtonItem key="rightBarButtonItem" id="iCA-UI-77y">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SQ0-fO-aqH">
-                                <rect key="frame" x="274" y="9" width="30" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" backgroundImage="menu_icon.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="menuButton:" destination="N02-Iw-FFa" eventType="touchUpInside" id="4DX-dB-7cD"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l12-4k-v0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1064" y="342"/>
-        </scene>
         <!--Player View Controller - KDIC Radio-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -114,8 +81,10 @@
                             <constraint firstAttribute="centerX" secondItem="gby-y7-pvw" secondAttribute="centerX" id="5VP-kl-uzt"/>
                             <constraint firstItem="zAU-pw-1E2" firstAttribute="trailing" secondItem="V5q-vm-xr2" secondAttribute="trailing" id="8XC-vq-B3q"/>
                             <constraint firstItem="zAU-pw-1E2" firstAttribute="top" secondItem="V5q-vm-xr2" secondAttribute="bottom" constant="14" id="EBH-6h-hhj"/>
+                            <constraint firstItem="gby-y7-pvw" firstAttribute="top" secondItem="SQ2-Lg-iJE" secondAttribute="bottom" constant="10" id="Ecx-Ap-C6o"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="leading" secondItem="V5q-vm-xr2" secondAttribute="leading" id="Hd1-dH-PiP"/>
                             <constraint firstItem="yiP-zU-kJJ" firstAttribute="leading" secondItem="RH3-U9-Edf" secondAttribute="trailing" id="Iel-N0-AH9"/>
+                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="RHB-13-4TN" secondAttribute="bottom" constant="3" id="JfT-4j-vkP"/>
                             <constraint firstItem="yiP-zU-kJJ" firstAttribute="bottom" secondItem="SIm-ek-lkT" secondAttribute="bottom" id="Oxu-Vm-P39"/>
                             <constraint firstItem="V5q-vm-xr2" firstAttribute="top" secondItem="gby-y7-pvw" secondAttribute="bottom" constant="15" id="QR5-Iq-Pem"/>
                             <constraint firstAttribute="bottom" secondItem="RH3-U9-Edf" secondAttribute="bottom" constant="20" symbolic="YES" id="RAx-OU-drf"/>
@@ -131,14 +100,15 @@
                             <constraint firstAttribute="bottom" secondItem="gby-y7-pvw" secondAttribute="bottom" constant="186" id="oEg-xt-Oo7"/>
                             <constraint firstAttribute="bottom" secondItem="RHB-13-4TN" secondAttribute="bottom" constant="56" id="uRd-Ng-aE6"/>
                             <constraint firstAttribute="trailing" secondItem="yiP-zU-kJJ" secondAttribute="trailing" constant="30" id="vNx-bZ-ZMu"/>
-                            <constraint firstItem="gby-y7-pvw" firstAttribute="top" secondItem="Y3h-EY-oEk" secondAttribute="top" constant="10" id="wjk-Bg-84J"/>
                             <constraint firstAttribute="trailing" secondItem="gby-y7-pvw" secondAttribute="trailing" constant="10" id="xWe-Pu-h9z"/>
                             <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="SIm-ek-lkT" secondAttribute="top" id="yCL-wp-cba"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="leading" secondItem="Y3h-EY-oEk" secondAttribute="leading" constant="10" id="zXy-jd-xRz"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationItem key="navigationItem" id="hMm-ls-5eY"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="albumArtView" destination="gby-y7-pvw" id="4ZT-qb-Qle"/>
                         <outlet property="artistLabel" destination="zAU-pw-1E2" id="NIP-jp-pRx"/>
@@ -150,13 +120,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="342"/>
+            <point key="canvasLocation" x="1114" y="-32"/>
         </scene>
         <!--Navigation Controller - Podcasts-->
         <scene sceneID="WNZ-y6-37V">
             <objects>
                 <navigationController definesPresentationContext="YES" id="hRj-hL-NLd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Podcasts" image="microphone.png" id="qWS-zI-B7u"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" id="qWS-zI-B7u"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xhk-dI-Bim">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -172,7 +142,7 @@
         <!--Podcast View Controller - Podcasts-->
         <scene sceneID="ciq-e5-AZR">
             <objects>
-                <tableViewController id="0ee-hC-ZBb" customClass="PodcastViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PodcastViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0ee-hC-ZBb" customClass="PodcastViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sct-2A-bW1">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,11 +171,11 @@
                             <outlet property="delegate" destination="0ee-hC-ZBb" id="GGW-VS-ZNM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Podcasts" image="microphone.png" id="BcH-Oj-Ib2"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" id="BcH-Oj-Ib2"/>
                     <navigationItem key="navigationItem" id="cTr-d9-J2v">
                         <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="v5N-OV-CZ3">
                             <connections>
-                                <segue destination="N02-Iw-FFa" kind="push" identifier="NowPlayingJump" id="oyu-cH-QKg"/>
+                                <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="ET6-T0-3Rc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -256,22 +226,22 @@
                     <navigationItem key="navigationItem" id="qQi-p6-QBH">
                         <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="5Y8-ij-gfw">
                             <connections>
-                                <segue destination="N02-Iw-FFa" kind="push" identifier="NowPlayingJump" id="wUI-6g-JIO"/>
+                                <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="WQm-8L-oPF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="N02-Iw-FFa" kind="push" identifier="PlayPodcast" id="GhN-fF-0ba"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="PlayPodcast" id="tmn-oM-Hld"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXg-3A-Jgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="532" y="-32"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller - Schedule-->
         <scene sceneID="2XJ-Vw-QOG">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="NC3-k1-2z9" sceneMemberID="viewController">
+                <tabBarController title="Schedule" definesPresentationContext="YES" id="NC3-k1-2z9" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6Yf-gD-ptk">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -279,19 +249,20 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="z6B-dz-HSN" kind="relationship" relationship="viewControllers" id="exf-Ik-o7x"/>
-                        <segue destination="hRj-hL-NLd" kind="relationship" relationship="viewControllers" id="Ant-sz-faQ"/>
+                        <segue destination="ytS-Hz-XWU" kind="relationship" relationship="viewControllers" id="WjH-bU-pXA"/>
+                        <segue destination="hRj-hL-NLd" kind="relationship" relationship="viewControllers" id="NPA-lH-Fj6"/>
+                        <segue destination="z6B-dz-HSN" kind="relationship" relationship="viewControllers" id="WrT-MJ-GEl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dym-ij-h10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-975" y="275"/>
+            <point key="canvasLocation" x="-923" y="-32"/>
         </scene>
         <!--Navigation Controller - Radio-->
         <scene sceneID="RhP-8T-4qW">
             <objects>
                 <navigationController definesPresentationContext="YES" id="z6B-dz-HSN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Radio" image="radio-antenna.jpg" id="vMr-tg-iH7"/>
+                    <tabBarItem key="tabBarItem" title="Radio" id="vMr-tg-iH7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ylh-Rt-CpF">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -328,7 +299,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="N02-Iw-FFa" kind="push" identifier="LiveStream-to-Player" id="Mtk-np-sAP"/>
+                                    <segue destination="vXZ-lx-hvc" kind="push" identifier="LiveStream-to-Player" id="DzJ-yx-KsF"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-rf-QJ4">
@@ -371,11 +342,11 @@
                             <constraint firstItem="G0V-rf-QJ4" firstAttribute="top" secondItem="7EU-Bq-Bb7" secondAttribute="bottom" constant="10" id="ztb-KI-FHF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Radio" image="radio-antenna.jpg" id="UhU-B8-KlA"/>
+                    <tabBarItem key="tabBarItem" title="Radio" id="UhU-B8-KlA"/>
                     <navigationItem key="navigationItem" id="RYo-N4-BzU">
                         <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="R8A-qb-cR2">
                             <connections>
-                                <segue destination="N02-Iw-FFa" kind="push" identifier="NowPlayingJump" id="ok1-52-a2p"/>
+                                <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="FqO-Lm-YMC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -384,14 +355,30 @@
                         <outlet property="artistLabel" destination="USe-sy-jHZ" id="XBV-o7-ZXq"/>
                         <outlet property="playButton" destination="ATg-N1-bno" id="i6g-4l-B22"/>
                         <outlet property="songLabel" destination="O8f-aj-onY" id="BLX-7N-OAV"/>
-                        <segue destination="N02-Iw-FFa" kind="push" identifier="LiveStream-to-Player" id="jPH-L0-VIQ"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="LiveStream-to-Player" id="oVu-L5-DhR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTk-P1-80K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="91" y="609"/>
         </scene>
-        <!--Schedule View Controller-->
+        <!--Navigation Controller - Schedule-->
+        <scene sceneID="la2-Zk-rcG">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="ytS-Hz-XWU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Schedule" id="2Tf-Yi-2Pl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Ag-ED-fHw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="end-Ob-wk3" kind="relationship" relationship="rootViewController" id="2b8-gp-7Yz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZY6-OQ-d27" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-308" y="-652"/>
+        </scene>
+        <!--Schedule View Controller - Schedule-->
         <scene sceneID="39k-qL-tdg">
             <objects>
                 <tableViewController storyboardIdentifier="Schedule" id="end-Ob-wk3" customClass="ScheduleViewController" sceneMemberID="viewController">
@@ -405,19 +392,27 @@
                             <outlet property="delegate" destination="end-Ob-wk3" id="oNU-T7-rky"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Schedule" id="vNI-Yf-yLl"/>
+                    <navigationItem key="navigationItem" id="cIZ-8p-JMY">
+                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="uQN-po-WcQ">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="VnM-Cj-cQT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="AppOpens" id="D78-6K-54M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlU-mg-7zz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="342"/>
+            <point key="canvasLocation" x="91" y="-652"/>
         </scene>
     </scenes>
     <resources>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="icon-40.png" width="40" height="40"/>
-        <image name="menu_icon.png" width="1600" height="1333"/>
-        <image name="microphone.png" width="999" height="1665"/>
         <image name="play.png" width="256" height="256"/>
-        <image name="radio-antenna.jpg" width="300" height="300"/>
         <image name="volume_max.png" width="512" height="512"/>
         <image name="volume_min.png" width="512" height="512"/>
     </resources>
@@ -427,6 +422,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oyu-cH-QKg"/>
+        <segue reference="oVu-L5-DhR"/>
     </inferredMetricsTieBreakers>
 </document>
