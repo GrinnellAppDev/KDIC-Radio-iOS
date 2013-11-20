@@ -71,6 +71,12 @@
                 url = appDel.streamMPMoviePlayer.contentURL;
             else url = [NSURL URLWithString:urlString];
             
+            NSError *err;
+            if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&err])
+                NSLog(@"Audio sessions error %@, %@", err, [err userInfo]);
+            else {
+            [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+            
             // Create stream using MPMoviePlayerController
             appDel.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
             NSString *temp = [NSString stringWithFormat:@"%@", url];
@@ -78,10 +84,11 @@
                 appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
             else appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
 
+
+            appDel.streamMPMoviePlayer.shouldAutoplay = NO;
             [appDel.streamMPMoviePlayer prepareToPlay];
             [appDel.streamMPMoviePlayer play];
-            appDel.streamMPMoviePlayer.shouldAutoplay = YES;
-            
+            }
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
         else [self changeIcon];
@@ -216,6 +223,28 @@
     appDel.artistText = artistLabel.text;
     appDel.songText = songLabel.text;
     appDel.showImage = albumArtView.image;
+    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
+    if (playingInfoCenter) {
+        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:albumArtView.image];
+        [songInfo setObject:songLabel.text forKey:MPMediaItemPropertyTitle];
+        [songInfo setObject:artistLabel.text forKey:MPMediaItemPropertyArtist];
+        [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    }
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            [appDel.streamMPMoviePlayer play];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            [appDel.streamMPMoviePlayer pause];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)setPodcastLabels {

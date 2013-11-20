@@ -50,6 +50,7 @@
 		E1AF813F183744DF00FE4205 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF813E183744DF00FE4205 /* microphone.png */; };
 		E1BF44131828B3D400215B14 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44111828B3D400215B14 /* Default-568h@2x.png */; };
 		E1BF44141828B3D400215B14 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BF44121828B3D400215B14 /* Default@2x.png */; };
+		E1EA56BD183D630F000C1935 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EA56BC183D630F000C1935 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,8 @@
 		E1AF813E183744DF00FE4205 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		E1BF44111828B3D400215B14 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1BF44121828B3D400215B14 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E1EA56BB183D630F000C1935 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E1EA56BC183D630F000C1935 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */,
 				E17B28AA1825F2D60049DC5D /* PlayerViewController.h */,
 				E17B28AB1825F2D60049DC5D /* PlayerViewController.m */,
+				E1EA56BB183D630F000C1935 /* DetailViewController.h */,
+				E1EA56BC183D630F000C1935 /* DetailViewController.m */,
 				E17B28D01825F8E60049DC5D /* Images */,
 				E17B28AD1825F2D60049DC5D /* Images.xcassets */,
 				E17B28991825F2D60049DC5D /* Supporting Files */,
@@ -394,6 +399,7 @@
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
 				E19D85E41832E7E5005A4B32 /* ShowsPodcastsViewController.m in Sources */,
 				E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */,
+				E1EA56BD183D630F000C1935 /* DetailViewController.m in Sources */,
 				E15BCC1A1827095A00D8229B /* Show.m in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
 				E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */,
