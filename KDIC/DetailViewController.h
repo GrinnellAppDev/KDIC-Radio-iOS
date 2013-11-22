@@ -11,6 +11,7 @@
 @interface DetailViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITextView *textView;
+@property (nonatomic, strong) NSString *description;
 
 - (IBAction)done;
 

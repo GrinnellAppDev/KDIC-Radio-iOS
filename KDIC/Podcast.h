@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSString *pageURL;
 @property (nonatomic, strong) NSString *imageURL;
 @property (nonatomic, strong) NSString *show;
+@property (nonatomic, strong) NSString *description;
 
 @end

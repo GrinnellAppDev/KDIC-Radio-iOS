@@ -10,6 +10,6 @@
 
 @implementation Podcast
 
-@synthesize title, streamURL, pageURL, imageURL, show;
+@synthesize title, streamURL, pageURL, imageURL, show, description;
 
 @end
