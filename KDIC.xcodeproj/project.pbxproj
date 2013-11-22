@@ -64,6 +64,8 @@
 		E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */; };
 		E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85DE1832C86C005A4B32 /* PodcastViewController.m */; };
 		E19D85E41832E7E5005A4B32 /* ShowsPodcastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85E31832E7E5005A4B32 /* ShowsPodcastsViewController.m */; };
+		E19F26ED183FC10F0028E064 /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = E19F26EB183FC10F0028E064 /* schedule.png */; };
+		E19F26EE183FC10F0028E064 /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19F26EC183FC10F0028E064 /* schedule@2x.png */; };
 		E1EA56BD183D630F000C1935 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EA56BC183D630F000C1935 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,8 @@
 		E19D85DE1832C86C005A4B32 /* PodcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastViewController.m; sourceTree = "<group>"; };
 		E19D85E21832E7E5005A4B32 /* ShowsPodcastsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowsPodcastsViewController.h; sourceTree = "<group>"; };
 		E19D85E31832E7E5005A4B32 /* ShowsPodcastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsPodcastsViewController.m; sourceTree = "<group>"; };
+		E19F26EB183FC10F0028E064 /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = schedule.png; path = Images.xcassets/TabBarIcons/schedule.png; sourceTree = "<group>"; };
+		E19F26EC183FC10F0028E064 /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "schedule@2x.png"; path = "Images.xcassets/TabBarIcons/schedule@2x.png"; sourceTree = "<group>"; };
 		E1EA56BB183D630F000C1935 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		E1EA56BC183D630F000C1935 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +270,8 @@
 				E17FEC2B183EED510011C2BB /* microphone1@2x.png */,
 				E17FEC2C183EED510011C2BB /* microphone2.png */,
 				E17FEC2D183EED510011C2BB /* microphone2@2x.png */,
+				E19F26EB183FC10F0028E064 /* schedule.png */,
+				E19F26EC183FC10F0028E064 /* schedule@2x.png */,
 			);
 			name = TabBarIcons;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E193F5C3183E0F0F00150BD7 /* icon-58.png in Resources */,
+				E19F26ED183FC10F0028E064 /* schedule.png in Resources */,
 				E17FEC34183EED510011C2BB /* Antenna3.png in Resources */,
 				E193F5C4183E0F0F00150BD7 /* icon-76.png in Resources */,
 				E193F603183E0F8500150BD7 /* volume_max.png in Resources */,
@@ -399,6 +406,7 @@
 				E193F5C6183E0F0F00150BD7 /* icon-120.png in Resources */,
 				E193F5C7183E0F0F00150BD7 /* icon-152.png in Resources */,
 				E193F5FE183E0F8500150BD7 /* menu_icon.png in Resources */,
+				E19F26EE183FC10F0028E064 /* schedule@2x.png in Resources */,
 				E193F5FA183E0F8500150BD7 /* kdic-narrow.png in Resources */,
 				E193F604183E0F8500150BD7 /* volume_min.png in Resources */,
 				E17FEC33183EED510011C2BB /* antenna2@2x.png in Resources */,
