@@ -242,6 +242,7 @@
         NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", appDel.nextShow.name, [schedVC formatTime:appDel.nextShow]];
         artistLabel.text = nextShow;
     }
+    [self updateExternalLabels];
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
@@ -262,6 +263,9 @@
     appDel.artistText = artistLabel.text;
     appDel.songText = songLabel.text;
     appDel.showImage = albumArtView.image;
+    [self updateInfoCenter];
+}
+- (void)updateInfoCenter {
     Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
     if (playingInfoCenter) {
         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
@@ -275,7 +279,7 @@
 - (void)setPodcastLabels {
     artistLabel.text = appDel.podcast.title;
     [albumArtView setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:[UIImage imageNamed:@"iTunesArtwork"] completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
-        [self updateExternalLabels];
+        [self updateInfoCenter];
     }];
     songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
 }
