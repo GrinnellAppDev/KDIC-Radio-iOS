@@ -152,7 +152,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hMm-ls-5eY">
-                        <barButtonItem key="rightBarButtonItem" title="More" id="fVd-jb-uBN">
+                        <barButtonItem key="rightBarButtonItem" image="infoButton.png" id="fVd-jb-uBN">
                             <connections>
                                 <segue destination="z33-8w-N9D" kind="modal" identifier="ViewDetails" modalTransitionStyle="coverVertical" id="jXs-W6-ECl"/>
                             </connections>
@@ -177,7 +177,7 @@
         <scene sceneID="WNZ-y6-37V">
             <objects>
                 <navigationController definesPresentationContext="YES" id="hRj-hL-NLd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Podcasts" image="mic.jpg" id="qWS-zI-B7u"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" image="microphone2.png" id="qWS-zI-B7u"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xhk-dI-Bim">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -222,9 +222,9 @@
                             <outlet property="delegate" destination="0ee-hC-ZBb" id="GGW-VS-ZNM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Podcasts" id="BcH-Oj-Ib2"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" image="microphone2.png" id="BcH-Oj-Ib2"/>
                     <navigationItem key="navigationItem" id="cTr-d9-J2v">
-                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="v5N-OV-CZ3">
+                        <barButtonItem key="rightBarButtonItem" image="nowPlaying.png" id="v5N-OV-CZ3">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="ET6-T0-3Rc"/>
                             </connections>
@@ -275,7 +275,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="qQi-p6-QBH">
-                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="5Y8-ij-gfw">
+                        <barButtonItem key="rightBarButtonItem" image="nowPlaying.png" id="5Y8-ij-gfw">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="WQm-8L-oPF"/>
                             </connections>
@@ -313,7 +313,7 @@
         <scene sceneID="RhP-8T-4qW">
             <objects>
                 <navigationController definesPresentationContext="YES" id="z6B-dz-HSN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Radio" image="radio-antenna.jpg" id="vMr-tg-iH7"/>
+                    <tabBarItem key="tabBarItem" title="Radio" image="antenna2.png" id="vMr-tg-iH7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ylh-Rt-CpF">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -395,7 +395,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Radio" id="UhU-B8-KlA"/>
                     <navigationItem key="navigationItem" id="RYo-N4-BzU">
-                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="R8A-qb-cR2">
+                        <barButtonItem key="rightBarButtonItem" image="nowPlaying.png" id="R8A-qb-cR2">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="FqO-Lm-YMC"/>
                             </connections>
@@ -445,7 +445,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Schedule" id="vNI-Yf-yLl"/>
                     <navigationItem key="navigationItem" id="cIZ-8p-JMY">
-                        <barButtonItem key="rightBarButtonItem" title="Now Playing >" id="uQN-po-WcQ">
+                        <barButtonItem key="rightBarButtonItem" image="nowPlaying.png" id="uQN-po-WcQ">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" identifier="NowPlayingJump" id="VnM-Cj-cQT"/>
                             </connections>
@@ -462,13 +462,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iTunesArtwork.png" width="512" height="512"/>
+        <image name="antenna2.png" width="26" height="30"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="icon-40.png" width="40" height="40"/>
-        <image name="mic.jpg" width="18" height="30"/>
+        <image name="infoButton.png" width="30" height="30"/>
+        <image name="microphone2.png" width="30" height="30"/>
+        <image name="nowPlaying.png" width="60" height="30"/>
         <image name="play.png" width="256" height="256"/>
-        <image name="play.png" width="256" height="256"/>
-        <image name="radio-antenna.jpg" width="26" height="30"/>
         <image name="volume_max.png" width="512" height="512"/>
         <image name="volume_min.png" width="512" height="512"/>
     </resources>
@@ -478,7 +478,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ET6-T0-3Rc"/>
+        <segue reference="oVu-L5-DhR"/>
         <segue reference="NOq-nw-ovA"/>
     </inferredMetricsTieBreakers>
 </document>

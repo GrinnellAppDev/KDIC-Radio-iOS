@@ -206,7 +206,9 @@
                     NSString *imgURLString = [responseData substringWithRange:start];
                     NSURL *imgURL = [NSURL URLWithString:imgURLString];
                     albumArtView.contentMode = UIViewContentModeScaleAspectFit;
-                    [albumArtView setImageWithURL:imgURL placeholderImage:nil];
+                    [albumArtView setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"iTunesArtwork"]completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
+                        [self updateExternalLabels];
+                    }];
                 }
             }
         }
@@ -219,18 +221,6 @@
         
         NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", appDel.nextShow.name, [schedVC formatTime:appDel.nextShow]];
         artistLabel.text = nextShow;
-    }
-    appDel.artistText = artistLabel.text;
-    appDel.songText = songLabel.text;
-    appDel.showImage = albumArtView.image;
-    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
-    if (playingInfoCenter) {
-        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
-        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:albumArtView.image];
-        [songInfo setObject:songLabel.text forKey:MPMediaItemPropertyTitle];
-        [songInfo setObject:artistLabel.text forKey:MPMediaItemPropertyArtist];
-        [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
-        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
     }
 }
 
@@ -247,9 +237,26 @@
     }
 }
 
+// Updates the information in the app delegate and the info center (remote control)
+- (void)updateExternalLabels {
+    appDel.artistText = artistLabel.text;
+    appDel.songText = songLabel.text;
+    appDel.showImage = albumArtView.image;
+    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
+    if (playingInfoCenter) {
+        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:albumArtView.image];
+        [songInfo setObject:songLabel.text forKey:MPMediaItemPropertyTitle];
+        [songInfo setObject:artistLabel.text forKey:MPMediaItemPropertyArtist];
+        [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    }
+}
 - (void)setPodcastLabels {
     artistLabel.text = appDel.podcast.title;
-    [albumArtView setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:[UIImage imageNamed:@"iTunesArtwork"]];
+    [albumArtView setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:[UIImage imageNamed:@"iTunesArtwork"] completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
+        [self updateExternalLabels];
+    }];
     songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
 }
 
