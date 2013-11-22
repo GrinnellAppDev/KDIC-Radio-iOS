@@ -177,7 +177,7 @@
         <scene sceneID="WNZ-y6-37V">
             <objects>
                 <navigationController definesPresentationContext="YES" id="hRj-hL-NLd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Podcasts" id="qWS-zI-B7u"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" image="mic.jpg" id="qWS-zI-B7u"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xhk-dI-Bim">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -243,12 +243,12 @@
             <objects>
                 <tableViewController id="sQo-07-THK" customClass="ShowsPodcastsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WPC-3Z-120">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PodcastCell" textLabel="QSq-BS-8Ju" imageView="Xkd-dM-TvG" style="IBUITableViewCellStyleDefault" id="H3r-p4-hg2">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H3r-p4-hg2" id="07R-Cm-vzN">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -313,7 +313,7 @@
         <scene sceneID="RhP-8T-4qW">
             <objects>
                 <navigationController definesPresentationContext="YES" id="z6B-dz-HSN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Radio" id="vMr-tg-iH7"/>
+                    <tabBarItem key="tabBarItem" title="Radio" image="radio-antenna.jpg" id="vMr-tg-iH7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ylh-Rt-CpF">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -463,8 +463,12 @@
     </scenes>
     <resources>
         <image name="iTunesArtwork.png" width="512" height="512"/>
+        <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="icon-40.png" width="40" height="40"/>
+        <image name="mic.jpg" width="18" height="30"/>
         <image name="play.png" width="256" height="256"/>
+        <image name="play.png" width="256" height="256"/>
+        <image name="radio-antenna.jpg" width="26" height="30"/>
         <image name="volume_max.png" width="512" height="512"/>
         <image name="volume_min.png" width="512" height="512"/>
     </resources>
@@ -474,7 +478,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZOV-Qw-rxu"/>
-        <segue reference="VnM-Cj-cQT"/>
+        <segue reference="ET6-T0-3Rc"/>
+        <segue reference="NOq-nw-ovA"/>
     </inferredMetricsTieBreakers>
 </document>

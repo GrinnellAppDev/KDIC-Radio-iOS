@@ -28,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    UITabBarItem *item = self.tabBarItem;
+    item.image = [UIImage imageNamed:@"mic-30.jpg"];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
 }
 
