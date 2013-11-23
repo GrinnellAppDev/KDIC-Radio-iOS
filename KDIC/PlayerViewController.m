@@ -135,9 +135,9 @@
     if ([[segue identifier] isEqualToString:@"ViewDetails"]) {
         DetailViewController *detailVC = [segue destinationViewController];
         if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
-            detailVC.description = appDel.currentShow.description;
+            detailVC.description = [NSString stringWithFormat:@"%@\n%@", appDel.currentShow.name, appDel.currentShow.description];
         else
-            detailVC.description = appDel.podcast.description;
+            detailVC.description = [NSString stringWithFormat:@"%@\n%@\n\n%@", appDel.podcast.show, appDel.podcast.title, appDel.podcast.description];
     }
 }
 
@@ -146,7 +146,7 @@
         MPTimedMetadata *meta = [[appDel.streamMPMoviePlayer timedMetadata] firstObject];
         metaString = meta.value;
     }
-    NSLog(@"%@", metaString);
+    //NSLog(@"%@", metaString);
 }
 
 // Change play/pause button when playback state changes
@@ -176,7 +176,7 @@
     // Set up screen updates on the hour
     NSTimer *timer = [NSTimer timerWithTimeInterval:3600.0f target:self selector:@selector(updateLabels:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    [self updateLabels:sender];
+    [self setLabels];
 }
 
 // Update labels
@@ -214,6 +214,11 @@
                     NSString *description = [responseData substringFromIndex:start.location + start.length];
                     start = [description rangeOfString:@"' />"];
                     description = [description substringToIndex:start.location];
+                    description = [description stringByReplacingOccurrencesOfString:@"CST." withString:@"CST"];
+                    description = [description stringByReplacingOccurrencesOfString:@"CDT." withString:@"CDT"];
+                    description = [description stringByReplacingOccurrencesOfString:@"CST" withString:@"CST\n\n"];
+                    description = [description stringByReplacingOccurrencesOfString:@"CDT" withString:@"CDT\n\n"];
+
                     appDel.currentShow.description = description;
                 }
                 

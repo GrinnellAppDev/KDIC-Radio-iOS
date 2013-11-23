@@ -167,6 +167,8 @@
                 if (NSNotFound != range.location)
                     description = [description substringToIndex:range.location];
                 description = [description stringByReplacingOccurrencesOfString:@"&#039;" withString:@"'"];
+                description = [description stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+
                 podcast.description = description;
             }
             

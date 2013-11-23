@@ -51,6 +51,15 @@
         }
     }
     else [self showNoNetworkAlert];
+    
+    // Set up screen update timer
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [cal components:NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
+    NSUInteger second = [comps second];
+    second += [comps minute] * 60;
+    second = 3600 - second;
+    NSTimer *timerTimer = [NSTimer timerWithTimeInterval:second target:self selector:@selector(triggerTimer:) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timerTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -259,6 +268,8 @@
     NSUInteger hour = [comps hour];
     schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", nil];
     
+    appDel.currentShow = NULL;
+    
     NSDictionary *sched = jsonDict;
     for (NSString *day in sched) {
         NSArray *showsInDay = [sched objectForKey:day];
@@ -358,6 +369,18 @@
     else
         show = [[schedFromJSON objectAtIndex:0] objectAtIndex:0];
     appDel.nextShow = show;
+}
+
+- (IBAction)triggerTimer:(id)sender {
+    // Set up screen updates on the hour
+    NSTimer *timer = [NSTimer timerWithTimeInterval:3600.0f target:self selector:@selector(updateSchedule:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [self updateSchedule:sender];
+}
+
+- (void) updateSchedule:(id)sender {
+    [self getSchedule];
+    [self reloadInputViews];
 }
 
 @end
