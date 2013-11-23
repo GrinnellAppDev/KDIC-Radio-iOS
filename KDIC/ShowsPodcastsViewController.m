@@ -158,7 +158,19 @@
         if([response statusCode] >= 200 && [response statusCode] < 300){
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
             
-            NSRange range = [responseData rangeOfString:@"<a href=\"https://dl.dropbox" options:NSCaseInsensitiveSearch];
+            NSRange range = [responseData rangeOfString:@"<meta property='og:description' content='" options:NSCaseInsensitiveSearch];
+            if (NSNotFound != range.location) {
+                NSString *description = [responseData substringFromIndex:range.location + range.length];
+                range = [description rangeOfString:@"' />"];
+                description = [description substringToIndex:range.location];
+                range = [description rangeOfString:@"Audio clip: Adobe"];
+                if (NSNotFound != range.location)
+                    description = [description substringToIndex:range.location];
+                description = [description stringByReplacingOccurrencesOfString:@"&#039;" withString:@"'"];
+                podcast.description = description;
+            }
+            
+            range = [responseData rangeOfString:@"<a href=\"https://dl.dropbox" options:NSCaseInsensitiveSearch];
             if (NSNotFound != range.location) {
                 NSString *temp = [responseData substringFromIndex:range.location];
                 temp = [temp substringFromIndex:@"<a href=\"".length];

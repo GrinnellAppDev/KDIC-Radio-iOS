@@ -210,16 +210,15 @@
             if([response statusCode] >= 200 && [response statusCode] < 300){
                 NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
                 NSRange start = [responseData rangeOfString:@"<meta property='og:description' content='" options:NSCaseInsensitiveSearch];
-                NSRange end;
                 if (NSNotFound != start.location) {
                     NSString *description = [responseData substringFromIndex:start.location + start.length];
-                    end = [description rangeOfString:@"' />"];
-                    description = [description substringToIndex:end.location];
+                    start = [description rangeOfString:@"' />"];
+                    description = [description substringToIndex:start.location];
                     appDel.currentShow.description = description;
                 }
                 
                 start = [responseData rangeOfString:@"<meta property='og:image' content='" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
-                end = [responseData rangeOfString:@"<link rel='image_src" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
+                NSRange end = [responseData rangeOfString:@"<link rel='image_src" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
                 if (NSNotFound != start.location && NSNotFound != end.location) {
                     start.location += start.length;
                     start.length = end.location - start.location - 5;
