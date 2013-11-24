@@ -98,7 +98,7 @@
                     temp = [temp substringFromIndex:start.location + start.length];
             }
         }
-        else NSLog(@"Error: Response Code is %d", [response statusCode]);
+        else NSLog(@"Error: Response Code is %ld", (long)[response statusCode]);
     }
     @catch (NSException *e) {
         NSLog(@"Error getting image: %@", e);
@@ -184,7 +184,7 @@
                 podcast.streamURL = temp;
             }
         }
-        else NSLog(@"Error: Response Code is %d", [response statusCode]);
+        else NSLog(@"Error: Response Code is %ld", (long)[response statusCode]);
     }
     @catch (NSException *e) {
         NSLog(@"Error getting image: %@", e);

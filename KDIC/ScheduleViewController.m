@@ -247,7 +247,7 @@
                 start = [temp rangeOfString:@"<a href=\""];
             }
         }
-        else NSLog(@"Error: Response Code is %d", [response statusCode]);
+        else NSLog(@"Error: Response Code is %ld", (long)[response statusCode]);
     }
     @catch (NSException *e) {
         NSLog(@"Error getting image: %@", e);
