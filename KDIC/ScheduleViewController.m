@@ -10,6 +10,7 @@
 #import "ScheduleViewController.h"
 #import "PodcastViewController.h"
 #import "ShowsPodcastsViewController.h"
+#import "HTMLStringParser.h"
 #import <Reachability.h>
 
 @interface ScheduleViewController ()
@@ -226,7 +227,10 @@
                 NSString *showString = [temp substringFromIndex:start.location + start.length];
                 end = [showString rangeOfString:@"</a></li>"];
                 showString = [showString substringToIndex:end.location];
-                showString = [showString stringByReplacingOccurrencesOfString:@"&#8217;" withString:@"'"];
+                
+                HTMLStringParser *sp = [[HTMLStringParser alloc] init];
+                showString = [sp removeHTMLTags:showString];
+                
                 start = [showString rangeOfString:@"\">"];
                 
                 NSString *showURL = [showString substringToIndex:start.location];

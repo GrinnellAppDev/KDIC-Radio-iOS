@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A5F85617935432FB861732B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B21DEFC0E4BB592DF5647 /* libPods.a */; };
 		E15BCC1A1827095A00D8229B /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = E15BCC191827095A00D8229B /* Show.m */; };
+		E17326601842849A00F6E756 /* HTMLStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E173265F1842849A00F6E756 /* HTMLStringParser.m */; };
 		E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28921825F2D60049DC5D /* Foundation.framework */; };
 		E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28941825F2D60049DC5D /* CoreGraphics.framework */; };
 		E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28961825F2D60049DC5D /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 		75A241971BA2429897F82E24 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E15BCC181827095A00D8229B /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
 		E15BCC191827095A00D8229B /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
+		E173265E1842849A00F6E756 /* HTMLStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLStringParser.h; sourceTree = "<group>"; };
+		E173265F1842849A00F6E756 /* HTMLStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLStringParser.m; sourceTree = "<group>"; };
 		E17B288F1825F2D60049DC5D /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17B28921825F2D60049DC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E17B28941825F2D60049DC5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -281,6 +284,8 @@
 			children = (
 				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
+				E173265E1842849A00F6E756 /* HTMLStringParser.h */,
+				E173265F1842849A00F6E756 /* HTMLStringParser.m */,
 				E19B54EF18395E600056E6DB /* Podcast.h */,
 				E19B54F018395E600056E6DB /* Podcast.m */,
 				E1929425183025520008CB8A /* schedule.json */,
@@ -471,6 +476,7 @@
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
 				E19D85E41832E7E5005A4B32 /* ShowsPodcastsViewController.m in Sources */,
 				E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */,
+				E17326601842849A00F6E756 /* HTMLStringParser.m in Sources */,
 				E1EA56BD183D630F000C1935 /* DetailViewController.m in Sources */,
 				E15BCC1A1827095A00D8229B /* Show.m in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,

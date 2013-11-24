@@ -309,11 +309,11 @@
             </objects>
             <point key="canvasLocation" x="-923" y="-32"/>
         </scene>
-        <!--Navigation Controller - Radio-->
+        <!--Navigation Controller - Live Stream-->
         <scene sceneID="RhP-8T-4qW">
             <objects>
                 <navigationController definesPresentationContext="YES" id="z6B-dz-HSN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Radio" image="antenna2.png" id="vMr-tg-iH7"/>
+                    <tabBarItem key="tabBarItem" title="Live Stream" image="antenna2.png" id="vMr-tg-iH7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ylh-Rt-CpF">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -326,7 +326,7 @@
             </objects>
             <point key="canvasLocation" x="-300" y="609"/>
         </scene>
-        <!--Live Stream View Controller - Radio-->
+        <!--Live Stream View Controller - Live Stream-->
         <scene sceneID="x2v-zH-Wht">
             <objects>
                 <viewController id="hSR-9M-f9e" customClass="LiveStreamViewController" sceneMemberID="viewController">
@@ -393,7 +393,7 @@
                             <constraint firstItem="G0V-rf-QJ4" firstAttribute="top" secondItem="7EU-Bq-Bb7" secondAttribute="bottom" constant="10" id="ztb-KI-FHF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Radio" id="UhU-B8-KlA"/>
+                    <tabBarItem key="tabBarItem" title="Live Stream" image="antenna2.png" id="UhU-B8-KlA"/>
                     <navigationItem key="navigationItem" id="RYo-N4-BzU">
                         <barButtonItem key="rightBarButtonItem" image="nowPlaying.png" id="R8A-qb-cR2">
                             <connections>
@@ -479,7 +479,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VnM-Cj-cQT"/>
+        <segue reference="oVu-L5-DhR"/>
         <segue reference="ZOV-Qw-rxu"/>
     </inferredMetricsTieBreakers>
 </document>

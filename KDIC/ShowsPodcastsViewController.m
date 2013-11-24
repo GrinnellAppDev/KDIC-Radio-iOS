@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AppDelegate.h"
 #import "PlayerViewController.h"
+#import "HTMLStringParser.h"
 
 @interface ShowsPodcastsViewController ()
 
@@ -62,8 +63,9 @@
                 NSString *podcastString = [temp substringFromIndex:start.location + start.length];
                 NSRange end = [podcastString rangeOfString:@"</a>" options:NSCaseInsensitiveSearch];
                 podcastString = [podcastString substringToIndex:end.location];
-                podcastString = [podcastString stringByReplacingOccurrencesOfString:@"&#8217;" withString:@"'"];
-                podcastString = [podcastString stringByReplacingOccurrencesOfString:@"&#8211;" withString:@"-"];
+                
+                HTMLStringParser *sp = [[HTMLStringParser alloc] init];
+                podcastString = [sp removeHTMLTags:podcastString];
 
                 start = [podcastString rangeOfString:@"\">"];
                 NSString *pageURL = [podcastString substringToIndex:start.location];
@@ -166,8 +168,9 @@
                 range = [description rangeOfString:@"Audio clip: Adobe"];
                 if (NSNotFound != range.location)
                     description = [description substringToIndex:range.location];
-                description = [description stringByReplacingOccurrencesOfString:@"&#039;" withString:@"'"];
-                description = [description stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+                
+                HTMLStringParser *sp = [[HTMLStringParser alloc] init];
+                description = [sp removeHTMLTags:description];
 
                 podcast.description = description;
             }

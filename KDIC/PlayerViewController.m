@@ -13,6 +13,7 @@
 #import "ScheduleViewController.h"
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "HTMLStringParser.h"
 
 @interface PlayerViewController ()
 
@@ -134,8 +135,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ViewDetails"]) {
         DetailViewController *detailVC = [segue destinationViewController];
-        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
-            detailVC.description = [NSString stringWithFormat:@"%@\n%@", appDel.currentShow.name, appDel.currentShow.description];
+        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]]) {
+            if (NULL == appDel.currentShow)
+                detailVC.description = [self getKDICDescription];
+            else detailVC.description = [NSString stringWithFormat:@"%@\n%@", appDel.currentShow.name, appDel.currentShow.description];
+        }
         else
             detailVC.description = [NSString stringWithFormat:@"%@\n%@\n\n%@", appDel.podcast.show, appDel.podcast.title, appDel.podcast.description];
     }
@@ -286,6 +290,46 @@
         [self updateInfoCenter];
     }];
     songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
+}
+
+- (NSString *)getKDICDescription {
+    @try{
+        NSURL *URL = [NSURL URLWithString:@"http://kdic.grinnell.edu/about-us/"];
+        NSString *post =[[NSString alloc] initWithFormat:@""];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:URL];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/html" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if([response statusCode] >= 200 && [response statusCode] < 300){
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            
+            NSRange start = [responseData rangeOfString:@"<h1>About</h1>" options:NSCaseInsensitiveSearch];
+            if (NSNotFound != start.location) {
+                NSString *description = [responseData substringFromIndex:start.location + start.length];
+                start = [description rangeOfString:@"If you&#"];
+                description = [description substringToIndex:start.location];
+                
+                HTMLStringParser *sp = [[HTMLStringParser alloc] init];
+                description = [sp removeHTMLTags:description];
+
+                return description;
+            }
+        }
+    }
+    @catch (NSException *e) {
+        NSLog(@"Error getting image: %@", e);
+    }
+    return NULL;
 }
 
 @end
