@@ -23,7 +23,7 @@
     AppDelegate *appDel;
 }
 
-@synthesize playpause, metaString, volViewParent, songLabel, artistLabel, albumArtView, urlString;
+@synthesize playpause, metaString, volViewParent, songLabel, artistLabel, albumArtView, urlString, ff, rw;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,9 +82,16 @@
                 // Create stream using MPMoviePlayerController
                 appDel.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
                 NSString *temp = [NSString stringWithFormat:@"%@", url];
-                if (NSNotFound != [temp rangeOfString:@"m3u"].location)
+                if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
                     appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
-                else appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
+                    rw.hidden = YES;
+                    ff.hidden = YES;
+                }
+                else {
+                    appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
+                    rw.hidden = NO;
+                    ff.hidden = NO;
+                }
                 
                 appDel.streamMPMoviePlayer.shouldAutoplay = NO;
                 [appDel.streamMPMoviePlayer prepareToPlay];
@@ -168,6 +175,17 @@
         [playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
 }
 
+- (IBAction)seekingButtonHeld:(id)sender {
+    if ([sender tag] == [ff tag])
+        [appDel.streamMPMoviePlayer beginSeekingForward];
+    else
+        [appDel.streamMPMoviePlayer beginSeekingBackward];
+}
+
+- (IBAction)seekingButtonReleased:(id)sender {
+    [appDel.streamMPMoviePlayer endSeeking];
+}
+
 - (IBAction)playPauseButtonTap:(id)sender {
     // Note: Button gets changed by changeIcon (called because the playback state changes)
     if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
@@ -222,7 +240,7 @@
                     description = [description stringByReplacingOccurrencesOfString:@"CDT." withString:@"CDT"];
                     description = [description stringByReplacingOccurrencesOfString:@"CST" withString:@"CST\n\n"];
                     description = [description stringByReplacingOccurrencesOfString:@"CDT" withString:@"CDT\n\n"];
-
+                    
                     appDel.currentShow.description = description;
                 }
                 
@@ -254,16 +272,40 @@
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    switch (event.subtype) {
-        case UIEventSubtypeRemoteControlPlay:
-            [appDel.streamMPMoviePlayer play];
-            break;
-        case UIEventSubtypeRemoteControlPause:
-            [appDel.streamMPMoviePlayer pause];
-            break;
-        default:
-            break;
-    }
+    if (MPMovieSourceTypeStreaming == appDel.streamMPMoviePlayer.movieSourceType)
+        switch (event.subtype) {
+            case UIEventSubtypeRemoteControlPlay:
+                [appDel.streamMPMoviePlayer play];
+                break;
+            case UIEventSubtypeRemoteControlPause:
+                [appDel.streamMPMoviePlayer pause];
+                break;
+            default:
+                break;
+        }
+    else
+        switch (event.subtype) {
+            case UIEventSubtypeRemoteControlPlay:
+                [appDel.streamMPMoviePlayer play];
+                break;
+            case UIEventSubtypeRemoteControlPause:
+                [appDel.streamMPMoviePlayer pause];
+                break;
+            case UIEventSubtypeRemoteControlBeginSeekingBackward:
+                [appDel.streamMPMoviePlayer beginSeekingBackward];
+                break;
+            case UIEventSubtypeRemoteControlEndSeekingBackward:
+                [appDel.streamMPMoviePlayer endSeeking];
+                break;
+            case UIEventSubtypeRemoteControlBeginSeekingForward:
+                [appDel.streamMPMoviePlayer beginSeekingForward];
+                break;
+            case UIEventSubtypeRemoteControlEndSeekingForward:
+                [appDel.streamMPMoviePlayer endSeeking];
+                break;
+            default:
+                break;
+        }
 }
 
 // Updates the information in the app delegate and the info center (remote control)
@@ -290,6 +332,7 @@
         [self updateInfoCenter];
     }];
     songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
+    [self updateExternalLabels];
 }
 
 - (NSString *)getKDICDescription {
@@ -321,7 +364,7 @@
                 
                 HTMLStringParser *sp = [[HTMLStringParser alloc] init];
                 description = [sp removeHTMLTags:description];
-
+                
                 return description;
             }
         }

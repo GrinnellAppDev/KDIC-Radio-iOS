@@ -64,16 +64,45 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHB-13-4TN">
                                 <rect key="frame" x="135" y="310" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Pyr-CX-Fh8"/>
-                                    <constraint firstAttribute="height" constant="50" id="Vo9-Jx-xUV"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Button" image="play.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playPauseButtonTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="b3o-Kh-V6v"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" tag="3000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSP-H2-kKg">
+                                <rect key="frame" x="193" y="315" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Button" image="fast-forward.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="seekingButtonHeld:" destination="vXZ-lx-hvc" eventType="touchDown" id="fFE-fW-RAo"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6oH-cs-cQK"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="7q2-Ox-kRn"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchDragOutside" id="cU5-L0-RVM"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="pXn-GB-6HV"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbV-gp-BDA">
+                                <rect key="frame" x="87" y="315" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ogK-F9-Pvx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Button" image="rewind.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="seekingButtonHeld:" destination="vXZ-lx-hvc" eventType="touchDown" id="eUi-NG-GhG"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchDragOutside" id="AnH-JO-gH0"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="duf-cS-2TH"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="i3F-97-E8l"/>
+                                    <action selector="seekingButtonReleased:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="lKa-fR-g4s"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="gby-y7-pvw">
@@ -123,31 +152,38 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="RHB-13-4TN" firstAttribute="centerY" secondItem="gbV-gp-BDA" secondAttribute="centerY" id="270-fo-glR"/>
                             <constraint firstAttribute="centerX" secondItem="gby-y7-pvw" secondAttribute="centerX" id="5VP-kl-uzt"/>
                             <constraint firstItem="zAU-pw-1E2" firstAttribute="trailing" secondItem="V5q-vm-xr2" secondAttribute="trailing" id="8XC-vq-B3q"/>
+                            <constraint firstItem="pSP-H2-kKg" firstAttribute="top" secondItem="gbV-gp-BDA" secondAttribute="top" id="B5b-V1-UbM"/>
                             <constraint firstItem="zAU-pw-1E2" firstAttribute="top" secondItem="V5q-vm-xr2" secondAttribute="bottom" constant="14" id="EBH-6h-hhj"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="top" secondItem="SQ2-Lg-iJE" secondAttribute="bottom" constant="10" id="Ecx-Ap-C6o"/>
+                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="gbV-gp-BDA" secondAttribute="bottom" constant="8" symbolic="YES" id="HU7-9o-cNj"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="leading" secondItem="V5q-vm-xr2" secondAttribute="leading" id="Hd1-dH-PiP"/>
                             <constraint firstItem="yiP-zU-kJJ" firstAttribute="leading" secondItem="RH3-U9-Edf" secondAttribute="trailing" id="Iel-N0-AH9"/>
-                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="RHB-13-4TN" secondAttribute="bottom" constant="3" id="JfT-4j-vkP"/>
+                            <constraint firstItem="pSP-H2-kKg" firstAttribute="leading" secondItem="RHB-13-4TN" secondAttribute="trailing" constant="8" symbolic="YES" id="KDS-WD-wHv"/>
                             <constraint firstItem="yiP-zU-kJJ" firstAttribute="bottom" secondItem="SIm-ek-lkT" secondAttribute="bottom" id="Oxu-Vm-P39"/>
+                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="RHB-13-4TN" secondAttribute="bottom" constant="3" id="PwA-6x-UsI"/>
+                            <constraint firstItem="gbV-gp-BDA" firstAttribute="leading" secondItem="Y3h-EY-oEk" secondAttribute="leading" constant="87" id="QR1-iq-aeQ"/>
                             <constraint firstItem="V5q-vm-xr2" firstAttribute="top" secondItem="gby-y7-pvw" secondAttribute="bottom" constant="15" id="QR5-Iq-Pem"/>
                             <constraint firstAttribute="bottom" secondItem="RH3-U9-Edf" secondAttribute="bottom" constant="20" symbolic="YES" id="RAx-OU-drf"/>
-                            <constraint firstItem="RH3-U9-Edf" firstAttribute="centerX" secondItem="RHB-13-4TN" secondAttribute="centerX" id="RZa-go-6Pa"/>
                             <constraint firstItem="SIm-ek-lkT" firstAttribute="leading" secondItem="Y3h-EY-oEk" secondAttribute="leading" constant="30" id="VbD-UN-rMt"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="trailing" secondItem="V5q-vm-xr2" secondAttribute="trailing" id="YPZ-AN-DPm"/>
-                            <constraint firstItem="zAU-pw-1E2" firstAttribute="centerX" secondItem="RHB-13-4TN" secondAttribute="centerX" id="Z0D-HQ-7VZ"/>
                             <constraint firstItem="ZzD-Lk-kI9" firstAttribute="top" secondItem="SIm-ek-lkT" secondAttribute="bottom" constant="28" id="d1j-1V-tHL"/>
                             <constraint firstItem="RH3-U9-Edf" firstAttribute="leading" secondItem="SIm-ek-lkT" secondAttribute="trailing" id="dDw-lS-JBS"/>
+                            <constraint firstAttribute="trailing" secondItem="pSP-H2-kKg" secondAttribute="trailing" constant="87" id="eE7-3D-7gS"/>
+                            <constraint firstItem="RHB-13-4TN" firstAttribute="top" secondItem="zAU-pw-1E2" secondAttribute="bottom" constant="9" id="hxC-HD-5Fh"/>
                             <constraint firstItem="V5q-vm-xr2" firstAttribute="leading" secondItem="zAU-pw-1E2" secondAttribute="leading" id="jTu-YA-HTT"/>
+                            <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="pSP-H2-kKg" secondAttribute="bottom" constant="8" symbolic="YES" id="mmM-Az-Jom"/>
                             <constraint firstAttribute="bottom" secondItem="zAU-pw-1E2" secondAttribute="bottom" constant="115" id="nea-wc-DhZ"/>
                             <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="yiP-zU-kJJ" secondAttribute="top" id="o99-VC-TFM"/>
                             <constraint firstAttribute="bottom" secondItem="gby-y7-pvw" secondAttribute="bottom" constant="186" id="oEg-xt-Oo7"/>
-                            <constraint firstAttribute="bottom" secondItem="RHB-13-4TN" secondAttribute="bottom" constant="56" id="uRd-Ng-aE6"/>
+                            <constraint firstItem="RHB-13-4TN" firstAttribute="centerX" secondItem="zAU-pw-1E2" secondAttribute="centerX" id="v0o-ym-sha"/>
                             <constraint firstAttribute="trailing" secondItem="yiP-zU-kJJ" secondAttribute="trailing" constant="30" id="vNx-bZ-ZMu"/>
                             <constraint firstAttribute="trailing" secondItem="gby-y7-pvw" secondAttribute="trailing" constant="10" id="xWe-Pu-h9z"/>
                             <constraint firstItem="RH3-U9-Edf" firstAttribute="top" secondItem="SIm-ek-lkT" secondAttribute="top" id="yCL-wp-cba"/>
                             <constraint firstItem="gby-y7-pvw" firstAttribute="leading" secondItem="Y3h-EY-oEk" secondAttribute="leading" constant="10" id="zXy-jd-xRz"/>
+                            <constraint firstItem="RHB-13-4TN" firstAttribute="leading" secondItem="gbV-gp-BDA" secondAttribute="trailing" constant="8" symbolic="YES" id="zcm-xF-8hK"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -163,7 +199,9 @@
                     <connections>
                         <outlet property="albumArtView" destination="gby-y7-pvw" id="4ZT-qb-Qle"/>
                         <outlet property="artistLabel" destination="zAU-pw-1E2" id="NIP-jp-pRx"/>
+                        <outlet property="ff" destination="pSP-H2-kKg" id="aZG-uw-bsk"/>
                         <outlet property="playpause" destination="RHB-13-4TN" id="cpU-k2-Qhm"/>
+                        <outlet property="rw" destination="gbV-gp-BDA" id="kyZ-tu-xpE"/>
                         <outlet property="songLabel" destination="V5q-vm-xr2" id="XKv-52-iQK"/>
                         <outlet property="view" destination="Y3h-EY-oEk" id="9Ap-Hr-upo"/>
                         <outlet property="volViewParent" destination="RH3-U9-Edf" id="md7-ez-88i"/>
@@ -463,12 +501,14 @@
     </scenes>
     <resources>
         <image name="antenna2.png" width="26" height="30"/>
+        <image name="fast-forward.png" width="256" height="256"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="icon-40.png" width="40" height="40"/>
         <image name="infoButton.png" width="30" height="30"/>
         <image name="microphone2.png" width="30" height="30"/>
         <image name="nowPlaying.png" width="60" height="30"/>
         <image name="play.png" width="256" height="256"/>
+        <image name="rewind.png" width="256" height="256"/>
         <image name="schedule.png" width="30" height="30"/>
         <image name="volume_max.png" width="512" height="512"/>
         <image name="volume_min.png" width="512" height="512"/>

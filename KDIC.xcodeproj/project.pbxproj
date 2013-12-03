@@ -61,6 +61,8 @@
 		E193F602183E0F8500150BD7 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = E193F5F5183E0F8500150BD7 /* play.png */; };
 		E193F603183E0F8500150BD7 /* volume_max.png in Resources */ = {isa = PBXBuildFile; fileRef = E193F5F6183E0F8500150BD7 /* volume_max.png */; };
 		E193F604183E0F8500150BD7 /* volume_min.png in Resources */ = {isa = PBXBuildFile; fileRef = E193F5F7183E0F8500150BD7 /* volume_min.png */; };
+		E1968B54184E84CC0071CDD9 /* fast-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = E1968B52184E84CC0071CDD9 /* fast-forward.png */; };
+		E1968B55184E84CC0071CDD9 /* rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = E1968B53184E84CC0071CDD9 /* rewind.png */; };
 		E19B54F118395E600056E6DB /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E19B54F018395E600056E6DB /* Podcast.m */; };
 		E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85D81832C78E005A4B32 /* LiveStreamViewController.m */; };
 		E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19D85DE1832C86C005A4B32 /* PodcastViewController.m */; };
@@ -135,6 +137,8 @@
 		E193F5F5183E0F8500150BD7 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Images.xcassets/play.png; sourceTree = "<group>"; };
 		E193F5F6183E0F8500150BD7 /* volume_max.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = volume_max.png; path = Images.xcassets/volume_max.png; sourceTree = "<group>"; };
 		E193F5F7183E0F8500150BD7 /* volume_min.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = volume_min.png; path = Images.xcassets/volume_min.png; sourceTree = "<group>"; };
+		E1968B52184E84CC0071CDD9 /* fast-forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fast-forward.png"; path = "Images.xcassets/fast-forward.png"; sourceTree = "<group>"; };
+		E1968B53184E84CC0071CDD9 /* rewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rewind.png; path = Images.xcassets/rewind.png; sourceTree = "<group>"; };
 		E19B54EF18395E600056E6DB /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Podcast.h; sourceTree = "<group>"; };
 		E19B54F018395E600056E6DB /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
 		E19D85D71832C78E005A4B32 /* LiveStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveStreamViewController.h; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				E1BF440C1828A01000215B14 /* AppIcons */,
 				E1BF440B1828A00300215B14 /* LaunchImages */,
 				E193F5EA183E0F6C00150BD7 /* TabBarIcons */,
+				E1968B52184E84CC0071CDD9 /* fast-forward.png */,
 				E17FEC3A183EF8060011C2BB /* infoButton.png */,
 				E17FEC3B183EF8060011C2BB /* infoButton@2x.png */,
 				E193F5ED183E0F8500150BD7 /* kdic-narrow.png */,
@@ -252,6 +257,7 @@
 				E17FEC1F183EECAB0011C2BB /* nowPlaying@2x.png */,
 				E193F5F4183E0F8500150BD7 /* pause.png */,
 				E193F5F5183E0F8500150BD7 /* play.png */,
+				E1968B53184E84CC0071CDD9 /* rewind.png */,
 				E193F5F6183E0F8500150BD7 /* volume_max.png */,
 				E193F5F7183E0F8500150BD7 /* volume_min.png */,
 			);
@@ -385,12 +391,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E193F5C3183E0F0F00150BD7 /* icon-58.png in Resources */,
+				E1968B54184E84CC0071CDD9 /* fast-forward.png in Resources */,
 				E19F26ED183FC10F0028E064 /* schedule.png in Resources */,
 				E17FEC34183EED510011C2BB /* Antenna3.png in Resources */,
 				E193F5C4183E0F0F00150BD7 /* icon-76.png in Resources */,
 				E193F603183E0F8500150BD7 /* volume_max.png in Resources */,
 				E1929426183025520008CB8A /* schedule.json in Resources */,
 				E17FEC2E183EED510011C2BB /* Antenna0.png in Resources */,
+				E1968B55184E84CC0071CDD9 /* rewind.png in Resources */,
 				E17FEC31183EED510011C2BB /* Antenna1@2x.png in Resources */,
 				E17FEC38183EED510011C2BB /* microphone2.png in Resources */,
 				E193F5C8183E0F0F00150BD7 /* iTunesArtwork.png in Resources */,
@@ -593,13 +601,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "00331B83-5205-42AA-B2AE-7C9248FD4BB9";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -609,13 +617,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A241971BA2429897F82E24 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lea Marolt (H69TS4DPUJ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "00331B83-5205-42AA-B2AE-7C9248FD4BB9";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
