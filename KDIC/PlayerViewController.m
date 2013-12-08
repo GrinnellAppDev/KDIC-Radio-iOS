@@ -99,8 +99,23 @@
             }
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
-        else [self changeIcon];
-        
+        else {
+            NSURL *url;
+            if (NULL == urlString)
+                url = appDel.streamMPMoviePlayer.contentURL;
+            else url = [NSURL URLWithString:urlString];
+
+            NSString *temp = [NSString stringWithFormat:@"%@", url];
+            if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
+                rw.hidden = YES;
+                ff.hidden = YES;
+            }
+            else {
+                rw.hidden = NO;
+                ff.hidden = NO;
+            }
+            [self changeIcon];
+        }
         if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
             [self setLabels];
         else [self setPodcastLabels];
