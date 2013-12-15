@@ -35,6 +35,7 @@
     [super viewDidLoad];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     appDel = [UIApplication sharedApplication].delegate;
     
