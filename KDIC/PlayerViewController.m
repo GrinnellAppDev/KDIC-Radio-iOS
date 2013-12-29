@@ -52,9 +52,8 @@
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
 }
-
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:YES];
+    [super viewDidAppear:animated];
     
     if (self.networkCheck) {
         BOOL equalURL;
@@ -99,29 +98,51 @@
             }
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
-        else {
-            NSURL *url;
-            if (NULL == urlString)
-                url = appDel.streamMPMoviePlayer.contentURL;
-            else url = [NSURL URLWithString:urlString];
-
-            NSString *temp = [NSString stringWithFormat:@"%@", url];
-            if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
-                rw.hidden = YES;
-                ff.hidden = YES;
-            }
-            else {
-                rw.hidden = NO;
-                ff.hidden = NO;
-            }
-            [self changeIcon];
-        }
         if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
             [self setLabels];
         else [self setPodcastLabels];
         
     }
     else [self showNoNetworkAlert];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    BOOL equalURL;
+    if (NULL == urlString || [urlString isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
+        equalURL = TRUE;
+    else equalURL = FALSE;
+    
+    if (!equalURL || MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
+        // We're going to need to load a stream, so hide everything
+        ff.hidden = YES;
+        rw.hidden = YES;
+        artistLabel.text = @"";
+        songLabel.text = @"";
+    }
+    else {
+        // A stream is loaded, set up the view
+        NSURL *url;
+        if (NULL == urlString)
+            url = appDel.streamMPMoviePlayer.contentURL;
+        else url = [NSURL URLWithString:urlString];
+        
+        NSString *temp = [NSString stringWithFormat:@"%@", url];
+        if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
+            rw.hidden = YES;
+            ff.hidden = YES;
+        }
+        else {
+            rw.hidden = NO;
+            ff.hidden = NO;
+        }
+        [self changeIcon];
+    
+        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
+            [self setLabels];
+        else [self setPodcastLabels];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
