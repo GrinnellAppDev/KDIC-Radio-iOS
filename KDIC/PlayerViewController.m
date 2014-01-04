@@ -301,7 +301,7 @@
     else {
         songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
         
-        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@ CT)", appDel.nextShow.name, [schedVC formatTime:appDel.nextShow]];
+        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@)", appDel.nextShow.name, [schedVC formatTime:appDel.nextShow]];
         artistLabel.text = nextShow;
     }
     [self updateExternalLabels];
