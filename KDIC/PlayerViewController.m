@@ -106,6 +106,7 @@
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
         
+        contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
         if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:contentURL]) {
             [self setLabels];
         } else {
@@ -121,7 +122,6 @@
     
     BOOL equalURL;
     NSString *contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
-    
     if (NULL == urlString || [urlString isEqualToString:contentURL]) {
         equalURL = TRUE;
     } else {
@@ -153,6 +153,7 @@
         }
         [self changeIcon];
         
+        contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
         if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:contentURL]) {
             [self setLabels];
         } else {
