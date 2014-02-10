@@ -10,6 +10,7 @@
 		9A5F85617935432FB861732B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B21DEFC0E4BB592DF5647 /* libPods.a */; };
 		E15BCC1A1827095A00D8229B /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = E15BCC191827095A00D8229B /* Show.m */; };
 		E17326601842849A00F6E756 /* HTMLStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E173265F1842849A00F6E756 /* HTMLStringParser.m */; };
+		E174CE5818A9759D00D1C314 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E174CE5718A9759D00D1C314 /* Crashlytics.framework */; };
 		E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28921825F2D60049DC5D /* Foundation.framework */; };
 		E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28941825F2D60049DC5D /* CoreGraphics.framework */; };
 		E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28961825F2D60049DC5D /* UIKit.framework */; };
@@ -67,6 +68,7 @@
 		E15BCC191827095A00D8229B /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
 		E173265E1842849A00F6E756 /* HTMLStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLStringParser.h; sourceTree = "<group>"; };
 		E173265F1842849A00F6E756 /* HTMLStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLStringParser.m; sourceTree = "<group>"; };
+		E174CE5718A9759D00D1C314 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		E17B288F1825F2D60049DC5D /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17B28921825F2D60049DC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E17B28941825F2D60049DC5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +142,7 @@
 				E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */,
 				E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */,
 				9A5F85617935432FB861732B /* libPods.a in Frameworks */,
+				E174CE5818A9759D00D1C314 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +170,7 @@
 		E17B28911825F2D60049DC5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E174CE5718A9759D00D1C314 /* Crashlytics.framework */,
 				E17B28D11825FF440049DC5D /* MediaPlayer.framework */,
 				E17B28CA1825F3C90049DC5D /* AVFoundation.framework */,
 				E17B28921825F2D60049DC5D /* Foundation.framework */,
@@ -302,6 +306,7 @@
 				E17B288C1825F2D60049DC5D /* Frameworks */,
 				E17B288D1825F2D60049DC5D /* Resources */,
 				60474BE72E2D4BC7A4DB50C5 /* Copy Pods Resources */,
+				E174CE5618A9750100D1C314 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -423,6 +428,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E174CE5618A9750100D1C314 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 45894d9e8a6bc3b8513651d6de36159e2c836e51 e63db966a2704d736a61d448865ca84d08aaaa601dce5b22725702038b26a699";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -555,6 +573,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/tremblay/KDIC-Radio-iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";
@@ -571,6 +593,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/tremblay/KDIC-Radio-iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
 				INFOPLIST_FILE = "KDIC/KDIC-Info.plist";

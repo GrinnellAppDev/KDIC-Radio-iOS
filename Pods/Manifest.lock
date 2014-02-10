@@ -1,4 +1,5 @@
 PODS:
+  - FlurrySDK (4.3.2)
   - MBProgressHUD (0.8)
   - Reachability (3.1.1)
   - SDWebImage (3.5):
@@ -7,15 +8,17 @@ PODS:
   - ViewDeck (2.2.11)
 
 DEPENDENCIES:
+  - FlurrySDK
   - MBProgressHUD
   - Reachability
   - SDWebImage
   - ViewDeck (= 2.2.11)
 
 SPEC CHECKSUMS:
+  FlurrySDK: 508afbd655fe2ff935d3e9543cb1c8aa432794de
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
   SDWebImage: f1a72472f8a2d54445f1fedafe2090593d9caf7f
   ViewDeck: b5eddc8559b0e47259ab7addbf2de6768061f139
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.29.0
