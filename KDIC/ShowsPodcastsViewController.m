@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     podcastsArray = [[NSMutableArray alloc] init];
-    @try{
+    @try {
         NSString *post =[[NSString alloc] initWithFormat:@""];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -48,7 +48,7 @@
         NSHTTPURLResponse *response = nil;
         NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        if([response statusCode] >= 200 && [response statusCode] < 300){
+        if ([response statusCode] >= 200 && [response statusCode] < 300) {
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
             
             NSRange start = [responseData rangeOfString:@"<h2 class=\"post-title\">" options:NSCaseInsensitiveSearch];
@@ -56,21 +56,21 @@
             if (NSNotFound != start.location) {
                 temp = [responseData substringFromIndex:start.location + start.length];
             }
-
+            
             while (NSNotFound != start.location) {
                 start = [temp rangeOfString:@"<a href=\"" options:NSCaseInsensitiveSearch];
-
+                
                 NSString *podcastString = [temp substringFromIndex:start.location + start.length];
                 NSRange end = [podcastString rangeOfString:@"</a>" options:NSCaseInsensitiveSearch];
                 podcastString = [podcastString substringToIndex:end.location];
                 
                 HTMLStringParser *sp = [[HTMLStringParser alloc] init];
                 podcastString = [sp removeHTMLTags:podcastString];
-
+                
                 start = [podcastString rangeOfString:@"\">"];
                 NSString *pageURL = [podcastString substringToIndex:start.location];
                 NSString *podcastTitle = [podcastString substringFromIndex:start.location + start.length];
-
+                
                 end = [pageURL rangeOfString:@"\" rel=" options:NSCaseInsensitiveSearch];
                 pageURL = [pageURL substringToIndex:end.location];
                 
@@ -80,7 +80,7 @@
                 podcast.show = show.name;
                 
                 start = [responseData rangeOfString:[NSString stringWithFormat:@"<a href=\"%@", pageURL] options:NSCaseInsensitiveSearch];
-                if (NSNotFound != start.location){
+                if (NSNotFound != start.location) {
                     NSString *imgURL = [responseData substringFromIndex:start.location];
                     start = [imgURL rangeOfString:@"src=\""];
                     end = [imgURL rangeOfString:@"\" class="];
@@ -88,8 +88,9 @@
                     start.length = end.location - start.location;
                     imgURL = [imgURL substringWithRange:start];
                     podcast.imageURL = imgURL;
+                } else {
+                    podcast.imageURL = NULL;
                 }
-                else podcast.imageURL = NULL;
                 
                 [podcastsArray addObject:podcast];
                 
@@ -97,8 +98,9 @@
                 if (NSNotFound != start.location)
                     temp = [temp substringFromIndex:start.location + start.length];
             }
+        } else {
+            NSLog(@"Error: Response Code is %ld", (long)[response statusCode]);
         }
-        else NSLog(@"Error: Response Code is %ld", (long)[response statusCode]);
     }
     @catch (NSException *e) {
         NSLog(@"Error getting image: %@", e);
@@ -129,19 +131,23 @@
     // Configure the cell...
     Podcast *podcast = [podcastsArray objectAtIndex:indexPath.row];
     cell.textLabel.text = podcast.title;
-    if (NULL != podcast.imageURL)
-        [cell.imageView setImageWithURL:[NSURL URLWithString:podcast.imageURL] placeholderImage:[UIImage imageNamed:@"icon-40"]];
-    else cell.imageView.image = NULL;
+    if (NULL != podcast.imageURL) {
+        UIImage *placeholder = [UIImage imageNamed:@"icon-40"];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:podcast.imageURL] placeholderImage:placeholder];
+    } else {
+        cell.imageView.image = NULL;
+    }
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // GET STREAM URL
-        //Visit page URL, find stream url
+    //Visit page URL, find stream url
     Podcast *podcast = [podcastsArray objectAtIndex:indexPath.row];
-    @try{
+    @try {
         NSString *post =[[NSString alloc] initWithFormat:@""];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -157,7 +163,7 @@
         NSHTTPURLResponse *response = nil;
         NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        if([response statusCode] >= 200 && [response statusCode] < 300){
+        if ([response statusCode] >= 200 && [response statusCode] < 300) {
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
             
             NSRange range = [responseData rangeOfString:@"<meta property='og:description' content='" options:NSCaseInsensitiveSearch];
@@ -166,12 +172,13 @@
                 range = [description rangeOfString:@"' />"];
                 description = [description substringToIndex:range.location];
                 range = [description rangeOfString:@"Audio clip: Adobe"];
-                if (NSNotFound != range.location)
+                if (NSNotFound != range.location) {
                     description = [description substringToIndex:range.location];
+                }
                 
                 HTMLStringParser *sp = [[HTMLStringParser alloc] init];
                 description = [sp removeHTMLTags:description];
-
+                
                 podcast.description = description;
             }
             
@@ -183,13 +190,14 @@
                 temp = [temp substringToIndex:range.location];
                 podcast.streamURL = temp;
             }
+        } else {
+            NSLog(@"Error: Response Code is %ld", (long)[response statusCode]);
         }
-        else NSLog(@"Error: Response Code is %ld", (long)[response statusCode]);
     }
     @catch (NSException *e) {
         NSLog(@"Error getting image: %@", e);
     }
-
+    
     [self performSegueWithIdentifier:@"PlayPodcast" sender:self];
 }
 

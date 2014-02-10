@@ -7,13 +7,13 @@
 //
 
 #import "PlayerViewController.h"
-#import <MBProgressHUD.h>
-#import <Reachability.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "ScheduleViewController.h"
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "HTMLStringParser.h"
+#import <MBProgressHUD.h>
+#import <Reachability.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface PlayerViewController ()
 
@@ -29,7 +29,8 @@
     [super viewDidLoad];
     appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    UIImage *backgroundImage = [UIImage imageNamed:@"kdic-navBar-short.png"];
+    [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
     
     // Add the volume slider to the view in the xib
     MPVolumeView *myVolView = [[MPVolumeView alloc] initWithFrame:volViewParent.bounds];
@@ -52,14 +53,18 @@
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     if (self.networkCheck) {
         BOOL equalURL;
-        if (NULL == urlString || [urlString isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
+        NSString *contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        if (NULL == urlString || [urlString isEqualToString:contentURL]) {
             equalURL = TRUE;
-        else equalURL = FALSE;
+        } else {
+            equalURL = FALSE;
+        }
         
         if (!equalURL || MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
             // HUD
@@ -68,25 +73,27 @@
             [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
             
             NSURL *url;
-            if (NULL == urlString)
+            if (NULL == urlString) {
                 url = appDel.streamMPMoviePlayer.contentURL;
-            else url = [NSURL URLWithString:urlString];
+            } else {
+                url = [NSURL URLWithString:urlString];
+            }
             
             NSError *err;
-            if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&err])
+            if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&err]) {
                 NSLog(@"Audio sessions error %@, %@", err, [err userInfo]);
-            else {
+            } else {
                 [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
                 
                 // Create stream using MPMoviePlayerController
                 appDel.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+                
                 NSString *temp = [NSString stringWithFormat:@"%@", url];
                 if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
                     appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
                     rw.hidden = YES;
                     ff.hidden = YES;
-                }
-                else {
+                } else {
                     appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
                     rw.hidden = NO;
                     ff.hidden = NO;
@@ -98,21 +105,28 @@
             }
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
-        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
-            [self setLabels];
-        else [self setPodcastLabels];
         
+        contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:contentURL]) {
+            [self setLabels];
+        } else {
+            [self setPodcastLabels];
+        }
+    } else {
+        [self showNoNetworkAlert];
     }
-    else [self showNoNetworkAlert];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
     BOOL equalURL;
-    if (NULL == urlString || [urlString isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
+    NSString *contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+    if (NULL == urlString || [urlString isEqualToString:contentURL]) {
         equalURL = TRUE;
-    else equalURL = FALSE;
+    } else {
+        equalURL = FALSE;
+    }
     
     if (!equalURL || MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
         // We're going to need to load a stream, so hide everything
@@ -120,28 +134,31 @@
         rw.hidden = YES;
         artistLabel.text = @"";
         songLabel.text = @"";
-    }
-    else {
+    } else {
         // A stream is loaded, set up the view
         NSURL *url;
-        if (NULL == urlString)
+        if (NULL == urlString) {
             url = appDel.streamMPMoviePlayer.contentURL;
-        else url = [NSURL URLWithString:urlString];
+        } else {
+            url = [NSURL URLWithString:urlString];
+        }
         
         NSString *temp = [NSString stringWithFormat:@"%@", url];
         if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
             rw.hidden = YES;
             ff.hidden = YES;
-        }
-        else {
+        } else {
             rw.hidden = NO;
             ff.hidden = NO;
         }
         [self changeIcon];
-    
-        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]])
+        
+        contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:contentURL]) {
             [self setLabels];
-        else [self setPodcastLabels];
+        } else {
+            [self setPodcastLabels];
+        }
     }
 }
 
@@ -178,13 +195,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ViewDetails"]) {
         DetailViewController *detailVC = [segue destinationViewController];
-        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:[NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL]]) {
-            if (NULL == appDel.currentShow)
+        
+        NSString *contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        if ([@"http://kdic.grinnell.edu:8001/kdic128.m3u" isEqualToString:contentURL]) {
+            if (NULL == appDel.currentShow) {
                 detailVC.description = [self getKDICDescription];
-            else detailVC.description = [NSString stringWithFormat:@"%@\n%@", appDel.currentShow.name, appDel.currentShow.description];
-        }
-        else
+            } else {
+                detailVC.description = [NSString stringWithFormat:@"%@\n%@", appDel.currentShow.name, appDel.currentShow.description];
+            }
+        } else {
             detailVC.description = [NSString stringWithFormat:@"%@\n%@\n\n%@", appDel.podcast.show, appDel.podcast.title, appDel.podcast.description];
+        }
     }
 }
 
@@ -198,24 +219,27 @@
 
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
-    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
+    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState) {
         [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-    else
+    } else {
         [playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)changeIcon {
-    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
+    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState) {
         [playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-    else
+    } else {
         [playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)seekingButtonHeld:(id)sender {
-    if ([sender tag] == [ff tag])
+    if ([sender tag] == [ff tag]) {
         [appDel.streamMPMoviePlayer beginSeekingForward];
-    else
+    } else {
         [appDel.streamMPMoviePlayer beginSeekingBackward];
+    }
 }
 
 - (IBAction)seekingButtonReleased:(id)sender {
@@ -224,10 +248,11 @@
 
 - (IBAction)playPauseButtonTap:(id)sender {
     // Note: Button gets changed by changeIcon (called because the playback state changes)
-    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState)
+    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState) {
         [appDel.streamMPMoviePlayer pause];
-    else
+    } else {
         [appDel.streamMPMoviePlayer play];
+    }
 }
 
 - (IBAction)triggerTimer:(id)sender {
@@ -248,7 +273,7 @@
     if (NULL != appDel.currentShow) {
         songLabel.text = [NSString stringWithFormat:@"Current Show: %@", appDel.currentShow.name];
         artistLabel.text = [schedVC formatTime:appDel.currentShow];
-        @try{
+        @try {
             NSURL *showURL = appDel.currentShow.url;
             NSString *post =[[NSString alloc] initWithFormat:@""];
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -265,7 +290,7 @@
             NSHTTPURLResponse *response = nil;
             NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             
-            if([response statusCode] >= 200 && [response statusCode] < 300){
+            if ([response statusCode] >= 200 && [response statusCode] < 300) {
                 NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
                 NSRange start = [responseData rangeOfString:@"<meta property='og:description' content='" options:NSCaseInsensitiveSearch];
                 if (NSNotFound != start.location) {
@@ -289,7 +314,7 @@
                     NSURL *imgURL = [NSURL URLWithString:imgURLString];
                     albumArtView.contentMode = UIViewContentModeScaleAspectFit;
                     [albumArtView setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"iTunesArtwork"]completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
-                        [self updateExternalLabels];
+                        [self updateInfoCenter];
                     }];
                 }
             }
@@ -297,8 +322,7 @@
         @catch (NSException *e) {
             NSLog(@"Error getting image: %@", e);
         }
-    }
-    else {
+    } else {
         songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
         
         NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@)", appDel.nextShow.name, [schedVC formatTime:appDel.nextShow]];
@@ -308,7 +332,7 @@
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    if (MPMovieSourceTypeStreaming == appDel.streamMPMoviePlayer.movieSourceType)
+    if (MPMovieSourceTypeStreaming == appDel.streamMPMoviePlayer.movieSourceType) {
         switch (event.subtype) {
             case UIEventSubtypeRemoteControlPlay:
                 [appDel.streamMPMoviePlayer play];
@@ -319,7 +343,7 @@
             default:
                 break;
         }
-    else
+    } else {
         switch (event.subtype) {
             case UIEventSubtypeRemoteControlPlay:
                 [appDel.streamMPMoviePlayer play];
@@ -342,6 +366,7 @@
             default:
                 break;
         }
+    }
 }
 
 // Updates the information in the app delegate and the info center (remote control)
@@ -351,20 +376,29 @@
     appDel.showImage = albumArtView.image;
     [self updateInfoCenter];
 }
+
 - (void)updateInfoCenter {
     Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
     if (playingInfoCenter) {
         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
         MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:albumArtView.image];
-        [songInfo setObject:songLabel.text forKey:MPMediaItemPropertyTitle];
-        [songInfo setObject:artistLabel.text forKey:MPMediaItemPropertyArtist];
-        [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+        if (songLabel.text) {
+            [songInfo setObject:songLabel.text forKey:MPMediaItemPropertyTitle];
+        }
+        if (artistLabel.text) {
+            [songInfo setObject:artistLabel.text forKey:MPMediaItemPropertyArtist];
+        }
+        if (albumArt) {
+            [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+        }
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
     }
 }
+
 - (void)setPodcastLabels {
     artistLabel.text = appDel.podcast.title;
-    [albumArtView setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:[UIImage imageNamed:@"iTunesArtwork"] completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
+    UIImage *placeholderImage = [UIImage imageNamed:@"iTunesArtwork"];
+    [albumArtView setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
         [self updateInfoCenter];
     }];
     songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
@@ -372,7 +406,7 @@
 }
 
 - (NSString *)getKDICDescription {
-    @try{
+    @try {
         NSURL *URL = [NSURL URLWithString:@"http://kdic.grinnell.edu/about-us/"];
         NSString *post =[[NSString alloc] initWithFormat:@""];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -389,7 +423,7 @@
         NSHTTPURLResponse *response = nil;
         NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        if([response statusCode] >= 200 && [response statusCode] < 300){
+        if ([response statusCode] >= 200 && [response statusCode] < 300) {
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
             
             NSRange start = [responseData rangeOfString:@"<h1>About</h1>" options:NSCaseInsensitiveSearch];

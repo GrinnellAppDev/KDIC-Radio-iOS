@@ -1,6 +1,6 @@
 //
 //  PodcastViewController.m
-//  
+//
 //
 //  Created by Colin Tremblay on 11/12/13.
 //
@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
@@ -65,9 +66,9 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"NowPlayingJump"])
+    if ([[segue identifier] isEqualToString:@"NowPlayingJump"]) {
         [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
-    else if ([[segue identifier] isEqualToString:@"ShowSelect"]) {
+    } else if ([[segue identifier] isEqualToString:@"ShowSelect"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)[segue destinationViewController];
         showsPVC.show = [showArray objectAtIndex:indexPath.row];
