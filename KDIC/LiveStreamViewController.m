@@ -34,12 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setLabels];
 }

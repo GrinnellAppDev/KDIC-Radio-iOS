@@ -51,8 +51,9 @@
             playerVC = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:Nil];
             [self performSegueWithIdentifier:@"AppOpens" sender:self];
         }
+    } else {
+        [self showNoNetworkAlert];
     }
-    else [self showNoNetworkAlert];
     
     // Set up screen update timer
     NSCalendar *cal = [NSCalendar currentCalendar];
@@ -73,26 +74,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     if (dayBegan && ![[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]
-        && ![[schedFromJSON objectAtIndex:7] isKindOfClass:[NSString class]])
+        && ![[schedFromJSON objectAtIndex:7] isKindOfClass:[NSString class]]) {
         return 8;
-    else
+    } else {
         return 7;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
         return [[schedFromJSON objectAtIndex:section+1] count];
+    } else {
+        return [[schedFromJSON objectAtIndex:section] count];
     }
-    else return [[schedFromJSON objectAtIndex:section] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
         Show *show = [[schedFromJSON objectAtIndex:section+1] objectAtIndex:0];
         return show.day;
-    }
-    else {
+    } else {
         Show *show = [[schedFromJSON objectAtIndex:section] objectAtIndex:0];
         return show.day;
     }
@@ -105,19 +107,20 @@
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 	}
+    
     Show *show;
-    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]])
+    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
         show = [[schedFromJSON objectAtIndex:indexPath.section+1] objectAtIndex:indexPath.row];
-    else
+    } else {
         show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-
+    }
+    
     if (show.isPodcast) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         cell.userInteractionEnabled = YES;
-    }
-    else {
-         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.userInteractionEnabled = YES;
     }
@@ -130,12 +133,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Show *show;
-    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]])
+    if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
         show = [[schedFromJSON objectAtIndex:indexPath.section+1] objectAtIndex:indexPath.row];
-    else
+    } else {
         show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    if ([namesOfPodcasts containsObject:show.name])
+    }
+    
+    if ([namesOfPodcasts containsObject:show.name]) {
         [self performSegueWithIdentifier:@"ShowSelect" sender:self];
+    }
 }
 
 #pragma mark - Navigation
@@ -144,14 +150,14 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)[segue destinationViewController];
         Show *show;
-        if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]])
+        if ([[schedFromJSON objectAtIndex:0] isKindOfClass:[NSString class]]) {
             show = [[schedFromJSON objectAtIndex:indexPath.section+1] objectAtIndex:indexPath.row];
-        else
+        } else {
             show = [[schedFromJSON objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        }
         showsPVC.show = [showArray objectAtIndex:[namesOfPodcasts indexOfObject:show.name]];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
-    else {
+    } else {
         [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
         if ([[segue identifier] isEqualToString:@"AppOpens"]) {
             PlayerViewController *playerViewC = [segue destinationViewController];
@@ -179,16 +185,17 @@
 
 #pragma mark - Custom methods
 - (NSString *)formatTime:(Show *)show {
-    if (24 == show.start)
+    if (24 == show.start) {
         return [NSString stringWithFormat:@"12 A.M. - %d A.M. CT", show.end - 24];
-    else if (24 < show.start)
+    } else if (24 < show.start) {
         return [NSString stringWithFormat:@"%d A.M. - %d A.M. CT", show.start - 24, show.end - 24];
-    else if (24 == show.end)
+    } else if (24 == show.end) {
         return [NSString stringWithFormat:@"%d P.M. - 12 A.M. CT", show.start - 12];
-    else if (24 < show.end)
+    } else if (24 < show.end) {
         return [NSString stringWithFormat:@"%d P.M. - %d A.M. CT", show.start - 12, show.end - 24];
-    else
+    } else {
         return [NSString stringWithFormat:@"%d P.M. - %d P.M. CT", show.start - 12, show.end - 12];
+    }
 }
 
 //Method to determine the availability of network Connections using the Reachability Class
@@ -201,7 +208,7 @@
 - (void)getShowsWithPodcasts {
     showArray = [[NSMutableArray alloc] init];
     namesOfPodcasts = [[NSMutableArray alloc] init];
-    @try{
+    @try {
         NSString *post =[[NSString alloc] initWithFormat:@""];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -217,7 +224,7 @@
         NSHTTPURLResponse *response = nil;
         NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        if([response statusCode] >= 200 && [response statusCode] < 300){
+        if([response statusCode] >= 200 && [response statusCode] < 300) {
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
             NSRange start = [responseData rangeOfString:@"\">Podcasts</a>" options:NSCaseInsensitiveSearch];
             NSString *temp = [responseData substringFromIndex:start.location + start.length];

@@ -14,8 +14,6 @@
 
 @implementation DetailViewController
 
-@synthesize textView, description;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -31,8 +29,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    textView.text = description;
+    
+    self.textView.text = self.description;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,4 +41,5 @@
 - (IBAction)done {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end
