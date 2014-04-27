@@ -14,15 +14,18 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Crashlytics startWithAPIKey:@"45894d9e8a6bc3b8513651d6de36159e2c836e51"];
+    NSString *strings_private = [[NSBundle mainBundle] pathForResource:@"strings_private" ofType:@"strings"];
+    NSDictionary *keysDict = [NSDictionary dictionaryWithContentsOfFile:strings_private];
+    
+    [Crashlytics startWithAPIKey:[keysDict objectForKey:@"CrashlyticsAPIKey"]];
     
     [Flurry setCrashReportingEnabled:NO];
-    [Flurry startSession:@"8P7XKK78WTHRSV8R9KP2"];
+    [Flurry startSession:[keysDict objectForKey:@"FlurrySession"]];
+
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
-    // Override point for customization after application launch.
     return YES;
 }
 							

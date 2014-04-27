@@ -33,6 +33,7 @@
 		E17FEC39183EED510011C2BB /* microphone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC2D183EED510011C2BB /* microphone2@2x.png */; };
 		E17FEC3C183EF8060011C2BB /* infoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC3A183EF8060011C2BB /* infoButton.png */; };
 		E17FEC3D183EF8060011C2BB /* infoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC3B183EF8060011C2BB /* infoButton@2x.png */; };
+		E1883D1E190DBF76004B6D5C /* strings_private.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1883D1D190DBF76004B6D5C /* strings_private.strings */; };
 		E1929426183025520008CB8A /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E1929425183025520008CB8A /* schedule.json */; };
 		E193F5C1183E0F0F00150BD7 /* icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = E193F5B8183E0F0F00150BD7 /* icon-29.png */; };
 		E193F5C2183E0F0F00150BD7 /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = E193F5B9183E0F0F00150BD7 /* icon-40.png */; };
@@ -98,6 +99,7 @@
 		E17FEC2D183EED510011C2BB /* microphone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone2@2x.png"; path = "Images.xcassets/TabBarIcons/microphone2@2x.png"; sourceTree = "<group>"; };
 		E17FEC3A183EF8060011C2BB /* infoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoButton.png; path = Images.xcassets/infoButton.png; sourceTree = "<group>"; };
 		E17FEC3B183EF8060011C2BB /* infoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "infoButton@2x.png"; path = "Images.xcassets/infoButton@2x.png"; sourceTree = "<group>"; };
+		E1883D1D190DBF76004B6D5C /* strings_private.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = strings_private.strings; sourceTree = "<group>"; };
 		E1929425183025520008CB8A /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 		E193F5B8183E0F0F00150BD7 /* icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-29.png"; path = "Images.xcassets/AppIcons/icon-29.png"; sourceTree = "<group>"; };
 		E193F5B9183E0F0F00150BD7 /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-40.png"; path = "Images.xcassets/AppIcons/icon-40.png"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		E17B28991825F2D60049DC5D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1883D1D190DBF76004B6D5C /* strings_private.strings */,
 				E17B289A1825F2D60049DC5D /* KDIC-Info.plist */,
 				E17B289B1825F2D60049DC5D /* InfoPlist.strings */,
 				E17B289E1825F2D60049DC5D /* main.m */,
@@ -323,7 +326,7 @@
 		E17B28871825F2D60049DC5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Colin Tremblay";
 				TargetAttributes = {
 					E17B288E1825F2D60049DC5D = {
@@ -372,6 +375,7 @@
 				E193F5C2183E0F0F00150BD7 /* icon-40.png in Resources */,
 				E193F5C1183E0F0F00150BD7 /* icon-29.png in Resources */,
 				E17FEC32183EED510011C2BB /* antenna2.png in Resources */,
+				E1883D1E190DBF76004B6D5C /* strings_private.strings in Resources */,
 				E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */,
 				E193F5C9183E0F0F00150BD7 /* iTunesArtwork@2x.png in Resources */,
 				E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */,
@@ -497,7 +501,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -537,7 +540,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
