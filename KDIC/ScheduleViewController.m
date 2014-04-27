@@ -310,8 +310,8 @@
             show.name = [actualShow objectForKey:@"name"];
             show.day = day;
             show.url = [NSURL URLWithString:[actualShow objectForKey:@"url"]];
-            show.start = [[actualShow objectForKey:@"start_time"] integerValue];
-            show.end = [[actualShow objectForKey:@"end_time"] integerValue];
+            show.start = [[actualShow objectForKey:@"start_time"] intValue];
+            show.end = [[actualShow objectForKey:@"end_time"] intValue];
             show.isPodcast = [namesOfPodcasts containsObject:show.name];
             if (0 == dayInt) {
                 if (show.end <= hour) {
