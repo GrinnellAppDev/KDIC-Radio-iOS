@@ -42,6 +42,7 @@
     cellIdentifier = @"ScheduleCell";
     
     if (self.networkCheck) {
+        
         [self getShowsWithPodcasts];
         [self getSchedule];
         UINavigationController *tempNavC = [[self.tabBarController viewControllers] objectAtIndex:1];
@@ -53,6 +54,8 @@
         }
     } else {
         [self showNoNetworkAlert];
+        
+        
     }
     
     // Set up screen update timer

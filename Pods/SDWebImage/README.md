@@ -1,7 +1,11 @@
 Web Image
 =========
+[![Build Status](http://img.shields.io/travis/rs/SDWebImage/master.svg?style=flat)](https://travis-ci.org/rs/SDWebImage)
+[![Pod Version](http://img.shields.io/cocoapods/v/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
+[![Pod License](http://img.shields.io/cocoapods/l/SDWebImage.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-This library provides a category for UIImageVIew with support for remote images coming from the web.
+This library provides a category for UIImageView with support for remote images coming from the web.
 
 It provides:
 
@@ -16,8 +20,9 @@ It provides:
 - A guarantee that main thread will never be blocked
 - Performances!
 - Use GCD and ARC
+- Arm64 support
 
-NOTE: The version 3.0 of SDWebImage isn't fully backward compatible with 2.0 and requires iOS 5.0
+NOTE: The version 3.0 of SDWebImage isn't fully backward compatible with 2.0 and requires iOS 5.1.1
 minimum deployement version. If you need iOS < 5.0 support, please use the last [2.0 version](https://github.com/rs/SDWebImage/tree/2.0-compat).
 
 [How is SDWebImage better than X?](https://github.com/rs/SDWebImage/wiki/How-is-SDWebImage-better-than-X%3F)
@@ -25,7 +30,7 @@ minimum deployement version. If you need iOS < 5.0 support, please use the last 
 Who Use It
 ----------
 
-Find out [who use SDWebImage](https://github.com/rs/SDWebImage/wiki/Who-Use-SDWebImage) and add your app to the list.
+Find out [who uses SDWebImage](https://github.com/rs/SDWebImage/wiki/Who-Uses-SDWebImage) and add your app to the list.
 
 How To Use
 ----------
@@ -90,11 +95,11 @@ Here is a simple example of how to use SDWebImageManager:
 SDWebImageManager *manager = [SDWebImageManager sharedManager];
 [manager downloadWithURL:imageURL
                  options:0
-                 progress:^(NSUInteger receivedSize, long long expectedSize)
+                 progress:^(NSInteger receivedSize, NSInteger expectedSize)
                  {
                      // progression tracking code
                  }
-                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType)
+                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)
                  {
                      if (image)
                      {
@@ -110,7 +115,7 @@ It's also possible to use the async image downloader independently:
 ```objective-c
 [SDWebImageDownloader.sharedDownloader downloadImageWithURL:imageURL
                                                     options:0
-                                                   progress:^(NSUInteger receivedSize, long long expectedSize)
+                                                   progress:^(NSInteger receivedSize, NSInteger expectedSize)
                                                    {
                                                        // progression tracking code
                                                    }
@@ -132,13 +137,13 @@ asynchronous so it doesn't add unnecessary latency to the UI.
 The SDImageCache class provides a singleton instance for convenience but you can create your own
 instance if you want to create separated cache namespace.
 
-To lookup the cache, you use the imageForKey: method. If the method returns nil, it means the cache
+To lookup the cache, you use the `queryDiskCacheForKey:done:` method. If the method returns nil, it means the cache
 doesn't currently own the image. You are thus responsible for generating and caching it. The cache
 key is an application unique identifier for the image to cache. It is generally the absolute URL of
 the image.
 
 ```objective-c
-SDImageCache *imageCache = [SDImageCache.alloc initWithNamespace:@"myNamespace"];
+SDImageCache *imageCache = [[SDImageCache alloc] initWithNamespace:@"myNamespace"];
 [imageCache queryDiskCacheForKey:myCacheKey done:^(UIImage *image)
 {
     // image is not nil if image was found
@@ -213,7 +218,20 @@ See this category: https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebIma
 Installation
 ------------
 
-There are two ways to use this in your project: copy all the files into your project, or import the project as a static library.
+There are three ways to use SDWebImage in your project:
+- using Cocoapods
+- copying all the files into your project
+- importing the project as a static library
+
+### Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries in your projects. See the [Get Started](http://cocoapods.org/#get_started) section for more details.
+
+#### Podfile
+```
+platform :ios, '6.1'
+pod 'SDWebImage', '~>3.6'
+```
 
 ### Add the SDWebImage project to your project
 
@@ -232,6 +250,12 @@ There are two ways to use this in your project: copy all the files into your pro
 Open the "Build Settings" tab, in the "Linking" section, locate the "Other Linker Flags" setting and add the "-ObjC" flag:
 
 ![Other Linker Flags](http://dl.dropbox.com/u/123346/SDWebImage/10_other_linker_flags.jpg)
+
+Alternatively, if this causes compilation problems with frameworks that extend optional libraries, such as Parse,  RestKit or opencv2, instead of the -ObjC flag use:
+
+```
+-force_load SDWebImage.framework/Versions/Current/SDWebImage
+```
 
 ### Import headers in your source files
 

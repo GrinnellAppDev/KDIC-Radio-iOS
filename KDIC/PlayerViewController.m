@@ -268,6 +268,8 @@
     [self setLabels];
 }
 
+- (void)setLabels{}
+/*
 - (void)setLabels {
     ScheduleViewController *schedVC = [[ScheduleViewController alloc] init];
     
@@ -314,7 +316,7 @@
                     NSString *imgURLString = [responseData substringWithRange:start];
                     NSURL *imgURL = [NSURL URLWithString:imgURLString];
                     albumArtView.contentMode = UIViewContentModeScaleAspectFit;
-                    [albumArtView setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"iTunesArtwork"]completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
+                    [albumArtView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"iTunesArtwork"] completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
                         [self updateInfoCenter];
                     }];
                 }
@@ -331,6 +333,8 @@
     }
     [self updateExternalLabels];
 }
+ 
+ */
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
     if (MPMovieSourceTypeStreaming == appDel.streamMPMoviePlayer.movieSourceType) {
@@ -396,16 +400,19 @@
     }
 }
 
+- (void)setPodcastLabels{}
+/*
 - (void)setPodcastLabels {
     artistLabel.text = appDel.podcast.title;
     UIImage *placeholderImage = [UIImage imageNamed:@"iTunesArtwork"];
-    [albumArtView setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
+    [albumArtView sd_setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *img, NSError *err, SDImageCacheType cacheType) {
         [self updateInfoCenter];
     }];
     songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
     [self updateExternalLabels];
 }
 
+ */
 - (NSString *)getKDICDescription {
     @try {
         NSURL *URL = [NSURL URLWithString:@"http://kdic.grinnell.edu/about-us/"];

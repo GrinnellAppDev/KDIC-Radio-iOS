@@ -1,12 +1,12 @@
 PODS:
-  - FlurrySDK (4.3.2):
+  - FlurrySDK (5.3.0):
     - FlurrySDK/FlurrySDK
-  - FlurrySDK/FlurrySDK (4.3.2)
-  - MBProgressHUD (0.8)
+  - FlurrySDK/FlurrySDK (5.3.0)
+  - MBProgressHUD (0.9)
   - Reachability (3.1.1)
-  - SDWebImage (3.5):
+  - SDWebImage (3.7.1):
     - SDWebImage/Core
-  - SDWebImage/Core (3.5)
+  - SDWebImage/Core (3.7.1)
   - ViewDeck (2.2.11)
 
 DEPENDENCIES:
@@ -17,10 +17,10 @@ DEPENDENCIES:
   - ViewDeck (= 2.2.11)
 
 SPEC CHECKSUMS:
-  FlurrySDK: 2b2a1e80385e4716cfefdbc107967a88256531bf
-  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
-  SDWebImage: f1a72472f8a2d54445f1fedafe2090593d9caf7f
-  ViewDeck: b5eddc8559b0e47259ab7addbf2de6768061f139
+  FlurrySDK: e1142ae33e294f8307bd6d2209cc082e79b66e90
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  ViewDeck: 2f38c054dfe8e69af4877c006785996faa277902
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1

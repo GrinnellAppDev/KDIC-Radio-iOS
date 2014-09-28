@@ -33,7 +33,6 @@
 		E17FEC39183EED510011C2BB /* microphone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC2D183EED510011C2BB /* microphone2@2x.png */; };
 		E17FEC3C183EF8060011C2BB /* infoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC3A183EF8060011C2BB /* infoButton.png */; };
 		E17FEC3D183EF8060011C2BB /* infoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC3B183EF8060011C2BB /* infoButton@2x.png */; };
-		E1883D1E190DBF76004B6D5C /* strings_private.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1883D1D190DBF76004B6D5C /* strings_private.strings */; };
 		E1929426183025520008CB8A /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = E1929425183025520008CB8A /* schedule.json */; };
 		E193F5C1183E0F0F00150BD7 /* icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = E193F5B8183E0F0F00150BD7 /* icon-29.png */; };
 		E193F5C2183E0F0F00150BD7 /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = E193F5B9183E0F0F00150BD7 /* icon-40.png */; };
@@ -60,6 +59,7 @@
 		E1B0224F185E3D1C00874578 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B0224D185E3D1C00874578 /* Default-568h@2x.png */; };
 		E1B02250185E3D1C00874578 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B0224E185E3D1C00874578 /* Default@2x.png */; };
 		E1EA56BD183D630F000C1935 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EA56BC183D630F000C1935 /* DetailViewController.m */; };
+		FB4B49FA19D37D77007B2BC0 /* strings_private.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB4B49F919D37D77007B2BC0 /* strings_private.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,7 +99,6 @@
 		E17FEC2D183EED510011C2BB /* microphone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone2@2x.png"; path = "Images.xcassets/TabBarIcons/microphone2@2x.png"; sourceTree = "<group>"; };
 		E17FEC3A183EF8060011C2BB /* infoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoButton.png; path = Images.xcassets/infoButton.png; sourceTree = "<group>"; };
 		E17FEC3B183EF8060011C2BB /* infoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "infoButton@2x.png"; path = "Images.xcassets/infoButton@2x.png"; sourceTree = "<group>"; };
-		E1883D1D190DBF76004B6D5C /* strings_private.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = strings_private.strings; sourceTree = "<group>"; };
 		E1929425183025520008CB8A /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 		E193F5B8183E0F0F00150BD7 /* icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-29.png"; path = "Images.xcassets/AppIcons/icon-29.png"; sourceTree = "<group>"; };
 		E193F5B9183E0F0F00150BD7 /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-40.png"; path = "Images.xcassets/AppIcons/icon-40.png"; sourceTree = "<group>"; };
@@ -131,6 +130,7 @@
 		E1B0224E185E3D1C00874578 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Images.xcassets/LaunchImages/Default@2x.png"; sourceTree = "<group>"; };
 		E1EA56BB183D630F000C1935 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		E1EA56BC183D630F000C1935 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		FB4B49F919D37D77007B2BC0 /* strings_private.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = strings_private.strings; path = ../strings_private.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +213,7 @@
 		E17B28991825F2D60049DC5D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E1883D1D190DBF76004B6D5C /* strings_private.strings */,
+				FB4B49F919D37D77007B2BC0 /* strings_private.strings */,
 				E17B289A1825F2D60049DC5D /* KDIC-Info.plist */,
 				E17B289B1825F2D60049DC5D /* InfoPlist.strings */,
 				E17B289E1825F2D60049DC5D /* main.m */,
@@ -373,9 +373,9 @@
 				E193F5C8183E0F0F00150BD7 /* iTunesArtwork.png in Resources */,
 				E193F601183E0F8500150BD7 /* pause.png in Resources */,
 				E193F5C2183E0F0F00150BD7 /* icon-40.png in Resources */,
+				FB4B49FA19D37D77007B2BC0 /* strings_private.strings in Resources */,
 				E193F5C1183E0F0F00150BD7 /* icon-29.png in Resources */,
 				E17FEC32183EED510011C2BB /* antenna2.png in Resources */,
-				E1883D1E190DBF76004B6D5C /* strings_private.strings in Resources */,
 				E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */,
 				E193F5C9183E0F0F00150BD7 /* iTunesArtwork@2x.png in Resources */,
 				E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */,
@@ -444,7 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 45894d9e8a6bc3b8513651d6de36159e2c836e51 e63db966a2704d736a61d448865ca84d08aaaa601dce5b22725702038b26a699";
+			shellScript = "./Crashlytics.framework/run 45894d9e8a6bc3b8513651d6de36159e2c836e51 e63db966a2704d736a61d448865ca84d08aaaa601dce5b22725702038b26a699\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -577,7 +577,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/tremblay/KDIC-Radio-iOS",
+					"/Users/danieltorres/Documents/GitHub/KDIC-Radio-iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
@@ -597,7 +597,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/tremblay/KDIC-Radio-iOS",
+					"/Users/danieltorres/Documents/GitHub/KDIC-Radio-iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";

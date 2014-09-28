@@ -133,7 +133,7 @@
     cell.textLabel.text = podcast.title;
     if (NULL != podcast.imageURL) {
         UIImage *placeholder = [UIImage imageNamed:@"icon-40"];
-        [cell.imageView setImageWithURL:[NSURL URLWithString:podcast.imageURL] placeholderImage:placeholder];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:podcast.imageURL] placeholderImage:placeholder];
     } else {
         cell.imageView.image = NULL;
     }
