@@ -66,6 +66,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"NowPlayingJump"]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+        self.navigationController.navigationBar.topItem.title = @"";
     } else if ([segue.identifier isEqualToString:@"ShowSelect"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)segue.destinationViewController;

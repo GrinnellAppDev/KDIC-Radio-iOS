@@ -153,6 +153,7 @@
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+        self.navigationController.navigationBar.topItem.title = @"";
         if ([segue.identifier isEqualToString:@"AppOpens"]) {
             PlayerViewController *playerViewC = [segue destinationViewController];
             playerViewC.urlString = LIVE_STREAM_URL;

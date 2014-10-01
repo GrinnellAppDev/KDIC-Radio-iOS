@@ -61,10 +61,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // Hide "Back" so that only the "<" shows in the top left
-    // TODO: This doesn't work, try this: http://stackoverflow.com/questions/19078995/removing-the-title-text-of-an-ios-7-uibarbuttonitem
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
-    
     if ([KDICNetworkManager networkCheck]) {
         KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
 

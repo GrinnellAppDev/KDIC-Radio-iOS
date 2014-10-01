@@ -49,6 +49,7 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    self.navigationController.navigationBar.topItem.title = @"";
     if ([segue.identifier isEqualToString:@"LiveStream-to-Player"] || [segue.identifier isEqualToString:@"LiveStream-to-Player-PlayButton"]) {
         PlayerViewController *playerVC = [segue destinationViewController];
         playerVC.urlString = LIVE_STREAM_URL;
