@@ -36,13 +36,14 @@
         self.textView.text = self.detailText;
     }
     else {
-        if ([KDICNetworkManager networkCheck]) {
-            [self getKDICDescription];
-        }
+        [self getKDICDescription];
     }
 }
 
 - (void)getKDICDescription {
+    if (![KDICNetworkManager networkCheckForURLString:KDIC_ABOUT_URL]) {
+        return;
+    }
     
     [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURLString:KDIC_ABOUT_URL] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
         

@@ -9,27 +9,42 @@
 #import "KDICNetworkManager.h"
 #import <Reachability.h>
 
-NSString * const KDIC_URL = @"http://kdic.grinnell.edu";
-NSString * const LIVE_STREAM_URL = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
-NSString * const KDIC_ABOUT_URL = @"http://kdic.grinnell.edu/about-us/";
+NSString * const KDIC_URL          = @"http://kdic.grinnell.edu";
+NSString * const LIVE_STREAM_URL   = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+NSString * const KDIC_ABOUT_URL    = @"http://kdic.grinnell.edu/about-us/";
 NSString * const KDIC_SCHEDULE_URL = @"http://tcdb.grinnell.edu/apps/glicious/KDIC/schedule.json";
 
 @implementation KDICNetworkManager
 
-+ (BOOL)networkCheck {
++ (BOOL)networkCheckForURL:(NSURL *)url {
+    return [self networkCheckForURLString:[url absoluteString]];
+}
+
++ (BOOL)networkCheckForURLString:(NSString *)urlString {
+    if (!urlString) {
+        NSLog(@"Connection error: URL cannot be NULL");
+        return NO;
+    }
     
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    
     if (networkStatus == NotReachable) {
         [[[UIAlertView alloc] initWithTitle:@"No Network Connection" message:@"Turn on cellular data or use Wi-Fi to access the server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         return NO;
     }
     
-    Reachability *kdicReachability = [Reachability reachabilityWithHostname:KDIC_URL];
+    Reachability *kdicReachability = [Reachability reachabilityWithHostname:urlString];
     NetworkStatus kdicStatus = [kdicReachability currentReachabilityStatus];
     if (kdicStatus == NotReachable) {
-        [[[UIAlertView alloc] initWithTitle:@"No Connection to KDIC" message:@"We're sorry, but the connection to kdic.grinnell.edu does not seem to be working" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        NSString *message;
+        
+        if ([urlString rangeOfString:@"tcdb"].location != NSNotFound) {
+            message = @"We're sorry, but the connection to tcdb.grinnell.edu does not seem to be working";
+        } else {
+            message = @"We're sorry, but the connection to kdic.grinnell.edu does not seem to be working";
+        }
+        
+        [[[UIAlertView alloc] initWithTitle:@"No Connection to KDIC" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         return NO;
     }
     

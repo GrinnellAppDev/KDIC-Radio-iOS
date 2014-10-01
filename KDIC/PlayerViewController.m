@@ -62,56 +62,59 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if ([KDICNetworkManager networkCheck]) {
-        KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-
-        NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
-        BOOL equalURL = !self.urlString || [self.urlString isEqualToString:contentURL];
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    if (![KDICNetworkManager networkCheckForURL:musicManager.streamMPMoviePlayer.contentURL]) {
+        return;
+    }
+    
+    NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
+    BOOL equalURL = !self.urlString || [self.urlString isEqualToString:contentURL];
+    
+    if (!equalURL || MPMoviePlaybackStatePlaying != musicManager.streamMPMoviePlayer.playbackState) {
+        // HUD
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Loading Stream";
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
         
-        if (!equalURL || MPMoviePlaybackStatePlaying != musicManager.streamMPMoviePlayer.playbackState) {
-            // HUD
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.labelText = @"Loading Stream";
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
-            
-            NSURL *url;
-            if (!self.urlString) {
-                url = musicManager.streamMPMoviePlayer.contentURL;
-            } else {
-                url = [NSURL URLWithString:self.urlString];
-            }
-            
-            NSError *err;
-            if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&err]) {
-                NSLog(@"Audio sessions error %@, %@", err, [err userInfo]);
-            } else {
-                [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-                
-                // Create stream using MPMoviePlayerController
-                musicManager.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-                
-                NSString *temp = [NSString stringWithFormat:@"%@", url];
-                if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
-                    musicManager.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
-                    [self hideFFandRW];
-                } else {
-                    musicManager.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
-                    [self unhideFFandRW];
-                }
-                
-                musicManager.streamMPMoviePlayer.shouldAutoplay = NO;
-                [musicManager.streamMPMoviePlayer prepareToPlay];
-                [musicManager.streamMPMoviePlayer play];
-            }
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        }
-        
-        contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
-        if ([LIVE_STREAM_URL isEqualToString:contentURL]) {
-            [self setLabels];
+        NSURL *url;
+        if (!self.urlString) {
+            url = musicManager.streamMPMoviePlayer.contentURL;
         } else {
-            [self setPodcastLabels];
+            url = [NSURL URLWithString:self.urlString];
         }
+        
+        NSError *err;
+        if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&err]) {
+            if (err) {
+                NSLog(@"Audio sessions error: %@", err.localizedDescription);
+            }
+        } else {
+            [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+            
+            // Create stream using MPMoviePlayerController
+            musicManager.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+            
+            NSString *temp = [NSString stringWithFormat:@"%@", url];
+            if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
+                musicManager.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
+                [self hideFFandRW];
+            } else {
+                musicManager.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
+                [self unhideFFandRW];
+            }
+            
+            musicManager.streamMPMoviePlayer.shouldAutoplay = NO;
+            [musicManager.streamMPMoviePlayer prepareToPlay];
+            [musicManager.streamMPMoviePlayer play];
+        }
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    }
+    
+    contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
+    if ([LIVE_STREAM_URL isEqualToString:contentURL]) {
+        [self setLabels];
+    } else {
+        [self setPodcastLabels];
     }
 }
 
@@ -220,7 +223,7 @@
 
 - (IBAction)playPauseButtonTap:(id)sender {
     KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-
+    
     // Note: Button gets changed by changeIcon (called because the playback state changes)
     if (MPMoviePlaybackStatePlaying == musicManager.streamMPMoviePlayer.playbackState) {
         [musicManager.streamMPMoviePlayer pause];
@@ -258,11 +261,10 @@
 }
 
 - (void)getCurrentShow {
-    if (![KDICNetworkManager networkCheck]) {
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    if (![KDICNetworkManager networkCheckForURL:musicManager.currentShow.url]) {
         return;
     }
-    
-    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
     
     [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURL:musicManager.currentShow.url] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
         
@@ -295,6 +297,9 @@
             NSURL *imgURL = [NSURL URLWithString:imgURLString];
             self.albumArtView.contentMode = UIViewContentModeScaleAspectFit;
             [self.albumArtView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:APP_ICON] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                if (error) {
+                    NSLog(@"%@", error.localizedDescription);
+                }
                 [self updateInfoCenter];
             }];
         }
@@ -305,7 +310,7 @@
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
     KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-
+    
     if (MPMovieSourceTypeStreaming == musicManager.streamMPMoviePlayer.movieSourceType) {
         switch (event.subtype) {
             case UIEventSubtypeRemoteControlPlay:
@@ -375,6 +380,9 @@
     self.artistLabel.text = musicManager.podcast.title;
     UIImage *placeholderImage = [UIImage imageNamed:APP_ICON];
     [self.albumArtView sd_setImageWithURL:[NSURL URLWithString:musicManager.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        }
         [self updateInfoCenter];
     }];
     self.songLabel.text = [NSString stringWithFormat:@"%@:", musicManager.podcast.show];

@@ -35,7 +35,7 @@
     
     self.podcastsArray = [[NSMutableArray alloc] init];
     
-    if (![KDICNetworkManager networkCheck]) {
+    if (![KDICNetworkManager networkCheckForURL:self.show.url]) {
         return;
     }
     
@@ -139,7 +139,7 @@
     //Visit page URL, find stream url
     Podcast *podcast = self.podcastsArray[indexPath.row];
     
-    if (![KDICNetworkManager networkCheck]) {
+    if (![KDICNetworkManager networkCheckForURLString:podcast.pageURL]) {
         return;
     }
     

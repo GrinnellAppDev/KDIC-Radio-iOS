@@ -15,7 +15,8 @@ extern NSString * const LIVE_STREAM_URL;
 extern NSString * const KDIC_ABOUT_URL;
 extern NSString * const KDIC_SCHEDULE_URL;
 
-+ (BOOL)networkCheck;
++ (BOOL)networkCheckForURLString:(NSString *)urlString;
++ (BOOL)networkCheckForURL:(NSURL *)url;
 + (NSMutableURLRequest *)urlRequestWithURLString:(NSString *)urlString;
 + (NSMutableURLRequest *)urlRequestWithURL:(NSURL *)url;
 

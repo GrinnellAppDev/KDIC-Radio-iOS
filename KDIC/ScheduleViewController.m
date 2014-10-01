@@ -43,14 +43,12 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:KDIC_NAVBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    if ([KDICNetworkManager networkCheck]) {
-        [self getShowsWithPodcasts];
-        [self getSchedule];
-
-        if (!self.playerVC) {
-            self.playerVC = [[PlayerViewController alloc] initWithNibName:PLAYER_VC_NIB_NAME bundle:nil];
-            [self performSegueWithIdentifier:APP_OPENS_SEGUE sender:self];
-        }
+    [self getShowsWithPodcasts];
+    [self getSchedule];
+    
+    if (!self.playerVC) {
+        self.playerVC = [[PlayerViewController alloc] initWithNibName:PLAYER_VC_NIB_NAME bundle:nil];
+        [self performSegueWithIdentifier:APP_OPENS_SEGUE sender:self];
     }
     
     // Set up screen update timer
@@ -167,6 +165,10 @@
 #pragma mark - Custom methods
 
 - (void)getShowsWithPodcasts {
+    if (![KDICNetworkManager networkCheckForURLString:KDIC_URL]) {
+        return;
+    }
+    
     [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURLString:KDIC_URL] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)urlResponse;
@@ -215,6 +217,10 @@
 }
 
 - (void)getSchedule {
+    if (![KDICNetworkManager networkCheckForURLString:KDIC_SCHEDULE_URL]) {
+        return;
+    }
+    
     NSURL *scheduleURL = [NSURL URLWithString:KDIC_SCHEDULE_URL];
     NSData *data = [NSData dataWithContentsOfURL:scheduleURL];
     
