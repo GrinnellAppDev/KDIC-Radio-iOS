@@ -62,7 +62,12 @@
 - (void)setLabels {
     self.artistLabel.text = appDel.artistText;
     self.songLabel.text = appDel.songText;
-    self.albumArtView.image = appDel.showImage;
+    if (appDel.showImage) {
+        self.albumArtView.image = appDel.showImage;
+    } else {
+        self.albumArtView.image = [UIImage imageNamed:@"iTunesArtwork"];
+    }
+
 }
 
 @end
