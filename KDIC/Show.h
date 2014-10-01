@@ -18,4 +18,6 @@
 @property (nonatomic, assign) int end;
 @property (nonatomic, assign) BOOL isPodcast;
 
+- (NSString *)formatTime;
+
 @end

@@ -9,10 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
-
-@property (nonatomic, weak) IBOutlet UITextView *textView;
-@property (nonatomic, strong) NSString *description;
-
-- (IBAction)done;
-
+@property (nonatomic, strong) NSString *detailText;
 @end

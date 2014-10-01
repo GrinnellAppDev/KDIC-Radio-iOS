@@ -9,10 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface LiveStreamViewController : UIViewController
-
-@property (nonatomic, weak) IBOutlet UIButton *playButton;
-@property (nonatomic, weak) IBOutlet UILabel *songLabel;
-@property (nonatomic, weak) IBOutlet UILabel *artistLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
-
 @end

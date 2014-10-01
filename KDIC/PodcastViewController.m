@@ -16,8 +16,6 @@
 
 @implementation PodcastViewController
 
-@synthesize showArray;
-
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
@@ -45,7 +43,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return showArray.count;
+    return [self.showArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,7 +51,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Show *show = [showArray objectAtIndex:indexPath.row];
+    Show *show = self.showArray[indexPath.row];
     cell.textLabel.text = show.name;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -66,12 +64,12 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"NowPlayingJump"]) {
-        [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
-    } else if ([[segue identifier] isEqualToString:@"ShowSelect"]) {
+    if ([segue.identifier isEqualToString:@"NowPlayingJump"]) {
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    } else if ([segue.identifier isEqualToString:@"ShowSelect"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)[segue destinationViewController];
-        showsPVC.show = [showArray objectAtIndex:indexPath.row];
+        ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)segue.destinationViewController;
+        showsPVC.show = self.showArray[indexPath.row];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }

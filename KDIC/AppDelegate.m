@@ -17,11 +17,10 @@
     NSString *strings_private = [[NSBundle mainBundle] pathForResource:@"strings_private" ofType:@"strings"];
     NSDictionary *keysDict = [NSDictionary dictionaryWithContentsOfFile:strings_private];
     
- //   [Crashlytics startWithAPIKey:[keysDict objectForKey:@"CrashlyticsAPIKey"]];
-    [Crashlytics startWithAPIKey:@"45894d9e8a6bc3b8513651d6de36159e2c836e51"];
+    [Crashlytics startWithAPIKey:keysDict[@"CrashlyticsAPIKey"]];
     
     [Flurry setCrashReportingEnabled:NO];
-    [Flurry startSession:[keysDict objectForKey:@"FlurrySession"]];
+    [Flurry startSession:keysDict[@"FlurrySession"]];
 
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];

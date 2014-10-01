@@ -7,21 +7,22 @@
 //
 
 #import "LiveStreamViewController.h"
-#import "ScheduleViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AppDelegate.h"
 #import "PodcastViewController.h"
 #import "PlayerViewController.h"
+#import "KDICNetworkManager.h"
 
 @interface LiveStreamViewController ()
-
+@property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UILabel *songLabel;
+@property (nonatomic, weak) IBOutlet UILabel *artistLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
 @end
 
 @implementation LiveStreamViewController {
     AppDelegate *appDel;
 }
-
-@synthesize albumArtView, artistLabel, songLabel, playButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,18 +51,18 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
-    if ([[segue identifier] isEqualToString:@"LiveStream-to-Player"]) {
+    [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    if ([segue.identifier isEqualToString:@"LiveStream-to-Player"] || [segue.identifier isEqualToString:@"LiveStream-to-Player-PlayButton"]) {
         PlayerViewController *playerVC = [segue destinationViewController];
-        playerVC.urlString = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+        playerVC.urlString = LIVE_STREAM_URL;
     }
 }
 
 #pragma mark - Other methods
 - (void)setLabels {
-    artistLabel.text = appDel.artistText;
-    songLabel.text = appDel.songText;
-    albumArtView.image = appDel.showImage;
+    self.artistLabel.text = appDel.artistText;
+    self.songLabel.text = appDel.songText;
+    self.albumArtView.image = appDel.showImage;
 }
 
 @end
