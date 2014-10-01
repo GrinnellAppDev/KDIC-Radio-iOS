@@ -7,19 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
-#import "Podcast.h"
-#import "Show.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong) MPMoviePlayerController *streamMPMoviePlayer;
-@property (nonatomic, strong) NSString *artistText;
-@property (nonatomic, strong) NSString *songText;
-@property (nonatomic, strong) UIImage *showImage;
-@property (nonatomic, strong) Podcast *podcast;
-@property (nonatomic, strong) Show *currentShow;
-@property (nonatomic, strong) Show *nextShow;
 
 @end

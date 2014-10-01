@@ -7,12 +7,15 @@
 //
 
 #import "PlayerViewController.h"
-#import "AppDelegate.h"
+#import "KDICMusicManager.h"
 #import "DetailViewController.h"
 #import <MBProgressHUD.h>
 #import "KDICNetworkManager.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "Show.h"
+#import "Podcast.h"
 
 @interface PlayerViewController ()
 
@@ -27,13 +30,10 @@
 
 @end
 
-@implementation PlayerViewController {
-    AppDelegate *appDel;
-}
+@implementation PlayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
     UIImage *backgroundImage = [UIImage imageNamed:@"kdic-navBar-short.png"];
     [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
@@ -66,10 +66,12 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
     
     if ([KDICNetworkManager networkCheck]) {
-        NSString *contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+
+        NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
         BOOL equalURL = !self.urlString || [self.urlString isEqualToString:contentURL];
         
-        if (!equalURL || MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
+        if (!equalURL || MPMoviePlaybackStatePlaying != musicManager.streamMPMoviePlayer.playbackState) {
             // HUD
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             hud.labelText = @"Loading Stream";
@@ -77,7 +79,7 @@
             
             NSURL *url;
             if (!self.urlString) {
-                url = appDel.streamMPMoviePlayer.contentURL;
+                url = musicManager.streamMPMoviePlayer.contentURL;
             } else {
                 url = [NSURL URLWithString:self.urlString];
             }
@@ -89,25 +91,25 @@
                 [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
                 
                 // Create stream using MPMoviePlayerController
-                appDel.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+                musicManager.streamMPMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
                 
                 NSString *temp = [NSString stringWithFormat:@"%@", url];
                 if (NSNotFound != [temp rangeOfString:@"m3u"].location) {
-                    appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
+                    musicManager.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
                     [self hideFFandRW];
                 } else {
-                    appDel.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
+                    musicManager.streamMPMoviePlayer.movieSourceType = MPMovieSourceTypeFile;
                     [self unhideFFandRW];
                 }
                 
-                appDel.streamMPMoviePlayer.shouldAutoplay = NO;
-                [appDel.streamMPMoviePlayer prepareToPlay];
-                [appDel.streamMPMoviePlayer play];
+                musicManager.streamMPMoviePlayer.shouldAutoplay = NO;
+                [musicManager.streamMPMoviePlayer prepareToPlay];
+                [musicManager.streamMPMoviePlayer play];
             }
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
         
-        contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
         if ([LIVE_STREAM_URL isEqualToString:contentURL]) {
             [self setLabels];
         } else {
@@ -119,10 +121,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
-    NSString *contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
     BOOL equalURL = !self.urlString || [self.urlString isEqualToString:contentURL];
     
-    if (!equalURL || MPMoviePlaybackStatePlaying != appDel.streamMPMoviePlayer.playbackState) {
+    if (!equalURL || MPMoviePlaybackStatePlaying != musicManager.streamMPMoviePlayer.playbackState) {
         // We're going to need to load a stream, so hide everything
         [self hideFFandRW];
         self.artistLabel.text = @"";
@@ -131,7 +134,7 @@
         // A stream is loaded, set up the view
         NSURL *url;
         if (!self.urlString) {
-            url = appDel.streamMPMoviePlayer.contentURL;
+            url = musicManager.streamMPMoviePlayer.contentURL;
         } else {
             url = [NSURL URLWithString:self.urlString];
         }
@@ -144,7 +147,7 @@
         }
         [self changeIcon];
         
-        contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
         if ([LIVE_STREAM_URL isEqualToString:contentURL]) {
             [self setLabels];
         } else {
@@ -171,25 +174,26 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ViewDetails"]) {
         DetailViewController *detailVC = segue.destinationViewController;
-        
-        NSString *contentURL = [NSString stringWithFormat:@"%@", appDel.streamMPMoviePlayer.contentURL];
+        KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+        NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
         if ([contentURL isEqualToString:LIVE_STREAM_URL]) {
-            if (!appDel.currentShow) {
+            if (!musicManager.currentShow) {
                 detailVC.detailText = @"";
             } else {
-                detailVC.detailText = [NSString stringWithFormat:@"%@\n%@", appDel.currentShow.name, appDel.currentShow.description];
+                detailVC.detailText = [NSString stringWithFormat:@"%@\n%@", musicManager.currentShow.name, musicManager.currentShow.description];
             }
         } else if ([contentURL isEqualToString:@"(null)"]) {
             detailVC.detailText = @"";
         } else {
-            detailVC.detailText = [NSString stringWithFormat:@"%@\n%@\n\n%@", appDel.podcast.show, appDel.podcast.title, appDel.podcast.description];
+            detailVC.detailText = [NSString stringWithFormat:@"%@\n%@\n\n%@", musicManager.podcast.show, musicManager.podcast.title, musicManager.podcast.description];
         }
     }
 }
 
 - (void)streamMeta:(NSNotification *)notification {
-    if ([appDel.streamMPMoviePlayer timedMetadata] != nil) {
-        MPTimedMetadata *meta = [[appDel.streamMPMoviePlayer timedMetadata] firstObject];
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    if ([musicManager.streamMPMoviePlayer timedMetadata]) {
+        MPTimedMetadata *meta = [[musicManager.streamMPMoviePlayer timedMetadata] firstObject];
         self.metaString = meta.value;
     }
     //NSLog(@"%@", metaString);
@@ -197,7 +201,7 @@
 
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
-    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState) {
+    if (MPMoviePlaybackStatePlaying == [KDICMusicManager sharedInstance].streamMPMoviePlayer.playbackState) {
         [self.playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     } else {
         [self.playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
@@ -205,7 +209,7 @@
 }
 
 - (void)changeIcon {
-    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState) {
+    if (MPMoviePlaybackStatePlaying == [KDICMusicManager sharedInstance].streamMPMoviePlayer.playbackState) {
         [self.playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
     } else {
         [self.playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
@@ -213,23 +217,26 @@
 }
 
 - (IBAction)seekingButtonHeld:(UIButton *)sender {
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
     if (sender == self.ff) {
-        [appDel.streamMPMoviePlayer beginSeekingForward];
+        [musicManager.streamMPMoviePlayer beginSeekingForward];
     } else {
-        [appDel.streamMPMoviePlayer beginSeekingBackward];
+        [musicManager.streamMPMoviePlayer beginSeekingBackward];
     }
 }
 
 - (IBAction)seekingButtonReleased:(id)sender {
-    [appDel.streamMPMoviePlayer endSeeking];
+    [[KDICMusicManager sharedInstance].streamMPMoviePlayer endSeeking];
 }
 
 - (IBAction)playPauseButtonTap:(id)sender {
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+
     // Note: Button gets changed by changeIcon (called because the playback state changes)
-    if (MPMoviePlaybackStatePlaying == appDel.streamMPMoviePlayer.playbackState) {
-        [appDel.streamMPMoviePlayer pause];
+    if (MPMoviePlaybackStatePlaying == musicManager.streamMPMoviePlayer.playbackState) {
+        [musicManager.streamMPMoviePlayer pause];
     } else {
-        [appDel.streamMPMoviePlayer play];
+        [musicManager.streamMPMoviePlayer play];
     }
 }
 
@@ -246,14 +253,15 @@
 }
 
 - (void)setLabels {
-    if (appDel.currentShow) {
-        self.songLabel.text = [NSString stringWithFormat:@"Current Show: %@", appDel.currentShow.name];
-        self.artistLabel.text = [appDel.currentShow formatTime];
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    if (musicManager.currentShow) {
+        self.songLabel.text = [NSString stringWithFormat:@"Current Show: %@", musicManager.currentShow.name];
+        self.artistLabel.text = [musicManager.currentShow formatTime];
         [self getCurrentShow];
     } else {
         self.songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
         
-        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@)", appDel.nextShow.name, [appDel.nextShow formatTime]];
+        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@)", musicManager.nextShow.name, [musicManager.nextShow formatTime]];
         self.artistLabel.text = nextShow;
         
         [self updateExternalLabels];
@@ -265,7 +273,8 @@
         return;
     }
     
-    NSURL *showURL = appDel.currentShow.url;
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    NSURL *showURL = musicManager.currentShow.url;
     NSString *post =[[NSString alloc] initWithFormat:@""];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -295,7 +304,7 @@
             description = [description stringByReplacingOccurrencesOfString:@"CST" withString:@"CST\n\n"];
             description = [description stringByReplacingOccurrencesOfString:@"CDT" withString:@"CDT\n\n"];
             
-            appDel.currentShow.description = description;
+            musicManager.currentShow.description = description;
         }
         
         start = [responseData rangeOfString:@"<meta property='og:image' content='" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
@@ -316,13 +325,15 @@
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    if (MPMovieSourceTypeStreaming == appDel.streamMPMoviePlayer.movieSourceType) {
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+
+    if (MPMovieSourceTypeStreaming == musicManager.streamMPMoviePlayer.movieSourceType) {
         switch (event.subtype) {
             case UIEventSubtypeRemoteControlPlay:
-                [appDel.streamMPMoviePlayer play];
+                [musicManager.streamMPMoviePlayer play];
                 break;
             case UIEventSubtypeRemoteControlPause:
-                [appDel.streamMPMoviePlayer pause];
+                [musicManager.streamMPMoviePlayer pause];
                 break;
             default:
                 break;
@@ -330,22 +341,22 @@
     } else {
         switch (event.subtype) {
             case UIEventSubtypeRemoteControlPlay:
-                [appDel.streamMPMoviePlayer play];
+                [musicManager.streamMPMoviePlayer play];
                 break;
             case UIEventSubtypeRemoteControlPause:
-                [appDel.streamMPMoviePlayer pause];
+                [musicManager.streamMPMoviePlayer pause];
                 break;
             case UIEventSubtypeRemoteControlBeginSeekingBackward:
-                [appDel.streamMPMoviePlayer beginSeekingBackward];
+                [musicManager.streamMPMoviePlayer beginSeekingBackward];
                 break;
             case UIEventSubtypeRemoteControlEndSeekingBackward:
-                [appDel.streamMPMoviePlayer endSeeking];
+                [musicManager.streamMPMoviePlayer endSeeking];
                 break;
             case UIEventSubtypeRemoteControlBeginSeekingForward:
-                [appDel.streamMPMoviePlayer beginSeekingForward];
+                [musicManager.streamMPMoviePlayer beginSeekingForward];
                 break;
             case UIEventSubtypeRemoteControlEndSeekingForward:
-                [appDel.streamMPMoviePlayer endSeeking];
+                [musicManager.streamMPMoviePlayer endSeeking];
                 break;
             default:
                 break;
@@ -355,9 +366,10 @@
 
 // Updates the information in the app delegate and the info center (remote control)
 - (void)updateExternalLabels {
-    appDel.artistText = self.artistLabel.text;
-    appDel.songText = self.songLabel.text;
-    appDel.showImage = self.albumArtView.image;
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    musicManager.artistText = self.artistLabel.text;
+    musicManager.songText = self.songLabel.text;
+    musicManager.showImage = self.albumArtView.image;
     [self updateInfoCenter];
 }
 
@@ -380,12 +392,13 @@
 }
 
 - (void)setPodcastLabels {
-    self.artistLabel.text = appDel.podcast.title;
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    self.artistLabel.text = musicManager.podcast.title;
     UIImage *placeholderImage = [UIImage imageNamed:@"iTunesArtwork"];
-    [self.albumArtView sd_setImageWithURL:[NSURL URLWithString:appDel.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.albumArtView sd_setImageWithURL:[NSURL URLWithString:musicManager.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [self updateInfoCenter];
     }];
-    self.songLabel.text = [NSString stringWithFormat:@"%@:", appDel.podcast.show];
+    self.songLabel.text = [NSString stringWithFormat:@"%@:", musicManager.podcast.show];
     [self updateExternalLabels];
 }
 

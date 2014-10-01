@@ -8,10 +8,12 @@
 
 #import "ShowsPodcastsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "AppDelegate.h"
+#import "KDICMusicManager.h"
 #import "PlayerViewController.h"
 #import "NSString+HTMLParser.h"
 #import "KDICNetworkManager.h"
+#import "Show.h"
+#import "Podcast.h"
 
 @interface ShowsPodcastsViewController ()
 @property (nonatomic, strong) NSMutableArray *podcastsArray;
@@ -94,7 +96,7 @@
                 imgURL = [imgURL substringWithRange:start];
                 podcast.imageURL = imgURL;
             } else {
-                podcast.imageURL = NULL;
+                podcast.imageURL = nil;
             }
             
             [self.podcastsArray addObject:podcast];
@@ -130,11 +132,11 @@
     // Configure the cell...
     Podcast *podcast = self.podcastsArray[indexPath.row];
     cell.textLabel.text = podcast.title;
-    if (NULL != podcast.imageURL) {
+    if (podcast.imageURL) {
         UIImage *placeholder = [UIImage imageNamed:@"icon-40"];
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:podcast.imageURL] placeholderImage:placeholder];
     } else {
-        cell.imageView.image = NULL;
+        cell.imageView.image = nil;
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -208,8 +210,8 @@
         PlayerViewController *playerVC = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Podcast *podcast = self.podcastsArray[indexPath.row];
-        AppDelegate *appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        appDel.podcast = podcast;
+        KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+        musicManager.podcast = podcast;
         playerVC.urlString = podcast.streamURL;
     }
 }

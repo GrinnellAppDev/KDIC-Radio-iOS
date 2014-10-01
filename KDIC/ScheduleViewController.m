@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "KDICMusicManager.h"
 #import "ScheduleViewController.h"
 #import "PodcastViewController.h"
 #import "ShowsPodcastsViewController.h"
 #import "NSString+HTMLParser.h"
 #import "PlayerViewController.h"
 #import "KDICNetworkManager.h"
+#import "Show.h"
 
 @interface ScheduleViewController ()
 @property (nonatomic, strong) NSDictionary *jsonDict;
@@ -23,9 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *namesOfPodcasts;
 @end
 
-@implementation ScheduleViewController {
-    AppDelegate *appDel;
-}
+@implementation ScheduleViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -40,8 +39,6 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    appDel = [UIApplication sharedApplication].delegate;
     
     if ([KDICNetworkManager networkCheck]) {
         [self getShowsWithPodcasts];
@@ -102,13 +99,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *CellIdentifier = @"ScheduleCell";
-    [tableView registerNib:[UINib nibWithNibName:@"ScheduleCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
-    
-    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    static NSString *CellIdentifier = @"ScheduleCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Show *show;
     if ([self.schedFromJSON[0] isKindOfClass:[NSString class]]) {
@@ -247,7 +239,8 @@
     NSUInteger hour = [comps hour];
     self.schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", nil];
     
-    appDel.currentShow = NULL;
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    musicManager.currentShow = nil;
     
     NSDictionary *sched = self.jsonDict;
     for (NSString *day in sched) {
@@ -287,7 +280,7 @@
                 }
                 else if (show.start <= hour) {
                     self.dayBegan = YES;
-                    appDel.currentShow = show;
+                    musicManager.currentShow = show;
                     [todaysShows addObject:show];
                 }
                 else [todaysShows addObject:show];
@@ -324,7 +317,7 @@
                 
                 if (start <= hour && end > hour) {
                     self.dayBegan = YES;
-                    appDel.currentShow = show;
+                    musicManager.currentShow = show;
                     [thisMorningsShows addObject:show];
                 }
                 else if (start > hour) {
@@ -348,7 +341,7 @@
     } else {
         show = self.schedFromJSON[0][0];
     }
-    appDel.nextShow = show;
+    [KDICMusicManager sharedInstance].nextShow = show;
 }
 
 - (IBAction)triggerTimer:(id)sender {
