@@ -1,14 +1,15 @@
 //
 //  PodcastViewController.m
-//
+//  KDIC
 //
 //  Created by Colin Tremblay on 11/12/13.
-//
+//  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
 #import "PodcastViewController.h"
 #import "Show.h"
 #import "ShowsPodcastsViewController.h"
+#import "KDICConstants.h"
 
 @interface PodcastViewController ()
 
@@ -27,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:KDIC_NAVBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
@@ -59,15 +60,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"ShowSelect" sender:self];
+    [self performSegueWithIdentifier:SHOW_SELECT_SEGUE sender:self];
 }
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"NowPlayingJump"]) {
+    if ([segue.identifier isEqualToString:NOW_PLAYING_SEGUE]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
         self.navigationController.navigationBar.topItem.title = @"";
-    } else if ([segue.identifier isEqualToString:@"ShowSelect"]) {
+    } else if ([segue.identifier isEqualToString:SHOW_SELECT_SEGUE]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)segue.destinationViewController;
         showsPVC.show = self.showArray[indexPath.row];

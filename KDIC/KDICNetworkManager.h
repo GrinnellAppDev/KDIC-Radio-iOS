@@ -16,4 +16,7 @@ extern NSString * const KDIC_ABOUT_URL;
 extern NSString * const KDIC_SCHEDULE_URL;
 
 + (BOOL)networkCheck;
++ (NSMutableURLRequest *)urlRequestWithURLString:(NSString *)urlString;
++ (NSMutableURLRequest *)urlRequestWithURL:(NSURL *)url;
+
 @end

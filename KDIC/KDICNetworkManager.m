@@ -36,4 +36,22 @@ NSString * const KDIC_SCHEDULE_URL = @"http://tcdb.grinnell.edu/apps/glicious/KD
     return YES;
 }
 
++ (NSMutableURLRequest *)urlRequestWithURL:(NSURL *)url {
+    NSString *post =[[NSString alloc] initWithFormat:@""];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)postData.length];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/html" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    return request;
+}
+
++ (NSMutableURLRequest *)urlRequestWithURLString:(NSString *)urlString {
+    return [self urlRequestWithURL:[NSURL URLWithString:urlString]];
+}
+
 @end

@@ -7,11 +7,11 @@
 //
 
 #import "LiveStreamViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "PodcastViewController.h"
 #import "PlayerViewController.h"
 #import "KDICNetworkManager.h"
 #import "KDICMusicManager.h"
+#import "KDICConstants.h"
 
 @interface LiveStreamViewController ()
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:KDIC_NAVBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
@@ -50,7 +50,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     self.navigationController.navigationBar.topItem.title = @"";
-    if ([segue.identifier isEqualToString:@"LiveStream-to-Player"] || [segue.identifier isEqualToString:@"LiveStream-to-Player-PlayButton"]) {
+    if ([segue.identifier isEqualToString:LIVE_STREAM_TO_PLAYER_SEGUE] || [segue.identifier isEqualToString:LIVE_STREAM_PLAY_BUTTON_TO_PLAYER_SEGUE]) {
         PlayerViewController *playerVC = [segue destinationViewController];
         playerVC.urlString = LIVE_STREAM_URL;
     }
@@ -65,7 +65,7 @@
     if (musicManager.showImage) {
         self.albumArtView.image = musicManager.showImage;
     } else {
-        self.albumArtView.image = [UIImage imageNamed:@"iTunesArtwork"];
+        self.albumArtView.image = [UIImage imageNamed:APP_ICON];
     }
 }
 

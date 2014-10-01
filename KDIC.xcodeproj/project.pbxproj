@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3429B22D19DBA25000365DD9 /* KDICConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3429B22C19DBA25000365DD9 /* KDICConstants.m */; };
 		34A1B0CD19DB77BF009E241B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E174CE5718A9759D00D1C314 /* Crashlytics.framework */; };
 		34A1B0CF19DB78AE009E241B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A1B0CE19DB78AE009E241B /* CFNetwork.framework */; };
 		34A1B0D219DB8542009E241B /* NSString+HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A1B0D119DB8542009E241B /* NSString+HTMLParser.m */; };
@@ -66,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		270B21DEFC0E4BB592DF5647 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3429B22B19DBA25000365DD9 /* KDICConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDICConstants.h; sourceTree = "<group>"; };
+		3429B22C19DBA25000365DD9 /* KDICConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDICConstants.m; sourceTree = "<group>"; };
 		34A1B0CE19DB78AE009E241B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		34A1B0D019DB8542009E241B /* NSString+HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTMLParser.h"; sourceTree = "<group>"; };
 		34A1B0D119DB8542009E241B /* NSString+HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTMLParser.m"; sourceTree = "<group>"; };
@@ -158,6 +161,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3429B22E19DBAAC500365DD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E19B54EF18395E600056E6DB /* Podcast.h */,
+				E19B54F018395E600056E6DB /* Podcast.m */,
+				E15BCC181827095A00D8229B /* Show.h */,
+				E15BCC191827095A00D8229B /* Show.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		E17B28861825F2D60049DC5D = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +209,7 @@
 		E17B28981825F2D60049DC5D /* KDIC */ = {
 			isa = PBXGroup;
 			children = (
+				3429B22E19DBAAC500365DD9 /* Models */,
 				E1BF440A18289FEC00215B14 /* Helpers */,
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
 				E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */,
@@ -268,17 +283,15 @@
 			children = (
 				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
-				E19B54EF18395E600056E6DB /* Podcast.h */,
-				E19B54F018395E600056E6DB /* Podcast.m */,
 				E1929425183025520008CB8A /* schedule.json */,
-				E15BCC181827095A00D8229B /* Show.h */,
-				E15BCC191827095A00D8229B /* Show.m */,
 				34A1B0D019DB8542009E241B /* NSString+HTMLParser.h */,
 				34A1B0D119DB8542009E241B /* NSString+HTMLParser.m */,
 				34A1B0D419DB8D5E009E241B /* KDICNetworkManager.h */,
 				34A1B0D519DB8D5E009E241B /* KDICNetworkManager.m */,
 				34E5FC2C19DB9A49002A7756 /* KDICMusicManager.h */,
 				34E5FC2D19DB9A49002A7756 /* KDICMusicManager.m */,
+				3429B22B19DBA25000365DD9 /* KDICConstants.h */,
+				3429B22C19DBA25000365DD9 /* KDICConstants.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -473,6 +486,7 @@
 				E1EA56BD183D630F000C1935 /* DetailViewController.m in Sources */,
 				E15BCC1A1827095A00D8229B /* Show.m in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
+				3429B22D19DBA25000365DD9 /* KDICConstants.m in Sources */,
 				E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */,
 				E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */,
 				34A1B0D619DB8D5E009E241B /* KDICNetworkManager.m in Sources */,

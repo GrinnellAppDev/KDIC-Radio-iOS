@@ -7,13 +7,14 @@
 //
 
 #import "PlayerViewController.h"
-#import "KDICMusicManager.h"
-#import "DetailViewController.h"
 #import <MBProgressHUD.h>
-#import "KDICNetworkManager.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "DetailViewController.h"
+#import "KDICNetworkManager.h"
+#import "KDICMusicManager.h"
+#import "KDICConstants.h"
 #import "Show.h"
 #import "Podcast.h"
 
@@ -35,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"kdic-navBar-short.png"];
+    UIImage *backgroundImage = [UIImage imageNamed:KDIC_NAVBAR_IMAGE];
     [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
     
     // Add the volume slider to the view in the xib
@@ -168,7 +169,7 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ViewDetails"]) {
+    if ([segue.identifier isEqualToString:VIEW_DETAILS_SEGUE]) {
         DetailViewController *detailVC = segue.destinationViewController;
         KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
         NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
@@ -198,17 +199,17 @@
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
     if (MPMoviePlaybackStatePlaying == [KDICMusicManager sharedInstance].streamMPMoviePlayer.playbackState) {
-        [self.playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+        [self.playpause setImage:[UIImage imageNamed:PAUSE_IMAGE] forState:UIControlStateNormal];
     } else {
-        [self.playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+        [self.playpause setImage:[UIImage imageNamed:PLAY_IMAGE] forState:UIControlStateNormal];
     }
 }
 
 - (void)changeIcon {
     if (MPMoviePlaybackStatePlaying == [KDICMusicManager sharedInstance].streamMPMoviePlayer.playbackState) {
-        [self.playpause setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+        [self.playpause setImage:[UIImage imageNamed:PAUSE_IMAGE] forState:UIControlStateNormal];
     } else {
-        [self.playpause setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+        [self.playpause setImage:[UIImage imageNamed:PLAY_IMAGE] forState:UIControlStateNormal];
     }
 }
 
@@ -270,19 +271,9 @@
     }
     
     KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-    NSURL *showURL = musicManager.currentShow.url;
-    NSString *post =[[NSString alloc] initWithFormat:@""];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:showURL];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/html" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
     
-    [NSURLConnection sendAsynchronousRequest:request queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
+    [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURL:musicManager.currentShow.url] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
+        
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)urlResponse;
         if (connectionError || response.statusCode < 200 || response.statusCode >= 400) {
             NSLog(@"Connection Error: %@\nStatus Code: %ld", connectionError.localizedDescription, (long)response.statusCode);
@@ -311,7 +302,7 @@
             NSString *imgURLString = [responseData substringWithRange:start];
             NSURL *imgURL = [NSURL URLWithString:imgURLString];
             self.albumArtView.contentMode = UIViewContentModeScaleAspectFit;
-            [self.albumArtView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"iTunesArtwork"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [self.albumArtView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:APP_ICON] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 [self updateInfoCenter];
             }];
         }
@@ -390,7 +381,7 @@
 - (void)setPodcastLabels {
     KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
     self.artistLabel.text = musicManager.podcast.title;
-    UIImage *placeholderImage = [UIImage imageNamed:@"iTunesArtwork"];
+    UIImage *placeholderImage = [UIImage imageNamed:APP_ICON];
     [self.albumArtView sd_setImageWithURL:[NSURL URLWithString:musicManager.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [self updateInfoCenter];
     }];

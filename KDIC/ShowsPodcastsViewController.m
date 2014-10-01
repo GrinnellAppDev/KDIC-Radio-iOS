@@ -8,10 +8,11 @@
 
 #import "ShowsPodcastsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "KDICMusicManager.h"
 #import "PlayerViewController.h"
 #import "NSString+HTMLParser.h"
 #import "KDICNetworkManager.h"
+#import "KDICMusicManager.h"
+#import "KDICConstants.h"
 #import "Show.h"
 #import "Podcast.h"
 
@@ -38,18 +39,7 @@
         return;
     }
     
-    NSString *post =[[NSString alloc] initWithFormat:@""];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:self.show.url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/html" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
+    [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURL:self.show.url] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)urlResponse;
         if (connectionError || response.statusCode < 200 || response.statusCode >= 400) {
@@ -133,7 +123,7 @@
     Podcast *podcast = self.podcastsArray[indexPath.row];
     cell.textLabel.text = podcast.title;
     if (podcast.imageURL) {
-        UIImage *placeholder = [UIImage imageNamed:@"icon-40"];
+        UIImage *placeholder = [UIImage imageNamed:APP_ICON_THUMBNAIL];
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:podcast.imageURL] placeholderImage:placeholder];
     } else {
         cell.imageView.image = nil;
@@ -153,18 +143,7 @@
         return;
     }
     
-    NSString *post =[[NSString alloc] initWithFormat:@""];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:podcast.pageURL]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/html" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
+    [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURLString:podcast.pageURL] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)urlResponse;
         if (connectionError || response.statusCode < 200 || response.statusCode >= 400) {
@@ -198,7 +177,7 @@
             podcast.streamURL = temp;
         }
 
-        [self performSegueWithIdentifier:@"PlayPodcast" sender:self];
+        [self performSegueWithIdentifier:PLAY_PODCAST_SEGUE sender:self];
     }];
 }
 
@@ -207,7 +186,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     self.navigationController.navigationBar.topItem.title = @"";
-    if ([segue.identifier isEqualToString:@"PlayPodcast"]){
+    if ([segue.identifier isEqualToString:PLAY_PODCAST_SEGUE]){
         PlayerViewController *playerVC = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Podcast *podcast = self.podcastsArray[indexPath.row];

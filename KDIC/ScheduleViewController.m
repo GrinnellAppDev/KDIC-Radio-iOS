@@ -6,22 +6,25 @@
 //  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
-#import "KDICMusicManager.h"
 #import "ScheduleViewController.h"
 #import "PodcastViewController.h"
 #import "ShowsPodcastsViewController.h"
-#import "NSString+HTMLParser.h"
 #import "PlayerViewController.h"
+#import "NSString+HTMLParser.h"
 #import "KDICNetworkManager.h"
+#import "KDICMusicManager.h"
+#import "KDICConstants.h"
 #import "Show.h"
 
 @interface ScheduleViewController ()
 @property (nonatomic, strong) NSDictionary *jsonDict;
 @property (nonatomic, assign) BOOL dayBegan;
 @property (nonatomic, strong) NSMutableArray *schedFromJSON;
-@property (nonatomic, strong) PlayerViewController *playerVC;
 @property (nonatomic, strong) NSMutableArray *showArray;
 @property (nonatomic, strong) NSMutableArray *namesOfPodcasts;
+
+// TODO: This is kind of a bad idea...
+@property (nonatomic, strong) PlayerViewController *playerVC;
 @end
 
 @implementation ScheduleViewController
@@ -37,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:KDIC_NAVBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     if ([KDICNetworkManager networkCheck]) {
@@ -45,8 +48,8 @@
         [self getSchedule];
 
         if (!self.playerVC) {
-            self.playerVC = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
-            [self performSegueWithIdentifier:@"AppOpens" sender:self];
+            self.playerVC = [[PlayerViewController alloc] initWithNibName:PLAYER_VC_NIB_NAME bundle:nil];
+            [self performSegueWithIdentifier:APP_OPENS_SEGUE sender:self];
         }
     }
     
@@ -134,13 +137,13 @@
     }
     
     if ([self.namesOfPodcasts containsObject:show.name]) {
-        [self performSegueWithIdentifier:@"ShowSelect" sender:self];
+        [self performSegueWithIdentifier:SHOW_SELECT_SEGUE sender:self];
     }
 }
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShowSelect"]) {
+    if ([segue.identifier isEqualToString:SHOW_SELECT_SEGUE]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)[segue destinationViewController];
         Show *show;
@@ -154,7 +157,7 @@
     } else {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
         self.navigationController.navigationBar.topItem.title = @"";
-        if ([segue.identifier isEqualToString:@"AppOpens"]) {
+        if ([segue.identifier isEqualToString:APP_OPENS_SEGUE]) {
             PlayerViewController *playerViewC = [segue destinationViewController];
             playerViewC.urlString = LIVE_STREAM_URL;
         }
@@ -164,18 +167,7 @@
 #pragma mark - Custom methods
 
 - (void)getShowsWithPodcasts {
-    NSString *post =[[NSString alloc] initWithFormat:@""];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:KDIC_URL]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/html" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
+    [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURLString:KDIC_URL] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)urlResponse;
         if (connectionError || response.statusCode < 200 || response.statusCode >= 400) {
@@ -230,8 +222,12 @@
     //   NSString *path = [[NSBundle mainBundle] pathForResource:@"schedule" ofType:@"json"];
     //   data = [NSData dataWithContentsOfFile:path];
     
+    // TODO: This is synchronous still
     NSError *error;
     self.jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date]];
