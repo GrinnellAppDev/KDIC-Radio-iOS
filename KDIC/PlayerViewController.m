@@ -142,7 +142,7 @@
         } else {
             [self unhideFFandRW];
         }
-        [self changeIcon];
+        [self changeIcon:nil];
         
         contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
         if ([LIVE_STREAM_URL isEqualToString:contentURL]) {
@@ -198,14 +198,6 @@
 
 // Change play/pause button when playback state changes
 - (void)changeIcon:(NSNotification *)notification {
-    if (MPMoviePlaybackStatePlaying == [KDICMusicManager sharedInstance].streamMPMoviePlayer.playbackState) {
-        [self.playpause setImage:[UIImage imageNamed:PAUSE_IMAGE] forState:UIControlStateNormal];
-    } else {
-        [self.playpause setImage:[UIImage imageNamed:PLAY_IMAGE] forState:UIControlStateNormal];
-    }
-}
-
-- (void)changeIcon {
     if (MPMoviePlaybackStatePlaying == [KDICMusicManager sharedInstance].streamMPMoviePlayer.playbackState) {
         [self.playpause setImage:[UIImage imageNamed:PAUSE_IMAGE] forState:UIControlStateNormal];
     } else {
@@ -366,13 +358,13 @@
         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
         MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:self.albumArtView.image];
         if (self.songLabel.text) {
-            [songInfo setObject:self.songLabel.text forKey:MPMediaItemPropertyTitle];
+            songInfo[MPMediaItemPropertyTitle] = self.songLabel.text;
         }
         if (self.artistLabel.text) {
-            [songInfo setObject:self.artistLabel.text forKey:MPMediaItemPropertyArtist];
+            songInfo[MPMediaItemPropertyArtist] = self.artistLabel.text;
         }
         if (albumArt) {
-            [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+            songInfo[MPMediaItemPropertyArtwork] = albumArt;
         }
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
     }

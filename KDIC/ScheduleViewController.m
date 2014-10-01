@@ -231,8 +231,7 @@
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *comps = [cal components:NSWeekdayCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date]];
-    NSUInteger wkday = [comps weekday];
-    int weekday = (int)wkday;
+    NSInteger weekday = [comps weekday];
     NSUInteger hour = [comps hour];
     self.schedFromJSON = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", nil];
     
@@ -242,7 +241,7 @@
     NSDictionary *sched = self.jsonDict;
     for (NSString *day in sched) {
         NSArray *showsInDay = sched[day];
-        int dayInt = 1 - weekday;
+        NSInteger dayInt = 1 - weekday;
         if ([day isEqualToString:@"Monday"])
             dayInt = 2 - weekday;
         else if ([day isEqualToString:@"Tuesday"])
@@ -267,8 +266,8 @@
             show.name = actualShow[@"name"];
             show.day = day;
             show.url = [NSURL URLWithString:actualShow[@"url"]];
-            show.start = [actualShow[@"start_time"] intValue];
-            show.end = [actualShow[@"end_time"] intValue];
+            show.start = [actualShow[@"start_time"] integerValue];
+            show.end = [actualShow[@"end_time"] integerValue];
             show.isPodcast = [self.namesOfPodcasts containsObject:show.name];
             if (0 == dayInt) {
                 if (show.end <= hour) {
@@ -303,8 +302,8 @@
         NSMutableArray *lastNightsShows = self.schedFromJSON[6];
         NSMutableArray *thisMorningsShows = [[NSMutableArray alloc] init];
         for (Show *show in lastNightsShows) {
-            int start = show.start;
-            int end = show.end;
+            NSInteger start = show.start;
+            NSInteger end = show.end;
             if (24 <= end) {
                 if (24 >= start)
                     start = 0;
