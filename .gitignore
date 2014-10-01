@@ -18,3 +18,5 @@ DerivedData
 .idea/
 
 KDIC/strings_private.strings
+Pods/
+Podfile.lock
