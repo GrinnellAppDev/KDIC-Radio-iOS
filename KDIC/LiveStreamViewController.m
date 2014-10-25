@@ -7,21 +7,20 @@
 //
 
 #import "LiveStreamViewController.h"
-#import "ScheduleViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import "AppDelegate.h"
 #import "PodcastViewController.h"
 #import "PlayerViewController.h"
+#import "KDICNetworkManager.h"
+#import "KDICMusicManager.h"
+#import "KDICConstants.h"
 
 @interface LiveStreamViewController ()
-
+@property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UILabel *songLabel;
+@property (nonatomic, weak) IBOutlet UILabel *artistLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
 @end
 
-@implementation LiveStreamViewController {
-    AppDelegate *appDel;
-}
-
-@synthesize albumArtView, artistLabel, songLabel, playButton;
+@implementation LiveStreamViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,9 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    appDel = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:KDIC_NAVBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
@@ -50,18 +48,25 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
-    if ([[segue identifier] isEqualToString:@"LiveStream-to-Player"]) {
+    [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    self.navigationController.navigationBar.topItem.title = @"";
+    if ([segue.identifier isEqualToString:LIVE_STREAM_TO_PLAYER_SEGUE] || [segue.identifier isEqualToString:LIVE_STREAM_PLAY_BUTTON_TO_PLAYER_SEGUE]) {
         PlayerViewController *playerVC = [segue destinationViewController];
-        playerVC.urlString = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+        playerVC.urlString = LIVE_STREAM_URL;
     }
 }
 
 #pragma mark - Other methods
 - (void)setLabels {
-    artistLabel.text = appDel.artistText;
-    songLabel.text = appDel.songText;
-    albumArtView.image = appDel.showImage;
+    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
+    
+    self.artistLabel.text = musicManager.artistText;
+    self.songLabel.text = musicManager.songText;
+    if (musicManager.showImage) {
+        self.albumArtView.image = musicManager.showImage;
+    } else {
+        self.albumArtView.image = [UIImage imageNamed:APP_ICON];
+    }
 }
 
 @end

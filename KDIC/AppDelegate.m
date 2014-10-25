@@ -17,19 +17,21 @@
     NSString *strings_private = [[NSBundle mainBundle] pathForResource:@"strings_private" ofType:@"strings"];
     NSDictionary *keysDict = [NSDictionary dictionaryWithContentsOfFile:strings_private];
     
- //   [Crashlytics startWithAPIKey:[keysDict objectForKey:@"CrashlyticsAPIKey"]];
-    [Crashlytics startWithAPIKey:@"45894d9e8a6bc3b8513651d6de36159e2c836e51"];
+    [Crashlytics startWithAPIKey:keysDict[@"CrashlyticsAPIKey"]];
     
     [Flurry setCrashReportingEnabled:NO];
-    [Flurry startSession:[keysDict objectForKey:@"FlurrySession"]];
+    [Flurry startSession:keysDict[@"FlurrySession"]];
 
-    
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    NSError *error;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [[AVAudioSession sharedInstance] setActive:YES error:&error];
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
     
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

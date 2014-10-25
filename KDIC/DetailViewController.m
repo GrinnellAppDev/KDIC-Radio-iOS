@@ -7,14 +7,14 @@
 //
 
 #import "DetailViewController.h"
+#import "KDICNetworkManager.h"
+#import "NSString+HTMLParser.h"
 
 @interface DetailViewController ()
-
+@property (nonatomic, weak) IBOutlet UITextView *textView;
 @end
 
 @implementation DetailViewController
-
-@synthesize description;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,13 +26,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.textView.text = self.description;
+    if (self.detailText) {
+        self.textView.text = self.detailText;
+    }
+    else {
+        [self getKDICDescription];
+    }
+}
+
+- (void)getKDICDescription {
+    if (![KDICNetworkManager networkCheckForURLString:KDIC_ABOUT_URL]) {
+        return;
+    }
+    
+    [NSURLConnection sendAsynchronousRequest:[KDICNetworkManager urlRequestWithURLString:KDIC_ABOUT_URL] queue:NSOperationQueuePriorityNormal completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)urlResponse;
+        if (connectionError || response.statusCode < 200 || response.statusCode >= 400) {
+            NSLog(@"Connection Error: %@\nStatus Code: %ld", connectionError.localizedDescription, (long)response.statusCode);
+            return;
+        }
+        
+        NSString *responseData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSRange start = [responseData rangeOfString:@"<h1>About</h1>" options:NSCaseInsensitiveSearch];
+        if (NSNotFound != start.location) {
+            NSString *description = [responseData substringFromIndex:start.location + start.length];
+            start = [description rangeOfString:@"If you&#"];
+            description = [description substringToIndex:start.location];
+            
+            description = [description removeHTMLTags];
+            self.textView.text = description;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

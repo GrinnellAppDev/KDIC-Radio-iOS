@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Show.h"
+
+@class Show;
 
 @interface ShowsPodcastsViewController : UITableViewController
-
 @property (nonatomic, strong) Show *show;
-@property (nonatomic, strong) NSMutableArray *podcastsArray;
-
 @end

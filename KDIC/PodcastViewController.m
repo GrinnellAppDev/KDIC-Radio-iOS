@@ -1,22 +1,21 @@
 //
 //  PodcastViewController.m
-//
+//  KDIC
 //
 //  Created by Colin Tremblay on 11/12/13.
-//
+//  Copyright (c) 2013 Colin Tremblay. All rights reserved.
 //
 
 #import "PodcastViewController.h"
 #import "Show.h"
 #import "ShowsPodcastsViewController.h"
+#import "KDICConstants.h"
 
 @interface PodcastViewController ()
 
 @end
 
 @implementation PodcastViewController
-
-@synthesize showArray;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -29,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"kdic-navBar-short.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:KDIC_NAVBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
@@ -45,7 +44,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return showArray.count;
+    return [self.showArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,7 +52,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Show *show = [showArray objectAtIndex:indexPath.row];
+    Show *show = self.showArray[indexPath.row];
     cell.textLabel.text = show.name;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -61,17 +60,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"ShowSelect" sender:self];
+    [self performSegueWithIdentifier:SHOW_SELECT_SEGUE sender:self];
 }
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"NowPlayingJump"]) {
-        [[segue destinationViewController] setHidesBottomBarWhenPushed:YES];
-    } else if ([[segue identifier] isEqualToString:@"ShowSelect"]) {
+    if ([segue.identifier isEqualToString:NOW_PLAYING_SEGUE]) {
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+        self.navigationController.navigationBar.topItem.title = @"";
+    } else if ([segue.identifier isEqualToString:SHOW_SELECT_SEGUE]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)[segue destinationViewController];
-        showsPVC.show = [showArray objectAtIndex:indexPath.row];
+        ShowsPodcastsViewController *showsPVC = (ShowsPodcastsViewController *)segue.destinationViewController;
+        showsPVC.show = self.showArray[indexPath.row];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }

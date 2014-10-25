@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3429B22D19DBA25000365DD9 /* KDICConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3429B22C19DBA25000365DD9 /* KDICConstants.m */; };
+		34A1B0CD19DB77BF009E241B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E174CE5718A9759D00D1C314 /* Crashlytics.framework */; };
+		34A1B0CF19DB78AE009E241B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A1B0CE19DB78AE009E241B /* CFNetwork.framework */; };
+		34A1B0D219DB8542009E241B /* NSString+HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A1B0D119DB8542009E241B /* NSString+HTMLParser.m */; };
+		34A1B0D619DB8D5E009E241B /* KDICNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A1B0D519DB8D5E009E241B /* KDICNetworkManager.m */; };
+		34E5FC2E19DB9A49002A7756 /* KDICMusicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E5FC2D19DB9A49002A7756 /* KDICMusicManager.m */; };
 		9A5F85617935432FB861732B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B21DEFC0E4BB592DF5647 /* libPods.a */; };
 		E15BCC1A1827095A00D8229B /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = E15BCC191827095A00D8229B /* Show.m */; };
-		E17326601842849A00F6E756 /* HTMLStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E173265F1842849A00F6E756 /* HTMLStringParser.m */; };
-		E174CE5818A9759D00D1C314 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E174CE5718A9759D00D1C314 /* Crashlytics.framework */; };
 		E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28921825F2D60049DC5D /* Foundation.framework */; };
 		E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28941825F2D60049DC5D /* CoreGraphics.framework */; };
 		E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28961825F2D60049DC5D /* UIKit.framework */; };
@@ -24,7 +28,6 @@
 		E17B28CB1825F3C90049DC5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28CA1825F3C90049DC5D /* AVFoundation.framework */; };
 		E17B28D21825FF440049DC5D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28D11825FF440049DC5D /* MediaPlayer.framework */; };
 		E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */; };
-		E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EDD261826E04F005FD6FD /* ScheduleCell.xib */; };
 		E17FEC20183EECAB0011C2BB /* nowPlaying.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC1E183EECAB0011C2BB /* nowPlaying.png */; };
 		E17FEC21183EECAB0011C2BB /* nowPlaying@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC1F183EECAB0011C2BB /* nowPlaying@2x.png */; };
 		E17FEC32183EED510011C2BB /* antenna2.png in Resources */ = {isa = PBXBuildFile; fileRef = E17FEC26183EED510011C2BB /* antenna2.png */; };
@@ -64,11 +67,18 @@
 
 /* Begin PBXFileReference section */
 		270B21DEFC0E4BB592DF5647 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3429B22B19DBA25000365DD9 /* KDICConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDICConstants.h; sourceTree = "<group>"; };
+		3429B22C19DBA25000365DD9 /* KDICConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDICConstants.m; sourceTree = "<group>"; };
+		34A1B0CE19DB78AE009E241B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		34A1B0D019DB8542009E241B /* NSString+HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTMLParser.h"; sourceTree = "<group>"; };
+		34A1B0D119DB8542009E241B /* NSString+HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTMLParser.m"; sourceTree = "<group>"; };
+		34A1B0D419DB8D5E009E241B /* KDICNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDICNetworkManager.h; sourceTree = "<group>"; };
+		34A1B0D519DB8D5E009E241B /* KDICNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDICNetworkManager.m; sourceTree = "<group>"; };
+		34E5FC2C19DB9A49002A7756 /* KDICMusicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDICMusicManager.h; sourceTree = "<group>"; };
+		34E5FC2D19DB9A49002A7756 /* KDICMusicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDICMusicManager.m; sourceTree = "<group>"; };
 		75A241971BA2429897F82E24 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E15BCC181827095A00D8229B /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
 		E15BCC191827095A00D8229B /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
-		E173265E1842849A00F6E756 /* HTMLStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLStringParser.h; sourceTree = "<group>"; };
-		E173265F1842849A00F6E756 /* HTMLStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLStringParser.m; sourceTree = "<group>"; };
 		E174CE5718A9759D00D1C314 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		E17B288F1825F2D60049DC5D /* KDIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17B28921825F2D60049DC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,7 +100,6 @@
 		E17B28D11825FF440049DC5D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
-		E17EDD261826E04F005FD6FD /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
 		E17FEC1E183EECAB0011C2BB /* nowPlaying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nowPlaying.png; path = Images.xcassets/nowPlaying.png; sourceTree = "<group>"; };
 		E17FEC1F183EECAB0011C2BB /* nowPlaying@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nowPlaying@2x.png"; path = "Images.xcassets/nowPlaying@2x.png"; sourceTree = "<group>"; };
 		E17FEC26183EED510011C2BB /* antenna2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = antenna2.png; path = Images.xcassets/TabBarIcons/antenna2.png; sourceTree = "<group>"; };
@@ -138,19 +147,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A1B0CF19DB78AE009E241B /* CFNetwork.framework in Frameworks */,
+				34A1B0CD19DB77BF009E241B /* Crashlytics.framework in Frameworks */,
 				E17B28D21825FF440049DC5D /* MediaPlayer.framework in Frameworks */,
 				E17B28CB1825F3C90049DC5D /* AVFoundation.framework in Frameworks */,
 				E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */,
 				E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */,
 				E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */,
 				9A5F85617935432FB861732B /* libPods.a in Frameworks */,
-				E174CE5818A9759D00D1C314 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3429B22E19DBAAC500365DD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E19B54EF18395E600056E6DB /* Podcast.h */,
+				E19B54F018395E600056E6DB /* Podcast.m */,
+				E15BCC181827095A00D8229B /* Show.h */,
+				E15BCC191827095A00D8229B /* Show.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		E17B28861825F2D60049DC5D = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +193,7 @@
 		E17B28911825F2D60049DC5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34A1B0CE19DB78AE009E241B /* CFNetwork.framework */,
 				E174CE5718A9759D00D1C314 /* Crashlytics.framework */,
 				E17B28D11825FF440049DC5D /* MediaPlayer.framework */,
 				E17B28CA1825F3C90049DC5D /* AVFoundation.framework */,
@@ -187,12 +209,12 @@
 		E17B28981825F2D60049DC5D /* KDIC */ = {
 			isa = PBXGroup;
 			children = (
+				3429B22E19DBAAC500365DD9 /* Models */,
 				E1BF440A18289FEC00215B14 /* Helpers */,
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
 				E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */,
 				E17EDD231826DA5D005FD6FD /* ScheduleViewController.h */,
 				E17EDD241826DA5D005FD6FD /* ScheduleViewController.m */,
-				E17EDD261826E04F005FD6FD /* ScheduleCell.xib */,
 				E19D85DD1832C86C005A4B32 /* PodcastViewController.h */,
 				E19D85DE1832C86C005A4B32 /* PodcastViewController.m */,
 				E19D85E21832E7E5005A4B32 /* ShowsPodcastsViewController.h */,
@@ -261,13 +283,15 @@
 			children = (
 				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
-				E173265E1842849A00F6E756 /* HTMLStringParser.h */,
-				E173265F1842849A00F6E756 /* HTMLStringParser.m */,
-				E19B54EF18395E600056E6DB /* Podcast.h */,
-				E19B54F018395E600056E6DB /* Podcast.m */,
 				E1929425183025520008CB8A /* schedule.json */,
-				E15BCC181827095A00D8229B /* Show.h */,
-				E15BCC191827095A00D8229B /* Show.m */,
+				34A1B0D019DB8542009E241B /* NSString+HTMLParser.h */,
+				34A1B0D119DB8542009E241B /* NSString+HTMLParser.m */,
+				34A1B0D419DB8D5E009E241B /* KDICNetworkManager.h */,
+				34A1B0D519DB8D5E009E241B /* KDICNetworkManager.m */,
+				34E5FC2C19DB9A49002A7756 /* KDICMusicManager.h */,
+				34E5FC2D19DB9A49002A7756 /* KDICMusicManager.m */,
+				3429B22B19DBA25000365DD9 /* KDICConstants.h */,
+				3429B22C19DBA25000365DD9 /* KDICConstants.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -387,7 +411,6 @@
 				E17FEC21183EECAB0011C2BB /* nowPlaying@2x.png in Resources */,
 				E17FEC3C183EF8060011C2BB /* infoButton.png in Resources */,
 				E1B0224F185E3D1C00874578 /* Default-568h@2x.png in Resources */,
-				E17EDD271826E04F005FD6FD /* ScheduleCell.xib in Resources */,
 				E193F5FB183E0F8500150BD7 /* kdic-navBar-short.png in Resources */,
 				E1B02250185E3D1C00874578 /* Default@2x.png in Resources */,
 				E17FEC39183EED510011C2BB /* microphone2@2x.png in Resources */,
@@ -454,16 +477,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19B54F118395E600056E6DB /* Podcast.m in Sources */,
+				34A1B0D219DB8542009E241B /* NSString+HTMLParser.m in Sources */,
 				E17B28AC1825F2D60049DC5D /* PlayerViewController.m in Sources */,
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
+				34E5FC2E19DB9A49002A7756 /* KDICMusicManager.m in Sources */,
 				E19D85E41832E7E5005A4B32 /* ShowsPodcastsViewController.m in Sources */,
 				E17EDD251826DA5D005FD6FD /* ScheduleViewController.m in Sources */,
-				E17326601842849A00F6E756 /* HTMLStringParser.m in Sources */,
 				E1EA56BD183D630F000C1935 /* DetailViewController.m in Sources */,
 				E15BCC1A1827095A00D8229B /* Show.m in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
+				3429B22D19DBA25000365DD9 /* KDICConstants.m in Sources */,
 				E19D85D91832C78E005A4B32 /* LiveStreamViewController.m in Sources */,
 				E19D85DF1832C86C005A4B32 /* PodcastViewController.m in Sources */,
+				34A1B0D619DB8D5E009E241B /* KDICNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +603,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/danieltorres/Documents/GitHub/KDIC-Radio-iOS",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
@@ -597,7 +623,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/danieltorres/Documents/GitHub/KDIC-Radio-iOS",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDIC/KDIC-Prefix.pch";
