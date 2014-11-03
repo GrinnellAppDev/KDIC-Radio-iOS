@@ -63,8 +63,10 @@
     [super viewDidAppear:animated];
     
     KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-    if (![KDICNetworkManager networkCheckForURL:musicManager.streamMPMoviePlayer.contentURL]) {
-        return;
+    if (musicManager.streamMPMoviePlayer) {
+        if (![KDICNetworkManager networkCheckForURL:musicManager.streamMPMoviePlayer.contentURL]) {
+            return;
+        }
     }
     
     NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
