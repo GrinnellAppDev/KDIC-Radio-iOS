@@ -13,8 +13,6 @@ NSString * const KDIC_URL          = @"http://kdic.grinnell.edu";
 NSString * const LIVE_STREAM_URL   = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
 NSString * const KDIC_ABOUT_URL    = @"http://kdic.grinnell.edu/about-us/";
 NSString * const KDIC_SCHEDULE_URL = @"http://tcdb.grinnell.edu/apps/glicious/KDIC/schedule.json";
-NSString * const TCDB_BASE_URL     = @"tcdb.grinnell.edu";
-NSString * const KDIC_BASE_URL     = @"kdic.grinnell.edu";
 
 @implementation KDICNetworkManager
 
@@ -33,14 +31,6 @@ NSString * const KDIC_BASE_URL     = @"kdic.grinnell.edu";
     if (networkStatus == NotReachable) {
         [[[UIAlertView alloc] initWithTitle:@"No Network Connection" message:@"Turn on cellular data or use Wi-Fi to access the server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         return NO;
-    }
-    
-    // TODO: Hard coding the base URL is a bit dangerous. Might be better to find a way to trim the URL down to it's base.
-    if ([urlString rangeOfString:@"tcdb"].location != NSNotFound) {
-        urlString = TCDB_BASE_URL;
-    }
-    else {
-        urlString = KDIC_BASE_URL;
     }
     
     Reachability *kdicReachability = [Reachability reachabilityWithHostname:urlString];

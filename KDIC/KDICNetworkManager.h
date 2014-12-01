@@ -14,8 +14,6 @@ extern NSString * const KDIC_URL;
 extern NSString * const LIVE_STREAM_URL;
 extern NSString * const KDIC_ABOUT_URL;
 extern NSString * const KDIC_SCHEDULE_URL;
-extern NSString * const TCDB_BASE_URL;
-extern NSString * const KDIC_BASE_URL;
 
 + (BOOL)networkCheckForURLString:(NSString *)urlString;
 + (BOOL)networkCheckForURL:(NSURL *)url;
