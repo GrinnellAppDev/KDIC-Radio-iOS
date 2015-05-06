@@ -18,20 +18,20 @@
 #import "Show.h"
 #import "Podcast.h"
 
+// @"http://132.161.21.31:8000/stream" = LIVE_STREAM_URL
+
 @interface PlayerViewController ()
 
 @property (nonatomic, strong) NSString *metaString;
 @property (nonatomic, weak) IBOutlet UIButton *playpause;
 @property (nonatomic, weak) IBOutlet UIButton *ff;
 @property (nonatomic, weak) IBOutlet UIButton *rw;
-@property (nonatomic, weak) IBOutlet UILabel *songLabel;
-@property (nonatomic, weak) IBOutlet UILabel *artistLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *albumArtView;
 @property (nonatomic, weak) IBOutlet UIView *volViewParent;
 
 @end
 
 @implementation PlayerViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,19 +48,12 @@
     
     // Change icon to play when the state becomes playing
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeIcon:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:nil];
-    
-    // Set up screen update timer
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [cal components:NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
-    NSUInteger second = [comps second];
-    second += [comps minute] * 60;
-    second = 3600 - second;
-    NSTimer *timerTimer = [NSTimer timerWithTimeInterval:second target:self selector:@selector(triggerTimer:) userInfo:nil repeats:NO];
-    [[NSRunLoop mainRunLoop] addTimer:timerTimer forMode:NSRunLoopCommonModes];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     
     KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
     if (![KDICNetworkManager networkCheckForURL:musicManager.streamMPMoviePlayer.contentURL]) {
@@ -110,12 +103,7 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }
     
-    contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
-    if ([LIVE_STREAM_URL isEqualToString:contentURL]) {
-        [self setLabels];
-    } else {
-        [self setPodcastLabels];
-    }
+    contentURL = @"http://132.161.21.31:8000/stream";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -128,8 +116,6 @@
     if (!equalURL || MPMoviePlaybackStatePlaying != musicManager.streamMPMoviePlayer.playbackState) {
         // We're going to need to load a stream, so hide everything
         [self hideFFandRW];
-        self.artistLabel.text = @"";
-        self.songLabel.text = @"";
     } else {
         // A stream is loaded, set up the view
         NSURL *url;
@@ -148,12 +134,7 @@
         [self changeIcon:nil];
         
         contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
-        if ([LIVE_STREAM_URL isEqualToString:contentURL]) {
-            [self setLabels];
-        } else {
-            [self setPodcastLabels];
-        }
-    }
+           }
 }
 
 - (void)hideFFandRW {
@@ -176,7 +157,7 @@
         DetailViewController *detailVC = segue.destinationViewController;
         KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
         NSString *contentURL = [NSString stringWithFormat:@"%@", musicManager.streamMPMoviePlayer.contentURL];
-        if ([contentURL isEqualToString:LIVE_STREAM_URL]) {
+        if ([contentURL isEqualToString:@"http://132.161.21.31:8000/stream"]) {
             if (!musicManager.currentShow) {
                 detailVC.detailText = @"";
             } else {
@@ -196,7 +177,7 @@
         MPTimedMetadata *meta = [[musicManager.streamMPMoviePlayer timedMetadata] firstObject];
         self.metaString = meta.value;
     }
-    //NSLog(@"%@", metaString);
+    NSLog(@"%@", self.metaString);
 }
 
 // Change play/pause button when playback state changes
@@ -236,29 +217,12 @@
     // Set up screen updates on the hour
     NSTimer *timer = [NSTimer timerWithTimeInterval:3600.0f target:self selector:@selector(updateLabels:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    [self setLabels];
 }
 
 // Update labels
 - (IBAction)updateLabels:(id)sender {
-    [self setLabels];
 }
 
-- (void)setLabels {
-    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-    if (musicManager.currentShow) {
-        self.songLabel.text = [NSString stringWithFormat:@"Current Show: %@", musicManager.currentShow.name];
-        self.artistLabel.text = [musicManager.currentShow formatTime];
-        [self getCurrentShow];
-    } else {
-        self.songLabel.text = @"WE ARE CURRENTLY ON AUTOPLAY";
-        
-        NSString *nextShow = [NSString stringWithFormat:@"Up Next: %@ (%@)", musicManager.nextShow.name, [musicManager.nextShow formatTime]];
-        self.artistLabel.text = nextShow;
-        
-        [self updateExternalLabels];
-    }
-}
 
 - (void)getCurrentShow {
     KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
@@ -288,23 +252,8 @@
             musicManager.currentShow.description = description;
         }
         
-        start = [responseData rangeOfString:@"<meta property='og:image' content='" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
-        NSRange end = [responseData rangeOfString:@"<link rel='image_src" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
-        if (NSNotFound != start.location && NSNotFound != end.location) {
-            start.location += start.length;
-            start.length = end.location - start.location - 5;
-            NSString *imgURLString = [responseData substringWithRange:start];
-            NSURL *imgURL = [NSURL URLWithString:imgURLString];
-            self.albumArtView.contentMode = UIViewContentModeScaleAspectFit;
-            [self.albumArtView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:APP_ICON] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                if (error) {
-                    NSLog(@"%@", error.localizedDescription);
-                }
-                [self updateInfoCenter];
-            }];
-        }
+
         
-        [self updateExternalLabels];
     }];
 }
 
@@ -348,45 +297,5 @@
     }
 }
 
-// Updates the information in the app delegate and the info center (remote control)
-- (void)updateExternalLabels {
-    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-    musicManager.artistText = self.artistLabel.text;
-    musicManager.songText = self.songLabel.text;
-    musicManager.showImage = self.albumArtView.image;
-    [self updateInfoCenter];
-}
-
-- (void)updateInfoCenter {
-    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
-    if (playingInfoCenter) {
-        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
-        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:self.albumArtView.image];
-        if (self.songLabel.text) {
-            songInfo[MPMediaItemPropertyTitle] = self.songLabel.text;
-        }
-        if (self.artistLabel.text) {
-            songInfo[MPMediaItemPropertyArtist] = self.artistLabel.text;
-        }
-        if (albumArt) {
-            songInfo[MPMediaItemPropertyArtwork] = albumArt;
-        }
-        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
-    }
-}
-
-- (void)setPodcastLabels {
-    KDICMusicManager *musicManager = [KDICMusicManager sharedInstance];
-    self.artistLabel.text = musicManager.podcast.title;
-    UIImage *placeholderImage = [UIImage imageNamed:APP_ICON];
-    [self.albumArtView sd_setImageWithURL:[NSURL URLWithString:musicManager.podcast.imageURL] placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (error) {
-            NSLog(@"%@", error.localizedDescription);
-        }
-        [self updateInfoCenter];
-    }];
-    self.songLabel.text = [NSString stringWithFormat:@"%@:", musicManager.podcast.show];
-    [self updateExternalLabels];
-}
 
 @end

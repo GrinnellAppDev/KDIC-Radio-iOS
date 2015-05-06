@@ -43,23 +43,8 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:KDIC_NAVBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    [self getShowsWithPodcasts];
-    [self getSchedule];
     
-    if (!self.playerVC) {
-        self.playerVC = [[PlayerViewController alloc] initWithNibName:PLAYER_VC_NIB_NAME bundle:nil];
-        [self performSegueWithIdentifier:APP_OPENS_SEGUE sender:self];
-    }
-    
-    // Set up screen update timer
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [cal components:NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
-    NSUInteger second = [comps second];
-    second += [comps minute] * 60;
-    second = 3600 - second;
-    NSTimer *timerTimer = [NSTimer timerWithTimeInterval:second target:self selector:@selector(triggerTimer:) userInfo:nil repeats:NO];
-    [[NSRunLoop mainRunLoop] addTimer:timerTimer forMode:NSRunLoopCommonModes];
-}
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

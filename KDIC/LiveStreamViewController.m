@@ -13,6 +13,9 @@
 #import "KDICMusicManager.h"
 #import "KDICConstants.h"
 
+// @"http://132.161.21.31:8000/stream" = LIVE_STREAM_URL
+
+
 @interface LiveStreamViewController ()
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
 @property (nonatomic, weak) IBOutlet UILabel *songLabel;

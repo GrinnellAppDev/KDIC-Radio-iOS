@@ -10,7 +10,7 @@
 #import <Reachability.h>
 
 NSString * const KDIC_URL          = @"http://kdic.grinnell.edu";
-NSString * const LIVE_STREAM_URL   = @"http://kdic.grinnell.edu:8001/kdic128.m3u";
+NSString * const LIVE_STREAM_URL   = @"http://132.161.21.31:8000/stream";
 NSString * const KDIC_ABOUT_URL    = @"http://kdic.grinnell.edu/about-us/";
 NSString * const KDIC_SCHEDULE_URL = @"http://tcdb.grinnell.edu/apps/glicious/KDIC/schedule.json";
 
