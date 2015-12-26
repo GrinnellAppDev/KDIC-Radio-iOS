@@ -15,7 +15,6 @@
 		E17B289F1825F2D60049DC5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B289E1825F2D60049DC5D /* main.m */; };
 		E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B28A21825F2D60049DC5D /* AppDelegate.m */; };
 		E17B28A61825F2D60049DC5D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */; };
-		E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */; };
 		E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17B28AD1825F2D60049DC5D /* Images.xcassets */; };
 		E17B28CB1825F3C90049DC5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28CA1825F3C90049DC5D /* AVFoundation.framework */; };
 		E17B28D21825FF440049DC5D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28D11825FF440049DC5D /* MediaPlayer.framework */; };
@@ -62,7 +61,6 @@
 		E17B28A11825F2D60049DC5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E17B28A21825F2D60049DC5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E17B28A51825F2D60049DC5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		E17B28A81825F2D60049DC5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		E17B28AD1825F2D60049DC5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E17B28CA1825F3C90049DC5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E17B28D11825FF440049DC5D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -149,7 +147,6 @@
 				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
-				E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */,
 				E17B28D01825F8E60049DC5D /* Images */,
 				E17B28AD1825F2D60049DC5D /* Images.xcassets */,
 				E17B28991825F2D60049DC5D /* Supporting Files */,
@@ -257,7 +254,7 @@
 				ORGANIZATIONNAME = "Colin Tremblay";
 				TargetAttributes = {
 					E17B288E1825F2D60049DC5D = {
-						DevelopmentTeam = H69TS4DPUJ;
+						DevelopmentTeam = 2U2Y6A72AA;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -301,7 +298,6 @@
 				E193F5C2183E0F0F00150BD7 /* icon-40.png in Resources */,
 				E193F5C1183E0F0F00150BD7 /* icon-29.png in Resources */,
 				E17FEC32183EED510011C2BB /* antenna2.png in Resources */,
-				E17B28A91825F2D60049DC5D /* Main_iPad.storyboard in Resources */,
 				E193F5C9183E0F0F00150BD7 /* iTunesArtwork@2x.png in Resources */,
 				E17B28AE1825F2D60049DC5D /* Images.xcassets in Resources */,
 				E193F5C6183E0F0F00150BD7 /* icon-120.png in Resources */,
@@ -353,14 +349,6 @@
 				E17B28A51825F2D60049DC5D /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		E17B28A71825F2D60049DC5D /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E17B28A81825F2D60049DC5D /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
