@@ -1,10 +1,11 @@
 KDIC-Radio iOS
 ==============
 
-Authors:  * Colin Tremblay 
-	  * Daniel Torres
+Authors:  * Shaun S. Mataire
+     *Colin Tremblay 
+	 * Daniel Torres
 
-Date:    Sunday, 24th November, 2013
+Date Updated:    25th December, 2015
 
 ---
 
