@@ -7,20 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import <Crashlytics/Crashlytics.h>
-#import <FlurrySDK/Flurry.h>
 #import <AVFoundation/AVFoundation.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString *strings_private = [[NSBundle mainBundle] pathForResource:@"strings_private" ofType:@"strings"];
-    NSDictionary *keysDict = [NSDictionary dictionaryWithContentsOfFile:strings_private];
     
-    [Crashlytics startWithAPIKey:keysDict[@"CrashlyticsAPIKey"]];
-    
-    [Flurry setCrashReportingEnabled:NO];
-    [Flurry startSession:keysDict[@"FlurrySession"]];
 
     NSError *error;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
