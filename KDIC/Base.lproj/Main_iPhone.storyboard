@@ -399,18 +399,55 @@
             </objects>
             <point key="canvasLocation" x="4141.5" y="-1828.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="2fS-ww-06R">
             <objects>
-                <viewController id="X5O-OG-sXZ" sceneMemberID="viewController">
+                <viewController id="X5O-OG-sXZ" customClass="FeedViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DZ3-54-IVt"/>
                         <viewControllerLayoutGuide type="bottom" id="r4G-kw-QuQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZEF-OI-TJ6">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DY-fa-996">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9DY-fa-996" firstAttribute="leading" secondItem="ZEF-OI-TJ6" secondAttribute="leading" id="ET8-E1-s8h"/>
+                            <constraint firstItem="9DY-fa-996" firstAttribute="bottom" secondItem="r4G-kw-QuQ" secondAttribute="top" id="Mo4-wr-ipo"/>
+                            <constraint firstItem="9DY-fa-996" firstAttribute="top" secondItem="DZ3-54-IVt" secondAttribute="bottom" id="dZh-kB-f3g"/>
+                            <constraint firstAttribute="trailing" secondItem="9DY-fa-996" secondAttribute="trailing" id="zzN-Vl-tTk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="9DY-fa-996"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ET8-E1-s8h"/>
+                                <exclude reference="Mo4-wr-ipo"/>
+                                <exclude reference="dZh-kB-f3g"/>
+                                <exclude reference="zzN-Vl-tTk"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="9DY-fa-996"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ET8-E1-s8h"/>
+                                <include reference="Mo4-wr-ipo"/>
+                                <include reference="dZh-kB-f3g"/>
+                                <include reference="zzN-Vl-tTk"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="feedWebView" destination="9DY-fa-996" id="bgT-DF-mI7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnH-sh-tJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -49,6 +49,7 @@
 		EFAC5F8C1C2FC39A00D25E1B /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFAC5F8B1C2FC39A00D25E1B /* Launch.storyboard */; };
 		EFAC5F8E1C2FD36000D25E1B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC5F8D1C2FD36000D25E1B /* MenuViewController.swift */; };
 		EFAC5F901C30704700D25E1B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC5F8F1C30704700D25E1B /* ScheduleViewController.swift */; };
+		EFAC5F921C30790700D25E1B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC5F911C30790700D25E1B /* FeedViewController.swift */; };
 		EFF6D9B51C2F828200CBDCD3 /* PlayerTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6D9B41C2F828200CBDCD3 /* PlayerTabViewController.swift */; };
 		EFF6D9B71C2F8A6400CBDCD3 /* KdicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		EFAC5F8B1C2FC39A00D25E1B /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		EFAC5F8D1C2FD36000D25E1B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EFAC5F8F1C30704700D25E1B /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		EFAC5F911C30790700D25E1B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		EFF6D9B31C2F828200CBDCD3 /* KDIC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDIC-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF6D9B41C2F828200CBDCD3 /* PlayerTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTabViewController.swift; sourceTree = "<group>"; };
 		EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KdicPlayer.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				EFAC5F8B1C2FC39A00D25E1B /* Launch.storyboard */,
 				EFAC5F8D1C2FD36000D25E1B /* MenuViewController.swift */,
 				EFAC5F8F1C30704700D25E1B /* ScheduleViewController.swift */,
+				EFAC5F911C30790700D25E1B /* FeedViewController.swift */,
 			);
 			path = KDIC;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				EFAC5F901C30704700D25E1B /* ScheduleViewController.swift in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
 				EFF6D9B71C2F8A6400CBDCD3 /* KdicPlayer.swift in Sources */,
+				EFAC5F921C30790700D25E1B /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
