@@ -10,6 +10,8 @@ import UIKit
 
 class PlayerTabViewController: UIViewController {
 
+    @IBOutlet weak var radioControllButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,32 @@ class PlayerTabViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func radioControlButtonDidPress(sender: UIButton) {
+        togglePlayer()
+    }
+    
+    /**
+     * Player controls
+     **/
+    func togglePlayer() {
+        if KdicPlayer.sharedInstance.currentlyPlaying() {
+            pauseRadio()
+            radioControllButton.setImage(UIImage(named: "play_button"), forState: UIControlState.Normal)
+            
+        } else {
+            playRadio()
+            radioControllButton.setImage(UIImage(named: "pause_button"), forState: UIControlState.Normal)
+        }
+    }
+    
+    func playRadio() {
+        KdicPlayer.sharedInstance.play()
+    }
+    
+    func pauseRadio() {
+        KdicPlayer.sharedInstance.pause()
+        
+    }
 
     /*
     // MARK: - Navigation

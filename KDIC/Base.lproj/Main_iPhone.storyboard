@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Feed-->
@@ -35,9 +36,111 @@
                     <view key="view" contentMode="scaleToFill" id="qkH-Zb-zlK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7P-RJ-xpF">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNG-FR-jJK">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Uql-Tc-EgZ"/>
+                                            <constraint firstAttribute="width" secondItem="nNG-FR-jJK" secondAttribute="height" multiplier="1:1" id="k6h-7e-R5l"/>
+                                        </constraints>
+                                        <state key="normal" image="play_button"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Uql-Tc-EgZ"/>
+                                                <exclude reference="k6h-7e-R5l"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="Uql-Tc-EgZ"/>
+                                                <include reference="k6h-7e-R5l"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="radioControlButtonDidPress:" destination="esP-Qo-iDt" eventType="touchUpInside" id="J75-bH-lvE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90980392160000001" green="0.31372549020000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="nNG-FR-jJK" firstAttribute="centerX" secondItem="w7P-RJ-xpF" secondAttribute="centerX" id="H6p-xS-eC7"/>
+                                    <constraint firstItem="nNG-FR-jJK" firstAttribute="centerY" secondItem="w7P-RJ-xpF" secondAttribute="centerY" id="L4F-GB-m0M"/>
+                                    <constraint firstAttribute="width" secondItem="w7P-RJ-xpF" secondAttribute="height" multiplier="1:1" id="ZwB-ar-TrC"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="nNG-FR-jJK"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="ZwB-ar-TrC"/>
+                                        <exclude reference="H6p-xS-eC7"/>
+                                        <exclude reference="L4F-GB-m0M"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="nNG-FR-jJK"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="ZwB-ar-TrC"/>
+                                        <include reference="H6p-xS-eC7"/>
+                                        <include reference="L4F-GB-m0M"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2R-ab-ye7">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.17400263979311367" green="0.90980392160000001" blue="0.3286816431883548" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t2R-ab-ye7" firstAttribute="width" secondItem="w7P-RJ-xpF" secondAttribute="width" id="0R7-Zz-qk6"/>
+                            <constraint firstItem="t2R-ab-ye7" firstAttribute="centerX" secondItem="qkH-Zb-zlK" secondAttribute="centerX" id="1Qk-Bd-IDn"/>
+                            <constraint firstItem="w7P-RJ-xpF" firstAttribute="centerX" secondItem="qkH-Zb-zlK" secondAttribute="centerX" id="BVQ-NU-fVC"/>
+                            <constraint firstItem="r8z-Le-u5A" firstAttribute="top" secondItem="t2R-ab-ye7" secondAttribute="bottom" id="Pu3-LB-Wmi"/>
+                            <constraint firstItem="w7P-RJ-xpF" firstAttribute="width" secondItem="qkH-Zb-zlK" secondAttribute="width" id="YJb-YT-WhR"/>
+                            <constraint firstItem="w7P-RJ-xpF" firstAttribute="top" secondItem="tNL-ek-9k9" secondAttribute="bottom" constant="-20" id="d4E-N4-EjZ"/>
+                            <constraint firstItem="t2R-ab-ye7" firstAttribute="top" secondItem="w7P-RJ-xpF" secondAttribute="bottom" id="leB-Dy-MPA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="w7P-RJ-xpF"/>
+                                <exclude reference="t2R-ab-ye7"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BVQ-NU-fVC"/>
+                                <exclude reference="YJb-YT-WhR"/>
+                                <exclude reference="d4E-N4-EjZ"/>
+                                <exclude reference="0R7-Zz-qk6"/>
+                                <exclude reference="1Qk-Bd-IDn"/>
+                                <exclude reference="leB-Dy-MPA"/>
+                                <exclude reference="Pu3-LB-Wmi"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="w7P-RJ-xpF"/>
+                                <include reference="t2R-ab-ye7"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="BVQ-NU-fVC"/>
+                                <include reference="YJb-YT-WhR"/>
+                                <include reference="d4E-N4-EjZ"/>
+                                <include reference="0R7-Zz-qk6"/>
+                                <include reference="1Qk-Bd-IDn"/>
+                                <include reference="leB-Dy-MPA"/>
+                                <include reference="Pu3-LB-Wmi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="ypc-pY-Oao"/>
+                    <connections>
+                        <outlet property="radioControllButton" destination="nNG-FR-jJK" id="Arc-0n-FDl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXZ-aQ-tci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,5 +262,8 @@
             <point key="canvasLocation" x="1599" y="1546.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play_button" width="200" height="201"/>
+    </resources>
     <color key="tintColor" red="0.84705889225006104" green="0.015686275437474251" blue="0.019607843831181526" alpha="1" colorSpace="deviceRGB"/>
 </document>

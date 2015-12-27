@@ -47,6 +47,7 @@
 		E1B0224F185E3D1C00874578 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B0224D185E3D1C00874578 /* Default-568h@2x.png */; };
 		E1B02250185E3D1C00874578 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B0224E185E3D1C00874578 /* Default@2x.png */; };
 		EFF6D9B51C2F828200CBDCD3 /* PlayerTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6D9B41C2F828200CBDCD3 /* PlayerTabViewController.swift */; };
+		EFF6D9B71C2F8A6400CBDCD3 /* KdicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		E1B0224E185E3D1C00874578 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Images.xcassets/LaunchImages/Default@2x.png"; sourceTree = "<group>"; };
 		EFF6D9B31C2F828200CBDCD3 /* KDIC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDIC-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF6D9B41C2F828200CBDCD3 /* PlayerTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTabViewController.swift; sourceTree = "<group>"; };
+		EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KdicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		E17B28981825F2D60049DC5D /* KDIC */ = {
 			isa = PBXGroup;
 			children = (
+				EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */,
 				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
@@ -335,6 +338,7 @@
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
 				EFF6D9B51C2F828200CBDCD3 /* PlayerTabViewController.swift in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
+				EFF6D9B71C2F8A6400CBDCD3 /* KdicPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
