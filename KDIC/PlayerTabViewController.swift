@@ -29,6 +29,38 @@ class PlayerTabViewController: UIViewController {
         togglePlayer()
     }
     
+    //more actions
+    @available(iOS 8.0, *)
+    @IBAction func didPressMoreButton(sender: UIButton) {
+        // Create the action sheet
+        let myActionSheet = UIAlertController()
+        
+        // share action button
+        let shareAction = UIAlertAction(title: "Share", style: UIAlertActionStyle.Default) { (action) in
+            print("share")
+        }
+        
+        // fav action button
+        let favShowAction = UIAlertAction(title: "Favor Show", style: UIAlertActionStyle.Default) { (action) in
+            print("fav")
+        }
+        
+        // cancel action button
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) in
+            //do nothing
+        }
+        
+        // add action buttons to action sheet
+        myActionSheet.addAction(shareAction)
+        myActionSheet.addAction(favShowAction)
+        myActionSheet.addAction(cancelAction)
+        
+        
+        // present the action sheet
+        self.presentViewController(myActionSheet, animated: true, completion: nil)
+    }
+    
+    
     /**
      * Player controls
      **/

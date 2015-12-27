@@ -110,6 +110,9 @@
                                         <include reference="aMg-UT-YVv"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="didPressMoreButton:" destination="esP-Qo-iDt" eventType="touchUpInside" id="Q7C-TG-BUL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're listening to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czK-z2-nn0">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -226,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="1599" y="-470.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="XC5-GM-b5n">
             <objects>
-                <viewController id="Fp5-bF-MfK" sceneMemberID="viewController">
+                <viewController id="Fp5-bF-MfK" customClass="MenuViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7dW-cp-ZjF"/>
                         <viewControllerLayoutGuide type="bottom" id="wjF-tO-fTo"/>
@@ -244,6 +247,9 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="didPressCancelButton:" destination="Fp5-bF-MfK" eventType="touchUpInside" id="bj6-hJ-5WS"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
