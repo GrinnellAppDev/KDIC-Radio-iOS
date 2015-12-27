@@ -12,6 +12,8 @@ class PlayerTabViewController: UIViewController {
 
     @IBOutlet weak var radioControllButton: UIButton!
     
+    @IBOutlet weak var playPauseImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,11 +35,11 @@ class PlayerTabViewController: UIViewController {
     func togglePlayer() {
         if KdicPlayer.sharedInstance.currentlyPlaying() {
             pauseRadio()
-            radioControllButton.setImage(UIImage(named: "play_button"), forState: UIControlState.Normal)
+            playPauseImageView.image = UIImage(named: "playImage")
             
         } else {
             playRadio()
-            radioControllButton.setImage(UIImage(named: "pause_button"), forState: UIControlState.Normal)
+            playPauseImageView.image = UIImage(named: "pauseImage")
         }
     }
     
