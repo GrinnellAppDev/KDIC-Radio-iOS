@@ -43,13 +43,27 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell:UITableViewCell = self.menuTable.dequeueReusableCellWithIdentifier("menuTableCell")! as UITableViewCell
         
         cell.textLabel?.text = self.menuItems[indexPath.row]
+        cell.textLabel?.font =  UIFont.systemFontOfSize(30)
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        print("You selected cell #\(indexPath.row)!")
+        //start appropriate segue
+        switch indexPath.row{
+        case 0:
+            self.performSegueWithIdentifier("scheduleSegue", sender:self)
+        case 1:
+            self.performSegueWithIdentifier("feedSegue", sender:self)
+        case 2:
+            self.performSegueWithIdentifier("podcastSegue", sender:self)
+        case 3:
+            self.performSegueWithIdentifier("connectSegue", sender:self)
+        case 4:
+            self.performSegueWithIdentifier("settingsSegue", sender:self)
+        default:
+            print("error with menu cases")
+        }
     }
 
     /*
