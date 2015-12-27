@@ -14,6 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NdK-MN-gDz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TNA-Dp-Aar">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -26,12 +27,13 @@
         <!--Item 1-->
         <scene sceneID="1Rf-fx-Ehf">
             <objects>
-                <viewController id="esP-Qo-iDt" sceneMemberID="viewController">
+                <viewController id="esP-Qo-iDt" customClass="PlayerTabViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tNL-ek-9k9"/>
                         <viewControllerLayoutGuide type="bottom" id="r8z-Le-u5A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qkH-Zb-zlK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -70,6 +72,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DHN-FG-mjm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SKh-rU-tsp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -88,6 +91,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lNn-FF-HBb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j78-dK-H3T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
