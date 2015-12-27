@@ -294,18 +294,55 @@
             </objects>
             <point key="canvasLocation" x="3291" y="-470.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Podcast View Controller-->
         <scene sceneID="RzG-E7-7x8">
             <objects>
-                <viewController id="xIN-g5-AyV" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="xIN-g5-AyV" customClass="PodcastViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vef-XL-cLe"/>
                         <viewControllerLayoutGuide type="bottom" id="cn1-rJ-iLh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="H44-zx-9QG">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJ0-cv-VRh">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fJ0-cv-VRh" firstAttribute="leading" secondItem="H44-zx-9QG" secondAttribute="leading" id="0jq-ZR-fWk"/>
+                            <constraint firstItem="fJ0-cv-VRh" firstAttribute="bottom" secondItem="cn1-rJ-iLh" secondAttribute="top" id="YCw-3F-ItJ"/>
+                            <constraint firstItem="fJ0-cv-VRh" firstAttribute="top" secondItem="Vef-XL-cLe" secondAttribute="bottom" id="Yzk-Rc-p84"/>
+                            <constraint firstAttribute="trailing" secondItem="fJ0-cv-VRh" secondAttribute="trailing" id="wel-ou-WCl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="fJ0-cv-VRh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0jq-ZR-fWk"/>
+                                <exclude reference="YCw-3F-ItJ"/>
+                                <exclude reference="Yzk-Rc-p84"/>
+                                <exclude reference="wel-ou-WCl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="fJ0-cv-VRh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0jq-ZR-fWk"/>
+                                <include reference="YCw-3F-ItJ"/>
+                                <include reference="Yzk-Rc-p84"/>
+                                <include reference="wel-ou-WCl"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="mixcloudWebView" destination="fJ0-cv-VRh" id="7Fh-tl-FPW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qz-bE-iof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
