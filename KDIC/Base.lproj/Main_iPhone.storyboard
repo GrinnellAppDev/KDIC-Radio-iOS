@@ -232,14 +232,61 @@
         <!--Menu View Controller-->
         <scene sceneID="XC5-GM-b5n">
             <objects>
-                <viewController id="Fp5-bF-MfK" customClass="MenuViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fp5-bF-MfK" customClass="MenuViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7dW-cp-ZjF"/>
                         <viewControllerLayoutGuide type="bottom" id="wjF-tO-fTo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2Wr-iq-JLf">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RRB-H1-WOy">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuTableCell" rowHeight="60" id="ELs-3z-Fet">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ELs-3z-Fet" id="DX8-0c-g6M">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fp5-bF-MfK" id="Aq3-qC-JQR"/>
+                                    <outlet property="delegate" destination="Fp5-bF-MfK" id="gfb-DG-O5d"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RRB-H1-WOy" firstAttribute="bottom" secondItem="wjF-tO-fTo" secondAttribute="top" id="04o-fg-USz"/>
+                            <constraint firstItem="RRB-H1-WOy" firstAttribute="top" secondItem="7dW-cp-ZjF" secondAttribute="bottom" id="Uto-Fc-rsf"/>
+                            <constraint firstAttribute="trailing" secondItem="RRB-H1-WOy" secondAttribute="trailing" id="WT6-8L-F5T"/>
+                            <constraint firstItem="RRB-H1-WOy" firstAttribute="leading" secondItem="2Wr-iq-JLf" secondAttribute="leading" id="qKU-hM-ek3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="RRB-H1-WOy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="04o-fg-USz"/>
+                                <exclude reference="Uto-Fc-rsf"/>
+                                <exclude reference="WT6-8L-F5T"/>
+                                <exclude reference="qKU-hM-ek3"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="RRB-H1-WOy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="04o-fg-USz"/>
+                                <include reference="Uto-Fc-rsf"/>
+                                <include reference="WT6-8L-F5T"/>
+                                <include reference="qKU-hM-ek3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="hCL-l2-eA4">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="10c-Fs-THd">
@@ -253,6 +300,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuTable" destination="RRB-H1-WOy" id="JcU-5U-vHP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0uV-bV-P95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

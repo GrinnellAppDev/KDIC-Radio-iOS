@@ -8,14 +8,15 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    @IBOutlet weak var menuTable: UITableView!
+    var menuItems: [String] = ["Schedule", "Feed", "Podcast", "Connect", "Settings",]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.menuTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "menuTableCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +31,25 @@ class MenuViewController: UIViewController {
             print("done");
             tmpController.dismissViewControllerAnimated(false, completion: nil);
         });
+    }
+    
+    //menu table
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.menuItems.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell:UITableViewCell = self.menuTable.dequeueReusableCellWithIdentifier("menuTableCell")! as UITableViewCell
+        
+        cell.textLabel?.text = self.menuItems[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print("You selected cell #\(indexPath.row)!")
     }
 
     /*
