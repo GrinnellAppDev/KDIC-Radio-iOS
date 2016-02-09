@@ -14,7 +14,7 @@ class PodcastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let feedUrl = NSURL(string: "https://www.mixcloud.com/KDIC/followers/")
+        let feedUrl = NSURL(string: "https://www.mixcloud.com/KDIC")
         let request = NSURLRequest(URL: feedUrl!)
         mixcloudWebView.loadRequest(request)
     }
