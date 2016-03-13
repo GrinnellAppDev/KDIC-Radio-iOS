@@ -13,6 +13,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //tabcolor
+    UITabBarController *tabBarController = (UITabBarController *) self.window.rootViewController;
+    tabBarController.view.tintColor = [UIColor redColor];
 
     NSError *error;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];

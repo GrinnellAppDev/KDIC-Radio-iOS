@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tav-bk-hZ5">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -10,7 +9,7 @@
         <!--KDIC 88.5-->
         <scene sceneID="1Rf-fx-Ehf">
             <objects>
-                <viewController id="esP-Qo-iDt" customClass="PlayerViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="esP-Qo-iDt" customClass="PlayerTabViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tNL-ek-9k9"/>
                         <viewControllerLayoutGuide type="bottom" id="r8z-Le-u5A"/>
@@ -371,7 +370,7 @@ You should have received a copy of the GNU General Public License along with thi
         <!--Blog-->
         <scene sceneID="dzM-qk-dhR">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="IaK-RT-WMg" customClass="BlogViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="IaK-RT-WMg" customClass="ScheduleViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DbM-UV-MXN"/>
                         <viewControllerLayoutGuide type="bottom" id="RxF-mr-dwO"/>
@@ -380,7 +379,7 @@ You should have received a copy of the GNU General Public License along with thi
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="280" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ddv-sj-I8h">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ddv-sj-I8h">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -565,52 +564,39 @@ You should have received a copy of the GNU General Public License along with thi
                                     <outlet property="delegate" destination="IaK-RT-WMg" id="3nh-as-WdK"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="USY-fs-iIf">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <color key="color" red="0.21145044190000001" green="0.21145044190000001" blue="0.21145044190000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ddv-sj-I8h" secondAttribute="trailing" id="6SB-4h-ZhH"/>
                             <constraint firstItem="Ddv-sj-I8h" firstAttribute="leading" secondItem="3qX-Z7-5mJ" secondAttribute="leading" id="Aze-YV-fJh"/>
-                            <constraint firstItem="USY-fs-iIf" firstAttribute="centerY" secondItem="3qX-Z7-5mJ" secondAttribute="centerY" id="EEe-et-lmu"/>
-                            <constraint firstItem="USY-fs-iIf" firstAttribute="centerX" secondItem="3qX-Z7-5mJ" secondAttribute="centerX" id="QcE-Ly-OIg"/>
                             <constraint firstItem="Ddv-sj-I8h" firstAttribute="top" secondItem="DbM-UV-MXN" secondAttribute="bottom" id="Y8R-ny-BIU"/>
                             <constraint firstItem="Ddv-sj-I8h" firstAttribute="bottom" secondItem="RxF-mr-dwO" secondAttribute="top" id="bfA-Y6-gdC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Ddv-sj-I8h"/>
-                                <exclude reference="USY-fs-iIf"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="6SB-4h-ZhH"/>
                                 <exclude reference="Aze-YV-fJh"/>
                                 <exclude reference="Y8R-ny-BIU"/>
                                 <exclude reference="bfA-Y6-gdC"/>
-                                <exclude reference="EEe-et-lmu"/>
-                                <exclude reference="QcE-Ly-OIg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Ddv-sj-I8h"/>
-                                <include reference="USY-fs-iIf"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="6SB-4h-ZhH"/>
                                 <include reference="Aze-YV-fJh"/>
                                 <include reference="Y8R-ny-BIU"/>
                                 <include reference="bfA-Y6-gdC"/>
-                                <include reference="EEe-et-lmu"/>
-                                <include reference="QcE-Ly-OIg"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Blog" id="geW-m3-eRl"/>
                     <connections>
-                        <outlet property="blogLoadActivityIndicator" destination="USY-fs-iIf" id="Jri-Tg-skl"/>
                         <outlet property="blogPostTableView" destination="Ddv-sj-I8h" id="Thk-oV-HAd"/>
                     </connections>
                 </viewController>
@@ -618,10 +604,10 @@ You should have received a copy of the GNU General Public License along with thi
             </objects>
             <point key="canvasLocation" x="1813.5" y="1666.5"/>
         </scene>
-        <!--Schedule View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="2fS-ww-06R">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="X5O-OG-sXZ" customClass="ScheduleViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="X5O-OG-sXZ" customClass="FeedViewController" customModule="KDIC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DZ3-54-IVt"/>
                         <viewControllerLayoutGuide type="bottom" id="r4G-kw-QuQ"/>
@@ -630,7 +616,7 @@ You should have received a copy of the GNU General Public License along with thi
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Byq-e9-cJ4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Byq-e9-cJ4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -646,22 +632,31 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="31" width="224" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ao-Nz-jJg">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="224" height="18"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="leadingMargin" secondItem="2ao-Nz-jJg" secondAttribute="leading" id="C7O-Rs-O93"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="QKa-Qn-SRY" secondAttribute="leading" id="FVb-9d-Xkv"/>
-                                                <constraint firstAttribute="topMargin" secondItem="2ao-Nz-jJg" secondAttribute="top" id="GrM-sn-dwN"/>
-                                                <constraint firstItem="QKa-Qn-SRY" firstAttribute="top" secondItem="2ao-Nz-jJg" secondAttribute="bottom" constant="5" id="cfy-Tq-THY"/>
-                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="centerX" secondItem="UNZ-0I-jmd" secondAttribute="centerX" id="fdw-hR-YeP"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="2ao-Nz-jJg" secondAttribute="trailing" id="hum-NL-2sK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="QKa-Qn-SRY" secondAttribute="trailing" id="pPR-qa-0Ix"/>
+                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="trailing" secondItem="QKa-Qn-SRY" secondAttribute="trailing" id="0D8-ff-cmJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2ao-Nz-jJg" secondAttribute="trailing" id="0v2-XM-ZQr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QKa-Qn-SRY" secondAttribute="trailing" id="51K-pr-lsO"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="2ao-Nz-jJg" secondAttribute="leading" id="72w-43-6xw"/>
+                                                <constraint firstAttribute="topMargin" secondItem="2ao-Nz-jJg" secondAttribute="top" id="Gho-P1-9KS"/>
+                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="centerX" secondItem="UNZ-0I-jmd" secondAttribute="centerX" id="JUY-Yo-fMA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2ao-Nz-jJg" secondAttribute="trailing" constant="20" id="N4G-Vc-1i5"/>
+                                                <constraint firstItem="QKa-Qn-SRY" firstAttribute="centerX" secondItem="UNZ-0I-jmd" secondAttribute="centerX" id="mAv-6b-QVT"/>
+                                                <constraint firstItem="QKa-Qn-SRY" firstAttribute="top" secondItem="2ao-Nz-jJg" secondAttribute="bottom" constant="5" id="oau-qH-pwx"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="QKa-Qn-SRY" secondAttribute="leading" id="s7e-Ql-Irx"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -669,13 +664,16 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <exclude reference="2ao-Nz-jJg"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="C7O-Rs-O93"/>
-                                                    <exclude reference="GrM-sn-dwN"/>
-                                                    <exclude reference="fdw-hR-YeP"/>
-                                                    <exclude reference="hum-NL-2sK"/>
-                                                    <exclude reference="FVb-9d-Xkv"/>
-                                                    <exclude reference="cfy-Tq-THY"/>
-                                                    <exclude reference="pPR-qa-0Ix"/>
+                                                    <exclude reference="0D8-ff-cmJ"/>
+                                                    <exclude reference="0v2-XM-ZQr"/>
+                                                    <exclude reference="72w-43-6xw"/>
+                                                    <exclude reference="Gho-P1-9KS"/>
+                                                    <exclude reference="JUY-Yo-fMA"/>
+                                                    <exclude reference="N4G-Vc-1i5"/>
+                                                    <exclude reference="51K-pr-lsO"/>
+                                                    <exclude reference="mAv-6b-QVT"/>
+                                                    <exclude reference="oau-qH-pwx"/>
+                                                    <exclude reference="s7e-Ql-Irx"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -684,13 +682,16 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <include reference="2ao-Nz-jJg"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="C7O-Rs-O93"/>
-                                                    <include reference="GrM-sn-dwN"/>
-                                                    <include reference="fdw-hR-YeP"/>
-                                                    <include reference="hum-NL-2sK"/>
-                                                    <include reference="FVb-9d-Xkv"/>
-                                                    <include reference="cfy-Tq-THY"/>
-                                                    <include reference="pPR-qa-0Ix"/>
+                                                    <include reference="0D8-ff-cmJ"/>
+                                                    <include reference="0v2-XM-ZQr"/>
+                                                    <include reference="72w-43-6xw"/>
+                                                    <include reference="Gho-P1-9KS"/>
+                                                    <include reference="JUY-Yo-fMA"/>
+                                                    <include reference="N4G-Vc-1i5"/>
+                                                    <include reference="51K-pr-lsO"/>
+                                                    <include reference="mAv-6b-QVT"/>
+                                                    <include reference="oau-qH-pwx"/>
+                                                    <include reference="s7e-Ql-Irx"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -704,46 +705,34 @@ You should have received a copy of the GNU General Public License along with thi
                                     <outlet property="dataSource" destination="X5O-OG-sXZ" id="fAk-PY-z0R"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gE9-BR-BV8">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <color key="color" red="0.21145044190000001" green="0.21145044190000001" blue="0.21145044190000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Byq-e9-cJ4" firstAttribute="top" secondItem="DZ3-54-IVt" secondAttribute="bottom" id="F47-bg-fPT"/>
                             <constraint firstAttribute="trailing" secondItem="Byq-e9-cJ4" secondAttribute="trailing" id="Jg3-I8-Nke"/>
                             <constraint firstItem="Byq-e9-cJ4" firstAttribute="bottom" secondItem="r4G-kw-QuQ" secondAttribute="top" id="bN1-Tu-FVr"/>
-                            <constraint firstItem="gE9-BR-BV8" firstAttribute="centerX" secondItem="ZEF-OI-TJ6" secondAttribute="centerX" id="ecl-Dk-OXZ"/>
                             <constraint firstItem="Byq-e9-cJ4" firstAttribute="leading" secondItem="ZEF-OI-TJ6" secondAttribute="leading" id="kRO-jj-Jg6"/>
-                            <constraint firstItem="gE9-BR-BV8" firstAttribute="centerY" secondItem="ZEF-OI-TJ6" secondAttribute="centerY" id="pCi-8P-ugF"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Byq-e9-cJ4"/>
-                                <exclude reference="gE9-BR-BV8"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="F47-bg-fPT"/>
                                 <exclude reference="Jg3-I8-Nke"/>
                                 <exclude reference="bN1-Tu-FVr"/>
                                 <exclude reference="kRO-jj-Jg6"/>
-                                <exclude reference="ecl-Dk-OXZ"/>
-                                <exclude reference="pCi-8P-ugF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Byq-e9-cJ4"/>
-                                <include reference="gE9-BR-BV8"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="F47-bg-fPT"/>
                                 <include reference="Jg3-I8-Nke"/>
                                 <include reference="bN1-Tu-FVr"/>
                                 <include reference="kRO-jj-Jg6"/>
-                                <include reference="ecl-Dk-OXZ"/>
-                                <include reference="pCi-8P-ugF"/>
                             </mask>
                         </variation>
                     </view>
@@ -769,13 +758,12 @@ You should have received a copy of the GNU General Public License along with thi
                     </navigationItem>
                     <connections>
                         <outlet property="daySegmntCntrl" destination="fbF-AH-P1x" id="SSJ-Bi-Izf"/>
-                        <outlet property="scheduleDataLoadingIndicator" destination="gE9-BR-BV8" id="tRd-nF-KNY"/>
                         <outlet property="scheduleTableView" destination="Byq-e9-cJ4" id="a9K-8X-h5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnH-sh-tJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3961" y="1666"/>
+            <point key="canvasLocation" x="3961.5" y="1666.5"/>
         </scene>
         <!--On Air-->
         <scene sceneID="tWR-Kk-lZa">
