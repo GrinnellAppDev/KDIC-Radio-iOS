@@ -14,12 +14,7 @@ class PlayerViewController: UIViewController {
         //navigation bar color
         self.navigationController!.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        
-        
-        //let kdicScrapperReqs = KdicScrapperReqs(urlStr: "https://kdic-scrapper.herokuapp.com/blogs")
-        //kdicScrapperReqs.makeApiCall()
-        
-        
+           
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,9 +28,6 @@ class PlayerViewController: UIViewController {
         togglePlayer()
     }
     
-    /**
-     * Player controls
-     **/
     func togglePlayer() {
         if KdicPlayer.sharedInstance.currentlyPlaying() {
             pauseRadio()

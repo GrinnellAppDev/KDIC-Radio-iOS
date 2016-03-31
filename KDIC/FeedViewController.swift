@@ -16,7 +16,7 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //populate initila table
+        
         self.kdicScrapperReqs = KdicScrapperReqs(urlStr: scheduleUrlStr, tableView: scheduleTableView, completionCall: loadInitialTableData)
         self.kdicScrapperReqs?.get_data_from_url()
 

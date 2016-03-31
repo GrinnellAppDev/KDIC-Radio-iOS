@@ -12,9 +12,8 @@ class BlogViewController: UIViewController,  UITableViewDataSource, UITableViewD
     @IBOutlet weak var blogLoadActivityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         
-        //make request for json dictionary
         self.kdicScrapperReqs = KdicScrapperReqs(urlStr: "https://kdic-scrapper.herokuapp.com/blogs", tableView: blogPostTableView, completionCall: getDataArray)
-        //kdicScrapperReqs.makeApiCall()
+        
         self.kdicScrapperReqs!.get_data_from_url()
         
         
