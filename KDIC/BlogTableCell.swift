@@ -1,11 +1,3 @@
-//
-//  BlogTableCell.swift
-//  KDIC
-//
-//  Created by Shaun Mataire on 3/1/16.
-//  Copyright © 2016 Colin Tremblay. All rights reserved.
-//
-
 import UIKit
 
 class BlogTableCell: UITableViewCell {

@@ -1,11 +1,3 @@
-//
-//  BlogViewController.swift
-//  KDIC
-//
-//  Created by Shaun Mataire on 12/27/15.
-//  Copyright © 2015 Colin Tremblay. All rights reserved.
-//  NOTE: XCode wont let me refector this class is actully for the Blog
-
 import UIKit
 import SafariServices
 

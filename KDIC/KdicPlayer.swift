@@ -1,11 +1,3 @@
-//
-//  KdicPlayer.swift
-//  KDIC
-//
-//  Created by Shaun Mataire on 11/9/15.
-//  Copyright © 2015 AppDev. All rights reserved.
-//
-
 import Foundation
 import AVFoundation
 

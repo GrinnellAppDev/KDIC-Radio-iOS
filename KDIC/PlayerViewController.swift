@@ -1,11 +1,3 @@
-//
-//  PlayerViewController.swift
-//  KDIC
-//
-//  Created by Shaun Mataire on 12/26/15.
-//  Copyright © 2015 Colin Tremblay. All rights reserved.
-//
-
 import UIKit
 
 class PlayerViewController: UIViewController {
