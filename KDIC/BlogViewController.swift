@@ -25,12 +25,6 @@ class BlogViewController: UIViewController,  UITableViewDataSource, UITableViewD
         blogLoadActivityIndicator.hidden = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

@@ -21,11 +21,6 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
         self.kdicScrapperReqs?.get_data_from_url()
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
