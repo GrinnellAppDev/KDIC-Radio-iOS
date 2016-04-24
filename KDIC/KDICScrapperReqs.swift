@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class KdicScrapperReqs{
+class KDICScrapperReqs{
     var urlStr: String
     var jsonDictionary: NSDictionary?
     var requestError : NSError?

@@ -1,11 +1,11 @@
 import Foundation
 import AVFoundation
 
-class KdicPlayer {
-    static let sharedInstance = KdicPlayer()
+class KDICPlayer {
+    static let sharedInstance = KDICPlayer()
     
     private var player = AVPlayer(URL: NSURL(string: "http://kdic.grinnell.edu:8001/stream")!)
-    private var isPlaying = false
+    public private(set) var isPlaying = false
     
     func play() {
         player.play()
@@ -24,9 +24,4 @@ class KdicPlayer {
             play()
         }
     }
-    
-    func currentlyPlaying() -> Bool {
-        return isPlaying
-    }
-    
 }

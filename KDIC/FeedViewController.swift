@@ -8,7 +8,7 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
     
     @IBOutlet weak var scheduleTableView: UITableView!
     
-    var kdicScrapperReqs: KdicScrapperReqs?
+    var kdicScrapperReqs: KDICScrapperReqs?
     
     @IBOutlet weak var scheduleDataLoadingIndicator: UIActivityIndicatorView!
     
@@ -17,7 +17,7 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.kdicScrapperReqs = KdicScrapperReqs(urlStr: scheduleUrlStr, tableView: scheduleTableView, completionCall: loadInitialTableData)
+        self.kdicScrapperReqs = KDICScrapperReqs(urlStr: scheduleUrlStr, tableView: scheduleTableView, completionCall: loadInitialTableData)
         self.kdicScrapperReqs?.get_data_from_url()
 
     }
@@ -81,14 +81,5 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
         self.scheduleTableView.reloadData()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

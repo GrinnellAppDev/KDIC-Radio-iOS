@@ -33,14 +33,15 @@
 		E19F26ED183FC10F0028E064 /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = E19F26EB183FC10F0028E064 /* schedule.png */; };
 		E19F26EE183FC10F0028E064 /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19F26EC183FC10F0028E064 /* schedule@2x.png */; };
 		EF5C2E061C8921360007A2CC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5C2E051C8921360007A2CC /* Launch Screen.storyboard */; };
-		EF9E45BC1C6CFA9E00A513E0 /* KdicScrapperReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9E45BB1C6CFA9D00A513E0 /* KdicScrapperReqs.swift */; };
+		EF9E45BC1C6CFA9E00A513E0 /* KDICScrapperReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9E45BB1C6CFA9D00A513E0 /* KDICScrapperReqs.swift */; };
 		EFA62BBA1C86361200F91777 /* BlogTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA62BB91C86361200F91777 /* BlogTableCell.swift */; };
 		EFA62BBC1C86754E00F91777 /* ScheduleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA62BBB1C86754E00F91777 /* ScheduleTableCell.swift */; };
 		EFAC5F901C30704700D25E1B /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC5F8F1C30704700D25E1B /* BlogViewController.swift */; };
 		EFAC5F921C30790700D25E1B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC5F911C30790700D25E1B /* FeedViewController.swift */; };
 		EFBEF04F1C95F3C300ED66C7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */; };
 		EFF6D9B51C2F828200CBDCD3 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6D9B41C2F828200CBDCD3 /* PlayerViewController.swift */; };
-		EFF6D9B71C2F8A6400CBDCD3 /* KdicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */; };
+		EFFE28081CCD3B2400C18833 /* KdicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE28071CCD3B2400C18833 /* KdicPlayer.swift */; };
+		EFFE280A1CCD3D1600C18833 /* BlogUITableExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE28091CCD3D1600C18833 /* BlogUITableExtensionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,14 +76,15 @@
 		E19F26EB183FC10F0028E064 /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = schedule.png; path = Images.xcassets/TabBarIcons/schedule.png; sourceTree = "<group>"; };
 		E19F26EC183FC10F0028E064 /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "schedule@2x.png"; path = "Images.xcassets/TabBarIcons/schedule@2x.png"; sourceTree = "<group>"; };
 		EF5C2E051C8921360007A2CC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		EF9E45BB1C6CFA9D00A513E0 /* KdicScrapperReqs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KdicScrapperReqs.swift; sourceTree = "<group>"; };
+		EF9E45BB1C6CFA9D00A513E0 /* KDICScrapperReqs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDICScrapperReqs.swift; sourceTree = "<group>"; };
 		EFA62BB91C86361200F91777 /* BlogTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableCell.swift; sourceTree = "<group>"; };
 		EFA62BBB1C86754E00F91777 /* ScheduleTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableCell.swift; sourceTree = "<group>"; };
 		EFAC5F8F1C30704700D25E1B /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		EFAC5F911C30790700D25E1B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		EFF6D9B31C2F828200CBDCD3 /* KDIC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDIC-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF6D9B41C2F828200CBDCD3 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KdicPlayer.swift; sourceTree = "<group>"; };
+		EFFE28071CCD3B2400C18833 /* KdicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KdicPlayer.swift; sourceTree = "<group>"; };
+		EFFE28091CCD3D1600C18833 /* BlogUITableExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogUITableExtensionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,20 +138,21 @@
 			isa = PBXGroup;
 			children = (
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
-				EFF6D9B61C2F8A6400CBDCD3 /* KdicPlayer.swift */,
 				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
 				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
 				EFF6D9B41C2F828200CBDCD3 /* PlayerViewController.swift */,
 				EFF6D9B31C2F828200CBDCD3 /* KDIC-Bridging-Header.h */,
+				EFFE28071CCD3B2400C18833 /* KdicPlayer.swift */,
 				E17B28AD1825F2D60049DC5D /* Images.xcassets */,
 				E17B28991825F2D60049DC5D /* Supporting Files */,
 				E17B28D01825F8E60049DC5D /* Images */,
 				EFAC5F8F1C30704700D25E1B /* BlogViewController.swift */,
 				EFAC5F911C30790700D25E1B /* FeedViewController.swift */,
-				EF9E45BB1C6CFA9D00A513E0 /* KdicScrapperReqs.swift */,
+				EF9E45BB1C6CFA9D00A513E0 /* KDICScrapperReqs.swift */,
 				EFA62BB91C86361200F91777 /* BlogTableCell.swift */,
 				EFA62BBB1C86754E00F91777 /* ScheduleTableCell.swift */,
 				EF5C2E051C8921360007A2CC /* Launch Screen.storyboard */,
+				EFFE28091CCD3D1600C18833 /* BlogUITableExtensionViewController.swift */,
 			);
 			path = KDIC;
 			sourceTree = "<group>";
@@ -295,14 +298,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFA62BBA1C86361200F91777 /* BlogTableCell.swift in Sources */,
+				EFFE28081CCD3B2400C18833 /* KdicPlayer.swift in Sources */,
 				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
 				EFF6D9B51C2F828200CBDCD3 /* PlayerViewController.swift in Sources */,
-				EF9E45BC1C6CFA9E00A513E0 /* KdicScrapperReqs.swift in Sources */,
+				EF9E45BC1C6CFA9E00A513E0 /* KDICScrapperReqs.swift in Sources */,
 				EFAC5F901C30704700D25E1B /* BlogViewController.swift in Sources */,
 				E17B289F1825F2D60049DC5D /* main.m in Sources */,
-				EFF6D9B71C2F8A6400CBDCD3 /* KdicPlayer.swift in Sources */,
 				EFAC5F921C30790700D25E1B /* FeedViewController.swift in Sources */,
 				EFA62BBC1C86754E00F91777 /* ScheduleTableCell.swift in Sources */,
+				EFFE280A1CCD3D1600C18833 /* BlogUITableExtensionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,4 @@ class BlogTableCell: UITableViewCell {
     @IBOutlet weak var datePosted: UILabel!
     @IBOutlet weak var blogPostText: UILabel!
  
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 }
