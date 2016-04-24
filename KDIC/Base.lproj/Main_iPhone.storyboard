@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tav-bk-hZ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tav-bk-hZ5">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -393,47 +393,41 @@ You should have received a copy of the GNU General Public License along with thi
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkV-jx-IgT">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="La4-vo-k1j"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <color key="textColor" red="0.57860243055555549" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Male-50" translatesAutoresizingMaskIntoConstraints="NO" id="I9S-Ub-6RL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="ZT5-fK-JO3"/>
-                                                        <constraint firstAttribute="height" constant="20" id="jNX-ia-Gdt"/>
-                                                    </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="ZT5-fK-JO3"/>
-                                                            <exclude reference="jNX-ia-Gdt"/>
+                                                            <exclude reference="La4-vo-k1j"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="ZT5-fK-JO3"/>
-                                                            <include reference="jNX-ia-Gdt"/>
+                                                            <include reference="La4-vo-k1j"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Male-50" translatesAutoresizingMaskIntoConstraints="NO" id="I9S-Ub-6RL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="UTd-Ox-mPr"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="UTd-Ox-mPr"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="UTd-Ox-mPr"/>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar-50-2" translatesAutoresizingMaskIntoConstraints="NO" id="neM-eA-YJc">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Cvd-ok-UJH"/>
-                                                        <constraint firstAttribute="width" constant="20" id="pPT-mN-HLL"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="Cvd-ok-UJH"/>
-                                                            <exclude reference="pPT-mN-HLL"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="Cvd-ok-UJH"/>
-                                                            <include reference="pPT-mN-HLL"/>
-                                                        </mask>
-                                                    </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted on February 02 2014" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teh-un-3Uc">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -444,25 +438,9 @@ You should have received a copy of the GNU General Public License along with thi
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIJ-uO-XAh">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="178" id="NCq-vO-wd1"/>
-                                                        <constraint firstAttribute="width" constant="384" id="fPJ-Ar-g1d"/>
-                                                    </constraints>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="NCq-vO-wd1"/>
-                                                            <exclude reference="fPJ-Ar-g1d"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="NCq-vO-wd1"/>
-                                                            <include reference="fPJ-Ar-g1d"/>
-                                                        </mask>
-                                                    </variation>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shaun Mataire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUg-L7-53M">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -472,24 +450,26 @@ You should have received a copy of the GNU General Public License along with thi
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YIJ-uO-XAh" firstAttribute="top" secondItem="teh-un-3Uc" secondAttribute="bottom" constant="8" id="Dl1-w5-Aiw"/>
-                                                <constraint firstItem="qUg-L7-53M" firstAttribute="leading" secondItem="I9S-Ub-6RL" secondAttribute="trailing" constant="8" id="Fbf-2I-Ie3"/>
-                                                <constraint firstItem="qUg-L7-53M" firstAttribute="bottom" secondItem="I9S-Ub-6RL" secondAttribute="bottom" id="I0G-UD-szL"/>
-                                                <constraint firstItem="neM-eA-YJc" firstAttribute="top" secondItem="I9S-Ub-6RL" secondAttribute="bottom" constant="8" id="RDp-u8-Buy"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="YIJ-uO-XAh" secondAttribute="trailing" id="SJI-py-1uF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="teh-un-3Uc" secondAttribute="trailing" id="V8L-8u-r7M"/>
-                                                <constraint firstAttribute="topMargin" secondItem="AkV-jx-IgT" secondAttribute="top" id="X25-6u-QrH"/>
-                                                <constraint firstItem="I9S-Ub-6RL" firstAttribute="top" secondItem="AkV-jx-IgT" secondAttribute="bottom" constant="8" id="aE1-D3-fey"/>
-                                                <constraint firstItem="AkV-jx-IgT" firstAttribute="centerX" secondItem="SOn-Os-1yx" secondAttribute="centerX" id="aVx-NN-cM0"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="AkV-jx-IgT" secondAttribute="trailing" id="ctC-Ol-0gA"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="I9S-Ub-6RL" secondAttribute="leading" id="goR-qL-nE3"/>
-                                                <constraint firstItem="teh-un-3Uc" firstAttribute="bottom" secondItem="neM-eA-YJc" secondAttribute="bottom" id="iWj-1f-Uln"/>
-                                                <constraint firstItem="teh-un-3Uc" firstAttribute="leading" secondItem="neM-eA-YJc" secondAttribute="trailing" constant="8" id="olb-tw-XdW"/>
-                                                <constraint firstItem="YIJ-uO-XAh" firstAttribute="centerX" secondItem="SOn-Os-1yx" secondAttribute="centerX" id="qfG-yd-GJ1"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="AkV-jx-IgT" secondAttribute="leading" id="wGB-bB-NZe"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qUg-L7-53M" secondAttribute="trailing" id="wbr-dg-rHz"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="neM-eA-YJc" secondAttribute="leading" id="xCQ-oO-dvX"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="YIJ-uO-XAh" secondAttribute="leading" id="zje-oe-eh4"/>
+                                                <constraint firstItem="teh-un-3Uc" firstAttribute="leading" secondItem="neM-eA-YJc" secondAttribute="trailing" constant="8" symbolic="YES" id="0Tk-XB-1UK"/>
+                                                <constraint firstItem="I9S-Ub-6RL" firstAttribute="leading" secondItem="neM-eA-YJc" secondAttribute="leading" id="1G4-aO-gXQ"/>
+                                                <constraint firstItem="AkV-jx-IgT" firstAttribute="leading" secondItem="I9S-Ub-6RL" secondAttribute="leading" id="5M3-F8-B9m"/>
+                                                <constraint firstItem="qUg-L7-53M" firstAttribute="leading" secondItem="I9S-Ub-6RL" secondAttribute="trailing" constant="8" symbolic="YES" id="8rR-jG-CoQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YIJ-uO-XAh" secondAttribute="trailing" id="E8n-f4-Ggf"/>
+                                                <constraint firstItem="AkV-jx-IgT" firstAttribute="top" secondItem="SOn-Os-1yx" secondAttribute="topMargin" id="Fdk-8D-fSg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YIJ-uO-XAh" secondAttribute="bottom" constant="1" id="G5y-08-K7W"/>
+                                                <constraint firstItem="YIJ-uO-XAh" firstAttribute="top" secondItem="neM-eA-YJc" secondAttribute="bottom" constant="8" symbolic="YES" id="He7-oP-TwJ"/>
+                                                <constraint firstItem="neM-eA-YJc" firstAttribute="top" secondItem="I9S-Ub-6RL" secondAttribute="bottom" constant="8" symbolic="YES" id="KxS-tp-w6Q"/>
+                                                <constraint firstItem="teh-un-3Uc" firstAttribute="top" secondItem="qUg-L7-53M" secondAttribute="bottom" constant="11" id="N0x-2H-z24"/>
+                                                <constraint firstItem="teh-un-3Uc" firstAttribute="trailing" secondItem="YIJ-uO-XAh" secondAttribute="trailing" id="NhB-SF-0Nj"/>
+                                                <constraint firstItem="qUg-L7-53M" firstAttribute="leading" secondItem="teh-un-3Uc" secondAttribute="leading" id="Svb-J4-Maj"/>
+                                                <constraint firstItem="AkV-jx-IgT" firstAttribute="leading" secondItem="SOn-Os-1yx" secondAttribute="leadingMargin" id="TsR-nP-wZ0"/>
+                                                <constraint firstItem="AkV-jx-IgT" firstAttribute="trailing" secondItem="qUg-L7-53M" secondAttribute="trailing" id="UYt-f0-aQK"/>
+                                                <constraint firstItem="qUg-L7-53M" firstAttribute="top" secondItem="AkV-jx-IgT" secondAttribute="bottom" constant="11" id="Zpd-jL-qHw"/>
+                                                <constraint firstItem="I9S-Ub-6RL" firstAttribute="top" secondItem="AkV-jx-IgT" secondAttribute="bottom" constant="8" symbolic="YES" id="f9G-hI-SNl"/>
+                                                <constraint firstItem="YIJ-uO-XAh" firstAttribute="top" secondItem="teh-un-3Uc" secondAttribute="bottom" constant="8" symbolic="YES" id="gAR-AT-9Sw"/>
+                                                <constraint firstItem="neM-eA-YJc" firstAttribute="leading" secondItem="YIJ-uO-XAh" secondAttribute="leading" id="nIl-r2-eTy"/>
+                                                <constraint firstItem="I9S-Ub-6RL" firstAttribute="bottom" secondItem="qUg-L7-53M" secondAttribute="bottom" id="xdY-w4-JOw"/>
+                                                <constraint firstItem="qUg-L7-53M" firstAttribute="trailing" secondItem="teh-un-3Uc" secondAttribute="trailing" id="xer-IK-Nmp"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -501,24 +481,26 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <exclude reference="qUg-L7-53M"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="X25-6u-QrH"/>
-                                                    <exclude reference="aVx-NN-cM0"/>
-                                                    <exclude reference="ctC-Ol-0gA"/>
-                                                    <exclude reference="wGB-bB-NZe"/>
-                                                    <exclude reference="Fbf-2I-Ie3"/>
-                                                    <exclude reference="I0G-UD-szL"/>
-                                                    <exclude reference="wbr-dg-rHz"/>
-                                                    <exclude reference="V8L-8u-r7M"/>
-                                                    <exclude reference="iWj-1f-Uln"/>
-                                                    <exclude reference="olb-tw-XdW"/>
-                                                    <exclude reference="aE1-D3-fey"/>
-                                                    <exclude reference="goR-qL-nE3"/>
-                                                    <exclude reference="Dl1-w5-Aiw"/>
-                                                    <exclude reference="SJI-py-1uF"/>
-                                                    <exclude reference="qfG-yd-GJ1"/>
-                                                    <exclude reference="zje-oe-eh4"/>
-                                                    <exclude reference="RDp-u8-Buy"/>
-                                                    <exclude reference="xCQ-oO-dvX"/>
+                                                    <exclude reference="5M3-F8-B9m"/>
+                                                    <exclude reference="Fdk-8D-fSg"/>
+                                                    <exclude reference="TsR-nP-wZ0"/>
+                                                    <exclude reference="UYt-f0-aQK"/>
+                                                    <exclude reference="1G4-aO-gXQ"/>
+                                                    <exclude reference="f9G-hI-SNl"/>
+                                                    <exclude reference="xdY-w4-JOw"/>
+                                                    <exclude reference="8rR-jG-CoQ"/>
+                                                    <exclude reference="Svb-J4-Maj"/>
+                                                    <exclude reference="Zpd-jL-qHw"/>
+                                                    <exclude reference="xer-IK-Nmp"/>
+                                                    <exclude reference="KxS-tp-w6Q"/>
+                                                    <exclude reference="nIl-r2-eTy"/>
+                                                    <exclude reference="0Tk-XB-1UK"/>
+                                                    <exclude reference="N0x-2H-z24"/>
+                                                    <exclude reference="NhB-SF-0Nj"/>
+                                                    <exclude reference="E8n-f4-Ggf"/>
+                                                    <exclude reference="G5y-08-K7W"/>
+                                                    <exclude reference="He7-oP-TwJ"/>
+                                                    <exclude reference="gAR-AT-9Sw"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -531,24 +513,26 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <include reference="qUg-L7-53M"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="X25-6u-QrH"/>
-                                                    <include reference="aVx-NN-cM0"/>
-                                                    <include reference="ctC-Ol-0gA"/>
-                                                    <include reference="wGB-bB-NZe"/>
-                                                    <include reference="Fbf-2I-Ie3"/>
-                                                    <include reference="I0G-UD-szL"/>
-                                                    <include reference="wbr-dg-rHz"/>
-                                                    <include reference="V8L-8u-r7M"/>
-                                                    <include reference="iWj-1f-Uln"/>
-                                                    <include reference="olb-tw-XdW"/>
-                                                    <include reference="aE1-D3-fey"/>
-                                                    <include reference="goR-qL-nE3"/>
-                                                    <include reference="Dl1-w5-Aiw"/>
-                                                    <include reference="SJI-py-1uF"/>
-                                                    <include reference="qfG-yd-GJ1"/>
-                                                    <include reference="zje-oe-eh4"/>
-                                                    <include reference="RDp-u8-Buy"/>
-                                                    <include reference="xCQ-oO-dvX"/>
+                                                    <include reference="5M3-F8-B9m"/>
+                                                    <include reference="Fdk-8D-fSg"/>
+                                                    <include reference="TsR-nP-wZ0"/>
+                                                    <include reference="UYt-f0-aQK"/>
+                                                    <include reference="1G4-aO-gXQ"/>
+                                                    <include reference="f9G-hI-SNl"/>
+                                                    <include reference="xdY-w4-JOw"/>
+                                                    <include reference="8rR-jG-CoQ"/>
+                                                    <include reference="Svb-J4-Maj"/>
+                                                    <include reference="Zpd-jL-qHw"/>
+                                                    <include reference="xer-IK-Nmp"/>
+                                                    <include reference="KxS-tp-w6Q"/>
+                                                    <include reference="nIl-r2-eTy"/>
+                                                    <include reference="0Tk-XB-1UK"/>
+                                                    <include reference="N0x-2H-z24"/>
+                                                    <include reference="NhB-SF-0Nj"/>
+                                                    <include reference="E8n-f4-Ggf"/>
+                                                    <include reference="G5y-08-K7W"/>
+                                                    <include reference="He7-oP-TwJ"/>
+                                                    <include reference="gAR-AT-9Sw"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -572,12 +556,12 @@ You should have received a copy of the GNU General Public License along with thi
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ddv-sj-I8h" secondAttribute="trailing" id="6SB-4h-ZhH"/>
-                            <constraint firstItem="Ddv-sj-I8h" firstAttribute="leading" secondItem="3qX-Z7-5mJ" secondAttribute="leading" id="Aze-YV-fJh"/>
-                            <constraint firstItem="USY-fs-iIf" firstAttribute="centerY" secondItem="3qX-Z7-5mJ" secondAttribute="centerY" id="EEe-et-lmu"/>
-                            <constraint firstItem="USY-fs-iIf" firstAttribute="centerX" secondItem="3qX-Z7-5mJ" secondAttribute="centerX" id="QcE-Ly-OIg"/>
-                            <constraint firstItem="Ddv-sj-I8h" firstAttribute="top" secondItem="DbM-UV-MXN" secondAttribute="bottom" id="Y8R-ny-BIU"/>
-                            <constraint firstItem="Ddv-sj-I8h" firstAttribute="bottom" secondItem="RxF-mr-dwO" secondAttribute="top" id="bfA-Y6-gdC"/>
+                            <constraint firstItem="Ddv-sj-I8h" firstAttribute="top" secondItem="DbM-UV-MXN" secondAttribute="bottom" id="2mN-Vg-Gxt"/>
+                            <constraint firstItem="USY-fs-iIf" firstAttribute="centerY" secondItem="3qX-Z7-5mJ" secondAttribute="centerY" id="PMU-0X-M7p"/>
+                            <constraint firstItem="Ddv-sj-I8h" firstAttribute="bottom" secondItem="RxF-mr-dwO" secondAttribute="top" id="kYC-Md-os5"/>
+                            <constraint firstItem="Ddv-sj-I8h" firstAttribute="leading" secondItem="3qX-Z7-5mJ" secondAttribute="leading" id="ta6-wg-nhw"/>
+                            <constraint firstAttribute="trailing" secondItem="Ddv-sj-I8h" secondAttribute="trailing" id="uMy-rA-wdY"/>
+                            <constraint firstItem="Ddv-sj-I8h" firstAttribute="centerX" secondItem="USY-fs-iIf" secondAttribute="centerX" id="wv9-mR-kEP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -585,12 +569,12 @@ You should have received a copy of the GNU General Public License along with thi
                                 <exclude reference="USY-fs-iIf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6SB-4h-ZhH"/>
-                                <exclude reference="Aze-YV-fJh"/>
-                                <exclude reference="Y8R-ny-BIU"/>
-                                <exclude reference="bfA-Y6-gdC"/>
-                                <exclude reference="EEe-et-lmu"/>
-                                <exclude reference="QcE-Ly-OIg"/>
+                                <exclude reference="2mN-Vg-Gxt"/>
+                                <exclude reference="kYC-Md-os5"/>
+                                <exclude reference="ta6-wg-nhw"/>
+                                <exclude reference="uMy-rA-wdY"/>
+                                <exclude reference="wv9-mR-kEP"/>
+                                <exclude reference="PMU-0X-M7p"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -599,12 +583,12 @@ You should have received a copy of the GNU General Public License along with thi
                                 <include reference="USY-fs-iIf"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6SB-4h-ZhH"/>
-                                <include reference="Aze-YV-fJh"/>
-                                <include reference="Y8R-ny-BIU"/>
-                                <include reference="bfA-Y6-gdC"/>
-                                <include reference="EEe-et-lmu"/>
-                                <include reference="QcE-Ly-OIg"/>
+                                <include reference="2mN-Vg-Gxt"/>
+                                <include reference="kYC-Md-os5"/>
+                                <include reference="ta6-wg-nhw"/>
+                                <include reference="uMy-rA-wdY"/>
+                                <include reference="wv9-mR-kEP"/>
+                                <include reference="PMU-0X-M7p"/>
                             </mask>
                         </variation>
                     </view>
@@ -649,19 +633,30 @@ You should have received a copy of the GNU General Public License along with thi
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ao-Nz-jJg">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="224" id="PkP-G3-Di6"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="PkP-G3-Di6"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="PkP-G3-Di6"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="leadingMargin" secondItem="2ao-Nz-jJg" secondAttribute="leading" id="C7O-Rs-O93"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="QKa-Qn-SRY" secondAttribute="leading" id="FVb-9d-Xkv"/>
-                                                <constraint firstAttribute="topMargin" secondItem="2ao-Nz-jJg" secondAttribute="top" id="GrM-sn-dwN"/>
-                                                <constraint firstItem="QKa-Qn-SRY" firstAttribute="top" secondItem="2ao-Nz-jJg" secondAttribute="bottom" constant="5" id="cfy-Tq-THY"/>
-                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="centerX" secondItem="UNZ-0I-jmd" secondAttribute="centerX" id="fdw-hR-YeP"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="2ao-Nz-jJg" secondAttribute="trailing" id="hum-NL-2sK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="QKa-Qn-SRY" secondAttribute="trailing" id="pPR-qa-0Ix"/>
+                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="top" secondItem="UNZ-0I-jmd" secondAttribute="topMargin" id="6vO-jF-hp0"/>
+                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="leading" secondItem="UNZ-0I-jmd" secondAttribute="leadingMargin" id="Bjk-Om-a2b"/>
+                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="leading" secondItem="QKa-Qn-SRY" secondAttribute="leading" id="Spk-LN-AZn"/>
+                                                <constraint firstItem="2ao-Nz-jJg" firstAttribute="trailing" secondItem="QKa-Qn-SRY" secondAttribute="trailing" id="pnI-Pa-kYu"/>
+                                                <constraint firstItem="QKa-Qn-SRY" firstAttribute="top" secondItem="2ao-Nz-jJg" secondAttribute="bottom" constant="5" id="vd0-8C-fm7"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -669,13 +664,11 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <exclude reference="2ao-Nz-jJg"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="C7O-Rs-O93"/>
-                                                    <exclude reference="GrM-sn-dwN"/>
-                                                    <exclude reference="fdw-hR-YeP"/>
-                                                    <exclude reference="hum-NL-2sK"/>
-                                                    <exclude reference="FVb-9d-Xkv"/>
-                                                    <exclude reference="cfy-Tq-THY"/>
-                                                    <exclude reference="pPR-qa-0Ix"/>
+                                                    <exclude reference="6vO-jF-hp0"/>
+                                                    <exclude reference="Bjk-Om-a2b"/>
+                                                    <exclude reference="Spk-LN-AZn"/>
+                                                    <exclude reference="pnI-Pa-kYu"/>
+                                                    <exclude reference="vd0-8C-fm7"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -684,13 +677,11 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <include reference="2ao-Nz-jJg"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="C7O-Rs-O93"/>
-                                                    <include reference="GrM-sn-dwN"/>
-                                                    <include reference="fdw-hR-YeP"/>
-                                                    <include reference="hum-NL-2sK"/>
-                                                    <include reference="FVb-9d-Xkv"/>
-                                                    <include reference="cfy-Tq-THY"/>
-                                                    <include reference="pPR-qa-0Ix"/>
+                                                    <include reference="6vO-jF-hp0"/>
+                                                    <include reference="Bjk-Om-a2b"/>
+                                                    <include reference="Spk-LN-AZn"/>
+                                                    <include reference="pnI-Pa-kYu"/>
+                                                    <include reference="vd0-8C-fm7"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -724,12 +715,12 @@ You should have received a copy of the GNU General Public License along with thi
                                 <exclude reference="gE9-BR-BV8"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ecl-Dk-OXZ"/>
+                                <exclude reference="pCi-8P-ugF"/>
                                 <exclude reference="F47-bg-fPT"/>
                                 <exclude reference="Jg3-I8-Nke"/>
                                 <exclude reference="bN1-Tu-FVr"/>
                                 <exclude reference="kRO-jj-Jg6"/>
-                                <exclude reference="ecl-Dk-OXZ"/>
-                                <exclude reference="pCi-8P-ugF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -738,12 +729,12 @@ You should have received a copy of the GNU General Public License along with thi
                                 <include reference="gE9-BR-BV8"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ecl-Dk-OXZ"/>
+                                <include reference="pCi-8P-ugF"/>
                                 <include reference="F47-bg-fPT"/>
                                 <include reference="Jg3-I8-Nke"/>
                                 <include reference="bN1-Tu-FVr"/>
                                 <include reference="kRO-jj-Jg6"/>
-                                <include reference="ecl-Dk-OXZ"/>
-                                <include reference="pCi-8P-ugF"/>
                             </mask>
                         </variation>
                     </view>

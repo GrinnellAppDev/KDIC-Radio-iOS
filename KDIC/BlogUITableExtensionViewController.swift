@@ -17,26 +17,13 @@ extension BlogViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if(self.blogsDict == nil){
-            return 0
-        }
-        else{
-            return (self.blogsDict?.count)!
-        }
+        return (self.articles.count)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BlogPostsCell", forIndexPath: indexPath) as! BlogTableCell
         
-        let postTitle = blogsDict![indexPath.row]["articleTitle"] as! String
-        let postAuther = blogsDict![indexPath.row]["author"] as! String
-        let datePosted = blogsDict![indexPath.row]["datePosted"] as! String
-        let postText = blogsDict![indexPath.row]["articleText"] as! String
-        
-        cell.blogPostAuthor.text = postAuther;
-        cell.blogPostTitle.text = postTitle;
-        cell.datePosted.text = datePosted;
-        cell.blogPostText.text = postText;
+        cell.article = articles[indexPath.row]
         
         cell.selectionStyle = .None;
         
@@ -49,7 +36,7 @@ extension BlogViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let articleUrl = blogsDict![indexPath.row]["articleUrl"] as! String
+        let articleUrl = articles[indexPath.row].articleUrl
         if #available(iOS 9.0, *) {
             let svc = SFSafariViewController(URL: NSURL(string: articleUrl)!, entersReaderIfAvailable: true)
             

@@ -1,7 +1,7 @@
 import Foundation
 import AVFoundation
 
-class KDICPlayer {
+public class KDICPlayer {
     static let sharedInstance = KDICPlayer()
     
     private var player = AVPlayer(URL: NSURL(string: "http://kdic.grinnell.edu:8001/stream")!)

@@ -1,11 +1,11 @@
 import UIKit
 import SafariServices
 
-class BlogViewController: UIViewController{
-
+class BlogViewController: UIViewController {
+    
     @IBOutlet weak var blogPostTableView: UITableView!
     
-    var blogsDict: NSArray?
+    var articles = [Article]()
     
     var kdicScrapperReqs: KDICScrapperReqs?
     
@@ -18,13 +18,18 @@ class BlogViewController: UIViewController{
         
         self.kdicScrapperReqs!.get_data_from_url()
         
-        
     }
     
     func getDataArray(){
-        self.blogsDict = self.kdicScrapperReqs!.jsonDictionary!["articles"] as? NSArray;
+        if let articlesArray = kdicScrapperReqs!.jsonDictionary!["articles"] as? Array<Dictionary<String, String>> {
+            for articleDict in articlesArray {
+                let article = Article(articleDict)
+                self.articles.append(article)
+                
+            }
+        }
         blogLoadActivityIndicator.stopAnimating()
         blogLoadActivityIndicator.hidden = true
     }
-
+    
 }

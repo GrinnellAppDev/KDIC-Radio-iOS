@@ -30,6 +30,7 @@ class KDICScrapperReqs{
                 if ((data!.length > 0) && (error == nil)){
                     do{
                         self.jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                        
                         self.do_table_refresh()
                     }catch{
                         //MARK; handle exception
