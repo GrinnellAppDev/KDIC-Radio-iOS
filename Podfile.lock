@@ -1,0 +1,12 @@
+PODS:
+  - Fabric (1.6.7)
+
+DEPENDENCIES:
+  - Fabric (~> 1.6)
+
+SPEC CHECKSUMS:
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+
+PODFILE CHECKSUM: 3cc5aaae10db1217cff0eb358cdc1a8f100a696a
+
+COCOAPODS: 1.0.1
