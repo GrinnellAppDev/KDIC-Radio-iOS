@@ -1,12 +1,22 @@
 PODS:
-  - Fabric (1.6.7)
+  - EZAudio (1.1.5):
+    - EZAudio/Full (= 1.1.5)
+  - EZAudio/Core (1.1.5)
+  - EZAudio/Full (1.1.5):
+    - EZAudio/Core
+    - TPCircularBuffer (= 1.1)
+  - Fabric (1.6.11)
+  - TPCircularBuffer (1.1)
 
 DEPENDENCIES:
+  - EZAudio
   - Fabric (~> 1.6)
 
 SPEC CHECKSUMS:
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
 
-PODFILE CHECKSUM: 3cc5aaae10db1217cff0eb358cdc1a8f100a696a
+PODFILE CHECKSUM: cdda8ca4239dace0354aa920facd286f0de0271d
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0

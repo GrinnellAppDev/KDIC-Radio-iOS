@@ -1,44 +1,22 @@
-import UIKit
+import KDICCore
+import AVKit
 
 class PlayerViewController: UIViewController {
-    
-    
-    @IBOutlet weak var playerButton: UIButton!
-    
-    @IBOutlet weak var djNameLable: UILabel!
-    @IBOutlet weak var showNamelable: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //navigation bar color
-        self.navigationController!.navigationBar.barTintColor = UIColor.redColor()
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-           
-    }
-
-    @IBAction func didPressPlayer(sender: AnyObject) {
-        togglePlayer()
-    }
-    
-    func togglePlayer() {
-        if KDICPlayer.sharedInstance.isPlaying {
-            pauseRadio()
-            playerButton.setImage(UIImage(named: "playButton"), forState: UIControlState.Normal)
-            
-        } else {
-            playRadio()
-            playerButton.setImage(UIImage(named: "pauseButton"), forState: UIControlState.Normal)
-        }
-    }
-    
-    func playRadio() {
-        KDICPlayer.sharedInstance.play()
-    }
-    
-    func pauseRadio() {
-        KDICPlayer.sharedInstance.pause()
-        
-    }
-
+  var player: KDICPlayer!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var subtitleLabel: UILabel!
+  @IBOutlet weak var imageView: UIImageView!
+  
+  @IBAction func togglePlayerButtonWasTapped(_ sender: Any) {
+    KDICPlayer.toggle()
+  }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    print("About to play")
+    KDICPlayer.play()
+    print("Playing!")
+  }
 }
