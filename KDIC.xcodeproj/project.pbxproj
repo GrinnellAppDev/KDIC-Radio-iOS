@@ -13,16 +13,11 @@
 		E17B28931825F2D60049DC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28921825F2D60049DC5D /* Foundation.framework */; };
 		E17B28951825F2D60049DC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28941825F2D60049DC5D /* CoreGraphics.framework */; };
 		E17B28971825F2D60049DC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28961825F2D60049DC5D /* UIKit.framework */; };
-		E17B289F1825F2D60049DC5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B289E1825F2D60049DC5D /* main.m */; };
-		E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B28A21825F2D60049DC5D /* AppDelegate.m */; };
 		E17B28CB1825F3C90049DC5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28CA1825F3C90049DC5D /* AVFoundation.framework */; };
 		E17B28D21825FF440049DC5D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17B28D11825FF440049DC5D /* MediaPlayer.framework */; };
-		EFA62BBA1C86361200F91777 /* BlogTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA62BB91C86361200F91777 /* BlogTableCell.swift */; };
 		EFA62BBC1C86754E00F91777 /* ScheduleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA62BBB1C86754E00F91777 /* ScheduleTableCell.swift */; };
 		EFAC5F921C30790700D25E1B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC5F911C30790700D25E1B /* FeedViewController.swift */; };
 		EFF6D9B51C2F828200CBDCD3 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6D9B41C2F828200CBDCD3 /* PlayerViewController.swift */; };
-		FA10932C1D25794100B2E9E7 /* KDICArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB6679C1CCD565D00502B3E /* KDICArticle.swift */; };
-		FA3EDA071E58E9F1006ABF9B /* KDICPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EDA061E58E9F1006ABF9B /* KDICPlayer.swift */; };
 		FA6E9C3F1E26E7050066F1CC /* Objc-Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = FA43808E1DF276D500975701 /* Objc-Bridge.m */; };
 		FA8112E11D23A88500545483 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */; };
 		FA8112E21D23A88A00545483 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17B28AD1825F2D60049DC5D /* Images.xcassets */; };
@@ -31,6 +26,8 @@
 		FA8112F91D23A96400545483 /* KDICCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8112F81D23A96400545483 /* KDICCoreTests.swift */; };
 		FA8112FD1D23A96400545483 /* KDICCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8112E81D23A96400545483 /* KDICCore.framework */; };
 		FA8112FE1D23A96400545483 /* KDICCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA8112E81D23A96400545483 /* KDICCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB21B3331E70C3A700842736 /* KDICPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EDA061E58E9F1006ABF9B /* KDICPlayer.swift */; };
+		FB21B3351E70C4EB00842736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB21B3341E70C4EB00842736 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,9 +82,6 @@
 		E17B28961825F2D60049DC5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E17B289A1825F2D60049DC5D /* KDIC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KDIC-Info.plist"; sourceTree = "<group>"; };
 		E17B289C1825F2D60049DC5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E17B289E1825F2D60049DC5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E17B28A11825F2D60049DC5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E17B28A21825F2D60049DC5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E17B28A51825F2D60049DC5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		E17B28AD1825F2D60049DC5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E17B28CA1825F3C90049DC5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +101,7 @@
 		FA8112F11D23A96400545483 /* KDICCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KDICCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8112F81D23A96400545483 /* KDICCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDICCoreTests.swift; sourceTree = "<group>"; };
 		FA8112FA1D23A96400545483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB21B3341E70C4EB00842736 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				E17B28A41825F2D60049DC5D /* Main_iPhone.storyboard */,
-				E17B28A11825F2D60049DC5D /* AppDelegate.h */,
-				E17B28A21825F2D60049DC5D /* AppDelegate.m */,
+				FB21B3341E70C4EB00842736 /* AppDelegate.swift */,
 				EFF6D9B41C2F828200CBDCD3 /* PlayerViewController.swift */,
 				EFAC5F8F1C30704700D25E1B /* BlogViewController.swift */,
 				EFAC5F911C30790700D25E1B /* FeedViewController.swift */,
@@ -214,7 +208,6 @@
 			children = (
 				E17B289A1825F2D60049DC5D /* KDIC-Info.plist */,
 				E17B289B1825F2D60049DC5D /* InfoPlist.strings */,
-				E17B289E1825F2D60049DC5D /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -328,7 +321,6 @@
 				ORGANIZATIONNAME = "Colin Tremblay";
 				TargetAttributes = {
 					E17B288E1825F2D60049DC5D = {
-						DevelopmentTeam = 2U2Y6A72AA;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -477,11 +469,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFA62BBA1C86361200F91777 /* BlogTableCell.swift in Sources */,
-				E17B28A31825F2D60049DC5D /* AppDelegate.m in Sources */,
 				EFF6D9B51C2F828200CBDCD3 /* PlayerViewController.swift in Sources */,
-				E17B289F1825F2D60049DC5D /* main.m in Sources */,
 				EFAC5F921C30790700D25E1B /* FeedViewController.swift in Sources */,
+				FB21B3351E70C4EB00842736 /* AppDelegate.swift in Sources */,
 				EFA62BBC1C86754E00F91777 /* ScheduleTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,8 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6E9C3F1E26E7050066F1CC /* Objc-Bridge.m in Sources */,
-				FA10932C1D25794100B2E9E7 /* KDICArticle.swift in Sources */,
-				FA3EDA071E58E9F1006ABF9B /* KDICPlayer.swift in Sources */,
+				FB21B3331E70C3A700842736 /* KDICPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +623,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -661,6 +651,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -750,6 +741,7 @@
 		FA8113041D23A96400545483 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -771,6 +763,7 @@
 		FA8113051D23A96400545483 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
