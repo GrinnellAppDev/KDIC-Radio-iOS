@@ -6,15 +6,14 @@ class PlayerViewController: UIViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
-  
-    @IBOutlet weak var KDICPhoto: UIImageView!
+
   @IBAction func togglePlayerButtonWasTapped(_ sender: Any) {
     KDICPlayer.toggle()
   }
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.KDICPhoto.image = UIImage(named: "KDIC")
+    self.imageView.image = UIImage(named: "KDIC")
   }
     
   override func viewDidAppear(_ animated: Bool) {
