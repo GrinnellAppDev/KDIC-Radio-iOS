@@ -109,6 +109,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="KDICPhoto" destination="w0E-vF-vf1" id="3BS-gY-5RA"/>
                         <outlet property="imageView" destination="w0E-vF-vf1" id="2Ww-CE-43V"/>
                         <outlet property="subtitleLabel" destination="tlk-vg-xvh" id="BQs-FQ-lmg"/>
                         <outlet property="titleLabel" destination="p24-6h-Nk6" id="7bi-bE-16p"/>

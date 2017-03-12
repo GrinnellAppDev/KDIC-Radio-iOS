@@ -20,6 +20,7 @@ open class KDICPlayer {
     player.pause()
   }
   
+    /** to fix **/
   open class func toggle() {
     if isPlaying {
       pause()
