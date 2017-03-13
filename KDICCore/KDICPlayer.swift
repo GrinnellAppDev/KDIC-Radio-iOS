@@ -3,14 +3,13 @@ import AVFoundation
 
 private let streamURL = URL(string: "http://kdic.grinnell.edu/stream")!
 
-let kdicInstance = KDICPlayer();
-
-private var isPlaying = false;
+private(set) var isPlaying = false;
 
 open class KDICPlayer {
   private static var player: AVPlayer = {
     let asset = AVURLAsset(url: streamURL)
     let playerItem = AVPlayerItem(asset: asset)
+    let currentlyPlaying = isPlaying;
     return AVPlayer(playerItem: playerItem)
   }()
   
@@ -31,9 +30,5 @@ open class KDICPlayer {
       play()
     }
   }
-    
-    open func currentlyPlaying() -> Bool {
-        return isPlaying
-    }
   
 }

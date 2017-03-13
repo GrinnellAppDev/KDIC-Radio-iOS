@@ -13,7 +13,7 @@ class PlayerViewController: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.imageView.image = UIImage(named: "KDIC")
+    self.imageView.image = UIImage(named: "Equalizer")
   }
     
   override func viewDidAppear(_ animated: Bool) {
