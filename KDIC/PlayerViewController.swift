@@ -22,6 +22,5 @@ class PlayerViewController: UIViewController {
     KDICPlayer.play()
     print("Playing!")
   }
-    
-    
+
 }

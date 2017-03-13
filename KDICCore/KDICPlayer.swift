@@ -11,10 +11,8 @@ open class KDICPlayer {
   private static var player: AVPlayer = {
     let asset = AVURLAsset(url: streamURL)
     let playerItem = AVPlayerItem(asset: asset)
-    // 
     return AVPlayer(playerItem: playerItem)
   }()
-  
   
   open class func play() {
     player.play()
@@ -26,7 +24,6 @@ open class KDICPlayer {
     isPlaying = false
   }
   
-    /** to fix **/
   open class func toggle() {
     if isPlaying == true {
       pause()
