@@ -23,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aK6-qT-MkF">
-                                <rect key="frame" x="0.0" y="668" width="414" height="68"/>
+                                <rect key="frame" x="0.0" y="628" width="414" height="108"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3w-bE-TyM">
-                                        <rect key="frame" x="151.66666666666669" y="19" width="112.00000000000006" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="button" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3w-bE-TyM">
+                                        <rect key="frame" x="151" y="30" width="112" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="112" id="los-Ne-gLM"/>
                                         </constraints>
-                                        <state key="normal" title="Play">
+                                        <state key="normal" image="PauseButton">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -86,8 +86,8 @@
                                     <constraint firstItem="p24-6h-Nk6" firstAttribute="top" secondItem="BLj-T9-IMm" secondAttribute="topMargin" id="m45-hg-kY7"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w0E-vF-vf1">
-                                <rect key="frame" x="0.0" y="56" width="414" height="527"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w0E-vF-vf1">
+                                <rect key="frame" x="0.0" y="56" width="414" height="487"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,5 +118,8 @@
             <point key="canvasLocation" x="1122.4000000000001" y="15.742128935532236"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PauseButton" width="52" height="70"/>
+    </resources>
     <color key="tintColor" red="0.80015623569488525" green="0.0" blue="0.037187442183494568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
