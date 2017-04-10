@@ -1,19 +1,24 @@
-import UIKit
 import AVFoundation
 
 private let streamURL = URL(string: "http://kdic.grinnell.edu/stream")!
 
-private(set) var isPlaying = false;
-
 open class KDICPlayer {
-  private static var player: AVPlayer = {
+  static private(set) var isPlaying = false;
+    
+  private static var player: AVPlayer = freshPlayer()
+    
+  private class func freshPlayer() -> AVPlayer {
     let asset = AVURLAsset(url: streamURL)
     let playerItem = AVPlayerItem(asset: asset)
-    let currentlyPlaying = isPlaying;
     return AVPlayer(playerItem: playerItem)
-  }()
+  }
   
-  open class func play() {
+  open class func live() {
+    player = freshPlayer()
+    unpause()
+  }
+
+  open class func unpause() {
     player.play()
     isPlaying = true
   }
@@ -27,7 +32,7 @@ open class KDICPlayer {
     if isPlaying == true {
       pause()
     } else {
-      play()
+      unpause()
     }
   }
   
