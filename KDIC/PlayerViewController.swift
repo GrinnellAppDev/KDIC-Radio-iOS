@@ -6,17 +6,23 @@ class PlayerViewController: UIViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
-  
+
+    @IBOutlet weak var button: UIButton!
   @IBAction func togglePlayerButtonWasTapped(_ sender: Any) {
     KDICPlayer.toggle()
   }
+    
   override func viewDidLoad() {
     super.viewDidLoad()
+    
   }
+    
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     print("About to play")
-    KDICPlayer.play()
+    KDICPlayer.live()
     print("Playing!")
   }
+    
+
 }
