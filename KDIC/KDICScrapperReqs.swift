@@ -5,12 +5,12 @@ class KDICScrapperReqs{
     var urlStr: String
     var jsonDictionary: NSDictionary?
     var requestError : NSError?
-    var requestResponse : NSURLResponse?
+    var requestResponse : URLResponse?
     var requestData : NSData?
     var tableView: UITableView?
     var completionCall: ()->()
     
-    init(urlStr: String, tableView: UITableView, completionCall: ()->()){
+    init(urlStr: String, tableView: UITableView, completionCall: @escaping ()->()){
         self.urlStr = urlStr
         self.tableView = tableView
         self.completionCall = completionCall
@@ -19,38 +19,38 @@ class KDICScrapperReqs{
     
     func get_data_from_url() {
         let timeout = 15.0
-        let url = NSURL(string: urlStr)
-        let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+        let url = URL(string: urlStr)
+        let urlRequest = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
         
-        let queue = NSOperationQueue()
+        let queue = OperationQueue()
         
-        NSURLConnection.sendAsynchronousRequest( urlRequest, queue: queue,
-            completionHandler: {(response: NSURLResponse?, data: NSData?, error: NSError?) in
+        NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue,
+                                                 completionHandler: {(response: URLResponse?, data: Data?, error: Error?) in
                 
-                if ((data!.length > 0) && (error == nil)){
+                                                    if ((data!.count > 0) && (error == nil)){
                     do{
-                        self.jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                        self.jsonDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                         
                         self.do_table_refresh()
                     }catch{
-                        //MARK; handle exception
+                        //MARK; handle exceptio
                     }
                 }
-                else if ((data!.length == 0) && (error == nil)){
+                                                    else if ((data!.count == 0) && (error == nil)){
                     print("Nothing was downloaded")
                 }
                 else if (error != nil){
-                    print("Error happened = \(error)")
+                                                        print("Error happened = \(error ?? "mysterious error" as! Error)")
                 }
             }
         )
     }
     
     func do_table_refresh(){
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async {
             self.completionCall()
             self.tableView!.reloadData()
             return
-        })
+        }
     }
 }

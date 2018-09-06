@@ -19,19 +19,18 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
         
         self.kdicScrapperReqs = KDICScrapperReqs(urlStr: scheduleUrlStr, tableView: scheduleTableView, completionCall: loadInitialTableData)
         self.kdicScrapperReqs?.get_data_from_url()
-
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dayScheduleKeysArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleTableCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell", for: indexPath) as! ScheduleTableCell
         
         let showTime = self.dayScheduleKeysArray[indexPath.row] as! String
         let showName = self.dayScheduleValuesArray[indexPath.row] as! String
@@ -46,19 +45,19 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
         switch daySegmntCntrl.selectedSegmentIndex
         {
         case 0:
-            loadTableData("Monday")
+            loadTableData(day: "Monday")
         case 1:
-            loadTableData("Tuesday")
+            loadTableData(day: "Tuesday")
         case 2:
-            loadTableData("Wednesday")
+            loadTableData(day: "Wednesday")
         case 3:
-            loadTableData("Thursday")
+            loadTableData(day: "Thursday")
         case 4:
-            loadTableData("Friday")
+            loadTableData(day: "Friday")
         case 5:
-            loadTableData("Saturday")
+            loadTableData(day: "Saturday")
         case 6:
-            loadTableData("Sunday")
+            loadTableData(day: "Sunday")
         default:
             break; 
         }
@@ -66,20 +65,22 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
    
     //method called after asynch req is done
     func loadInitialTableData(){
-        loadTableData("Monday")
+        loadTableData(day: "Monday")
     }
     
     func loadTableData(day: String){
-        let scheduleDictionary = self.kdicScrapperReqs!.jsonDictionary!["data"]![day]! as! NSDictionary as Dictionary
         
-        self.dayScheduleKeysArray = Array(scheduleDictionary.keys)
-        self.dayScheduleValuesArray = Array(scheduleDictionary.values)
+        let jsonDict = self.kdicScrapperReqs!.jsonDictionary! as! Dictionary<AnyHashable, Any>
+        let jsonDict2 = jsonDict["data"]! as! Dictionary<AnyHashable, Any>
+        let scheduleDictionary = jsonDict2[day] as! Dictionary<AnyHashable, Any>
+        
+        self.dayScheduleKeysArray = Array(scheduleDictionary.keys) as [AnyObject]
+        self.dayScheduleValuesArray = Array(scheduleDictionary.values) as [AnyObject]
         
         scheduleDataLoadingIndicator.stopAnimating()
-        scheduleDataLoadingIndicator.hidden = true
+        scheduleDataLoadingIndicator.isHidden = true
         
         self.scheduleTableView.reloadData()
     }
-
 
 }

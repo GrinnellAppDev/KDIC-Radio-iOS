@@ -29,7 +29,7 @@ class BlogViewController: UIViewController {
             }
         }
         blogLoadActivityIndicator.stopAnimating()
-        blogLoadActivityIndicator.hidden = true
+        blogLoadActivityIndicator.isHidden = true
     }
     
 }

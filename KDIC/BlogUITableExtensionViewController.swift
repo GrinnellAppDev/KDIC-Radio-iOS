@@ -15,17 +15,17 @@ extension BlogViewController: UITableViewDataSource {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return (self.articles.count)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BlogPostsCell", forIndexPath: indexPath) as! BlogTableCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BlogPostsCell", for: indexPath as IndexPath) as! BlogTableCell
         
         cell.article = articles[indexPath.row]
         
-        cell.selectionStyle = .None;
+        cell.selectionStyle = .none;
         
         return cell
     }
@@ -34,17 +34,17 @@ extension BlogViewController: UITableViewDataSource {
 
 extension BlogViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let articleUrl = articles[indexPath.row].articleUrl
         if #available(iOS 9.0, *) {
-            let svc = SFSafariViewController(URL: NSURL(string: articleUrl)!, entersReaderIfAvailable: true)
+            let svc = SFSafariViewController(url: URL(string: articleUrl)!, entersReaderIfAvailable: true)
             
-            self.presentViewController(svc, animated: true, completion: nil)
+            self.present(svc, animated: true, completion: nil)
             
         } else {
-            let url = NSURL(string: articleUrl)!
-            UIApplication.sharedApplication().openURL(url)
+            let url = URL(string: articleUrl)!
+            UIApplication.shared.openURL(url)
         }
         
     }

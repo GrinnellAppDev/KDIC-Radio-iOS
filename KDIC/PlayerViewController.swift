@@ -12,8 +12,8 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         
         //navigation bar color
-        self.navigationController!.navigationBar.barTintColor = UIColor.redColor()
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationController!.navigationBar.barTintColor = UIColor.red
+        self.navigationController!.navigationBar.titleTextAttributes = [kCTForegroundColorAttributeName as NSAttributedStringKey : UIColor.white]
            
     }
 
@@ -24,11 +24,11 @@ class PlayerViewController: UIViewController {
     func togglePlayer() {
         if KDICPlayer.sharedInstance.isPlaying {
             pauseRadio()
-            playerButton.setImage(UIImage(named: "playButton"), forState: UIControlState.Normal)
+            playerButton.setImage(UIImage(named: "playButton"), for: [])
             
         } else {
             playRadio()
-            playerButton.setImage(UIImage(named: "pauseButton"), forState: UIControlState.Normal)
+            playerButton.setImage(UIImage(named: "pauseButton"), for: [])
         }
     }
     
