@@ -3,22 +3,16 @@ import UIKit
 class ScheduleViewController: UIViewController ,  UITableViewDataSource {
     @IBOutlet weak var daySegmntCntrl: UISegmentedControl!
     
-    var dayScheduleKeysArray = [AnyObject]()
-    var dayScheduleValuesArray = [AnyObject]()
+    var dayScheduleKeysArray = [String]()
+    var dayScheduleValuesArray = [String]()
     
     @IBOutlet weak var scheduleTableView: UITableView!
     
-    var kdicScrapperReqs: KDICScrapperReqs?
-    
     @IBOutlet weak var scheduleDataLoadingIndicator: UIActivityIndicatorView!
-    
-    var scheduleUrlStr = "http://kdic.grinnell.edu/scheduleScript.php"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.kdicScrapperReqs = KDICScrapperReqs(urlStr: scheduleUrlStr, tableView: scheduleTableView, completionCall: loadInitialTableData)
-        self.kdicScrapperReqs?.get_data_from_url()
+        loadInitialTableData()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -32,8 +26,8 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell", for: indexPath) as! ScheduleTableCell
         
-        let showTime = self.dayScheduleKeysArray[indexPath.row] as! String
-        let showName = self.dayScheduleValuesArray[indexPath.row] as! String
+        let showTime = self.dayScheduleKeysArray[indexPath.row]
+        let showName = self.dayScheduleValuesArray[indexPath.row]
         
         cell.showTime.text = showTime
         cell.showName.text = showName
@@ -41,7 +35,7 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
         return cell
     }
     
-    @IBAction func dayChanged(sender: AnyObject) {
+    @IBAction func dayChanged(_ sender: Any) {
         switch daySegmntCntrl.selectedSegmentIndex
         {
         case 0:
@@ -70,12 +64,12 @@ class ScheduleViewController: UIViewController ,  UITableViewDataSource {
     
     func loadTableData(day: String){
         
-        let jsonDict = self.kdicScrapperReqs!.jsonDictionary! as! Dictionary<AnyHashable, Any>
-        let jsonDict2 = jsonDict["data"]! as! Dictionary<AnyHashable, Any>
-        let scheduleDictionary = jsonDict2[day] as! Dictionary<AnyHashable, Any>
+        /*
+         FILL ME OUT !!!!!!!!!
+         */
         
-        self.dayScheduleKeysArray = Array(scheduleDictionary.keys) as [AnyObject]
-        self.dayScheduleValuesArray = Array(scheduleDictionary.values) as [AnyObject]
+        self.dayScheduleKeysArray.append("5am")
+        self.dayScheduleValuesArray.append("Where do we go from here?")
         
         scheduleDataLoadingIndicator.stopAnimating()
         scheduleDataLoadingIndicator.isHidden = true

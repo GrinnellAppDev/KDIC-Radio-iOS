@@ -25,7 +25,6 @@ class BlogViewController: UIViewController {
             for articleDict in articlesArray {
                 let article = Article(articleDict)
                 self.articles.append(article)
-                
             }
         }
         blogLoadActivityIndicator.stopAnimating()

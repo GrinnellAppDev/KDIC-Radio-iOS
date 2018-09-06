@@ -17,7 +17,7 @@ class PlayerViewController: UIViewController {
            
     }
 
-    @IBAction func didPressPlayer(sender: AnyObject) {
+    @IBAction func didPressPlayer(_ sender: Any) {
         togglePlayer()
     }
     

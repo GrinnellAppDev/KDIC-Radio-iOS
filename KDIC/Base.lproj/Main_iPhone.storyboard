@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tav-bk-hZ5">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tav-bk-hZ5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--KDIC 88.5-->
@@ -16,17 +20,17 @@
                         <viewControllerLayoutGuide type="bottom" id="r8z-Le-u5A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qkH-Zb-zlK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="JFF-QF-bhq">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUW-XM-J6Z">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="427"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kdicimage" translatesAutoresizingMaskIntoConstraints="NO" id="0IQ-eh-HF9">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <rect key="frame" x="47.5" y="73.5" width="280" height="280"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="0v8-pE-6od"/>
                                             <constraint firstAttribute="height" constant="280" id="jAD-ft-yI9"/>
@@ -45,13 +49,13 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're listening to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irD-7h-l7r">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <rect key="frame" x="-4.5" y="368.5" width="384" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="hQg-D5-HMC"/>
                                             <constraint firstAttribute="width" constant="384" id="z6U-Dm-UwN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.71387705176767668" green="0.71387705176767668" blue="0.71387705176767668" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.71387705176767668" green="0.71387705176767668" blue="0.71387705176767668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -67,12 +71,12 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KDIC 88.5 Grinnell " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-Pb-mcU">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <rect key="frame" x="-4.5" y="397.5" width="384" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="384" id="UA3-lv-aPx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -86,7 +90,7 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="hg4-Pb-mcU" firstAttribute="top" secondItem="irD-7h-l7r" secondAttribute="bottom" constant="8" id="55U-5L-Phq"/>
                                     <constraint firstItem="0IQ-eh-HF9" firstAttribute="centerY" secondItem="FUW-XM-J6Z" secondAttribute="centerY" id="7S9-Ku-wbh"/>
@@ -127,7 +131,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a1-oY-uEE">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="150" y="499" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="9NZ-He-v0H"/>
                                     <constraint firstAttribute="width" constant="75" id="f99-nW-oW5"/>
@@ -146,11 +150,11 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="didPressPlayer:" destination="esP-Qo-iDt" eventType="touchUpInside" id="qhw-RV-4T0"/>
+                                    <action selector="didPressPlayer:" destination="esP-Qo-iDt" eventType="touchUpInside" id="KiF-7x-JNN"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8a1-oY-uEE" firstAttribute="top" secondItem="FUW-XM-J6Z" secondAttribute="bottom" constant="8" symbolic="YES" id="6SQ-h2-q8N"/>
                             <constraint firstItem="JFF-QF-bhq" firstAttribute="bottom" secondItem="r8z-Le-u5A" secondAttribute="top" id="75w-9F-r9q"/>
@@ -220,7 +224,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sKX-O6-k7E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="o9X-OG-2kc" kind="relationship" relationship="viewControllers" id="EqU-ZG-e26"/>
@@ -242,18 +246,18 @@
                         <viewControllerLayoutGuide type="bottom" id="oja-tZ-ZLE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MDN-eh-KBg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKc-q8-c6k">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="16" y="72" width="58" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEz-Bc-n1m">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="106.5" width="343" height="156"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="156" id="K2S-Kh-n7q"/>
                                 </constraints>
@@ -272,14 +276,14 @@
                                 </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RX7-Ht-t7r">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="16" y="270.5" width="74" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TES-CC-tXg">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="305" width="343" height="240"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="fco-J5-iJA"/>
                                 </constraints>
@@ -302,7 +306,7 @@ You should have received a copy of the GNU General Public License along with thi
                                 </variation>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TES-CC-tXg" firstAttribute="centerX" secondItem="MDN-eh-KBg" secondAttribute="centerX" id="5sv-RJ-0uH"/>
                             <constraint firstItem="RX7-Ht-t7r" firstAttribute="top" secondItem="fEz-Bc-n1m" secondAttribute="bottom" constant="8" id="B97-eJ-uMT"/>
@@ -377,27 +381,27 @@ You should have received a copy of the GNU General Public License along with thi
                         <viewControllerLayoutGuide type="bottom" id="RxF-mr-dwO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3qX-Z7-5mJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="280" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ddv-sj-I8h">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ddv-sj-I8h">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogPostsCell" rowHeight="280" id="svp-Yk-FHD" customClass="BlogTableCell" customModule="KDIC" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="svp-Yk-FHD" id="SOn-Os-1yx">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="279"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkV-jx-IgT">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="La4-vo-k1j"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <color key="textColor" red="0.57860243055555549" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.57860243055555549" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -411,7 +415,7 @@ You should have received a copy of the GNU General Public License along with thi
                                                     </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Male-50" translatesAutoresizingMaskIntoConstraints="NO" id="I9S-Ub-6RL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="15" y="39" width="20" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="UTd-Ox-mPr"/>
                                                     </constraints>
@@ -427,25 +431,31 @@ You should have received a copy of the GNU General Public License along with thi
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar-50-2" translatesAutoresizingMaskIntoConstraints="NO" id="neM-eA-YJc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="15" y="72" width="20" height="25"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted on February 02 2014" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teh-un-3Uc">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="43" y="75" width="317" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="QmM-2k-vww"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIJ-uO-XAh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="15" y="105" width="345" height="163"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shaun Mataire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUg-L7-53M">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="43" y="42" width="317" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="lgN-Vf-LEv"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -485,22 +495,22 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <exclude reference="Fdk-8D-fSg"/>
                                                     <exclude reference="TsR-nP-wZ0"/>
                                                     <exclude reference="UYt-f0-aQK"/>
-                                                    <exclude reference="1G4-aO-gXQ"/>
-                                                    <exclude reference="f9G-hI-SNl"/>
-                                                    <exclude reference="xdY-w4-JOw"/>
                                                     <exclude reference="8rR-jG-CoQ"/>
                                                     <exclude reference="Svb-J4-Maj"/>
                                                     <exclude reference="Zpd-jL-qHw"/>
                                                     <exclude reference="xer-IK-Nmp"/>
-                                                    <exclude reference="KxS-tp-w6Q"/>
-                                                    <exclude reference="nIl-r2-eTy"/>
                                                     <exclude reference="0Tk-XB-1UK"/>
                                                     <exclude reference="N0x-2H-z24"/>
                                                     <exclude reference="NhB-SF-0Nj"/>
+                                                    <exclude reference="1G4-aO-gXQ"/>
+                                                    <exclude reference="f9G-hI-SNl"/>
+                                                    <exclude reference="xdY-w4-JOw"/>
                                                     <exclude reference="E8n-f4-Ggf"/>
                                                     <exclude reference="G5y-08-K7W"/>
                                                     <exclude reference="He7-oP-TwJ"/>
                                                     <exclude reference="gAR-AT-9Sw"/>
+                                                    <exclude reference="KxS-tp-w6Q"/>
+                                                    <exclude reference="nIl-r2-eTy"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -517,22 +527,22 @@ You should have received a copy of the GNU General Public License along with thi
                                                     <include reference="Fdk-8D-fSg"/>
                                                     <include reference="TsR-nP-wZ0"/>
                                                     <include reference="UYt-f0-aQK"/>
-                                                    <include reference="1G4-aO-gXQ"/>
-                                                    <include reference="f9G-hI-SNl"/>
-                                                    <include reference="xdY-w4-JOw"/>
                                                     <include reference="8rR-jG-CoQ"/>
                                                     <include reference="Svb-J4-Maj"/>
                                                     <include reference="Zpd-jL-qHw"/>
                                                     <include reference="xer-IK-Nmp"/>
-                                                    <include reference="KxS-tp-w6Q"/>
-                                                    <include reference="nIl-r2-eTy"/>
                                                     <include reference="0Tk-XB-1UK"/>
                                                     <include reference="N0x-2H-z24"/>
                                                     <include reference="NhB-SF-0Nj"/>
+                                                    <include reference="1G4-aO-gXQ"/>
+                                                    <include reference="f9G-hI-SNl"/>
+                                                    <include reference="xdY-w4-JOw"/>
                                                     <include reference="E8n-f4-Ggf"/>
                                                     <include reference="G5y-08-K7W"/>
                                                     <include reference="He7-oP-TwJ"/>
                                                     <include reference="gAR-AT-9Sw"/>
+                                                    <include reference="KxS-tp-w6Q"/>
+                                                    <include reference="nIl-r2-eTy"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -550,11 +560,11 @@ You should have received a copy of the GNU General Public License along with thi
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="USY-fs-iIf">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <color key="color" red="0.21145044190000001" green="0.21145044190000001" blue="0.21145044190000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.21145044190000001" green="0.21145044190000001" blue="0.21145044190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ddv-sj-I8h" firstAttribute="top" secondItem="DbM-UV-MXN" secondAttribute="bottom" id="2mN-Vg-Gxt"/>
                             <constraint firstItem="USY-fs-iIf" firstAttribute="centerY" secondItem="3qX-Z7-5mJ" secondAttribute="centerY" id="PMU-0X-M7p"/>
@@ -569,12 +579,12 @@ You should have received a copy of the GNU General Public License along with thi
                                 <exclude reference="USY-fs-iIf"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="PMU-0X-M7p"/>
                                 <exclude reference="2mN-Vg-Gxt"/>
                                 <exclude reference="kYC-Md-os5"/>
                                 <exclude reference="ta6-wg-nhw"/>
                                 <exclude reference="uMy-rA-wdY"/>
                                 <exclude reference="wv9-mR-kEP"/>
-                                <exclude reference="PMU-0X-M7p"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -583,12 +593,12 @@ You should have received a copy of the GNU General Public License along with thi
                                 <include reference="USY-fs-iIf"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="PMU-0X-M7p"/>
                                 <include reference="2mN-Vg-Gxt"/>
                                 <include reference="kYC-Md-os5"/>
                                 <include reference="ta6-wg-nhw"/>
                                 <include reference="uMy-rA-wdY"/>
                                 <include reference="wv9-mR-kEP"/>
-                                <include reference="PMU-0X-M7p"/>
                             </mask>
                         </variation>
                     </view>
@@ -611,33 +621,33 @@ You should have received a copy of the GNU General Public License along with thi
                         <viewControllerLayoutGuide type="bottom" id="r4G-kw-QuQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZEF-OI-TJ6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Byq-e9-cJ4">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleCell" rowHeight="60" id="lv6-lf-2ji" customClass="ScheduleTableCell" customModule="KDIC" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleCell" rowHeight="60" id="lv6-lf-2ji" customClass="ScheduleTableCell" customModule="KDIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lv6-lf-2ji" id="UNZ-0I-jmd">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKa-Qn-SRY">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="15" y="34" width="224" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ao-Nz-jJg">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="224" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="224" id="PkP-G3-Di6"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -696,11 +706,11 @@ You should have received a copy of the GNU General Public License along with thi
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gE9-BR-BV8">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <color key="color" red="0.21145044190000001" green="0.21145044190000001" blue="0.21145044190000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.21145044190000001" green="0.21145044190000001" blue="0.21145044190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Byq-e9-cJ4" firstAttribute="top" secondItem="DZ3-54-IVt" secondAttribute="bottom" id="F47-bg-fPT"/>
                             <constraint firstAttribute="trailing" secondItem="Byq-e9-cJ4" secondAttribute="trailing" id="Jg3-I8-Nke"/>
@@ -741,7 +751,7 @@ You should have received a copy of the GNU General Public License along with thi
                     <navigationItem key="navigationItem" id="5kw-mW-acJ">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fbF-AH-P1x">
-                            <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                            <rect key="frame" x="37.5" y="7.5" width="300" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Mon"/>
@@ -752,9 +762,9 @@ You should have received a copy of the GNU General Public License along with thi
                                 <segment title="Sat"/>
                                 <segment title="Sun"/>
                             </segments>
-                            <color key="tintColor" red="0.7370446510989257" green="0.0" blue="0.03413950119459478" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.7370446510989257" green="0.0" blue="0.03413950119459478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="dayChanged:" destination="X5O-OG-sXZ" eventType="valueChanged" id="TSY-sN-l0n"/>
+                                <action selector="dayChanged:" destination="X5O-OG-sXZ" eventType="valueChanged" id="qhU-sK-FTh"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
@@ -775,7 +785,7 @@ You should have received a copy of the GNU General Public License along with thi
                     <tabBarItem key="tabBarItem" title="On Air" image="radioTabImage" id="DJC-T8-QcH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLA-gb-4Wk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -785,7 +795,7 @@ You should have received a copy of the GNU General Public License along with thi
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nb6-et-Ipd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="591.75"/>
+            <point key="canvasLocation" x="-7" y="351"/>
         </scene>
         <!--Blog-->
         <scene sceneID="ijs-ba-fTe">
@@ -794,7 +804,7 @@ You should have received a copy of the GNU General Public License along with thi
                     <tabBarItem key="tabBarItem" title="Blog" image="blogTabImage" id="Y2Z-5W-KAI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GlV-28-pqL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -813,7 +823,7 @@ You should have received a copy of the GNU General Public License along with thi
                     <tabBarItem key="tabBarItem" title="Schedule" image="scheduleTabImage" id="yi7-4D-GTW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qIq-OS-zMt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -832,7 +842,7 @@ You should have received a copy of the GNU General Public License along with thi
                     <tabBarItem key="tabBarItem" title="About" image="aboutTabImage" id="AtV-43-kIl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OWJ-LY-3aL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -856,5 +866,5 @@ You should have received a copy of the GNU General Public License along with thi
         <image name="radioTabImage" width="24" height="24"/>
         <image name="scheduleTabImage" width="26" height="26"/>
     </resources>
-    <color key="tintColor" red="0.84705889225006104" green="0.015686275437474251" blue="0.019607843831181526" alpha="1" colorSpace="deviceRGB"/>
+    <color key="tintColor" red="0.80015623569488525" green="0.0" blue="0.037187442183494568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
